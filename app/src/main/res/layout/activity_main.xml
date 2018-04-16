@@ -1,0 +1,145 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clipChildren="false">
+
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_btn_first"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="@color/google_red"
+                android:id="@+id/tv_btn_first"
+                android:drawablePadding="4dp"
+                android:drawableTop="@drawable/bottom_frirst_btn_style"
+                android:padding="2dp"
+                android:textSize="10sp"
+                android:layout_centerInParent="true"
+                android:text="首页"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_btn_second"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:id="@+id/tv_btn_second"
+                android:drawablePadding="4dp"
+                android:drawableTop="@drawable/bottom_second_btn_style"
+                android:padding="2dp"
+                android:textSize="10sp"
+                android:layout_centerInParent="true"
+                android:text="学习"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+        <!--<RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom">
+
+            <ImageView
+                android:id="@+id/dd5"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/tz_icon_1" />
+            <TextView
+                android:padding="2dp"
+                android:textSize="10sp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dd5"/>
+
+        </RelativeLayout>-->
+
+        <RelativeLayout
+            android:layout_marginBottom="4dp"
+            android:id="@+id/rl_click"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/bg" />
+
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/add" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_btn_third"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:id="@+id/tv_btn_third"
+                android:drawablePadding="4dp"
+                android:drawableTop="@drawable/bottom_third_btn_style"
+                android:padding="2dp"
+                android:textSize="10sp"
+                android:layout_centerInParent="true"
+                android:text="消息"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_btn_fourth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:id="@+id/tv_btn_fourth"
+                android:drawablePadding="4dp"
+                android:drawableTop="@drawable/bottom_four_btn_style"
+                android:padding="2dp"
+                android:textSize="10sp"
+                android:layout_centerInParent="true"
+                android:text="我的"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>>
+    </LinearLayout>
+</LinearLayout>
