@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.base.BaseActivity;
 import android.sgz.com.fragment.Fragment1;
 import android.sgz.com.fragment.Fragment2;
 import android.sgz.com.fragment.Fragment3;
@@ -12,14 +13,13 @@ import android.sgz.com.utils.PopupMenuUtil;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private ImageView imageView;
     private Context mContext;
@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvBtnFourth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         mContext = MainActivity.this;
         imageView = (ImageView) findViewById(R.id.iv_img);
@@ -54,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rlBtnThird.setOnClickListener(this);
         rlBtnFourth.setOnClickListener(this);
         initFragment();
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override
@@ -106,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Fragment2 fragment2 = new Fragment2();
         Fragment3 fragment3 = new Fragment3();
         Fragment4 fragment4 = new Fragment4();
-
         //添加到数组
         mFragments = new Fragment[]{fragment1, fragment2, fragment3, fragment4};
         //开始事务

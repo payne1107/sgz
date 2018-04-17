@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_100">50sp</dimen>
+    <dimen name="text_size_120">60sp</dimen>
+    <dimen name="text_size_80">40sp</dimen>
+    <dimen name="text_size_60">30sp</dimen>
+    <dimen name="text_size_56">28sp</dimen>
+    <dimen name="text_size_48">24sp</dimen>
+    <dimen name="text_size_40">20sp</dimen>
+    <dimen name="text_size_36">18sp</dimen>
+    <dimen name="text_size_34">17sp</dimen>
+    <dimen name="text_size_32">16sp</dimen>
+    <dimen name="text_size_30">15sp</dimen>
+    <dimen name="text_size_28">14sp</dimen>
+    <dimen name="text_size_26">13sp</dimen>
+    <dimen name="text_size_24">12sp</dimen>
+    <dimen name="text_size_22">11sp</dimen>
+    <dimen name="text_size_20">10sp</dimen>
+    <dimen name="text_size_18">9sp</dimen>
+    <dimen name="text_size_16">8sp</dimen>
+    <dimen name="text_size_14">7sp</dimen>
+
+    <dimen name="margin_size_115">115dp</dimen>
+    <dimen name="margin_size_90">90dp</dimen>
+    <dimen name="margin_size_80">80dp</dimen>
+    <dimen name="margin_size_70">70dp</dimen>
+    <dimen name="margin_size_60">60dp</dimen>
+    <dimen name="margin_size_50">50dp</dimen>
+    <dimen name="margin_size_45">45dp</dimen>
+    <dimen name="margin_size_40">40dp</dimen>
+    <dimen name="margin_size_38">38dp</dimen>
+    <dimen name="margin_size_35">35dp</dimen>
+    <dimen name="margin_size_30">30dp</dimen>
+    <dimen name="margin_size_28">28.5dp</dimen>
+    <dimen name="margin_size_25">25dp</dimen>
+    <dimen name="margin_size_20">20dp</dimen>
+    <dimen name="margin_size_22">22dp</dimen>
+    <dimen name="margin_size_24">24dp</dimen>
+    <dimen name="margin_size_21">21dp</dimen>
+    <dimen name="margin_size_15">15dp</dimen>
+    <dimen name="margin_size_12">12dp</dimen>
+    <dimen name="margin_size_10">10dp</dimen>
+    <dimen name="margin_size_5">5dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="load_more_footer_height_classic">60dp</dimen>
+
+    <dimen name="refresh_header_height_twitter">80dp</dimen>
+    <dimen name="load_more_footer_height_twitter">60dp</dimen>
+    <!-- google -->
+    <dimen name="refresh_header_height_google">100dp</dimen>
+    <dimen name="refresh_trigger_offset_google">100dp</dimen>
+    <dimen name="refresh_final_offset_google">150dp</dimen>
+    <dimen name="refresh_drawable_size_google">40dp</dimen>
+
+    <dimen name="load_more_footer_height_google">72dp</dimen>
+    <dimen name="load_more_trigger_offset_google">88dp</dimen>
+    <dimen name="load_more_final_offset_google">120dp</dimen>
+    <dimen name="load_more_drawable_size_google">36dp</dimen>
+
+    <!-- jd -->
+    <dimen name="refresh_header_height_jd">100dp</dimen>
+
+    <dimen name="three_grid_unit">24dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">12dp</dimen>
+</resources>

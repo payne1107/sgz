@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permissiongen/permissiongen.iml" filepath="$PROJECT_DIR$/permissiongen/permissiongen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pulltorefreshlib/pulltorefreshlib.iml" filepath="$PROJECT_DIR$/pulltorefreshlib/pulltorefreshlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/sgz.iml" filepath="$PROJECT_DIR$/sgz.iml" />
     </modules>
   </component>
