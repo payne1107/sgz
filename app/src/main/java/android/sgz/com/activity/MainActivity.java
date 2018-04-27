@@ -70,31 +70,31 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 PopupMenuUtil.getInstance()._show(mContext, imageView);
                 break;
             case R.id.rl_btn_first:
-                Drawable drawable = getResources().getDrawable(R.drawable.dibu_icon_sy1);
+                Drawable drawable = getResources().getDrawable(R.mipmap.icon_nav_home_click);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 tvBtnFirst.setCompoundDrawables(null,drawable ,null,null);
-                tvBtnFirst.setTextColor(getResources().getColor(R.color.google_red));
+                tvBtnFirst.setTextColor(getResources().getColor(R.color.color_62d));
                 setIndexSelected(0);
                 break;
             case R.id.rl_btn_second:
-                Drawable drawable1 = getResources().getDrawable(R.drawable.dibu_icon_tg1);
+                Drawable drawable1 = getResources().getDrawable(R.mipmap.icon_nav_learn_click);
                 drawable1.setBounds(0, 0, drawable1.getMinimumWidth(), drawable1.getMinimumHeight());
                 tvBtnSecond.setCompoundDrawables(null,drawable1 ,null,null);
-                tvBtnSecond.setTextColor(getResources().getColor(R.color.google_red));
+                tvBtnSecond.setTextColor(getResources().getColor(R.color.color_62d));
                 setIndexSelected(1);
                 break;
             case R.id.rl_btn_third:
-                Drawable drawable2 = getResources().getDrawable(R.drawable.dibu_icon_xx1);
+                Drawable drawable2 = getResources().getDrawable(R.mipmap.icon_nav_message_click);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
                 tvBtnThird.setCompoundDrawables(null,drawable2 ,null,null);
-                tvBtnThird.setTextColor(getResources().getColor(R.color.google_red));
+                tvBtnThird.setTextColor(getResources().getColor(R.color.color_62d));
                 setIndexSelected(2);
                 break;
             case R.id.rl_btn_fourth:
-                Drawable drawable3 = getResources().getDrawable(R.drawable.dibu_icon_wd1);
+                Drawable drawable3 = getResources().getDrawable(R.mipmap.icon_nav_my_click);
                 drawable3.setBounds(0, 0, drawable3.getMinimumWidth(), drawable3.getMinimumHeight());
                 tvBtnFourth.setCompoundDrawables(null,drawable3 ,null,null);
-                tvBtnFourth.setTextColor(getResources().getColor(R.color.google_red));
+                tvBtnFourth.setTextColor(getResources().getColor(R.color.color_62d));
                 setIndexSelected(3);
                 break;
             default:
@@ -143,19 +143,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * 点击按钮之前重置样式
      */
     private void resetButton() {
-        Drawable drawable1 = getResources().getDrawable(R.drawable.dibu_icon_sy);
-        Drawable drawable2 = getResources().getDrawable(R.drawable.dibu_icon_tg);
-        Drawable drawable3 = getResources().getDrawable(R.drawable.dibu_icon_xx);
-        Drawable drawable4 = getResources().getDrawable(R.drawable.dibu_icon_wd);
+        Drawable drawable1 = getResources().getDrawable(R.mipmap.icon_nav_home);
+        Drawable drawable2 = getResources().getDrawable(R.mipmap.icon_nav_learn);
+        Drawable drawable3 = getResources().getDrawable(R.mipmap.icon_nav_message);
+        Drawable drawable4 = getResources().getDrawable(R.mipmap.icon_nav_my);
         drawable1.setBounds(0, 0, drawable1.getMinimumWidth(), drawable1.getMinimumHeight());
         drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
         drawable3.setBounds(0, 0, drawable3.getMinimumWidth(), drawable3.getMinimumHeight());
         drawable4.setBounds(0, 0, drawable4.getMinimumWidth(), drawable4.getMinimumHeight());
 
-        tvBtnFirst.setTextColor(getResources().getColor(R.color.text_color_3));
-        tvBtnSecond.setTextColor(getResources().getColor(R.color.text_color_3));
-        tvBtnThird.setTextColor(getResources().getColor(R.color.text_color_3));
-        tvBtnFourth.setTextColor(getResources().getColor(R.color.text_color_3));
+        tvBtnFirst.setTextColor(getResources().getColor(R.color.cccccc));
+        tvBtnSecond.setTextColor(getResources().getColor(R.color.cccccc));
+        tvBtnThird.setTextColor(getResources().getColor(R.color.cccccc));
+        tvBtnFourth.setTextColor(getResources().getColor(R.color.cccccc));
 
         tvBtnFirst.setCompoundDrawables(null, drawable1, null, null);
         tvBtnSecond.setCompoundDrawables(null, drawable2, null, null);
