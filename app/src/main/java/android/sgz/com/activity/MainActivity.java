@@ -2,6 +2,7 @@ package android.sgz.com.activity;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
@@ -10,12 +11,17 @@ import android.sgz.com.fragment.Fragment2;
 import android.sgz.com.fragment.Fragment3;
 import android.sgz.com.fragment.Fragment4;
 import android.sgz.com.utils.PopupMenuUtil;
+import android.sgz.com.utils.StatusUtils;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,11 +37,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvBtnSecond;
     private TextView tvBtnThird;
     private TextView tvBtnFourth;
+    private RelativeLayout mRlStatus;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         mContext = MainActivity.this;
+        mRlStatus = (RelativeLayout) findViewById(R.id.rl_status);
         imageView = (ImageView) findViewById(R.id.iv_img);
         rlBtnFrist = (RelativeLayout) findViewById(R.id.rl_btn_first);
         rlBtnSecond = (RelativeLayout) findViewById(R.id.rl_btn_second);
@@ -160,5 +168,41 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         tvBtnSecond.setCompoundDrawables(null, drawable2, null, null);
         tvBtnThird.setCompoundDrawables(null, drawable3, null, null);
         tvBtnFourth.setCompoundDrawables(null, drawable4, null, null);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setStatusMainBar(R.color.color_62d);
+    }
+
+    /**
+     * 重写父类方法 解决首页状态栏显示多一条空白问题
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void setStatusMainBar(int colorId) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
+                    || StatusUtils.MIUISetStatusBarLightMode(this.getWindow(), true)
+                    || StatusUtils.FlymeSetStatusBarLightMode(this.getWindow(), true)) {
+                StatusUtils.StatusBarLightMode(this);
+                StatusUtils.setStatusBarColor(this,colorId);
+            } else {
+                if (colorId == R.color.color_62d)
+                    StatusUtils.setStatusBarColor(this, R.color.color_62d);
+                else
+                    StatusUtils.setStatusBarColor(this, colorId);
+            }
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mRlStatus.getLayoutParams();
+            if (!StatusUtils.FlymeSetStatusBarLightMode(this.getWindow(), true)) {
+                params.setMargins(0, getStatusBarHeight(), 0, 0);
+            }
+            if(StatusUtils.MIUISetStatusBarLightMode(this.getWindow(), true)) {
+                params.setMargins(0, 0, 0, 0);
+            }
+        }
     }
 }
