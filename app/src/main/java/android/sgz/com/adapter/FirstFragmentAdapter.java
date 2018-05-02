@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 public class FirstFragmentAdapter extends FragmentPagerAdapter {
 
-    private String[] mTitle = new String[]{"工作考勤", "表书信息", "技术学习"};
+    private String[] mTitle = new String[]{"工作考勤", "标书信息", "技术学习"};
 
     public FirstFragmentAdapter(FragmentManager fm) {
         super(fm);
