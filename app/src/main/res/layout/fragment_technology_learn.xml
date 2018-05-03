@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="11111111111111111111"
+    <com.itheima.pulltorefreshlib.PullToRefreshListView
+        android:divider="@null"
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
+        android:layout_height="match_parent">
+    </com.itheima.pulltorefreshlib.PullToRefreshListView>
 </com.zhy.autolayout.AutoLinearLayout>
