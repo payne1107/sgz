@@ -3,6 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/sys_title" />
+
+
     <TextView
         android:gravity="center"
         android:text="消息页面"

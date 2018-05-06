@@ -9,4 +9,8 @@
     <string name="permission_read_external_hint">没有读取文件权限，无法开启这个功能，请开启读取文件权限。</string>
     <string name="permission_white_external_hint">没有写入文件权限，无法开启这个功能，请开启写入文件权限。</string>
     <string name="permission_recode_audio_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_RECORD_AUDIO</string>
+
+    <string name="str_cancel">取消</string>
+    <string name="str_set_internet">设置网络</string>
+    <string name="str_internet_error">网络错误,请检查网络状态</string>
 </resources>

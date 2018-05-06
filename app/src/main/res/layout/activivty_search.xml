@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/sys_title" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_search"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_28"
+            android:textColor="@color/text_color_3"
+            android:text="热门搜索"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:id="@+id/TagFlowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            zhy:max_select="1" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <include layout="@layout/layout_search_content" />
+</com.zhy.autolayout.AutoLinearLayout>

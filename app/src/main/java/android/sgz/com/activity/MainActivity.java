@@ -16,6 +16,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -38,6 +39,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvBtnThird;
     private TextView tvBtnFourth;
     private RelativeLayout mRlStatus;
+    private long mExitTime;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -204,5 +206,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 params.setMargins(0, 0, 0, 0);
             }
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) { // 如果两次按键时间间隔大于2000毫秒，则不退出
+                toastMessage("再按一次退出程序");
+                mExitTime = System.currentTimeMillis();// 更新mExitTime
+            } else {
+                finish();
+            }
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

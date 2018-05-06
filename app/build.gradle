@@ -39,4 +39,7 @@ dependencies {
     compile project(path: ':pulltorefreshlib')
     //适配
     compile 'com.zhy:autolayout:1.4.5'
+
+    //浮动标签
+    compile 'com.zhy:flowlayout-lib:1.0.3'
 }

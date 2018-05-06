@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/layout_person_details"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin_size_15"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="头像"
+                        android:textColor="@color/text_color_3"
+                        android:textSize="@dimen/text_size_32" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <android.sgz.com.widget.CircleImageView
+                    android:id="@+id/update_avatar"
+                    android:layout_width="110px"
+                    android:layout_height="110px"
+                    android:src="@mipmap/my_header" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_size_15"
+                    android:layout_marginRight="@dimen/margin_size_15"
+                    android:src="@mipmap/icon_arrow_right" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/layout_mine_wallet"
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="名称" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="Payne" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="职业" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="建筑师" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="职称" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="高级工程师" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="15px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="工资" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="￥1000" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="电话" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="13555556666" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="城市" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="安徽合肥" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="生日" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="1991/10/1" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="15px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="个人签名" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="未填写" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.zhy.autolayout.AutoLinearLayout>

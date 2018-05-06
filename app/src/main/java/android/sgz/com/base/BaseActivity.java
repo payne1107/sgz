@@ -637,10 +637,10 @@ public abstract class BaseActivity extends FragmentActivity {
                         || StatusUtils.FlymeSetStatusBarLightMode(this.getWindow(), true)) {
                     StatusUtils.StatusBarLightMode(this);
                     //                    StatusUtils.setStatusBarColor(this, R.color.white);
-                    StatusUtils.setStatusBarColor(this, R.color.white);
+                    StatusUtils.setStatusBarColor(this, R.color.color_62d);
                     setStatusBar();
                 } else {
-                    StatusUtils.setStatusBarColor(this, R.color.white);
+                    StatusUtils.setStatusBarColor(this, R.color.color_62d);
                     setStatusBar();
                 }
             }
@@ -720,7 +720,7 @@ public abstract class BaseActivity extends FragmentActivity {
      */
     public void setSettingBtn(String text) {
         tvSet.setText(text);
-        tvSet.setTextColor(getResources().getColor(R.color.ff6000));
+        tvSet.setTextColor(getResources().getColor(R.color.white));
         tvSet.setVisibility(View.VISIBLE);
     }
     /**

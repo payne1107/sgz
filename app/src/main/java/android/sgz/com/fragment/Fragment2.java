@@ -39,6 +39,7 @@ public class Fragment2 extends BaseFragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setInVisibleTitleIcon("学习", true, false);
         mList.add("免费");
         mList.add("￥30");
         mList.add("￥31");

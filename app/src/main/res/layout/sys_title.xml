@@ -2,13 +2,13 @@
     android:id="@+id/rl_common_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@color/color_62d">
 
     <RelativeLayout
         android:id="@+id/rl_child"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/white">
+        android:background="@color/color_62d">
 
         <ImageView
             android:paddingRight="@dimen/margin_size_15"
@@ -32,7 +32,7 @@
             android:paddingBottom="10dip"
             android:paddingTop="10dip"
             android:text="页面一"
-            android:textColor="@color/color_3"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_40"/>
 
         <com.zhy.autolayout.AutoLinearLayout
@@ -45,7 +45,7 @@
             <EditText
                 android:visibility="gone"
                 android:hint="大家都在搜：实习"
-                android:textColorHint="@color/text_color_9"
+                android:textColorHint="@color/cccccc"
                 android:textSize="@dimen/text_size_28"
                 android:id="@+id/et_search"
                 android:background="@drawable/search_bg"
@@ -64,7 +64,7 @@
             android:layout_centerVertical="true"
             android:padding="10dip"
             android:text="设置"
-            android:textColor="@color/ff6000"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_32"
             android:visibility="gone" />
 
@@ -81,7 +81,6 @@
                 android:src="@mipmap/dibu_icon_wd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
         </LinearLayout>
 
     </RelativeLayout>

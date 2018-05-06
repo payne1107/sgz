@@ -3,6 +3,7 @@ package android.sgz.com.fragment;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseFragment;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,5 +24,12 @@ public class Fragment3 extends BaseFragment {
             parent.removeView(mRootView);
         }
         return mRootView;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setInVisibleTitleIcon("消息", true, false);
+
     }
 }

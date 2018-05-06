@@ -1,1 +1,1 @@
-include ':app', ':pulltorefreshlib', ':permissiongen'
+include ':app', ':pulltorefreshlib', ':permissiongen', ':citypicker'

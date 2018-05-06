@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/color_e"
     android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -13,6 +15,7 @@
         android:layout_height="wrap_content">
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_person_details"
         android:gravity="center_vertical"
         android:background="@color/white"
         android:orientation="horizontal"
@@ -51,7 +54,7 @@
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoLinearLayout
         android:background="@color/white"
-        android:id="@+id/layout_mine_wallet"
+        android:id="@+id/layout_vip_member"
         style="@style/PersonCenterLayoutStyle"
         android:layout_marginTop="15px"
         >

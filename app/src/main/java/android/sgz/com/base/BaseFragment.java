@@ -20,6 +20,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -419,5 +421,24 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+
+    /***
+     * 隐藏标题栏图标
+     * @param title  标题
+     * @param isVisible 是否隐藏图标 True 隐藏 false 显示
+     * @param isBack 是否显示back
+     */
+    public void setInVisibleTitleIcon(String title,boolean isVisible,boolean isBack) {
+        TextView tvTitle = (TextView) mRootView.findViewById(R.id.activity_title);
+        ImageView ivBack = (ImageView) mRootView.findViewById(R.id.activity_back);
+        if (isVisible) {
+            tvTitle.setCompoundDrawables(null, null, null, null);
+        }
+        if (!isBack) {
+            ivBack.setVisibility(View.GONE);
+        }
+        tvTitle.setText(title);
     }
 }
