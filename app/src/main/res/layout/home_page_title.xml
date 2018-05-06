@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/color_62d"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    >
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="wrap_content"
+        android:layout_height="88px"
+        android:background="@color/color_62d">
+
+        <TextView
+            android:id="@+id/activity_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:background="@null"
+            android:paddingRight="5dp"
+            android:text="合肥"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_28"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_city_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/activity_city"
+            android:src="@mipmap/icon_arrow_bottom" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginLeft="@dimen/margin_size_10"
+        android:layout_toRightOf="@+id/rl_title"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="88px">
+        <EditText
+            android:drawablePadding="5dp"
+            android:hint="搜索标书，学习资料"
+            android:layout_marginLeft="@dimen/margin_size_5"
+            android:textColorHint="@color/cccccc"
+            android:textSize="@dimen/text_size_28"
+            android:id="@+id/et_search"
+            android:background="@drawable/search_bg"
+            android:layout_width="480px"
+            android:layout_height="60px"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@mipmap/icon_zoom"
+            android:layout_weight="1" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>
