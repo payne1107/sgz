@@ -13,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TableLayout;
-import android.widget.TextView;
+
+import com.zhy.autolayout.AutoRelativeLayout;
 
 /**
  * Created by 92457 on 2018/4/16.
@@ -25,7 +25,7 @@ public class Fragment1 extends BaseFragment {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private EditText etSearch;
-    private TextView tvTitle;
+    private AutoRelativeLayout tvTitle;
 
 
     @Override
@@ -44,7 +44,7 @@ public class Fragment1 extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        tvTitle = (TextView) mRootView.findViewById(R.id.rl_title);
+        tvTitle = (AutoRelativeLayout) mRootView.findViewById(R.id.rl_title);
         etSearch = (EditText) mRootView.findViewById(R.id.et_search);
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
