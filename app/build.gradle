@@ -42,4 +42,6 @@ dependencies {
 
     //浮动标签
     compile 'com.zhy:flowlayout-lib:1.0.3'
+    compile project(path: ':citypicker')
+    compile project(path: ':permissiongen')
 }

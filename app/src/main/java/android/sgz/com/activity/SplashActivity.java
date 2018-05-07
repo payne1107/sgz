@@ -1,5 +1,6 @@
 package android.sgz.com.activity;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,11 +11,16 @@ import android.provider.Settings;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.NetWorkUtils;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import kr.co.namee.permissiongen.PermissionFail;
+import kr.co.namee.permissiongen.PermissionGen;
+import kr.co.namee.permissiongen.PermissionSuccess;
 
 /**
  * Created by 92457 on 2018/2/2.
@@ -31,11 +37,22 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        PermissionGen.with(SplashActivity.this)
+                .addRequestCode(100)
+                .permissions(
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .request();
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,int[] grantResults) {
+        PermissionGen.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+    }
+
+    @PermissionSuccess(requestCode = 100)
+    public void doSomething(){
+        Toast.makeText(this, "Contact permission is granted", Toast.LENGTH_SHORT).show();
         //延时跳转到主页面，splash用来做引导页
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -49,6 +66,23 @@ public class SplashActivity extends BaseActivity {
                 toMainIntent();
             }
         },2000);
+    }
+
+    @PermissionFail(requestCode = 100)
+    public void doFailSomething(){
+        Toast.makeText(this, "Contact permission is not granted", Toast.LENGTH_SHORT).show();
+        PermissionGen.with(SplashActivity.this)
+                .addRequestCode(100)
+                .permissions(
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .request();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     /***

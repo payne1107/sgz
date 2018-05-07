@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.zaaach.citypicker.CityPickerActivity;
 import com.zhy.autolayout.AutoLayoutActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -25,6 +26,7 @@ import com.zhy.autolayout.AutoRelativeLayout;
 
 public class Fragment1 extends BaseFragment implements View.OnClickListener {
 
+    private static final int REQUEST_CODE_PICK_CITY = 1;
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private EditText etSearch;
@@ -63,6 +65,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
      * 设置监听器
      */
     private void setListener() {
+        tvTitle.setOnClickListener(this);
         layoutWorkDay.setOnClickListener(this);
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -81,6 +84,16 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
             case R.id.layout_work_day:
                 startActivity(new Intent(getActivity(), WorkDayNumActivity.class));
                 break;
+            case R.id.rl_title:
+                startLocationActivity();
+                break;
         }
+    }
+
+    /****
+     * 跳转到选择城市页面
+     */
+    private void startLocationActivity() {
+        startActivityForResult(new Intent(getActivity(),CityPickerActivity.class),REQUEST_CODE_PICK_CITY);
     }
 }
