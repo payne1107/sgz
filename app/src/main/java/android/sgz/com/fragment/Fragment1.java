@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.SearchActivity;
+import android.sgz.com.activity.WorkDayNumActivity;
 import android.sgz.com.adapter.FirstFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.support.annotation.Nullable;
@@ -14,18 +15,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.zhy.autolayout.AutoLayoutActivity;
+import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 /**
  * Created by 92457 on 2018/4/16.
  */
 
-public class Fragment1 extends BaseFragment {
+public class Fragment1 extends BaseFragment implements View.OnClickListener {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private EditText etSearch;
     private AutoRelativeLayout tvTitle;
+    private AutoLinearLayout layoutWorkDay;
 
 
     @Override
@@ -46,6 +50,7 @@ public class Fragment1 extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         tvTitle = (AutoRelativeLayout) mRootView.findViewById(R.id.rl_title);
         etSearch = (EditText) mRootView.findViewById(R.id.et_search);
+        layoutWorkDay = (AutoLinearLayout) mRootView.findViewById(R.id.layout_work_day);
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
         FirstFragmentAdapter adapter = new FirstFragmentAdapter(getActivity().getSupportFragmentManager());
@@ -58,6 +63,7 @@ public class Fragment1 extends BaseFragment {
      * 设置监听器
      */
     private void setListener() {
+        layoutWorkDay.setOnClickListener(this);
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -67,5 +73,14 @@ public class Fragment1 extends BaseFragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.layout_work_day:
+                startActivity(new Intent(getActivity(), WorkDayNumActivity.class));
+                break;
+        }
     }
 }

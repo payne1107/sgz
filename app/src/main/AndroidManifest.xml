@@ -89,6 +89,18 @@
         <activity
             android:name=".activity.SearchActivity"
             android:screenOrientation="portrait" />
+        <!--我的工资-->
+        <activity
+            android:name=".activity.MineSalaryActivity"
+            android:screenOrientation="portrait" />
+        <!--工作天数-->
+        <activity
+            android:name=".activity.WorkDayNumActivity"
+            android:screenOrientation="portrait" />
+        <!--我的支出-->
+        <activity
+            android:name=".activity.MineExpendActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data
