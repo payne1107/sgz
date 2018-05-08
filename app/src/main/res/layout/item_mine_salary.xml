@@ -4,7 +4,7 @@
     android:background="@color/fafafa"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    a
+
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_marginBottom="@dimen/margin_size_10"
         android:orientation="vertical"

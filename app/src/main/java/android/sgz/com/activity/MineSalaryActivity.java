@@ -3,7 +3,6 @@ package android.sgz.com.activity;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.MineSalaryAdapter;
-import android.sgz.com.adapter.TenderInfomationFragmentAdapter;
 import android.sgz.com.base.BaseActivity;
 
 import com.itheima.pulltorefreshlib.PullToRefreshBase;
@@ -14,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by WD on 2018/5/7.
+ * 我的工资
  */
 
 public class MineSalaryActivity extends BaseActivity {
