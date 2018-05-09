@@ -52,7 +52,6 @@ public class SplashActivity extends BaseActivity {
 
     @PermissionSuccess(requestCode = 100)
     public void doSomething(){
-        Toast.makeText(this, "Contact permission is granted", Toast.LENGTH_SHORT).show();
         //延时跳转到主页面，splash用来做引导页
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -70,7 +69,6 @@ public class SplashActivity extends BaseActivity {
 
     @PermissionFail(requestCode = 100)
     public void doFailSomething(){
-        Toast.makeText(this, "Contact permission is not granted", Toast.LENGTH_SHORT).show();
         PermissionGen.with(SplashActivity.this)
                 .addRequestCode(100)
                 .permissions(
