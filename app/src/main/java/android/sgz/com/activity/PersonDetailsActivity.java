@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -22,11 +23,16 @@ import com.zhy.autolayout.AutoLinearLayout;
 
 public class PersonDetailsActivity extends BaseActivity implements View.OnClickListener {
 
+    private static final int CHOOSE_PROFESSION_CODE = 1001;
     private CircleImageView circleImageView;
+    private AutoLinearLayout layoutMineName;
+    private Context mContext;
+    private AutoLinearLayout layoutProfession;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_person_details);
+        mContext = PersonDetailsActivity.this;
     }
 
     @Override
@@ -39,12 +45,16 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         super.initView();
         setInVisibleTitleIcon("个人资料", true, true);
         circleImageView = (CircleImageView) findViewById(R.id.update_avatar);
+        layoutMineName = (AutoLinearLayout) findViewById(R.id.layout_mine_name);
+        layoutProfession = (AutoLinearLayout) findViewById(R.id.layout_profession);
 
         setListener();
     }
 
     private void setListener() {
         circleImageView.setOnClickListener(this);
+        layoutMineName.setOnClickListener(this);
+        layoutProfession.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +63,14 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
             case R.id.update_avatar:
                 //更新头像
                 choosePhoto();
+                break;
+            case R.id.layout_mine_name:
+                //修改昵称
+                startActivity(new Intent(mContext, UpdateNickNameActvity.class));
+                break;
+            case R.id.layout_profession:
+                //职业选择
+                startActivityForResult(new Intent(mContext,ChooseProfessionActivity.class),CHOOSE_PROFESSION_CODE);
                 break;
         }
     }
@@ -104,6 +122,10 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
 //                            uploadImg(MyApplication.userId, newPath);
                         }
                     }
+                    break;
+                case CHOOSE_PROFESSION_CODE:
+                    //选择职业
+                    Log.d("Dong", "选择职业");
                     break;
             }
         }

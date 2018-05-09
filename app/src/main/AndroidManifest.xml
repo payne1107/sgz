@@ -105,6 +105,15 @@
         <activity
             android:name="com.zaaach.citypicker.CityPickerActivity"
             android:screenOrientation="portrait" />
+        <!--修改昵称-->
+        <activity
+            android:name=".activity.UpdateNickNameActvity"
+            android:screenOrientation="portrait" />
+        <!--选择职业-->
+        <activity
+            android:name=".activity.ChooseProfessionActivity"
+            android:screenOrientation="portrait" />
+
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"
