@@ -114,6 +114,11 @@
             android:name=".activity.ChooseProfessionActivity"
             android:screenOrientation="portrait" />
 
+        <!--打卡统计-->
+        <activity
+            android:name=".activity.CardCountingActivity"
+            android:screenOrientation="portrait" />
+
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"

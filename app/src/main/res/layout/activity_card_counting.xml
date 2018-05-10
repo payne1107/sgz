@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_choose_day"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+        <TextView
+            android:id="@+id/tv_choose_day"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center_vertical"
+            android:text="选择月份"
+            android:textSize="@dimen/text_size_28"
+            android:textColor="@color/text_color_3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:layout_gravity="center"
+            android:src="@mipmap/icon_arrow_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

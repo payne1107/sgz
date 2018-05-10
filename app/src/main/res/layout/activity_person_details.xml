@@ -82,12 +82,14 @@
                     android:text="职业" />
 
                 <TextView
+                    android:id="@+id/tv_profession_name"
                     style="@style/PersonCenterTextRightStyle"
                     android:drawableRight="@mipmap/icon_arrow_right"
                     android:text="建筑师" />
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/layout_profession_title"
                 style="@style/PersonCenterLayoutStyle"
                 android:layout_marginTop="1px"
                 android:background="@color/white">

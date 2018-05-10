@@ -3,6 +3,7 @@ package android.sgz.com.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.CardCountingActivity;
 import android.sgz.com.activity.MineExpendActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.PersonDetailsActivity;
@@ -25,6 +26,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutVipMember;
     private AutoLinearLayout layoutMineSalary;
     private AutoLinearLayout layoutExpend;
+    private AutoLinearLayout layoutCardCounting;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,10 +57,12 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutVipMember = (AutoLinearLayout) mRootView.findViewById(R.id.layout_vip_member);
         layoutMineSalary = (AutoLinearLayout) mRootView.findViewById(R.id.layout_mine_salary);
         layoutExpend = (AutoLinearLayout) mRootView.findViewById(R.id.layout_expend);
+        layoutCardCounting = (AutoLinearLayout) mRootView.findViewById(R.id.layout_card_counting);
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
         layoutMineSalary.setOnClickListener(this);
         layoutExpend.setOnClickListener(this);
+        layoutCardCounting.setOnClickListener(this);
     }
 
     @Override
@@ -75,6 +79,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.layout_expend:
                 startActivity(new Intent(getActivity(), MineExpendActivity.class));
+                break;
+            case R.id.layout_card_counting:
+                //打卡统计
+                startActivity(new Intent(getActivity(), CardCountingActivity.class));
                 break;
         }
     }

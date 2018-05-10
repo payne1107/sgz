@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.zhy.autolayout.AutoLinearLayout;
 
@@ -23,11 +25,15 @@ import com.zhy.autolayout.AutoLinearLayout;
 
 public class PersonDetailsActivity extends BaseActivity implements View.OnClickListener {
 
-    private static final int CHOOSE_PROFESSION_CODE = 1001;
+    public static final int CHOOSE_PROFESSION_CODE = 1001;
+    public static final String CHOOSE_PROFESSION_KEY = "profession_name";
     private CircleImageView circleImageView;
     private AutoLinearLayout layoutMineName;
     private Context mContext;
     private AutoLinearLayout layoutProfession;
+    private TextView tvProfessionName;
+    private TextView tvSaveInfo;
+    private AutoLinearLayout layoutProfessionTitle;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -44,9 +50,15 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("个人资料", true, true);
+        tvSaveInfo = (TextView) findViewById(R.id.activity_set);
+        tvSaveInfo.setText("保存");
+        tvSaveInfo.setVisibility(View.VISIBLE);
+
         circleImageView = (CircleImageView) findViewById(R.id.update_avatar);
         layoutMineName = (AutoLinearLayout) findViewById(R.id.layout_mine_name);
         layoutProfession = (AutoLinearLayout) findViewById(R.id.layout_profession);
+        tvProfessionName = (TextView) findViewById(R.id.tv_profession_name);
+        layoutProfessionTitle = (AutoLinearLayout) findViewById(R.id.layout_profession_title);
 
         setListener();
     }
@@ -55,6 +67,8 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         circleImageView.setOnClickListener(this);
         layoutMineName.setOnClickListener(this);
         layoutProfession.setOnClickListener(this);
+        tvSaveInfo.setOnClickListener(this);
+        layoutProfessionTitle.setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +85,13 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
             case R.id.layout_profession:
                 //职业选择
                 startActivityForResult(new Intent(mContext,ChooseProfessionActivity.class),CHOOSE_PROFESSION_CODE);
+                break;
+            case R.id.layout_profession_title:
+                toastMessage("职称");
+                break;
+            case R.id.activity_set:
+                //保存用戶信息
+                toastMessage("保存用戶信息");
                 break;
         }
     }
@@ -125,7 +146,10 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                     break;
                 case CHOOSE_PROFESSION_CODE:
                     //选择职业
-                    Log.d("Dong", "选择职业");
+                    String professionName = data.getStringExtra(CHOOSE_PROFESSION_KEY);
+                    if (!StringUtils.isEmpty(professionName)) {
+                        tvProfessionName.setText(professionName);
+                    }
                     break;
             }
         }
