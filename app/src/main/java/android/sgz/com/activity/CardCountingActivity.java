@@ -8,7 +8,6 @@ import android.sgz.com.adapter.CardCountingAdapter;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -116,15 +115,19 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
 
             }
         });
+
+        AutoLinearLayout layoutContainer = (AutoLinearLayout) timeView.findViewById(R.id.layout_center);
         RecyclerView recyclerView = (RecyclerView) timeView.findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
         CardCountingAdapter adapter = new CardCountingAdapter(mContext, mList);
         recyclerView.setAdapter(adapter);
+        layoutContainer.setOnClickListener(this);
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 tvChooseDay.setText(mList.get(position));
+                dimissPopuWindow();
             }
         });
     }
@@ -136,6 +139,19 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_choose_day:
                 showPopuWindow(popuRightWindow);
                 break;
+            case R.id.layout_center:
+                dimissPopuWindow();
+                break;
+        }
+    }
+
+
+    /****
+     * 销毁对话框
+     */
+    private void dimissPopuWindow() {
+        if (popuRightWindow != null) {
+            popuRightWindow.dismiss();
         }
     }
 }
