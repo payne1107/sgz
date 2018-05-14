@@ -3,6 +3,7 @@ package android.sgz.com.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.LoginActivity;
 import android.sgz.com.activity.SearchActivity;
 import android.sgz.com.activity.WorkDayNumActivity;
 import android.sgz.com.adapter.FirstFragmentAdapter;
@@ -32,6 +33,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private EditText etSearch;
     private AutoRelativeLayout tvTitle;
     private AutoLinearLayout layoutWorkDay;
+    private AutoLinearLayout layoutFriends;
 
 
     @Override
@@ -53,6 +55,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         tvTitle = (AutoRelativeLayout) mRootView.findViewById(R.id.rl_title);
         etSearch = (EditText) mRootView.findViewById(R.id.et_search);
         layoutWorkDay = (AutoLinearLayout) mRootView.findViewById(R.id.layout_work_day);
+        layoutFriends = (AutoLinearLayout) mRootView.findViewById(R.id.layout_friends);
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
         FirstFragmentAdapter adapter = new FirstFragmentAdapter(getActivity().getSupportFragmentManager());
@@ -67,6 +70,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private void setListener() {
         tvTitle.setOnClickListener(this);
         layoutWorkDay.setOnClickListener(this);
+        layoutFriends.setOnClickListener(this);
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -83,6 +87,13 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.layout_work_day:
                 startActivity(new Intent(getActivity(), WorkDayNumActivity.class));
+                break;
+            case R.id.layout_friends:
+                //工友
+                if (true) {
+                    //TODO：伪代码日后需要更改
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
                 break;
             case R.id.rl_title:
                 startLocationActivity();

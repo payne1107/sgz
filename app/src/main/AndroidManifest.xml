@@ -119,6 +119,16 @@
             android:name=".activity.CardCountingActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RemberPwdActivity"
+            android:screenOrientation="portrait" />
+
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"

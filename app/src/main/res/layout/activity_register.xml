@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:text="+86"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/text_size_30" />
+
+        <EditText
+            android:maxLength="11"
+            android:inputType="phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="手机号"
+            android:textColor="@color/text_color_6"
+            android:textColorHint="@color/cccccc"
+            android:textSize="@dimen/text_size_30" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:text="验证码"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/text_size_30" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入短信验证码"
+            android:inputType="number"
+            android:textColor="@color/text_color_6"
+            android:textColorHint="@color/cccccc"
+            android:textSize="@dimen/text_size_30" />
+
+
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_5"
+                android:layout_marginRight="@dimen/margin_size_5"
+                android:padding="5dp"
+                android:background="@drawable/register_btn_bg"
+                android:text="获取验证码"
+                android:textColor="@color/color_62d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:text="昵称"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/text_size_30" />
+
+        <EditText
+            android:maxLength="11"
+            android:inputType="phone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入昵称"
+            android:textColor="@color/text_color_6"
+            android:textColorHint="@color/cccccc"
+            android:textSize="@dimen/text_size_30" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:text="设置密码"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/text_size_30" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textColor="@color/text_color_6"
+            android:textColorHint="@color/cccccc"
+            android:textSize="@dimen/text_size_30" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="@dimen/margin_size_10"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="120px">
+
+        <CheckBox
+            android:checked="true"
+            android:id="@+id/checkbox_protocol"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/checkbox_register_protocol_select"
+            android:button="@null"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/text_size_32"
+            android:text="我已经阅读并同意"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_protocol"
+            android:background="@null"
+            android:layout_marginLeft="18px"
+            android:textColor="@color/color_62d"
+            android:textSize="@dimen/text_size_32"
+            android:text="《猎手用户协议》"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:background="@color/color_62d"
+        android:layout_marginTop="@dimen/margin_size_25"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="注册"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>
