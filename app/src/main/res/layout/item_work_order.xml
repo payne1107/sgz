@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/fafafa"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginBottom="@dimen/margin_size_10"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_title"
+                android:textColor="@android:color/black"
+                android:text="花果山别墅2#项目建设"
+                android:textSize="@dimen/text_size_30"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:src="@mipmap/icon_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:background="@color/color_e"
+            android:layout_width="match_parent"
+            android:layout_height="1px" />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="负责人："
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/color_888"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28"
+                android:text="王老板"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="工作地点："
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/color_888"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28"
+                android:text="合肥市长江西路"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="工程类别："
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/color_888"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28"
+                android:text="住宅建设"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="开工时间："
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/color_888"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28"
+                android:text="2018年1月1日"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="工程状态："
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/color_888"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28"
+                android:text="在建"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

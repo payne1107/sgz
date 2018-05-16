@@ -6,6 +6,7 @@ import android.sgz.com.R;
 import android.sgz.com.activity.LoginActivity;
 import android.sgz.com.activity.SearchActivity;
 import android.sgz.com.activity.WorkDayNumActivity;
+import android.sgz.com.activity.WorkOrderActivity;
 import android.sgz.com.adapter.FirstFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.support.annotation.Nullable;
@@ -34,6 +35,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private AutoRelativeLayout tvTitle;
     private AutoLinearLayout layoutWorkDay;
     private AutoLinearLayout layoutFriends;
+    private AutoLinearLayout layoutworkOrder;
 
 
     @Override
@@ -56,6 +58,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         etSearch = (EditText) mRootView.findViewById(R.id.et_search);
         layoutWorkDay = (AutoLinearLayout) mRootView.findViewById(R.id.layout_work_day);
         layoutFriends = (AutoLinearLayout) mRootView.findViewById(R.id.layout_friends);
+        layoutworkOrder = (AutoLinearLayout) mRootView.findViewById(R.id.layout_word_order);
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
         FirstFragmentAdapter adapter = new FirstFragmentAdapter(getActivity().getSupportFragmentManager());
@@ -71,6 +74,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         tvTitle.setOnClickListener(this);
         layoutWorkDay.setOnClickListener(this);
         layoutFriends.setOnClickListener(this);
+        layoutworkOrder.setOnClickListener(this);
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -94,6 +98,10 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                     //TODO：伪代码日后需要更改
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
+                break;
+            case R.id.layout_word_order:
+                //工单
+                startActivity(new Intent(getActivity(), WorkOrderActivity.class));
                 break;
             case R.id.rl_title:
                 startLocationActivity();

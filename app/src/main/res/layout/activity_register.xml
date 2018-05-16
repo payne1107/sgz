@@ -23,6 +23,7 @@
             android:textSize="@dimen/text_size_30" />
 
         <EditText
+            android:id="@+id/et_phone"
             android:maxLength="11"
             android:inputType="phone"
             android:layout_width="0dp"
@@ -66,6 +67,7 @@
 
 
             <TextView
+                android:id="@+id/tv_verify_code"
                 android:layout_marginLeft="@dimen/margin_size_5"
                 android:layout_marginRight="@dimen/margin_size_5"
                 android:padding="5dp"

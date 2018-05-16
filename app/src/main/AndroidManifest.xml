@@ -118,15 +118,21 @@
         <activity
             android:name=".activity.CardCountingActivity"
             android:screenOrientation="portrait" />
-
+        <!--登录-->
         <activity
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait" />
+        <!--注册-->
         <activity
             android:name=".activity.RegisterActivity"
             android:screenOrientation="portrait" />
+        <!--忘记密码-->
         <activity
             android:name=".activity.RemberPwdActivity"
+            android:screenOrientation="portrait" />
+        <!--我发布的工单-->
+        <activity
+            android:name=".activity.WorkOrderActivity"
             android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
