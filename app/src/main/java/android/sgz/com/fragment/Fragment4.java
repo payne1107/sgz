@@ -8,12 +8,14 @@ import android.sgz.com.activity.MineExpendActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.PersonDetailsActivity;
 import android.sgz.com.activity.VipMemberCenterActivity;
+import android.sgz.com.activity.WorkOrderActivity;
 import android.sgz.com.base.BaseFragment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zhy.autolayout.AutoLayoutInfo;
 import com.zhy.autolayout.AutoLinearLayout;
 
 /**
@@ -27,6 +29,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutMineSalary;
     private AutoLinearLayout layoutExpend;
     private AutoLinearLayout layoutCardCounting;
+    private AutoLinearLayout layoutWorkOrderManager;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,11 +61,13 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutMineSalary = (AutoLinearLayout) mRootView.findViewById(R.id.layout_mine_salary);
         layoutExpend = (AutoLinearLayout) mRootView.findViewById(R.id.layout_expend);
         layoutCardCounting = (AutoLinearLayout) mRootView.findViewById(R.id.layout_card_counting);
+        layoutWorkOrderManager = (AutoLinearLayout) mRootView.findViewById(R.id.layout_workorder_manager);
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
         layoutMineSalary.setOnClickListener(this);
         layoutExpend.setOnClickListener(this);
         layoutCardCounting.setOnClickListener(this);
+        layoutWorkOrderManager.setOnClickListener(this);
     }
 
     @Override
@@ -83,6 +88,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
             case R.id.layout_card_counting:
                 //打卡统计
                 startActivity(new Intent(getActivity(), CardCountingActivity.class));
+                break;
+            case R.id.layout_workorder_manager:
+                //工单管理
+                startActivity(new Intent(getActivity(), WorkOrderActivity.class));
                 break;
         }
     }

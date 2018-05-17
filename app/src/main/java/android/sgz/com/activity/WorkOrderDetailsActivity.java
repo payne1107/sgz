@@ -11,17 +11,17 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 /**
- * Created by 92457 on 2018/5/17.
- * 打卡详情
+ * Created by WD on 2018/5/17.
+ * 工单详细
  */
 
-public class CardCountingDetailsActivity extends BaseActivity {
+public class WorkOrderDetailsActivity extends BaseActivity{
     private int[][] days;
     private DateAdapter dateAdapter;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_card_counting_details);
+        setContentView(R.layout.activity_workorder_details);
     }
 
     @Override
@@ -35,7 +35,6 @@ public class CardCountingDetailsActivity extends BaseActivity {
         int year = DateUtils.getYear();
         final int month = DateUtils.getMonth();
         final int day = DateUtils.getCurrentDayOfMonth();
-
         setInVisibleTitleIcon(year + "年" + month +"月", true, true);
         GridView gridView = (GridView) findViewById(R.id.calendar_gridView);
 
@@ -48,7 +47,7 @@ public class CardCountingDetailsActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int clickDay = (int) parent.getAdapter().getItem(position);
-                Toast.makeText(CardCountingDetailsActivity.this,"您点击的是---》" + clickDay  +"当前日期---》"  + day +"moth--->" + month,Toast.LENGTH_SHORT).show();
+                Toast.makeText(WorkOrderDetailsActivity.this,"您点击的是---》" + clickDay  +"当前日期---》"  + day +"moth--->" + month,Toast.LENGTH_SHORT).show();
                 dateAdapter.updateTextColor(position);
                 dateAdapter.notifyDataSetChanged();
             }

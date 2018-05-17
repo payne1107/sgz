@@ -138,7 +138,10 @@
         <activity
             android:name=".activity.CardCountingDetailsActivity"
             android:screenOrientation="portrait"></activity>
-
+        <!--工单详情-->
+        <activity
+            android:name=".activity.WorkOrderDetailsActivity"
+            android:screenOrientation="portrait" />
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"

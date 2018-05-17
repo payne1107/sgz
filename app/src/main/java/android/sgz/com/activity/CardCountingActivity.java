@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.CardCountingAdapter;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.utils.DateUtils;
 import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -171,6 +172,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_lack_card:
             case R.id.layout_absenteeism:
             case R.id.layout_overtime:
+
                 //打卡详情
                 startActivity(new Intent(mContext, CardCountingDetailsActivity.class));
                 break;

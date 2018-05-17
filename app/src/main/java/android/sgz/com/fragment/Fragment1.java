@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.LoginActivity;
+import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.SearchActivity;
 import android.sgz.com.activity.WorkDayNumActivity;
 import android.sgz.com.activity.WorkOrderActivity;
@@ -36,6 +37,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutWorkDay;
     private AutoLinearLayout layoutFriends;
     private AutoLinearLayout layoutworkOrder;
+    private AutoLinearLayout layoutSalary;
 
 
     @Override
@@ -59,6 +61,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         layoutWorkDay = (AutoLinearLayout) mRootView.findViewById(R.id.layout_work_day);
         layoutFriends = (AutoLinearLayout) mRootView.findViewById(R.id.layout_friends);
         layoutworkOrder = (AutoLinearLayout) mRootView.findViewById(R.id.layout_word_order);
+        layoutSalary = (AutoLinearLayout) mRootView.findViewById(R.id.layout_salary);
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
         FirstFragmentAdapter adapter = new FirstFragmentAdapter(getActivity().getSupportFragmentManager());
@@ -75,6 +78,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         layoutWorkDay.setOnClickListener(this);
         layoutFriends.setOnClickListener(this);
         layoutworkOrder.setOnClickListener(this);
+        layoutSalary.setOnClickListener(this);
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -102,6 +106,9 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
             case R.id.layout_word_order:
                 //工单
                 startActivity(new Intent(getActivity(), WorkOrderActivity.class));
+                break;
+            case R.id.layout_salary:
+                startActivity(new Intent(getActivity(), MineSalaryActivity.class));
                 break;
             case R.id.rl_title:
                 startLocationActivity();

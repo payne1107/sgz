@@ -1,10 +1,13 @@
 package android.sgz.com.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.MineSalaryAdapter;
 import android.sgz.com.adapter.MineWorkOrderAdapter;
 import android.sgz.com.base.BaseActivity;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.itheima.pulltorefreshlib.PullToRefreshBase;
 import com.itheima.pulltorefreshlib.PullToRefreshListView;
@@ -45,5 +48,13 @@ public class WorkOrderActivity extends BaseActivity {
         listView.setMode(PullToRefreshBase.Mode.BOTH);
         MineWorkOrderAdapter adapter = new MineWorkOrderAdapter(this,mList);
         listView.setAdapter(adapter);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(WorkOrderActivity.this, WorkOrderDetailsActivity.class));
+            }
+        });
     }
 }
