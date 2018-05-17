@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.sgz.com.R;
@@ -33,6 +34,13 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
     private List<String> mList = new ArrayList<>();
     private Context mContext;
     private TextView tvChooseDay;
+    private AutoLinearLayout layoutTurnForWorkDays;
+    private AutoLinearLayout layoutTurnForWork;
+    private AutoLinearLayout layoutLate;
+    private AutoLinearLayout layoutLeaveEarly;
+    private AutoLinearLayout layoutLackCard;
+    private AutoLinearLayout layoutAbsenteeism;
+    private AutoLinearLayout layoutOverTime;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -66,12 +74,26 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
 
         layoutChooseDay = (AutoLinearLayout) findViewById(R.id.layout_choose_day);
         tvChooseDay = (TextView) findViewById(R.id.tv_choose_day);
+        layoutTurnForWorkDays = (AutoLinearLayout) findViewById(R.id.layout_turn_for_work_days);
+        layoutTurnForWork = (AutoLinearLayout) findViewById(R.id.layout_turn_for_work);
+        layoutLate = (AutoLinearLayout) findViewById(R.id.layout_late);
+        layoutLeaveEarly = (AutoLinearLayout) findViewById(R.id.layout_leave_early);
+        layoutLackCard = (AutoLinearLayout) findViewById(R.id.layout_lack_card);
+        layoutAbsenteeism = (AutoLinearLayout) findViewById(R.id.layout_absenteeism);
+        layoutOverTime = (AutoLinearLayout) findViewById(R.id.layout_overtime);
 
         setListener();
     }
 
     private void setListener() {
         layoutChooseDay.setOnClickListener(this);
+        layoutTurnForWorkDays.setOnClickListener(this);
+        layoutTurnForWork.setOnClickListener(this);
+        layoutLate.setOnClickListener(this);
+        layoutLeaveEarly.setOnClickListener(this);
+        layoutLackCard.setOnClickListener(this);
+        layoutAbsenteeism.setOnClickListener(this);
+        layoutOverTime.setOnClickListener(this);
     }
 
 
@@ -118,7 +140,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
 
         AutoLinearLayout layoutContainer = (AutoLinearLayout) timeView.findViewById(R.id.layout_center);
         RecyclerView recyclerView = (RecyclerView) timeView.findViewById(R.id.recycler_view);
-        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
         CardCountingAdapter adapter = new CardCountingAdapter(mContext, mList);
         recyclerView.setAdapter(adapter);
@@ -142,6 +164,17 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_center:
                 dimissPopuWindow();
                 break;
+            case R.id.layout_turn_for_work_days:
+            case R.id.layout_turn_for_work:
+            case R.id.layout_late:
+            case R.id.layout_leave_early:
+            case R.id.layout_lack_card:
+            case R.id.layout_absenteeism:
+            case R.id.layout_overtime:
+                //打卡详情
+                startActivity(new Intent(mContext, CardCountingDetailsActivity.class));
+                break;
+
         }
     }
 

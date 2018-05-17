@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <GridView
+        android:id="@+id/calendar_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#46c11b"
+        android:numColumns="7"
+        android:padding="20dp" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_40"
+                android:layout_marginTop="@dimen/margin_size_10"
+                android:text="上班时间 08:30"
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_24" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/margin_size_5"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/punch_exception" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="80dp"
+                    android:background="@color/cccccc" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_checked" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_size_15"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="打卡时间 09：10"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_28" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_size_5"
+                        android:text="迟到"
+                        android:textColor="@color/ff6000"
+                        android:textSize="@dimen/text_size_24" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_size_15"
+                        android:layout_marginTop="@dimen/margin_size_5"
+                        android:drawableLeft="@mipmap/icon_potiton_map"
+                        android:drawablePadding="3dp"
+                        android:text="合肥市长江西路和潜山路交口"
+                        android:textColor="@color/color_888"
+                        android:textSize="@dimen/text_size_26" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_size_15"
+                        android:layout_marginTop="@dimen/margin_size_30"
+                        android:text="下班时间 18：00"
+                        android:textColor="@color/color_888"
+                        android:textSize="@dimen/text_size_24" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_marginTop="@dimen/margin_size_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_size_15"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="打卡时间 18：10"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_28" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_size_5"
+                        android:text="正常"
+                        android:textColor="@color/color_62d"
+                        android:textSize="@dimen/text_size_24" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <TextView
+                    android:layout_marginBottom="@dimen/margin_size_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_size_15"
+                    android:layout_marginTop="@dimen/margin_size_5"
+                    android:drawableLeft="@mipmap/icon_potiton_map"
+                    android:drawablePadding="3dp"
+                    android:text="合肥市长江西路和潜山路交口"
+                    android:textColor="@color/color_888"
+                    android:textSize="@dimen/text_size_26" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

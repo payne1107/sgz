@@ -134,6 +134,10 @@
         <activity
             android:name=".activity.WorkOrderActivity"
             android:screenOrientation="portrait" />
+        <!--打卡统计-->
+        <activity
+            android:name=".activity.CardCountingDetailsActivity"
+            android:screenOrientation="portrait"></activity>
 
         <!--适配用到的配置-->
         <meta-data

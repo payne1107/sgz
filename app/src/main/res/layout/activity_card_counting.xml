@@ -32,22 +32,24 @@
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
-        android:background="@color/white"
+        android:id="@+id/layout_turn_for_work_days"
         style="@style/PersonCenterLayoutStyle"
         android:layout_height="90px"
         android:layout_marginTop="15px"
-        >
+        android:background="@color/white">
+
         <TextView
             style="@style/PersonCenterTextLeftStyle"
-            android:text="出勤天数"
-            />
+            android:text="出勤天数" />
+
         <TextView
-            android:text="12天"
             style="@style/PersonCenterTextRightStyle"
             android:drawableRight="@mipmap/icon_arrow_right"
-            />
+            android:text="12天" />
     </com.zhy.autolayout.AutoLinearLayout>
+
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_turn_for_work"
         android:layout_height="90px"
         android:background="@color/white"
         style="@style/PersonCenterLayoutStyle"
@@ -64,6 +66,7 @@
             />
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_late"
         android:layout_height="90px"
         android:background="@color/white"
         style="@style/PersonCenterLayoutStyle"
@@ -80,6 +83,7 @@
             />
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_leave_early"
         android:layout_height="90px"
         android:background="@color/white"
         style="@style/PersonCenterLayoutStyle"
@@ -96,6 +100,7 @@
             />
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_lack_card"
         android:layout_height="90px"
         android:background="@color/white"
         style="@style/PersonCenterLayoutStyle"
@@ -111,23 +116,26 @@
             android:drawableRight="@mipmap/icon_arrow_right"
             />
     </com.zhy.autolayout.AutoLinearLayout>
+
     <com.zhy.autolayout.AutoLinearLayout
-        android:layout_height="90px"
-        android:background="@color/white"
+        android:id="@+id/layout_absenteeism"
         style="@style/PersonCenterLayoutStyle"
+        android:layout_height="90px"
         android:layout_marginTop="1px"
-        >
+        android:background="@color/white">
+
         <TextView
             style="@style/PersonCenterTextLeftStyle"
-            android:text="旷工"
-            />
+            android:text="旷工" />
+
         <TextView
-            android:text="0次"
             style="@style/PersonCenterTextRightStyle"
             android:drawableRight="@mipmap/icon_arrow_right"
-            />
+            android:text="0次" />
     </com.zhy.autolayout.AutoLinearLayout>
+
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_overtime"
         android:layout_height="90px"
         android:background="@color/white"
         style="@style/PersonCenterLayoutStyle"
