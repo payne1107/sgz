@@ -11,12 +11,8 @@ import android.provider.Settings;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.NetWorkUtils;
-import android.widget.Toast;
-
-import com.alibaba.fastjson.JSON;
-
-import java.util.HashMap;
-import java.util.Map;
+import android.sgz.com.widget.MyDialog;
+import android.view.View;
 
 import kr.co.namee.permissiongen.PermissionFail;
 import kr.co.namee.permissiongen.PermissionGen;
@@ -69,12 +65,31 @@ public class SplashActivity extends BaseActivity {
 
     @PermissionFail(requestCode = 100)
     public void doFailSomething(){
-        PermissionGen.with(SplashActivity.this)
-                .addRequestCode(100)
-                .permissions(
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .request();
+        final MyDialog dialog = new MyDialog(this);
+        dialog.setMessage("定位权限，存储权限是必选项，全部开通才可以正常使用");
+        dialog.setCancelable(false);
+        dialog.setOnNegativeListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.setOnPositiveListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PermissionGen.with(SplashActivity.this)
+                        .addRequestCode(100)
+                        .permissions(
+                                Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        )
+                        .request();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     @Override

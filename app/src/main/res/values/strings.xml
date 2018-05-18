@@ -13,4 +13,8 @@
     <string name="str_cancel">取消</string>
     <string name="str_set_internet">设置网络</string>
     <string name="str_internet_error">网络错误,请检查网络状态</string>
+    <string name="str_currently_for_new_version">当前为最新版本</string>
+    <string name="str_no_yes">否</string>
+    <string name="str_yes">是</string>
+    <string name="str_start_task_des">确定开始任务？请在%1$d小时之内\n完成</string>
 </resources>

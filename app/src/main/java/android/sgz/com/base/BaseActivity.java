@@ -1,10 +1,15 @@
 package android.sgz.com.base;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,19 +18,24 @@ import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.bean.FieldErrors;
 import android.sgz.com.httpstack.OkHttpStack;
+import android.sgz.com.utils.CacheImgUtil;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.NetWorkUtils;
+import android.sgz.com.utils.OpenApkfile;
 import android.sgz.com.utils.OpenLocalMapUtil;
 import android.sgz.com.utils.PermissionUtils;
 import android.sgz.com.utils.SPUtil;
 import android.sgz.com.utils.StatusUtils;
 import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.LoadingDailog;
+import android.sgz.com.widget.MyDialog;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -57,6 +67,9 @@ import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
+import com.pgyersdk.javabean.AppBean;
+import com.pgyersdk.update.PgyUpdateManager;
+import com.pgyersdk.update.UpdateManagerListener;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.KeyValue;
@@ -589,6 +602,260 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     /***************************************************** 6.0动态权限相关end *********************************************************/
+
+    /************************************************* 更新apk相关start **********************************************/
+
+    /**
+     * 是否更新apk
+     */
+
+    public void isUpdateApk() {
+        PgyUpdateManager.register(this, new UpdateManagerListener() {
+            @Override
+            public void onNoUpdateAvailable() {
+                if (isHandUpdateApk) {
+                    Toast.makeText(BaseActivity.this, R.string.str_currently_for_new_version, Toast.LENGTH_SHORT).show();
+                    setUpdateClickable();
+                }
+            }
+
+            @Override
+            public void onUpdateAvailable(String s) {
+                AppBean appBean = getAppBeanFromString(s);
+                MyApplication.SERVER_VERSION_NAME = appBean.getVersionName();
+                if (Integer.parseInt(appBean.getVersionCode()) > getAppVersionCode()) {
+                    OpenHintUpdate(appBean.getDownloadURL(), appBean.getReleaseNote(), appBean.getVersionCode());
+                } else {
+                    if (isHandUpdateApk) {
+                        Toast.makeText(BaseActivity.this, R.string.str_currently_for_new_version, Toast.LENGTH_SHORT).show();
+                    }
+                    setUpdateClickable();
+                }
+            }
+        });
+    }
+
+    /***
+     * 正在下载中 button不可以再点击
+     */
+    public void setUpdateClickable() {
+
+    }
+
+    /**
+     * 提示用户更新
+     */
+    private void OpenHintUpdate(final String url, final String log, final String code) {
+        final MyDialog updateDialog = new MyDialog(this);
+        updateDialog.setMessage(log);
+        updateDialog.setCancelable(false);
+        updateDialog.setOnNegativeListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDialog.dismiss();
+                setUpdateClickable();
+            }
+        },MyApplication.isForUpdate);
+        updateDialog.setOnPositiveListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                MyApplication.isClickUpdateVersionBtn = true;
+                if (!TextUtils.isEmpty(url)) {
+                    locationSrc = CacheImgUtil.PATH_DATA_CACHE + "/"
+                            + "sgz"
+                            + code + ".apk";
+                    File file = new File(locationSrc);
+                    if (file.exists()) {
+                        clear();
+                        Log.d("Dong", "dialog click -------->>>>" +locationSrc);
+                        Intent intent = OpenApkfile.openFile(locationSrc,BaseActivity.this);
+                        startActivity(intent);
+                        setUpdateClickable();
+                    } else {
+//                        boolean connect = WifiNetworkUtil.OpenNetworkSetting(BaseActivity.this);
+                        boolean connect = NetWorkUtils.isWifiConnected(BaseActivity.this);
+                        if (!connect) {
+                            AlertDialog.Builder dialog = new AlertDialog.Builder(BaseActivity.this);
+                            dialog.setMessage("亲，连接的不是无线网，下载将要消耗流量,是否继续下载？");
+                            dialog.setPositiveButton("继续", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (isGetPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                                        writeExternalStorage();
+                                    } else {
+                                        download(url);
+                                    }
+                                    dialog.dismiss();
+                                }
+                            });
+                            dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (MyApplication.isForUpdate) {
+                                        finish();
+                                    }
+                                    dialog.dismiss();
+                                }
+                            });
+                            dialog.show();
+                            updateDialog.dismiss();
+                            setUpdateClickable();
+                            return;
+                        }
+                        if (isGetPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                            writeExternalStorage();
+                        } else {
+                            download(url);
+                        }
+                    }
+                    updateDialog.dismiss();
+                }
+            }
+
+        },"更新");
+
+        updateDialog.setCanceledOnTouchOutside(false);
+        updateDialog.show();
+        updateDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+
+            }
+        });
+    }
+
+    /**
+     * 下载apk
+     *
+     * @param url
+     */
+    public void download(String url) {
+        HttpUtils httpUtils = new HttpUtils();
+        httpUtils.configResponseTextCharset("UTF-8");
+        httpUtils.download(url, locationSrc, true, false, new RequestCallBack<File>() {
+            @Override
+            public void onSuccess(ResponseInfo<File> responseInfo) {
+                complateDownload();
+                setUpdateClickable();
+                MyApplication.IS_DOWNLOAD = false;
+            }
+
+            @Override
+            public void onFailure(HttpException e, String s) {
+                Toast.makeText(BaseActivity.this, "下载失败", Toast.LENGTH_SHORT).show();
+                MyApplication.IS_DOWNLOAD = false;
+                manager.cancel(NOTIFICATION_ID);
+                setUpdateClickable();
+            }
+
+            @Override
+            public void onLoading(long total, long current, boolean b) {
+                try {
+                    MyApplication.IS_DOWNLOAD = true;
+                    int progress = (int) (100 * current / total);
+                    downLoading(progress);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onStart() {
+                super.onStart();
+                startDownload();
+            }
+        });
+    }
+
+    /**
+     * 开始下载通知
+     */
+    public void startDownload() {
+        clear();
+        initNotification();
+        builder.setContentText("开始下载...").setContentTitle("下载");
+        Notification n = builder.build();
+        manager.notify(NOTIFICATION_ID, n);
+    }
+
+    /**
+     * 正在下载的通知
+     *
+     * @param progress 进度
+     * @throws InterruptedException
+     */
+    public void downLoading(int progress) throws InterruptedException {
+        builder.setContentText("正在下载:" + progress + "%")
+                .setProgress(100, progress, false).setContentTitle("下载中");
+        Notification n1 = builder.build();
+        manager.notify(NOTIFICATION_ID, n1);
+        if (android.os.Build.VERSION.SDK_INT > 19) {
+            Thread.sleep(50);
+        }
+    }
+
+    /**
+     * 初始化通知
+     */
+    public void initNotification() {
+        manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        builder = new NotificationCompat.Builder(this);
+        //适配8.0
+//        if (Build.VERSION.SDK_INT >= 26) {
+//
+//            NotificationChannel channel = new NotificationChannel(channelID, channelName,NotificationManager.IMPORTANCE_HIGH);
+//            manager.createNotificationChannel(channel);
+//        }
+        builder.setWhen(System.currentTimeMillis())// 通知产生的时间，会在通知信息里显示
+                // .setNumber(number)//显示数量
+                .setPriority(Notification.PRIORITY_DEFAULT)// 设置该通知优先级
+                // .setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消
+                .setOngoing(false)// ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
+                // .setDefaults(Notification.DEFAULT_LIGHTS)//
+                // 向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合：
+                // Notification.DEFAULT_ALL Notification.DEFAULT_SOUND 添加声音 //
+                // requires VIBRATE permission
+                .setSmallIcon(R.mipmap.dialog_loading_img);
+
+    }
+
+    /**
+     * 清除通知
+     */
+    public void clear() {
+        if (manager != null) {
+            manager = (NotificationManager)
+                    getSystemService(NOTIFICATION_SERVICE);
+            manager.cancel(NOTIFICATION_ID);
+        }
+    }
+
+    /**
+     * 完成下载通知
+     */
+    public void complateDownload() {
+        clear();
+        initNotification();
+        builder.setContentText("下载完成	").setContentTitle("下载")
+                .setLights(Color.BLUE, 1000, 1000).setAutoCancel(true);
+        if (locationSrc != null) {
+            Intent intent = OpenApkfile.openFile(locationSrc,BaseActivity.this);
+            /**直接跳转到安装页面 motify Weidong 2018/5/10 start*/
+//            PendingIntent pendingIntent = PendingIntent
+//                    .getActivity(BaseActivity.this, 0, intent,
+//                            PendingIntent.FLAG_CANCEL_CURRENT);
+//            builder.setContentIntent(pendingIntent);
+            startActivity(intent);
+            /**直接跳转到安装页面 motify Weidong 2018/5/10 end*/
+            locationSrc = null;
+        }
+        Notification n2 = builder.build();
+        manager.notify(NOTIFICATION_ID, n2);
+    }
+
+    /************************************************* 更新apk相关end **********************************************/
+
 
 
     /***

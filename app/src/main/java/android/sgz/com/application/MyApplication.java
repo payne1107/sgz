@@ -64,6 +64,8 @@ public class MyApplication extends Application {
     private static MyApplication mInstance;
     //是否需要强制更新
     public static boolean isForUpdate = false;
+    public static String SERVER_VERSION_NAME = "";
+    public static boolean isClickUpdateVersionBtn = false;
 
     public static MyApplication getApplication() {
         if (mInstance == null) {

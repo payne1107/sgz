@@ -67,6 +67,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
+        isUpdateApk();
     }
 
     @Override
