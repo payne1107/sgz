@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.sgz.com.R;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,13 +97,18 @@ public class DateAdapter extends BaseAdapter {
             viewHolder.date_item.setBackground(context.getResources().getDrawable(R.drawable.background_item));
         }
 
+        viewHolder.date_item.setText(days[i] + "");
         if (i < 7 && days[i] > 20) {
+            Log.e("Dong", "if() --------> days ---->" + days[i]);
             //判断第一排日期是否大于20 如果大于说明是上个月的日期
+            viewHolder.date_item.setVisibility(View.INVISIBLE);
             viewHolder.date_item.setTextColor(Color.rgb(204, 204, 204));//将上个月的和下个月的设置为灰色
         } else if (i > 20 && days[i] < 15) {
+            Log.e("Dong", "else -----?  days ---->" + days[i]);
+            viewHolder.date_item.setVisibility(View.INVISIBLE);
             viewHolder.date_item.setTextColor(Color.rgb(204, 204, 204));
         }
-        viewHolder.date_item.setText(days[i] + "");
+
         return view;
     }
 
