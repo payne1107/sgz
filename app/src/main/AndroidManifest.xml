@@ -142,6 +142,23 @@
         <activity
             android:name=".activity.WorkOrderDetailsActivity"
             android:screenOrientation="portrait" />
+        <!--发布工单-->
+        <activity
+            android:name=".activity.ReleaseOrderActivity"
+            android:screenOrientation="portrait" />
+        <!--发布图片-->
+        <activity
+            android:name=".activity.ReleasePicActivity"
+            android:screenOrientation="portrait" />
+        <!--联系人-->
+        <activity
+            android:name=".activity.ContactsActivity"
+            android:screenOrientation="portrait" />
+        <!--提现-->
+        <activity
+            android:name=".activity.WithDrawDespositActivity"
+            android:screenOrientation="portrait" />
+
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"

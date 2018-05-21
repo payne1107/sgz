@@ -2,8 +2,11 @@ package android.sgz.com.utils;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.sgz.com.R;
+import android.sgz.com.activity.ReleaseOrderActivity;
+import android.sgz.com.activity.ReleasePicActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,8 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.zhy.autolayout.AutoLinearLayout;
+
 /**
  * Created by mj
  * on 2016/10/28.
@@ -20,6 +25,8 @@ import android.widget.Toast;
 public class PopupMenuUtil {
 
     private static final String TAG = "PopupMenuUtil";
+    private AutoLinearLayout layoutReleaseOrder;
+    private AutoLinearLayout layoutReleasePic;
 
     public static PopupMenuUtil getInstance() {
         return MenuUtilHolder.INSTANCE;
@@ -34,7 +41,6 @@ public class PopupMenuUtil {
 
     private RelativeLayout rlClick;
     private ImageView ivBtn;
-    private LinearLayout llTest1, llTest2, llTest3, llTest4, llTest5, llTest6, llTest7, llTest8;
 
     /**
      * 动画执行的 属性值数组
@@ -94,26 +100,11 @@ public class PopupMenuUtil {
     private void initLayout(Context context) {
         rlClick = (RelativeLayout) rootVew.findViewById(R.id.pop_rl_click);
         ivBtn = (ImageView) rootVew.findViewById(R.id.pop_iv_img);
-        llTest1 = (LinearLayout) rootVew.findViewById(R.id.test1);
-        llTest2 = (LinearLayout) rootVew.findViewById(R.id.test2);
-        llTest3 = (LinearLayout) rootVew.findViewById(R.id.test3);
-        llTest4 = (LinearLayout) rootVew.findViewById(R.id.test4);
-        llTest5 = (LinearLayout) rootVew.findViewById(R.id.test5);
-        llTest6 = (LinearLayout) rootVew.findViewById(R.id.test6);
-        llTest7 = (LinearLayout) rootVew.findViewById(R.id.test7);
-        llTest8 = (LinearLayout) rootVew.findViewById(R.id.test8);
-
+        layoutReleaseOrder = (AutoLinearLayout) rootVew.findViewById(R.id.layout_release_order);
+        layoutReleasePic = (AutoLinearLayout) rootVew.findViewById(R.id.layout_release_pic);
         rlClick.setOnClickListener(new MViewClick(0, context));
-
-        llTest1.setOnClickListener(new MViewClick(1, context));
-        llTest2.setOnClickListener(new MViewClick(2, context));
-        llTest3.setOnClickListener(new MViewClick(3, context));
-        llTest4.setOnClickListener(new MViewClick(4, context));
-        llTest5.setOnClickListener(new MViewClick(5, context));
-        llTest6.setOnClickListener(new MViewClick(6, context));
-        llTest7.setOnClickListener(new MViewClick(7, context));
-        llTest8.setOnClickListener(new MViewClick(8, context));
-
+        layoutReleaseOrder.setOnClickListener(new MViewClick(1, context));
+        layoutReleasePic.setOnClickListener(new MViewClick(2, context));
     }
 
     /**
@@ -131,11 +122,21 @@ public class PopupMenuUtil {
 
         @Override
         public void onClick(View v) {
-            if (index == 0) {
-                //加号按钮点击之后的执行
-                _rlClickAction();
-            } else {
-                showToast(context, "index=" + index);
+            switch (index) {
+                case 0:
+                    //加号按钮点击之后的执行
+                    _rlClickAction();
+                    break;
+                case 1:
+                    //发布工单
+                    context.startActivity(new Intent(context, ReleaseOrderActivity.class));
+                    _close();
+                    break;
+                case 2:
+                    //发布图片
+                    context.startActivity(new Intent(context, ReleasePicActivity.class));
+                    _close();
+                    break;
             }
         }
     }
@@ -165,15 +166,15 @@ public class PopupMenuUtil {
         objectAnimator.setDuration(200);
         objectAnimator.start();
 
-        _startAnimation(llTest1, 500, animatorProperty);
-        _startAnimation(llTest2, 430, animatorProperty);
-        _startAnimation(llTest3, 430, animatorProperty);
-        _startAnimation(llTest4, 500, animatorProperty);
-
-        _startAnimation(llTest5, 500, animatorProperty);
-        _startAnimation(llTest6, 430, animatorProperty);
-        _startAnimation(llTest7, 430, animatorProperty);
-        _startAnimation(llTest8, 500, animatorProperty);
+        _startAnimation(layoutReleaseOrder, 500, animatorProperty);
+        _startAnimation(layoutReleasePic, 430, animatorProperty);
+//        _startAnimation(llTest3, 430, animatorProperty);
+//        _startAnimation(llTest4, 500, animatorProperty);
+//
+//        _startAnimation(llTest5, 500, animatorProperty);
+//        _startAnimation(llTest6, 430, animatorProperty);
+//        _startAnimation(llTest7, 430, animatorProperty);
+//        _startAnimation(llTest8, 500, animatorProperty);
     }
 
 
@@ -187,14 +188,14 @@ public class PopupMenuUtil {
             objectAnimator.setDuration(300);
             objectAnimator.start();
 
-            _closeAnimation(llTest1, 300, top);
-            _closeAnimation(llTest2, 200, top);
-            _closeAnimation(llTest3, 200, top);
-            _closeAnimation(llTest4, 300, top);
-            _closeAnimation(llTest5, 300, bottom);
-            _closeAnimation(llTest6, 200, bottom);
-            _closeAnimation(llTest7, 200, bottom);
-            _closeAnimation(llTest8, 300, bottom);
+            _closeAnimation(layoutReleaseOrder, 300, top);
+            _closeAnimation(layoutReleasePic, 200, top);
+//            _closeAnimation(llTest3, 200, top);
+//            _closeAnimation(llTest4, 300, top);
+//            _closeAnimation(llTest5, 300, bottom);
+//            _closeAnimation(llTest6, 200, bottom);
+//            _closeAnimation(llTest7, 200, bottom);
+//            _closeAnimation(llTest8, 300, bottom);
 
             rlClick.postDelayed(new Runnable() {
                 @Override

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="@dimen/margin_size_10"
+            android:background="@color/white"
+            android:gravity="top"
+            android:hint="说点什么吧....不能少于15字哦！！"
+            android:paddingLeft="@dimen/margin_size_10"
+            android:paddingTop="@dimen/margin_size_10"
+            android:textColor="@color/text_color_9"
+            android:textSize="@dimen/text_size_28" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <com.zhy.autolayout.AutoLinearLayout
+                android:background="@drawable/comment_rectangle_style"
+                android:layout_width="80dp"
+                android:gravity="center"
+                android:layout_height="80dp">
+                <ImageView
+                    android:id="@+id/iv_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_camera" />
+            </com.zhy.autolayout.AutoLinearLayout>
+            <android.sgz.com.widget.HorizontalListView
+                xmlns:widget="http://schemas.android.com/apk/res-auto"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/horizontal_listview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fadingEdgeLength="5dp"
+                android:requiresFadingEdge="horizontal"
+                widget:dividerWidth="1dp"></android.sgz.com.widget.HorizontalListView>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

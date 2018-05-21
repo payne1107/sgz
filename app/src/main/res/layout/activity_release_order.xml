@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/layout_mine_name"
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="工单名称" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="请输入" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="监管单位" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="请输入" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="负责人" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="自己" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="工作地理信息" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_potiton_map"
+                    android:text="选择地点" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_size_15"
+                    android:src="@mipmap/icon_arrow_right" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="选择开工日期" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="请选择日期" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="打卡时间设置" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="添加员工信息(限100人)" />
+
+                <TextView
+                    android:id="@+id/tv_add_person"
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_plus"
+                    android:text="" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.zhy.autolayout.AutoLinearLayout>

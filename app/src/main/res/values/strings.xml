@@ -17,4 +17,11 @@
     <string name="str_no_yes">否</string>
     <string name="str_yes">是</string>
     <string name="str_start_task_des">确定开始任务？请在%1$d小时之内\n完成</string>
+
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="android:divider" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:fadingEdgeLength" />
+    </declare-styleable>
 </resources>
