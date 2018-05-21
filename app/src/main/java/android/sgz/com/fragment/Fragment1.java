@@ -9,6 +9,7 @@ import android.sgz.com.activity.SearchActivity;
 import android.sgz.com.activity.WorkDayNumActivity;
 import android.sgz.com.activity.WorkOrderActivity;
 import android.sgz.com.adapter.FirstFragmentAdapter;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseFragment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -17,9 +18,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
 import com.zaaach.citypicker.CityPickerActivity;
-import com.zhy.autolayout.AutoLayoutActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
@@ -38,6 +43,8 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutFriends;
     private AutoLinearLayout layoutworkOrder;
     private AutoLinearLayout layoutSalary;
+    private String city;
+    private TextView tvCity;
 
 
     @Override
@@ -58,6 +65,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         tvTitle = (AutoRelativeLayout) mRootView.findViewById(R.id.rl_title);
         etSearch = (EditText) mRootView.findViewById(R.id.et_search);
+        tvCity = (TextView) mRootView.findViewById(R.id.activity_city);
         layoutWorkDay = (AutoLinearLayout) mRootView.findViewById(R.id.layout_work_day);
         layoutFriends = (AutoLinearLayout) mRootView.findViewById(R.id.layout_friends);
         layoutworkOrder = (AutoLinearLayout) mRootView.findViewById(R.id.layout_word_order);
@@ -68,6 +76,14 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         setListener();
+        initData();
+    }
+
+    /***
+     * 初始化数据
+     */
+    private void initData() {
+        initLocation();
     }
 
     /****
@@ -121,5 +137,34 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
      */
     private void startLocationActivity() {
         startActivityForResult(new Intent(getActivity(),CityPickerActivity.class),REQUEST_CODE_PICK_CITY);
+    }
+
+
+    private void initLocation() {
+        AMapLocationClient mLocationClient = new AMapLocationClient(getActivity());
+        AMapLocationClientOption option = new AMapLocationClientOption();
+        option.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+        option.setOnceLocation(true);
+        mLocationClient.setLocationOption(option);
+        mLocationClient.setLocationListener(new AMapLocationListener() {
+            @Override
+            public void onLocationChanged(AMapLocation aMapLocation) {
+                if (aMapLocation != null) {
+                    if (aMapLocation.getErrorCode() == 0) {
+                        //登陆之后记录经纬度
+                        MyApplication.currentLat = aMapLocation.getLatitude();
+                        MyApplication.currentLon = aMapLocation.getLongitude();
+                        MyApplication.currentArea = aMapLocation.getAddress();
+                        city = aMapLocation.getCity();
+                        tvCity.setText(city);
+                    } else {
+                        //定位失败
+                        city = "合肥市";
+                        tvCity.setText(city);
+                    }
+                }
+            }
+        });
+        mLocationClient.startLocation();
     }
 }

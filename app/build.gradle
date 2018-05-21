@@ -19,6 +19,12 @@ android {
         }
     }
 
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(output.outputFile.parent, "sgz_app" + "-" + buildType.name  + ".apk" );
+        }
+    }
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false

@@ -173,6 +173,13 @@
             android:value="259cd16a727106eeb7f0c078b984d85e" >
         </meta-data>
 
+        <!-- 高德地图 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="bfa531b46f6cabee5b5fc66fc9705a70" />
+
+        <service android:name="com.amap.api.location.APSService"></service>
+
         <!-- FileProvider配置访问路径，适配7.0及其以上 -->
         <provider android:name="android.support.v4.content.FileProvider"
             android:authorities="android.sgz.com.fileProvider"
