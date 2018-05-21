@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.sgz.com.R;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,19 +26,12 @@ public class DateAdapter extends BaseAdapter {
     private int UPDATE_TEXT_COLOR = -1;
     private ViewHolder viewHolder;
 
-    public DateAdapter(Context context, int[][] days, int year, int month,int day) {
+    public DateAdapter(Context context, int[] days, int year, int month,int day) {
         this.context = context;
-        int dayNum = 0;
-        //将二维数组转化为一维数组，方便使用
-        for (int i = 0; i < days.length; i++) {
-            for (int j = 0; j < days[i].length; j++) {
-                this.days[dayNum] = days[i][j];
-                dayNum++;
-            }
-        }
         this.year = year;
         this.month = month;
         this.day = day;
+        this.days = days;
     }
 
     public void updateTextColor(int position) {
@@ -99,13 +91,9 @@ public class DateAdapter extends BaseAdapter {
 
         viewHolder.date_item.setText(days[i] + "");
         if (i < 7 && days[i] > 20) {
-            Log.e("Dong", "if() --------> days ---->" + days[i]);
             //判断第一排日期是否大于20 如果大于说明是上个月的日期
-            viewHolder.date_item.setVisibility(View.INVISIBLE);
             viewHolder.date_item.setTextColor(Color.rgb(204, 204, 204));//将上个月的和下个月的设置为灰色
         } else if (i > 20 && days[i] < 15) {
-            Log.e("Dong", "else -----?  days ---->" + days[i]);
-            viewHolder.date_item.setVisibility(View.INVISIBLE);
             viewHolder.date_item.setTextColor(Color.rgb(204, 204, 204));
         }
 
