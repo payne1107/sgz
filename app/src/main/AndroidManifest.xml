@@ -158,6 +158,14 @@
         <activity
             android:name=".activity.WithDrawDespositActivity"
             android:screenOrientation="portrait" />
+        <!--输入工单名称-->
+        <activity
+            android:name=".activity.EnterWorkOrderNameActivity"
+            android:screenOrientation="portrait" />
+        <!--输入监管单位名称-->
+        <activity
+            android:name=".activity.EnterRegulatorsActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

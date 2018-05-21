@@ -16,6 +16,8 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
 
     private TextView tvAddPerson;
     private Context mContext;
+    private TextView tvWorkOrderName;
+    private TextView tvRegulators;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -33,13 +35,15 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         super.initView();
         setInVisibleTitleIcon("发布工单", true, true);
         tvAddPerson = (TextView) findViewById(R.id.tv_add_person);
-
+        tvWorkOrderName = (TextView) findViewById(R.id.tv_work_order_name);
+        tvRegulators = (TextView) findViewById(R.id.tv_regulators);
         setListener();
     }
 
-
     private void setListener() {
         tvAddPerson.setOnClickListener(this);
+        tvWorkOrderName.setOnClickListener(this);
+        tvRegulators.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +51,12 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.tv_add_person:
                 startActivity(new Intent(mContext, ContactsActivity.class));
+                break;
+            case R.id.tv_work_order_name:
+                startActivity(new Intent(mContext, EnterWorkOrderNameActivity.class));
+                break;
+            case R.id.tv_regulators:
+                startActivity(new Intent(mContext, EnterRegulatorsActivity.class));
                 break;
         }
     }
