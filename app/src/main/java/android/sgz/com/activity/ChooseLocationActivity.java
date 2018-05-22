@@ -104,6 +104,7 @@ public class ChooseLocationActivity extends BaseActivity implements View.OnClick
             case R.id.activity_set:
                 //搜索地址信息获取详细列表
                 doSearchQuery();
+                hideKeyboard();
                 break;
         }
     }
