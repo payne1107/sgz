@@ -2,9 +2,11 @@
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginLeft="@dimen/margin_size_5"
         android:id="@+id/tv_detailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,6 +16,8 @@
         android:textSize="16sp" />
 
     <TextView
+        android:layout_marginLeft="@dimen/margin_size_5"
+
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,9 +17,25 @@ import java.util.Date;
 
 /**
  * Created by 92457 on 2018/5/19.
+ * 发布工单
  */
 
 public class ReleaseOrderActivity extends BaseActivity implements View.OnClickListener, OnDateSetListener {
+
+    //选择地理位置信息
+    private static final int REQUEST_CHOOSE_LOCATION_CODE = 10001;
+    protected static final String REQUEST_CHOOSE_LOCATION_ADDRESS_KEY = "request_choose_location_address_key";
+    protected static final String REQUEST_CHOOSE_LOCATION_LON_KEY = "request_choose_location_lon_key";
+    protected static final String REQUEST_CHOOSE_LOCATION_LAT_KEY = "request_choose_location_lat_key";
+    //工单名称
+    private static final int REQUEST_WORK_ORDER_NAME_CODE = 10002;
+    protected static final String REQUEST_WORK_ORDER_NAME_KEY = "request_work_order_name_key";
+    //监管单位
+    private static final int REQUEST_REGULATORS_NAME_CODE = 10003;
+    protected static final String REQUEST_REGULATORS_NAME_KEY = "request_regulators_name_key";
+    //负责人
+    private static final int REQUEST_LEADER_NAME_CODE = 10004;
+    protected static final String REQUEST_LEADER_NAME_KEY = "request_leader_name_key";
 
     private TextView tvAddPerson;
     private Context mContext;
@@ -43,6 +60,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("发布工单", true, true);
+        setSettingBtn("保存");
         tvAddPerson = (TextView) findViewById(R.id.tv_add_person);
         tvWorkOrderName = (TextView) findViewById(R.id.tv_work_order_name);
         tvRegulators = (TextView) findViewById(R.id.tv_regulators);
@@ -60,6 +78,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvLeader.setOnClickListener(this);
         tvStartDate.setOnClickListener(this);
         tvChooseLocation.setOnClickListener(this);
+        tvSet.setOnClickListener(this);
     }
 
     @Override
@@ -69,13 +88,13 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                 startActivity(new Intent(mContext, ContactsActivity.class));
                 break;
             case R.id.tv_work_order_name:
-                startActivity(new Intent(mContext, EnterWorkOrderNameActivity.class));
+                startActivityForResult(new Intent(mContext, EnterWorkOrderNameActivity.class),REQUEST_WORK_ORDER_NAME_CODE);
                 break;
             case R.id.tv_regulators:
-                startActivity(new Intent(mContext, EnterRegulatorsActivity.class));
+                startActivityForResult(new Intent(mContext, EnterRegulatorsActivity.class),REQUEST_REGULATORS_NAME_CODE);
                 break;
             case R.id.tv_leader:
-                startActivity(new Intent(mContext, EnterLeaderNameActivity.class));
+                startActivityForResult(new Intent(mContext, EnterLeaderNameActivity.class),REQUEST_LEADER_NAME_CODE);
                 break;
             case R.id.tv_start_date:
                 //项目开始日期
@@ -83,11 +102,43 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.tv_choose_location:
                 //选择位置信息
-                startActivity(new Intent(mContext, ChooseLocationActivity.class));
+                Intent intent = new Intent(mContext, ChooseLocationActivity.class);
+                startActivityForResult(intent,REQUEST_CHOOSE_LOCATION_CODE);
+                break;
+            case R.id.activity_set:
+                //保存工单信息
+                toastMessage("save order details");
                 break;
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        toastMessage("resultCode--->" + resultCode);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_CHOOSE_LOCATION_CODE:
+                    //选择地理位置
+                    String addressName = data.getStringExtra(REQUEST_CHOOSE_LOCATION_ADDRESS_KEY);
+                    toastMessage("addressName--->" + addressName);
+                    tvChooseLocation.setText(addressName);
+                    break;
+                case REQUEST_LEADER_NAME_CODE:
+                    String leaderName = data.getStringExtra(REQUEST_LEADER_NAME_KEY);
+                    tvLeader.setText(leaderName);
+                    break;
+                case REQUEST_REGULATORS_NAME_CODE:
+                    String regulatorsName = data.getStringExtra(REQUEST_REGULATORS_NAME_KEY);
+                    tvRegulators.setText(regulatorsName);
+                    break;
+                case REQUEST_WORK_ORDER_NAME_CODE:
+                    String workOrderName = data.getStringExtra(REQUEST_WORK_ORDER_NAME_KEY);
+                    tvWorkOrderName.setText(workOrderName);
+                    break;
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     public void onDateSet(TimePickerDialog timePickerView, long millseconds) {

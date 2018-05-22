@@ -1,5 +1,6 @@
 package android.sgz.com.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.PoiKeywordSearchAdapter;
@@ -93,7 +94,13 @@ public class ChooseLocationActivity extends BaseActivity implements View.OnClick
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PoiAddressBean data = (PoiAddressBean) parent.getAdapter().getItem(position);
-                toastMessage("经纬度---》" + data.getLatitude() + " --->" + data.getLongitude());
+                Intent intent = new Intent();
+                intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_ADDRESS_KEY, data.getDetailAddress());
+                intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_LAT_KEY, data.getLatitude());
+                intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_LON_KEY, data.getLongitude());
+                setResult(RESULT_OK,intent);
+                finish();
+                toastMessage("你点击了---》" + data.getCity() +" -->" +data.getDetailAddress() +"-->" +data.getDistrict() +"->>" +data.getProvince());
             }
         });
     }

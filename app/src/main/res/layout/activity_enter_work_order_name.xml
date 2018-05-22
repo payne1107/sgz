@@ -15,6 +15,7 @@
         android:layout_height="60dp">
 
         <EditText
+            android:id="@+id/et_work_order_name"
             android:textSize="@dimen/text_size_26"
             android:textColorHint="@color/text_color_9"
             android:textColor="@color/text_color_3"
