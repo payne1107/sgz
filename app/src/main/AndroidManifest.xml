@@ -166,6 +166,14 @@
         <activity
             android:name=".activity.EnterRegulatorsActivity"
             android:screenOrientation="portrait" />
+        <!--输入负责人-->
+        <activity
+            android:name=".activity.EnterLeaderNameActivity"
+            android:screenOrientation="portrait" />
+        <!--开工地址选择-->
+        <activity
+            android:name=".activity.ChooseLocationActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

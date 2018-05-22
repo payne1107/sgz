@@ -14,6 +14,7 @@ import android.sgz.com.base.BaseFragment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -157,6 +158,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                         MyApplication.currentArea = aMapLocation.getAddress();
                         city = aMapLocation.getCity();
                         tvCity.setText(city);
+                        Log.d("Dong", "定位成功-----》" + city);
                     } else {
                         //定位失败
                         city = "合肥市";

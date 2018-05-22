@@ -61,6 +61,9 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.itheima.pulltorefreshlib.PullToRefreshListView;
+import com.jzxiang.pickerview.TimePickerDialog;
+import com.jzxiang.pickerview.data.Type;
+import com.jzxiang.pickerview.listener.OnDateSetListener;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.RequestParams;
@@ -105,6 +108,7 @@ public abstract class BaseActivity extends FragmentActivity {
     private NotificationManager manager;
     private NotificationCompat.Builder builder;
     public boolean isHandUpdateApk = false;
+    protected TimePickerDialog dialogDay;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -1110,6 +1114,27 @@ public abstract class BaseActivity extends FragmentActivity {
         SPUtil.remove(mContext, "userId");
         MyApplication.isLogin = "";
         MyApplication.userId = "";
+    }
+
+    /**
+     * 初始化时间选择器
+     */
+    protected void initViewDateDialog(OnDateSetListener listener) {
+        dialogDay = new TimePickerDialog.Builder()
+                .setCallBack(listener)
+                .setCancelStringId("取消")
+                .setSureStringId("确定")
+                .setTitleStringId("")
+                .setCyclic(false)
+                .setMinMillseconds(System.currentTimeMillis() - ConfigUtil.TenYears8)
+                .setMaxMillseconds(System.currentTimeMillis() +   ConfigUtil.TenYears)
+                .setCurrentMillseconds(System.currentTimeMillis()/* - ConfigUtil.TenYears*/)//设置当前日期
+                .setThemeColor(getResources().getColor(R.color.cccccc))
+                .setType(Type.YEAR_MONTH_DAY)
+                .setWheelItemTextNormalColor(getResources().getColor(R.color.text_color_9))
+                .setWheelItemTextSelectorColor(getResources().getColor(R.color.text_color_9))
+                .setWheelItemTextSize(16)
+                .build();
     }
 
     @Override

@@ -59,6 +59,7 @@
                     android:text="负责人" />
 
                 <TextView
+                    android:id="@+id/tv_leader"
                     style="@style/PersonCenterTextRightStyle"
                     android:drawableRight="@mipmap/icon_arrow_right"
                     android:text="自己" />
@@ -74,6 +75,7 @@
                     android:text="工作地理信息" />
 
                 <TextView
+                    android:id="@+id/tv_choose_location"
                     style="@style/PersonCenterTextRightStyle"
                     android:drawableRight="@mipmap/icon_potiton_map"
                     android:text="选择地点" />
@@ -95,6 +97,7 @@
                     android:text="选择开工日期" />
 
                 <TextView
+                    android:id="@+id/tv_start_date"
                     style="@style/PersonCenterTextRightStyle"
                     android:drawableRight="@mipmap/icon_arrow_right"
                     android:text="请选择日期" />
