@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    android:gravity="bottom"
+    android:orientation="vertical" >
+
+    <TextView
+        android:background="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/text_color_3"
+        android:id="@+id/tv_select_photo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="本地上传"
+        android:textSize="16sp" />
+
+    <TextView
+        android:background="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/tv_take_photo"
+        android:textColor="@color/text_color_3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
+        android:text="相机拍照"
+        android:textSize="16sp" />
+
+    <TextView
+        android:background="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/tv_cancel_photo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dip"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
+        android:textColor="@color/text_color_6"
+        android:text="取消"
+        android:textSize="16sp" />
+</LinearLayout>

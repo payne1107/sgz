@@ -7,9 +7,9 @@
     <include layout="@layout/sys_title" />
 
     <com.zhy.autolayout.AutoLinearLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <EditText
@@ -26,33 +26,55 @@
             android:textSize="@dimen/text_size_28" />
 
         <com.zhy.autolayout.AutoLinearLayout
-            android:layout_marginLeft="@dimen/margin_size_15"
-            android:layout_marginBottom="@dimen/margin_size_15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginLeft="@dimen/margin_size_15"
             android:orientation="horizontal">
+
             <com.zhy.autolayout.AutoLinearLayout
-                android:background="@drawable/comment_rectangle_style"
                 android:layout_width="80dp"
-                android:gravity="center"
-                android:layout_height="80dp">
+                android:layout_height="80dp"
+                android:background="@drawable/comment_rectangle_style"
+                android:gravity="center">
+
                 <ImageView
                     android:id="@+id/iv_camera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/icon_camera" />
             </com.zhy.autolayout.AutoLinearLayout>
-            <android.sgz.com.widget.HorizontalListView
-                xmlns:widget="http://schemas.android.com/apk/res-auto"
-                android:gravity="center"
-                android:layout_marginLeft="5dp"
+
+            <android.sgz.com.widget.HorizontalListView xmlns:widget="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/horizontal_listview"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
                 android:fadingEdgeLength="5dp"
+                android:gravity="center"
                 android:requiresFadingEdge="horizontal"
                 widget:dividerWidth="1dp"></android.sgz.com.widget.HorizontalListView>
         </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_release"
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:background="@drawable/confirm_button_style"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_size_70"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        tools:showIn="@layout/activity_update_nick_name">
+
+        <TextView
+            android:text="发布"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </com.zhy.autolayout.AutoLinearLayout>
 </com.zhy.autolayout.AutoLinearLayout>

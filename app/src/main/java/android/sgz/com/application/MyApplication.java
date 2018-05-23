@@ -18,6 +18,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import com.pgyersdk.crash.PgyCrashManager;
 
 import org.xutils.x;
 
@@ -83,6 +84,8 @@ public class MyApplication extends Application {
         x.Ext.init(this);
         x.Ext.setDebug(false); //输出debug日志，开启会影响性能
         CacheImgUtil.getInstance(this);
+        //注册Crash接口(必选) 蒲公英
+        PgyCrashManager.register(this);
 
         //设置全局的异常捕获器
        //CatchExceptionHandler.getInstance().setDefaultUnCachExceptionHandler();

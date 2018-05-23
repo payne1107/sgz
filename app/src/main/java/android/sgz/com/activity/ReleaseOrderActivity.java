@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -68,7 +67,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvStartDate = (TextView) findViewById(R.id.tv_start_date);
         tvChooseLocation = (TextView) findViewById(R.id.tv_choose_location);
         setListener();
-        initViewDateDialog(this);
+        initViewDateDialog(this,System.currentTimeMillis());
     }
 
     private void setListener() {

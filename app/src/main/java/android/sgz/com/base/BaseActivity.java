@@ -1120,7 +1120,7 @@ public abstract class BaseActivity extends FragmentActivity {
     /**
      * 初始化时间选择器
      */
-    protected void initViewDateDialog(OnDateSetListener listener) {
+    protected void initViewDateDialog(OnDateSetListener listener,long currentMillSeconds) {
         dialogDay = new TimePickerDialog.Builder()
                 .setCallBack(listener)
                 .setCancelStringId("取消")
@@ -1129,7 +1129,7 @@ public abstract class BaseActivity extends FragmentActivity {
                 .setCyclic(false)
                 .setMinMillseconds(System.currentTimeMillis() - ConfigUtil.TenYears8)
                 .setMaxMillseconds(System.currentTimeMillis() +   ConfigUtil.TenYears)
-                .setCurrentMillseconds(System.currentTimeMillis()/* - ConfigUtil.TenYears*/)//设置当前日期
+                .setCurrentMillseconds(currentMillSeconds /*System.currentTimeMillis() - ConfigUtil.TenYears*/)//设置当前日期
                 .setThemeColor(getResources().getColor(R.color.cccccc))
                 .setType(Type.YEAR_MONTH_DAY)
                 .setWheelItemTextNormalColor(getResources().getColor(R.color.text_color_9))

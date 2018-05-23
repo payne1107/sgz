@@ -10,20 +10,25 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jzxiang.pickerview.TimePickerDialog;
+import com.jzxiang.pickerview.listener.OnDateSetListener;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by WD on 2018/5/6.
  * 个人资料
  */
 
-public class PersonDetailsActivity extends BaseActivity implements View.OnClickListener {
+public class PersonDetailsActivity extends BaseActivity implements View.OnClickListener, OnDateSetListener {
 
     public static final int CHOOSE_PROFESSION_CODE = 1001;
     public static final String CHOOSE_PROFESSION_KEY = "profession_name";
@@ -34,6 +39,10 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
     private TextView tvProfessionName;
     private TextView tvSaveInfo;
     private AutoLinearLayout layoutProfessionTitle;
+    private AutoLinearLayout layoutBirthday;
+    private TextView tvBirthday;
+    private AutoLinearLayout layoutPersonalizedSignature;
+    private AutoLinearLayout layoutSetPhone;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -59,8 +68,13 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         layoutProfession = (AutoLinearLayout) findViewById(R.id.layout_profession);
         tvProfessionName = (TextView) findViewById(R.id.tv_profession_name);
         layoutProfessionTitle = (AutoLinearLayout) findViewById(R.id.layout_profession_title);
+        layoutBirthday = (AutoLinearLayout) findViewById(R.id.layout_birthday);
+        tvBirthday = (TextView) findViewById(R.id.tv_birthday);
+        layoutPersonalizedSignature = (AutoLinearLayout) findViewById(R.id.layout_personalized_signature);
+        layoutSetPhone = (AutoLinearLayout) findViewById(R.id.layout_set_phone);
 
         setListener();
+        initViewDateDialog(this,System.currentTimeMillis() - ConfigUtil.TenYears);
     }
 
     private void setListener() {
@@ -69,6 +83,9 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         layoutProfession.setOnClickListener(this);
         tvSaveInfo.setOnClickListener(this);
         layoutProfessionTitle.setOnClickListener(this);
+        layoutBirthday.setOnClickListener(this);
+        layoutPersonalizedSignature.setOnClickListener(this);
+        layoutSetPhone.setOnClickListener(this);
     }
 
     @Override
@@ -92,6 +109,18 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
             case R.id.activity_set:
                 //保存用戶信息
                 toastMessage("保存用戶信息");
+                break;
+            case R.id.layout_birthday:
+                //选择生日
+                //项目开始日期
+                dialogDay.show(getSupportFragmentManager(), "all");
+                break;
+            case R.id.layout_personalized_signature:
+                //个性签名
+                startActivity(new Intent(mContext, PersonalizedSignatureActivity.class));
+                break;
+            case R.id.layout_set_phone:
+                startActivity(new Intent(mContext, SetPhoneNumberActivity.class));
                 break;
         }
     }
@@ -172,5 +201,12 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         intent.putExtra("outputY", 80);
         intent.putExtra("return-data", true);
         startActivityForResult(intent, MyApplication.REQUEST_CODE_RESULT);
+    }
+
+    @Override
+    public void onDateSet(TimePickerDialog timePickerView, long millseconds) {
+        Date d = new Date(millseconds);
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        tvBirthday.setText(sf.format(d));
     }
 }
