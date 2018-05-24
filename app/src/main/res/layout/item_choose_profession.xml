@@ -5,8 +5,6 @@
     android:layout_height="wrap_content">
 
     <com.zhy.autolayout.AutoLinearLayout
-        android:layout_marginRight="@dimen/margin_size_20"
-        android:layout_marginLeft="@dimen/margin_size_20"
         android:layout_marginTop="@dimen/margin_size_5"
         android:gravity="center"
         android:layout_width="match_parent"
