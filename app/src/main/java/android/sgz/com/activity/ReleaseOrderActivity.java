@@ -4,7 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.adapter.ReleaseOrderAdapter;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.utils.StringUtils;
+import android.sgz.com.widget.SpacesItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,7 +17,9 @@ import com.jzxiang.pickerview.TimePickerDialog;
 import com.jzxiang.pickerview.listener.OnDateSetListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 92457 on 2018/5/19.
@@ -35,6 +42,9 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     //负责人
     private static final int REQUEST_LEADER_NAME_CODE = 10004;
     protected static final String REQUEST_LEADER_NAME_KEY = "request_leader_name_key";
+    //工友信息
+    private static final int REQUEST_CHOOSE_CONTACTS_CODE = 10005;
+    protected static final String REQUEST_CHOOSE_CONTACTS_KEY = "request_choose_contacts_key";
 
     private TextView tvAddPerson;
     private Context mContext;
@@ -43,6 +53,11 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     private TextView tvLeader;
     private TextView tvStartDate;
     private TextView tvChooseLocation;
+
+    //存储联系人集合
+    private List<String> listContacts = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private ReleaseOrderAdapter adapter;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -66,6 +81,12 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvLeader = (TextView) findViewById(R.id.tv_leader);
         tvStartDate = (TextView) findViewById(R.id.tv_start_date);
         tvChooseLocation = (TextView) findViewById(R.id.tv_choose_location);
+        recyclerView = (RecyclerView) findViewById(R.id.recycleView);
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 6);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new SpacesItemDecoration(3));
+        adapter = new ReleaseOrderAdapter(mContext, listContacts);
+        recyclerView.setAdapter(adapter);
         setListener();
         initViewDateDialog(this,System.currentTimeMillis());
     }
@@ -84,7 +105,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_add_person:
-                startActivity(new Intent(mContext, ContactsActivity.class));
+                startActivityForResult(new Intent(mContext, ContactsActivity.class),REQUEST_CHOOSE_CONTACTS_CODE);
                 break;
             case R.id.tv_work_order_name:
                 startActivityForResult(new Intent(mContext, EnterWorkOrderNameActivity.class),REQUEST_WORK_ORDER_NAME_CODE);
@@ -113,13 +134,11 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        toastMessage("resultCode--->" + resultCode);
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_CHOOSE_LOCATION_CODE:
                     //选择地理位置
                     String addressName = data.getStringExtra(REQUEST_CHOOSE_LOCATION_ADDRESS_KEY);
-                    toastMessage("addressName--->" + addressName);
                     tvChooseLocation.setText(addressName);
                     break;
                 case REQUEST_LEADER_NAME_CODE:
@@ -133,6 +152,14 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                 case REQUEST_WORK_ORDER_NAME_CODE:
                     String workOrderName = data.getStringExtra(REQUEST_WORK_ORDER_NAME_KEY);
                     tvWorkOrderName.setText(workOrderName);
+                    break;
+                case REQUEST_CHOOSE_CONTACTS_CODE:
+                    String contactsName = data.getStringExtra(REQUEST_CHOOSE_CONTACTS_KEY);
+                    if (!StringUtils.isEmpty(contactsName)) {
+                        listContacts.add(contactsName);
+                        adapter.notifyDataSetChanged();
+                    }
+                    toastMessage("数组大小----------> " + listContacts.size());
                     break;
             }
         }
