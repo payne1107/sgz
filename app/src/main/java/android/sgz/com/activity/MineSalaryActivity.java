@@ -7,6 +7,7 @@ import android.sgz.com.R;
 import android.sgz.com.adapter.MineSalaryAdapter;
 import android.sgz.com.base.BaseActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.itheima.pulltorefreshlib.PullToRefreshBase;
@@ -62,6 +63,12 @@ public class MineSalaryActivity extends BaseActivity implements View.OnClickList
 
     private void setListener() {
         tvWithDraw.setOnClickListener(this);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(mContext, SalaryDetailsActivity.class));
+            }
+        });
     }
 
     @Override
