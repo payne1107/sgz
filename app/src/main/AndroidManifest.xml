@@ -203,6 +203,10 @@
         <activity
             android:name=".activity.PersonalSalaryActivity"
             android:screenOrientation="portrait" />
+        <!--个人工资详情-->
+        <activity
+            android:name=".activity.PersonalSalaryDetailsActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

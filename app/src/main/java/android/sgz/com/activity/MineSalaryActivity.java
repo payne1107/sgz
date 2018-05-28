@@ -66,7 +66,13 @@ public class MineSalaryActivity extends BaseActivity implements View.OnClickList
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(mContext, SalaryDetailsActivity.class));
+                if (false) {
+                    //包工头进入的页面
+                    startActivity(new Intent(mContext, SalaryDetailsActivity.class));
+                } else {
+                    //个人工资详情页面
+                    startActivity(new Intent(mContext, PersonalSalaryDetailsActivity.class));
+                }
             }
         });
     }

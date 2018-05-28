@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.sgz.com.httpstack.OkHttpStack;
 import android.sgz.com.utils.CacheImgUtil;
 import android.text.format.DateFormat;
-import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -131,7 +130,7 @@ public class MyApplication extends Application {
      * 创建图片的存储路径WBShareActivity
      */
     public static String getImageFolderPath() {
-        String path = Environment.getExternalStorageDirectory() + File.separator + "hunter"
+        String path = Environment.getExternalStorageDirectory() + File.separator + "sgz"
                 + File.separator + "data" +
                 File.separator + "APP_FOLDER_NAME" +
                 File.separator + "MY_FLODER_NAME"
@@ -150,6 +149,5 @@ public class MyApplication extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        Log.d("Dong", "onTerminate------->");
     }
 }
