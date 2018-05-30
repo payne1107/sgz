@@ -24,6 +24,8 @@ import org.xutils.x;
 import java.io.File;
 import java.util.Date;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by 92457 on 2018/1/12.
  */
@@ -85,7 +87,7 @@ public class MyApplication extends Application {
         CacheImgUtil.getInstance(this);
         //注册Crash接口(必选) 蒲公英
         PgyCrashManager.register(this);
-
+        JPushInterface.init(this);
         //设置全局的异常捕获器
        //CatchExceptionHandler.getInstance().setDefaultUnCachExceptionHandler();
     }

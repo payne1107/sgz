@@ -5,9 +5,9 @@ import android.sgz.com.R;
 import android.sgz.com.adapter.DateAdapter;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.DateUtils;
+import android.sgz.com.widget.MyGridView;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.Toast;
 
 /**
@@ -37,7 +37,7 @@ public class WorkOrderDetailsActivity extends BaseActivity{
         final int month = DateUtils.getMonth();
         final int day = DateUtils.getCurrentDayOfMonth();
         setInVisibleTitleIcon(year + "年" + month +"月", true, true);
-        GridView gridView = (GridView) findViewById(R.id.calendar_gridView);
+        MyGridView gridView = (MyGridView) findViewById(R.id.calendar_gridView);
         days = DateUtils.getDayOfMonthFormat(year, month);
         convertArray();
         dateAdapter = new DateAdapter(this, dayList, year, month,day);//传入当前月的年
