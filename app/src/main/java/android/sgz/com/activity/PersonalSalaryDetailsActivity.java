@@ -1,5 +1,7 @@
 package android.sgz.com.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.DateAdapter;
@@ -8,6 +10,7 @@ import android.sgz.com.utils.DateUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -15,13 +18,17 @@ import android.widget.Toast;
  * 个人工资详情页面
  */
 
-public class PersonalSalaryDetailsActivity extends BaseActivity {
+public class PersonalSalaryDetailsActivity extends BaseActivity implements View.OnClickListener {
     private int[][] days;
     private DateAdapter dateAdapter;
     private int[] dayList =new int[42];
+    private TextView tvWithdraw;
+    private Context mContext;
+
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_personal_salary_details);
+        mContext = PersonalSalaryDetailsActivity.this;
     }
 
     @Override
@@ -32,6 +39,8 @@ public class PersonalSalaryDetailsActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
+        tvWithdraw = findViewById(R.id.tv_withdraw);
+
         int year = DateUtils.getYear();
         final int month = DateUtils.getMonth();
         final int day = DateUtils.getCurrentDayOfMonth();
@@ -59,6 +68,9 @@ public class PersonalSalaryDetailsActivity extends BaseActivity {
                 }
             }
         });
+
+
+        tvWithdraw.setOnClickListener(this);
     }
 
     /****
@@ -72,6 +84,15 @@ public class PersonalSalaryDetailsActivity extends BaseActivity {
                 this.dayList[dayNum] = days[i][j];
                 dayNum++;
             }
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_withdraw:
+                startActivity(new Intent(mContext, WithDrawDespositActivity.class));
+                break;
         }
     }
 }
