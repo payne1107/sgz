@@ -7,6 +7,137 @@
 
     <include layout="@layout/sys_title"></include>
 
+    <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginTop="@dimen/margin_size_10"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/margin_size_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"
+                android:hint="搜索"
+                android:textColorHint="@color/cccccc"
+                android:textSize="@dimen/text_size_28"
+                android:id="@+id/et_search"
+                android:background="@drawable/contact_search_bgl"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60px"
+                android:paddingLeft="12dp"
+                android:drawableLeft="@mipmap/home_icon_ss"
+                />
+
+
+            <TextView
+                android:textSize="@dimen/text_size_30"
+                android:textColor="@color/text_color_3"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:layout_width="wrap_content"
+                android:text="搜索"
+                android:layout_height="match_parent" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:background="@color/fafafa"
+            android:layout_width="match_parent"
+            android:layout_height="1px" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginTop="@dimen/margin_size_10"
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/icon_contacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="@color/text_color_3"
+                    android:text="手機通訊錄"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/icon_weixin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="@color/text_color_3"
+                    android:text="邀請微信好友"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/icon_pyq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="@color/text_color_3"
+                    android:text="分享到朋友圈"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/icon_qq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="@color/text_color_3"
+                    android:text="邀請QQ好友"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
