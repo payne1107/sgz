@@ -212,6 +212,10 @@
             android:name=".activity.ChooseProfessionLevelActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.SetUserSalaryActivity"
+            android:screenOrientation="portrait" />
+
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"

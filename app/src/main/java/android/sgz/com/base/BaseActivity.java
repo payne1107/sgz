@@ -1021,16 +1021,6 @@ public abstract class BaseActivity extends FragmentActivity {
         toast.show();
     }
 
-    /***
-     * 获取请求返回的code
-     * @param json
-     * @return
-     */
-    public int getRequestCode(String json) {
-        JSONObject jsonObject = JSONObject.parseObject(json);
-        return jsonObject.getInteger("flag");
-    }
-
     /**************************************************地图导航begain**********************************************/
     /**
      * 打开高德地图
@@ -1149,5 +1139,16 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    /****
+     * 获取返回的请求code
+     * @param json
+     * @return
+     */
+    public int getRequestCode(String json) {
+        JSONObject object = JSONObject.parseObject(json);
+        int resultCode = Integer.valueOf(object.getString("resultCode"));
+        return resultCode;
     }
 }

@@ -8,9 +8,12 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.ProfessionLevelBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,11 +25,13 @@ import java.util.Map;
  * 获取职称
  */
 
-public class ChooseProfessionLevelActivity extends BaseActivity {
+public class ChooseProfessionLevelActivity extends BaseActivity implements View.OnClickListener {
 
     private ChooseProfessionLevelAdapter adapter;
     private List<ProfessionLevelBean.DataBean> mList = new ArrayList<>();
     private Context mContext;
+    private ListView listView;
+    private int professionlevelId = 0; //保存职称的id
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -43,10 +48,30 @@ public class ChooseProfessionLevelActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("职称", true, true);
+        setSettingBtn("保存");
         queryAllProfessionLevelData();
-        ListView listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
         adapter = new ChooseProfessionLevelAdapter(mContext,mList);
         listView.setAdapter(adapter);
+
+        setListener();
+    }
+
+    /***
+     * 设置监听器
+     */
+    private void setListener() {
+        tvSet.setOnClickListener(this);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                ProfessionLevelBean.DataBean bean = (ProfessionLevelBean.DataBean) adapterView.getAdapter().getItem(position);
+                if (bean != null) {
+                    professionlevelId = bean.getId();
+                }
+                adapter.updateTextColor(position);
+            }
+        });
     }
 
     /****
@@ -61,11 +86,34 @@ public class ChooseProfessionLevelActivity extends BaseActivity {
     @Override
     protected void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
-        handlerQueryAllProfessionLevel(json);
+        switch (action) {
+            case ConfigUtil.SAVE_PROFESSION_LEVEL_URL_ACTION:
+                handleUserProfessionLevelInfo(json);
+                break;
+            case ConfigUtil.QUERY_ALL_PROFESSION_LEVEL_URL_ACTION:
+                handlerQueryAllProfessionLevel(json);
+                break;
+        }
     }
 
+    /***
+     * 处理保存用户职称
+     * @param json
+     */
+    private void handleUserProfessionLevelInfo(String json) {
+        Log.d("Dong", "保存职称--》" +json);
+        int requestCode = getRequestCode(json);
+        if (requestCode == 1) {
+            toastMessage("保存成功");
+            finish();
+        }
+    }
+
+    /***
+     * 查询职称列表
+     * @param json
+     */
     private void handlerQueryAllProfessionLevel(String json) {
-        Log.d("Dong", "json --->" +json);
         ProfessionLevelBean levelBean = JSON.parseObject(json, ProfessionLevelBean.class);
         if (levelBean != null) {
             mList = levelBean.getData();
@@ -74,4 +122,29 @@ public class ChooseProfessionLevelActivity extends BaseActivity {
             }
         }
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_set:
+                //保存用户选择的职称信息
+                saveUserProfessionLevelInfo();
+                break;
+        }
+    }
+
+    /****
+     *
+     */
+    private void saveUserProfessionLevelInfo() {
+        startIOSDialogLoading(mContext, "保存中..");
+        if (professionlevelId == 0) {
+            toastMessage("请选择职称");
+            return;
+        }
+        Map<String, String> params = new HashMap<>();
+        params.put("professionlevelid", String.valueOf(professionlevelId));
+        httpPostRequest(ConfigUtil.SAVE_PROFESSION_LEVEL_URL, params, ConfigUtil.SAVE_PROFESSION_LEVEL_URL_ACTION);
+    }
+
 }

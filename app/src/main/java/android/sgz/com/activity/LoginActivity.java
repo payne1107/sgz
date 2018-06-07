@@ -11,6 +11,7 @@ import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.SPUtil;
 import android.sgz.com.utils.StringUtils;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -104,9 +105,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             toastMessage("用户名或者密码不能为空");
             return;
         }
+        startIOSDialogLoading(mContext,"登录中..");
         Map<String, String> params = new HashMap<>();
         params.put("username",userPhone);
         params.put("password",password);
+        params.put("type", "password");
         httpPostRequest(ConfigUtil.LOGIN_URL, params, ConfigUtil.LOGIN_URL_ACTION);
 
     }
@@ -123,6 +126,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      */
     private void handleLoginSucess(String json) {
         LoginSucessBean bean = JSON.parseObject(json, LoginSucessBean.class);
+        Log.d("Dong", "登录成功" + json);
         if (null != bean) {
             if (bean.isSuccess()) {
                 startActivity(new Intent(mContext, MainActivity.class));

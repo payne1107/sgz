@@ -4,6 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginTop="@dimen/margin_size_10"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/text_size_28"
+            android:background="@drawable/popu_tv_style"
+            android:gravity="center"
+            android:text="攻城狮"
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
 
 
 </com.zhy.autolayout.AutoLinearLayout>

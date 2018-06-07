@@ -38,5 +38,10 @@ public class ConfigUtil {
      */
     public static final String QUERY_ALL_PROFESSION_LEVEL_URL = MyApplication.REQUEST_URL + "personal/getAllProfessionLevel";
     public static final int QUERY_ALL_PROFESSION_LEVEL_URL_ACTION = 5;
+    /****
+     * 保存职称信息
+     */
+    public static final String SAVE_PROFESSION_LEVEL_URL = MyApplication.REQUEST_URL + "personal/saveProfessionLevel";
+    public static final int SAVE_PROFESSION_LEVEL_URL_ACTION = 6;
 
 }
