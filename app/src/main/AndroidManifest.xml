@@ -207,6 +207,10 @@
         <activity
             android:name=".activity.PersonalSalaryDetailsActivity"
             android:screenOrientation="portrait" />
+        <!--职称-->
+        <activity
+            android:name=".activity.ChooseProfessionLevelActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

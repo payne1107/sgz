@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.sgz.com.R;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.NetWorkUtils;
+import android.sgz.com.utils.SPUtil;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.MyDialog;
 import android.view.View;
 
@@ -29,6 +32,9 @@ public class SplashActivity extends BaseActivity {
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_splash);
         mContext = SplashActivity.this;
+        //每次进入app进行赋值
+        MyApplication.isLogin = SPUtil.getString(mContext, "token");
+        MyApplication.refreshToken = SPUtil.getString(mContext, "refresh_token");
     }
 
     @Override
@@ -58,7 +64,7 @@ public class SplashActivity extends BaseActivity {
                     showSetNetworkDialog();
                     return;
                 }
-                toMainIntent();
+                toIntent();
             }
         },2000);
     }
@@ -101,9 +107,15 @@ public class SplashActivity extends BaseActivity {
     /***
      * 跳转到主页面
      */
-    private void toMainIntent() {
-        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-        startActivity(intent);
+    private void toIntent() {
+        if (StringUtils.isEmpty(MyApplication.isLogin)) {
+            //说明没有登录过
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
         finish();
     }
 

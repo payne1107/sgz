@@ -31,7 +31,7 @@ import cn.jpush.android.api.JPushInterface;
  */
 
 public class MyApplication extends Application {
-    public static final String REQUEST_URL = "http://120.79.0.163:102/";
+    public static final String REQUEST_URL = "http://47.101.46.2:90/";
     public static final int IMAGE_ITEM_ADD = -1;
 
     //是否正在下载app
@@ -49,6 +49,8 @@ public class MyApplication extends Application {
 
     //是否已经登陆
     public static String isLogin = "";
+    //刷新token需要的值
+    public static String refreshToken = "";
     //用户的userId
     public static String userId = "";
 

@@ -2,8 +2,10 @@ package android.sgz.com.adapter;
 
 import android.content.Context;
 import android.sgz.com.R;
+import android.sgz.com.bean.ProfessionBean;
 import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +21,19 @@ import java.util.List;
 
 public class ChooseProfessionAdapter extends RecyclerView.Adapter{
     private Context mContext;
-    private List<String> mList;
+    private List<ProfessionBean.DataBean> mList;
     private LayoutInflater inflater;
 
-    public ChooseProfessionAdapter(Context context, List<String> list) {
+    public ChooseProfessionAdapter(Context context, List<ProfessionBean.DataBean> list) {
         this.mContext = context;
         this.mList = list;
         inflater = LayoutInflater.from(mContext);
+    }
+
+    public void setData(List<ProfessionBean.DataBean> data) {
+        mList.clear();
+        mList.addAll(data);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -37,7 +45,7 @@ public class ChooseProfessionAdapter extends RecyclerView.Adapter{
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         //绑定数据
         final ViewHolder viewHolder = (ViewHolder) holder;
-        viewHolder.tvProfessionName.setText(mList.get(position));
+        viewHolder.tvProfessionName.setText(mList.get(position).getProfession());
 
         View itemView =((AutoLinearLayout) holder.itemView).getChildAt(0);
         if (mOnItemClickListener != null) {

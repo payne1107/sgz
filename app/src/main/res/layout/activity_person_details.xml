@@ -85,7 +85,7 @@
                     android:id="@+id/tv_profession_name"
                     style="@style/PersonCenterTextRightStyle"
                     android:drawableRight="@mipmap/icon_arrow_right"
-                    android:text="建筑师" />
+                    android:text="请选择" />
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout

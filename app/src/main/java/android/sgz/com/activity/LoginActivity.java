@@ -4,12 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.LoginSucessBean;
+import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.SPUtil;
+import android.sgz.com.utils.StringUtils;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.alibaba.fastjson.JSON;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by WD on 2018/5/14.
@@ -71,7 +81,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 startActivity(new Intent(mContext, RegisterActivity.class));
                 break;
             case R.id.tv_login:
-                finish();
+                login();
                 break;
             case R.id.tv_remember_pwd:
                 //忘记密码
@@ -81,6 +91,49 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 //隐藏和显示密码
                 setVisiblePwd();
                 break;
+        }
+    }
+
+    /****
+     * 登录
+     */
+    private void login() {
+        String userPhone = etPhone.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
+        if (StringUtils.isEmpty(userPhone) || StringUtils.isEmpty(password)) {
+            toastMessage("用户名或者密码不能为空");
+            return;
+        }
+        Map<String, String> params = new HashMap<>();
+        params.put("username",userPhone);
+        params.put("password",password);
+        httpPostRequest(ConfigUtil.LOGIN_URL, params, ConfigUtil.LOGIN_URL_ACTION);
+
+    }
+
+    @Override
+    protected void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        handleLoginSucess(json);
+    }
+
+    /***
+     * 处理登录成功逻辑
+     * @param json
+     */
+    private void handleLoginSucess(String json) {
+        LoginSucessBean bean = JSON.parseObject(json, LoginSucessBean.class);
+        if (null != bean) {
+            if (bean.isSuccess()) {
+                startActivity(new Intent(mContext, MainActivity.class));
+                String token = bean.getResultMsg();///保存token
+                String refreshToken = bean.getRefreshMsg();//刷新token需要
+                SPUtil.putString(mContext, "token", token);
+                SPUtil.putString(mContext, "refresh_token", refreshToken);
+                MyApplication.isLogin = token;
+                MyApplication.refreshToken = refreshToken;
+                finish();
+            }
         }
     }
 

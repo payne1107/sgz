@@ -13,6 +13,7 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,6 +23,8 @@ import com.zhy.autolayout.AutoLinearLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by WD on 2018/5/6.
@@ -105,10 +108,12 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                 break;
             case R.id.layout_profession_title:
                 toastMessage("职称");
+                startActivity(new Intent(mContext, ChooseProfessionLevelActivity.class));
                 break;
             case R.id.activity_set:
                 //保存用戶信息
                 toastMessage("保存用戶信息");
+                saveUserPorfessionInfo();
                 break;
             case R.id.layout_birthday:
                 //选择生日
@@ -208,5 +213,39 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         Date d = new Date(millseconds);
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         tvBirthday.setText(sf.format(d));
+    }
+
+    /****
+     * 保存用户职业
+     */
+    private void saveUserPorfessionInfo() {
+        String professionName = tvProfessionName.getText().toString().trim();
+        if (!professionName.equals("请选择")) {
+            startIOSDialogLoading(mContext, "保存中..");
+            Map<String, String> params = new HashMap<>();
+            params.put("professionid", professionName);
+            httpPostRequest(ConfigUtil.SAVE_USER_PROFESSION_URL, params, ConfigUtil.SAVE_USER_PROFESSION_URL_ACTION);
+        } else {
+            toastMessage("请选择职业");
+        }
+    }
+
+    @Override
+    protected void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        switch (action) {
+            case ConfigUtil.SAVE_USER_PROFESSION_URL_ACTION:
+                handleSaveUserProfessionInfo(json);
+                break;
+        }
+    }
+
+    /***
+     * 保存用户职业
+     * @param json
+     */
+    private void handleSaveUserProfessionInfo(String json) {
+        Log.d("Dong", "json ====>  " + json);
+
     }
 }

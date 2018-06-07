@@ -6,16 +6,22 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ChooseProfessionAdapter;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.ProfessionBean;
+import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.sgz.com.widget.SpacesItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.alibaba.fastjson.JSON;
 
-import static android.sgz.com.activity.PersonDetailsActivity.CHOOSE_PROFESSION_CODE;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by WD on 2018/5/9.
@@ -25,7 +31,7 @@ import static android.sgz.com.activity.PersonDetailsActivity.CHOOSE_PROFESSION_C
 public class ChooseProfessionActivity extends BaseActivity{
 
     private RecyclerView recyclerView;
-    private List<String> mList = new ArrayList<>();
+    private List<ProfessionBean.DataBean> mList = new ArrayList<>();
     private Context mContext;
     private ChooseProfessionAdapter adapter;
 
@@ -44,21 +50,14 @@ public class ChooseProfessionActivity extends BaseActivity{
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("职业", true, true);
-        mList.add("工程师");
-        mList.add("水电工");
-        mList.add("机械工");
-        mList.add("瓦工");
-        mList.add("油漆工");
-        mList.add("木工");
-        mList.add("架手工");
-        mList.add("塔吊工");
+        getProfessionList();
+
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new SpacesItemDecoration(1));
         adapter = new ChooseProfessionAdapter(mContext,mList);
         recyclerView.setAdapter(adapter);
-
         setListener();
     }
 
@@ -66,12 +65,45 @@ public class ChooseProfessionActivity extends BaseActivity{
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                String professionName = mList.get(position);
+                String professionName = mList.get(position).getProfession();
                 Intent data = new Intent(mContext,PersonDetailsActivity.class);
                 data.putExtra(PersonDetailsActivity.CHOOSE_PROFESSION_KEY, professionName);
                 setResult(RESULT_OK, data);
                 finish();
             }
         });
+    }
+
+
+    /****
+     * 获取所有职业列表
+     */
+    private void getProfessionList() {
+        startIOSDialogLoading(mContext,"加载中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("random", "12");
+        httpPostRequest(ConfigUtil.QUERY_ALL_PROFESSION_URL, params, ConfigUtil.QUERY_ALL_PROFESSION_URL_ACTION);
+    }
+
+    @Override
+    protected void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        handleQueryAllProfession(json);
+    }
+
+    /****
+     * 获取所有职业
+     * @param json
+     */
+    private void handleQueryAllProfession(String json) {
+        if (!StringUtils.isEmpty(json)) {
+            ProfessionBean professionBean = JSON.parseObject(json, ProfessionBean.class);
+            if (professionBean != null) {
+                List<ProfessionBean.DataBean> data = professionBean.getData();
+                if (data != null) {
+                    adapter.setData(data);
+                }
+            }
+        }
     }
 }
