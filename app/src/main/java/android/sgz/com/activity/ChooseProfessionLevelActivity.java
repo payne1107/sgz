@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -134,17 +133,16 @@ public class ChooseProfessionLevelActivity extends BaseActivity implements View.
     }
 
     /****
-     *
+     * 保存用户职业
      */
     private void saveUserProfessionLevelInfo() {
-        startIOSDialogLoading(mContext, "保存中..");
         if (professionlevelId == 0) {
             toastMessage("请选择职称");
             return;
         }
+        startIOSDialogLoading(mContext, "保存中..");
         Map<String, String> params = new HashMap<>();
         params.put("professionlevelid", String.valueOf(professionlevelId));
         httpPostRequest(ConfigUtil.SAVE_PROFESSION_LEVEL_URL, params, ConfigUtil.SAVE_PROFESSION_LEVEL_URL_ACTION);
     }
-
 }

@@ -6,6 +6,105 @@
 
     <include layout="@layout/sys_title" />
 
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
 
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_3"
+            android:gravity="center"
+            android:text="日工资："
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
+        <EditText
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_24"
+            android:background="@null"
+            android:textColorHint="@color/text_color_9"
+            android:textColor="@color/text_color_3"
+            android:hint="请输入.."
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_3"
+            android:gravity="center"
+            android:text="月工资："
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_24"
+            android:background="@null"
+            android:textColorHint="@color/text_color_9"
+            android:textColor="@color/text_color_3"
+            android:hint="请输入.."
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_3"
+            android:gravity="center"
+            android:text="加班工资："
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_24"
+            android:background="@null"
+            android:textColorHint="@color/text_color_9"
+            android:textColor="@color/text_color_3"
+            android:hint="请输入.."
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_confirm"
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:background="@drawable/confirm_button_style"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_size_70"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        tools:showIn="@layout/activity_update_nick_name">
+
+        <TextView
+            android:text="保存"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
 </com.zhy.autolayout.AutoLinearLayout>
