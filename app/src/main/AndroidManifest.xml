@@ -215,6 +215,10 @@
         <activity
             android:name=".activity.SetUserSalaryActivity"
             android:screenOrientation="portrait" />
+        <!--常驻城市-->
+        <activity
+            android:name=".activity.ChooseCityActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

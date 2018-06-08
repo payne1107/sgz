@@ -41,6 +41,7 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
     private AutoLinearLayout layoutPersonalizedSignature;
     private AutoLinearLayout layoutSetPhone;
     private AutoLinearLayout layoutSalary;
+    private AutoLinearLayout layoutChooseCity;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -71,6 +72,7 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         layoutPersonalizedSignature = (AutoLinearLayout) findViewById(R.id.layout_personalized_signature);
         layoutSetPhone = (AutoLinearLayout) findViewById(R.id.layout_set_phone);
         layoutSalary = findViewById(R.id.layout_salary);
+        layoutChooseCity = findViewById(R.id.layout_choose_city);
 
         setListener();
         initViewDateDialog(this,System.currentTimeMillis() - ConfigUtil.TenYears);
@@ -86,6 +88,7 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         layoutPersonalizedSignature.setOnClickListener(this);
         layoutSetPhone.setOnClickListener(this);
         layoutSalary.setOnClickListener(this);
+        layoutChooseCity.setOnClickListener(this);
     }
 
     @Override
@@ -125,6 +128,9 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
             case R.id.layout_salary:
                 //设置工资
                 startActivity(new Intent(mContext, SetUserSalaryActivity.class));
+                break;
+            case R.id.layout_choose_city:
+                startActivity(new Intent(mContext, ChooseCityActivity.class));
                 break;
         }
     }

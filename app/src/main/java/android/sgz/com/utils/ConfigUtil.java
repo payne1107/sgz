@@ -43,5 +43,14 @@ public class ConfigUtil {
      */
     public static final String SAVE_PROFESSION_LEVEL_URL = MyApplication.REQUEST_URL + "personal/saveProfessionLevel";
     public static final int SAVE_PROFESSION_LEVEL_URL_ACTION = 6;
-
+    /***
+     * 保存工资
+     */
+    public static final String SAVE_SALARY_URL = MyApplication.REQUEST_URL + "personal/saveSalary";
+    public static final int SAVE_SALARY_URL_ACTION = 7;
+    /***
+     * 保存城市
+     */
+    public static final String SAVE_CITY_URL = MyApplication.REQUEST_URL + "personal/saveCity";
+    public static final int SAVE_CITY_URL_ACTION = 8;
 }
