@@ -15,6 +15,7 @@
         android:layout_height="160dp">
 
         <EditText
+            android:id="@+id/et_personalized_signature"
             android:paddingTop="11dp"
             android:gravity="top"
             android:textSize="@dimen/text_size_26"
@@ -46,7 +47,7 @@
         android:layout_height="40dp">
 
         <TextView
-            android:text="确定"
+            android:text="保存"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_30"
             android:layout_width="wrap_content"

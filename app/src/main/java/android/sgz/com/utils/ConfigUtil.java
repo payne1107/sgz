@@ -10,7 +10,7 @@ import android.sgz.com.application.MyApplication;
 
 public class ConfigUtil {
     public static long TenYears8 = 10L * 365 * 1000 * 60 * 60 * 24L * 80;
-    public static long TenYears = 10L * 365 * 1000 * 60 * 60 * 24L * 3 ;
+    public static long TenYears = 10L * 365 * 1000 * 60 * 60 * 24L * 3;
     public static String sessionId;
 
     /****
@@ -53,4 +53,31 @@ public class ConfigUtil {
      */
     public static final String SAVE_CITY_URL = MyApplication.REQUEST_URL + "personal/saveCity";
     public static final int SAVE_CITY_URL_ACTION = 8;
+    /****
+     * 保存生日
+     */
+    public static final String SAVE_BIRTHDAY_URL = MyApplication.REQUEST_URL + "personal/saveBirthday";
+    public static final int SAVE_BIRTHDAY_URL_ACTION = 9;
+    /****
+     * 保存个性签名
+     */
+    public static final String SAVE_PERSONAILZED_SIGNATURE_URL = MyApplication.REQUEST_URL + "personal/saveSign";
+    public static final int SAVE_PERSONAILZED_SIGNATURE_URL_ACTION = 10;
+    /***
+     * VIP会员页面基本资料获取
+     */
+    public static final String QUERY_VIP_BASIC_INFO_URL = MyApplication.REQUEST_URL + "personal/getBasicInfo";
+    public static final int QUERY_VIP_BASIC_INFO_URL_ACTION = 11;
+    /***
+     * VIP会员套餐列表获取
+     */
+    public static final String QUERY_VIP_LIST_URL = MyApplication.REQUEST_URL + "personal/getVips";
+    public static final int QUERY_VIP_LIST_URL_ACTION = 12;
+    /****
+     * 获取所有城市接口
+     */
+    public static final String QUERY_ALL_CITY_URL = MyApplication.REQUEST_URL + "personal/getAllCity";
+    public static final int QUERY_ALL_CITY_URL_ACTION = 13;
+
+
 }

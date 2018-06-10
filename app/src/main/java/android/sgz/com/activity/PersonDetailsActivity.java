@@ -11,16 +11,21 @@ import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.jzxiang.pickerview.TimePickerDialog;
 import com.jzxiang.pickerview.listener.OnDateSetListener;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by WD on 2018/5/6.
@@ -111,7 +116,7 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                 break;
             case R.id.activity_set:
                 //保存用戶信息
-
+                saveBirthdayData();
                 break;
             case R.id.layout_birthday:
                 //选择生日
@@ -130,6 +135,7 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                 startActivity(new Intent(mContext, SetUserSalaryActivity.class));
                 break;
             case R.id.layout_choose_city:
+                //TODO 未完成
                 startActivity(new Intent(mContext, ChooseCityActivity.class));
                 break;
         }
@@ -213,12 +219,39 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         tvBirthday.setText(sf.format(d));
     }
 
+    /***
+     * 保存生日日期
+     */
+    private void saveBirthdayData() {
+        String birthday = tvBirthday.getText().toString().trim();
+        if (birthday.equals("请选择")) {
+            toastMessage("请选择出生日期");
+            return;
+        }
+        Map<String, String> params = new HashMap<>();
+        params.put("birthday", birthday);
+        httpPostRequest(ConfigUtil.SAVE_BIRTHDAY_URL, params, ConfigUtil.SAVE_BIRTHDAY_URL_ACTION);
+    }
 
     @Override
     protected void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
         switch (action) {
+            case ConfigUtil.SAVE_BIRTHDAY_URL_ACTION:
+                Log.d("Dong", "出生日期---》" +json);
+                handleSaveBirthday(json);
+                break;
+        }
+    }
 
+    /****
+     * 保存生日日期
+     * @param json
+     */
+    private void handleSaveBirthday(String json) {
+        int requestCode = getRequestCode(json);
+        if (requestCode == 1) {
+            toastMessage("保存成功");
         }
     }
 }
