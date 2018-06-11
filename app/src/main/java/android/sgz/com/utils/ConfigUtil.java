@@ -78,6 +78,15 @@ public class ConfigUtil {
      */
     public static final String QUERY_ALL_CITY_URL = MyApplication.REQUEST_URL + "personal/getAllCity";
     public static final int QUERY_ALL_CITY_URL_ACTION = 13;
-
+    /***
+     * 获取总共的工资，津贴，加班费
+     */
+    public static final String QUERY_PROJECT_INCOM_URL = MyApplication.REQUEST_URL + "salary/getProjectIncome";
+    public static final int QUERY_PROJECT_INCOME_URL_ACTION = 14;
+    /***
+     * 我的工资列表
+     */
+    public static final String QUERY_PROJECT_SALARY_LIST_URL = MyApplication.REQUEST_URL + "salary/getProjectSalayList";
+    public static final int QUERY_PROJECT_SALARY_LIST_URL_ACTION = 15;
 
 }

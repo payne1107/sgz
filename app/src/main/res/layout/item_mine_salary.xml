@@ -53,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_work_days"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
                 android:text="125天"
@@ -74,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_addtime"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
                 android:text="100小时"
