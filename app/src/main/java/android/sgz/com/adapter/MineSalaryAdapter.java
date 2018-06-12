@@ -60,15 +60,21 @@ public class MineSalaryAdapter extends BaseAdapter{
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_mine_salary, null);
             convertView.setTag(holder);
             holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_title);
-            holder.tvAddTime = convertView.findViewById(R.id.tv_addtime);
-            holder.tvWorkDays = convertView.findViewById(R.id.tv_work_days);
+            holder.tvAddTime = (TextView)convertView.findViewById(R.id.tv_addtime);
+            holder.tvWorkDays = (TextView)convertView.findViewById(R.id.tv_work_days);
             AutoUtils.autoSize(convertView);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tvTitle.setText(mList.get(position).getName());
-        holder.tvAddTime.setText(mList.get(position).getAddtime());
-        holder.tvWorkDays.setText(mList.get(position).getWorkdays());
+        ProjectSalaryListBean.DataBean.ListBean bean = mList.get(position);
+        if (bean != null) {
+            String name = bean.getName();
+            int addTime = bean.getAddtime();
+            int workDays = bean.getWorkdays();
+            holder.tvTitle.setText("" + name);
+            holder.tvAddTime.setText("" + addTime+"小时");
+            holder.tvWorkDays.setText("" + workDays +"天");
+        }
         return convertView;
     }
 

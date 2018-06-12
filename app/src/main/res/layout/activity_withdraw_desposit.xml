@@ -7,37 +7,38 @@
 
     <include layout="@layout/sys_title" />
     <com.zhy.autolayout.AutoLinearLayout
-        android:background="@color/color_62d"
+        android:orientation="vertical"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="254px">
-
+        android:layout_height="wrap_content">
         <com.zhy.autolayout.AutoLinearLayout
-            android:layout_marginLeft="@dimen/margin_size_15"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="80px">
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/text_color_6"
+                android:text="提现至"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:gravity="center_vertical"
+                android:id="@+id/tv_bind_card"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:drawablePadding="5dp"
+                android:gravity="right"
+                android:drawableRight="@mipmap/icon_arrow_right"
+                android:text="@string/str_bind_card"
+                android:textSize="@dimen/text_size_30"
+                android:textColor="@color/text_color_3"
+                android:layout_marginLeft="@dimen/margin_size_20"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_size_32"
-                android:textColor="@color/color_e"
-                android:text="当前余额"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp" />
-
-            <TextView
-                android:inputType="number"
-                android:id="@+id/tv_account"
-                android:layout_weight="1"
-                android:textSize="29sp"
-                android:textColor="@color/color_e"
-                android:text="0.00"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
         </com.zhy.autolayout.AutoLinearLayout>
-
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoLinearLayout
         android:background="@color/white"
@@ -63,6 +64,26 @@
             android:layout_width="match_parent"
             android:layout_height="110px" />
     </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:text="可提现余额"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="@dimen/text_size_22"
+                android:text="￥0.0"
+                android:textColor="@color/text_color_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
         android:id="@+id/layout_confirm"
@@ -80,11 +101,12 @@
             android:layout_height="wrap_content" />
     </com.zhy.autolayout.AutoLinearLayout>
     <TextView
-        android:layout_marginTop="@dimen/margin_size_5"
-        android:gravity="center"
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:layout_marginTop="@dimen/margin_size_15"
         android:textColor="@color/text_color_9"
         android:textSize="@dimen/text_size_28"
-        android:text="预计到账时间：48小时内"
+        android:text="说明：需要7个工作日时间完成提现，在此会有专人与你电话沟通并确认"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

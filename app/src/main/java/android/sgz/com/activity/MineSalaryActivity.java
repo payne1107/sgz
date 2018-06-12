@@ -86,7 +86,7 @@ public class MineSalaryActivity extends BaseActivity implements View.OnClickList
                     startActivity(new Intent(mContext, SalaryDetailsActivity.class));
                 } else {
                     //个人工资详情页面
-                    startActivity(new Intent(mContext, PersonalSalaryDetailsActivity.class));
+                    startActivity(new Intent(mContext, PersonalSalaryDetailsActivity.class).putExtra("id", mList.get(position).getId()));
                 }
             }
         });

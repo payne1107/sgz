@@ -8,11 +8,12 @@ import java.util.List;
 
 public class ProjectSalaryListBean {
 
+
     /**
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : {"curPage":1,"coutpage":1,"pageSize":15,"list":[{"id":1,"userid":null,"name":"绿怡居改造工程","categoryid":null,"regulatoryagency":null,"headman":null,"mobile":null,"address":null,"lng":null,"lat":null,"createtime":null,"starttime":null,"startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":840,"addsalary":125,"allowance":90,"addtime":5,"workdays":3},{"id":2,"userid":null,"name":"绿怡居改造二期","categoryid":null,"regulatoryagency":null,"headman":null,"mobile":null,"address":null,"lng":null,"lat":null,"createtime":null,"starttime":null,"startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":300,"addsalary":null,"allowance":35,"addtime":null,"workdays":1}]}
+     * data : {"curPage":1,"coutpage":1,"pageSize":15,"list":[{"id":1,"userid":1,"name":"绿怡居改造工程","categoryid":null,"regulatoryagency":null,"headman":null,"mobile":null,"address":null,"clockrange":null,"lng":null,"lat":null,"createtime":null,"starttime":null,"startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":840,"addsalary":200,"allowance":90,"addtime":8,"workdays":3,"workfriends":null,"projectcount":null,"income":null}]}
      * exception : false
      */
 
@@ -67,7 +68,7 @@ public class ProjectSalaryListBean {
          * curPage : 1
          * coutpage : 1
          * pageSize : 15
-         * list : [{"id":1,"userid":null,"name":"绿怡居改造工程","categoryid":null,"regulatoryagency":null,"headman":null,"mobile":null,"address":null,"lng":null,"lat":null,"createtime":null,"starttime":null,"startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":840,"addsalary":125,"allowance":90,"addtime":5,"workdays":3},{"id":2,"userid":null,"name":"绿怡居改造二期","categoryid":null,"regulatoryagency":null,"headman":null,"mobile":null,"address":null,"lng":null,"lat":null,"createtime":null,"starttime":null,"startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":300,"addsalary":null,"allowance":35,"addtime":null,"workdays":1}]
+         * list : [{"id":1,"userid":1,"name":"绿怡居改造工程","categoryid":null,"regulatoryagency":null,"headman":null,"mobile":null,"address":null,"clockrange":null,"lng":null,"lat":null,"createtime":null,"starttime":null,"startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":840,"addsalary":200,"allowance":90,"addtime":8,"workdays":3,"workfriends":null,"projectcount":null,"income":null}]
          */
 
         private int curPage;
@@ -110,13 +111,14 @@ public class ProjectSalaryListBean {
         public static class ListBean {
             /**
              * id : 1
-             * userid : null
+             * userid : 1
              * name : 绿怡居改造工程
              * categoryid : null
              * regulatoryagency : null
              * headman : null
              * mobile : null
              * address : null
+             * clockrange : null
              * lng : null
              * lat : null
              * createtime : null
@@ -128,37 +130,44 @@ public class ProjectSalaryListBean {
              * merchantid : null
              * categoryname : null
              * merchantname : null
-             * salary : 840
-             * addsalary : 125
-             * allowance : 90
-             * addtime : 5
+             * salary : 840.0
+             * addsalary : 200.0
+             * allowance : 90.0
+             * addtime : 8
              * workdays : 3
+             * workfriends : null
+             * projectcount : null
+             * income : null
              */
 
             private int id;
-            private Object userid;
+            private int userid;
             private String name;
-            private Object categoryid;
-            private Object regulatoryagency;
-            private Object headman;
-            private Object mobile;
-            private Object address;
-            private Object lng;
-            private Object lat;
-            private Object createtime;
-            private Object starttime;
-            private Object startworktime;
-            private Object endworktime;
-            private Object status;
-            private Object worknum;
-            private Object merchantid;
-            private Object categoryname;
-            private Object merchantname;
-            private int salary;
-            private int addsalary;
-            private int allowance;
+            private String categoryid;
+            private String regulatoryagency;
+            private String headman;
+            private String mobile;
+            private String address;
+            private String clockrange;
+            private String lng;
+            private String lat;
+            private String createtime;
+            private String starttime;
+            private String startworktime;
+            private String endworktime;
+            private String status;
+            private String worknum;
+            private String merchantid;
+            private String categoryname;
+            private String merchantname;
+            private double salary;
+            private String addsalary;
+            private double allowance;
             private int addtime;
             private int workdays;
+            private String workfriends;
+            private String projectcount;
+            private String income;
 
             public int getId() {
                 return id;
@@ -168,11 +177,11 @@ public class ProjectSalaryListBean {
                 this.id = id;
             }
 
-            public Object getUserid() {
+            public int getUserid() {
                 return userid;
             }
 
-            public void setUserid(Object userid) {
+            public void setUserid(int userid) {
                 this.userid = userid;
             }
 
@@ -184,155 +193,163 @@ public class ProjectSalaryListBean {
                 this.name = name;
             }
 
-            public Object getCategoryid() {
+            public String getCategoryid() {
                 return categoryid;
             }
 
-            public void setCategoryid(Object categoryid) {
+            public void setCategoryid(String categoryid) {
                 this.categoryid = categoryid;
             }
 
-            public Object getRegulatoryagency() {
+            public String getRegulatoryagency() {
                 return regulatoryagency;
             }
 
-            public void setRegulatoryagency(Object regulatoryagency) {
+            public void setRegulatoryagency(String regulatoryagency) {
                 this.regulatoryagency = regulatoryagency;
             }
 
-            public Object getHeadman() {
+            public String getHeadman() {
                 return headman;
             }
 
-            public void setHeadman(Object headman) {
+            public void setHeadman(String headman) {
                 this.headman = headman;
             }
 
-            public Object getMobile() {
+            public String getMobile() {
                 return mobile;
             }
 
-            public void setMobile(Object mobile) {
+            public void setMobile(String mobile) {
                 this.mobile = mobile;
             }
 
-            public Object getAddress() {
+            public String getAddress() {
                 return address;
             }
 
-            public void setAddress(Object address) {
+            public void setAddress(String address) {
                 this.address = address;
             }
 
-            public Object getLng() {
+            public String getClockrange() {
+                return clockrange;
+            }
+
+            public void setClockrange(String clockrange) {
+                this.clockrange = clockrange;
+            }
+
+            public String getLng() {
                 return lng;
             }
 
-            public void setLng(Object lng) {
+            public void setLng(String lng) {
                 this.lng = lng;
             }
 
-            public Object getLat() {
+            public String getLat() {
                 return lat;
             }
 
-            public void setLat(Object lat) {
+            public void setLat(String lat) {
                 this.lat = lat;
             }
 
-            public Object getCreatetime() {
+            public String getCreatetime() {
                 return createtime;
             }
 
-            public void setCreatetime(Object createtime) {
+            public void setCreatetime(String createtime) {
                 this.createtime = createtime;
             }
 
-            public Object getStarttime() {
+            public String getStarttime() {
                 return starttime;
             }
 
-            public void setStarttime(Object starttime) {
+            public void setStarttime(String starttime) {
                 this.starttime = starttime;
             }
 
-            public Object getStartworktime() {
+            public String getStartworktime() {
                 return startworktime;
             }
 
-            public void setStartworktime(Object startworktime) {
+            public void setStartworktime(String startworktime) {
                 this.startworktime = startworktime;
             }
 
-            public Object getEndworktime() {
+            public String getEndworktime() {
                 return endworktime;
             }
 
-            public void setEndworktime(Object endworktime) {
+            public void setEndworktime(String endworktime) {
                 this.endworktime = endworktime;
             }
 
-            public Object getStatus() {
+            public String getStatus() {
                 return status;
             }
 
-            public void setStatus(Object status) {
+            public void setStatus(String status) {
                 this.status = status;
             }
 
-            public Object getWorknum() {
+            public String getWorknum() {
                 return worknum;
             }
 
-            public void setWorknum(Object worknum) {
+            public void setWorknum(String worknum) {
                 this.worknum = worknum;
             }
 
-            public Object getMerchantid() {
+            public String getMerchantid() {
                 return merchantid;
             }
 
-            public void setMerchantid(Object merchantid) {
+            public void setMerchantid(String merchantid) {
                 this.merchantid = merchantid;
             }
 
-            public Object getCategoryname() {
+            public String getCategoryname() {
                 return categoryname;
             }
 
-            public void setCategoryname(Object categoryname) {
+            public void setCategoryname(String categoryname) {
                 this.categoryname = categoryname;
             }
 
-            public Object getMerchantname() {
+            public String getMerchantname() {
                 return merchantname;
             }
 
-            public void setMerchantname(Object merchantname) {
+            public void setMerchantname(String merchantname) {
                 this.merchantname = merchantname;
             }
 
-            public int getSalary() {
+            public double getSalary() {
                 return salary;
             }
 
-            public void setSalary(int salary) {
+            public void setSalary(double salary) {
                 this.salary = salary;
             }
 
-            public int getAddsalary() {
+            public String getAddsalary() {
                 return addsalary;
             }
 
-            public void setAddsalary(int addsalary) {
+            public void setAddsalary(String addsalary) {
                 this.addsalary = addsalary;
             }
 
-            public int getAllowance() {
+            public double getAllowance() {
                 return allowance;
             }
 
-            public void setAllowance(int allowance) {
+            public void setAllowance(double allowance) {
                 this.allowance = allowance;
             }
 
@@ -350,6 +367,30 @@ public class ProjectSalaryListBean {
 
             public void setWorkdays(int workdays) {
                 this.workdays = workdays;
+            }
+
+            public String getWorkfriends() {
+                return workfriends;
+            }
+
+            public void setWorkfriends(String workfriends) {
+                this.workfriends = workfriends;
+            }
+
+            public String getProjectcount() {
+                return projectcount;
+            }
+
+            public void setProjectcount(String projectcount) {
+                this.projectcount = projectcount;
+            }
+
+            public String getIncome() {
+                return income;
+            }
+
+            public void setIncome(String income) {
+                this.income = income;
             }
         }
     }

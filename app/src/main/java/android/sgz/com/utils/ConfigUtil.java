@@ -88,5 +88,15 @@ public class ConfigUtil {
      */
     public static final String QUERY_PROJECT_SALARY_LIST_URL = MyApplication.REQUEST_URL + "salary/getProjectSalayList";
     public static final int QUERY_PROJECT_SALARY_LIST_URL_ACTION = 15;
+    /****
+     * 我的具体某个工单的工资
+     */
+    public static final String QUERY_PROJECT_INCOME_BY_PROJECT_ID_URL = MyApplication.REQUEST_URL + "salary/getMyProjectIncomebyProjectid";
+    public static final int QUERY_PROJECT_INCOME_BY_PROJECT_ID_URL_ACTION = 16;
+    /****
+     * 查询银行信息列表
+     */
+    public static final String QUERY_BANK_INFO_LIST_URL = MyApplication.REQUEST_URL + "salary/getAllBankCode";
+    public static final int QUERY_BANK_INFO_LIST_URL_ACTION = 17;
 
 }

@@ -105,6 +105,7 @@
                             android:textSize="@dimen/text_size_26" />
 
                         <TextView
+                            android:id="@+id/tv_salary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="10000"
@@ -134,6 +135,7 @@
                             android:textSize="@dimen/text_size_26" />
 
                         <TextView
+                            android:id="@+id/tv_work_days"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20"
@@ -157,6 +159,7 @@
                             android:textSize="@dimen/text_size_26" />
 
                         <TextView
+                            android:id="@+id/tv_add_salary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="10000"
@@ -187,6 +190,7 @@
                             android:textSize="@dimen/text_size_26" />
 
                         <TextView
+                            android:id="@+id/tv_addtime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20"
@@ -210,6 +214,7 @@
                             android:textSize="@dimen/text_size_26" />
 
                         <TextView
+                            android:id="@+id/tv_allowance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="500"
@@ -236,6 +241,7 @@
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/tv_salary_is_have"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -245,6 +251,7 @@
                 </com.zhy.autolayout.AutoLinearLayout>
 
                 <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/layout_withdraw"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/margin_size_15"

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_height="80px">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:text="银行卡号:"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+
+        <EditText
+            android:gravity="center_vertical"
+            android:textColorHint="@color/text_color_6"
+            android:hint="请输入银行卡号"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_height="80px">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:text="身份证号:"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+
+        <EditText
+            android:gravity="center_vertical"
+            android:textColorHint="@color/text_color_6"
+            android:hint="请输入身份证号"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_height="80px">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:text="银行名称:"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+
+        <TextView
+            android:id="@+id/tv_choose_bank_info"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:drawableRight="@mipmap/icon_arrow_right"
+            android:gravity="center_vertical"
+            android:textColorHint="@color/text_color_6"
+            android:hint="请选择"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_height="80px">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:text="支行名称:"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+
+        <EditText
+            android:gravity="center_vertical"
+            android:textColorHint="@color/text_color_6"
+            android:hint="请输入支行名称"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:gravity="center"
+        android:layout_marginTop="74px"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:background="@color/color_62d"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_36"
+            android:text="保存"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:gravity="center"
+            android:background="@color/color_62d"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_36"
+            android:text="取消"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

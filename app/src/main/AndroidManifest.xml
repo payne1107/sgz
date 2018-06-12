@@ -219,6 +219,15 @@
         <activity
             android:name=".activity.ChooseCityActivity"
             android:screenOrientation="portrait" />
+        <!--绑定银行卡-->
+        <activity
+            android:name=".activity.BindBankCardActivity"
+            android:screenOrientation="portrait" />
+        <!--银联信息列表-->
+        <activity
+            android:name=".activity.BankInfoActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--适配用到的配置-->
         <meta-data
