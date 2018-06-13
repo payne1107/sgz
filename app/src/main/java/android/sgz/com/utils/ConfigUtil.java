@@ -98,5 +98,15 @@ public class ConfigUtil {
      */
     public static final String QUERY_BANK_INFO_LIST_URL = MyApplication.REQUEST_URL + "salary/getAllBankCode";
     public static final int QUERY_BANK_INFO_LIST_URL_ACTION = 17;
+    /****
+     * 保存银行卡信息
+     */
+    public static final String SAVE_BANK_INFO_URL = MyApplication.REQUEST_URL + "/salary/saveBankCard";
+    public static final int SAVE_BANK_INFO_URL_ACTION = 18;
+    /****
+     * 获取已经绑定的银行卡信息
+     */
+    public static final String QUERY_BIND_BANK_CARD_INFO_URL = MyApplication.REQUEST_URL + "salary/getAllBankCard";
+    public static final int QUERY_BIND_BANK_CARD_INFO_URL_ACTION = 19;
 
 }

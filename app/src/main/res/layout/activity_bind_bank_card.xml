@@ -16,12 +16,42 @@
             android:gravity="center_vertical"
             android:layout_marginLeft="@dimen/margin_size_15"
             android:textColor="@color/text_color_6"
+            android:text="姓名:"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:gravity="center_vertical"
+            android:textColorHint="@color/text_color_6"
+            android:hint="请输入姓名"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_height="80px">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textColor="@color/text_color_6"
             android:text="银行卡号:"
             android:textSize="@dimen/text_size_28"
             android:layout_width="wrap_content"
             android:layout_height="80px" />
 
         <EditText
+            android:id="@+id/et_bank_card"
             android:gravity="center_vertical"
             android:textColorHint="@color/text_color_6"
             android:hint="请输入银行卡号"
@@ -51,6 +81,7 @@
             android:layout_height="80px" />
 
         <EditText
+            android:id="@+id/et_id_card"
             android:gravity="center_vertical"
             android:textColorHint="@color/text_color_6"
             android:hint="请输入身份证号"
@@ -112,6 +143,7 @@
             android:layout_height="80px" />
 
         <EditText
+            android:id="@+id/et_sub_band_name"
             android:gravity="center_vertical"
             android:textColorHint="@color/text_color_6"
             android:hint="请输入支行名称"

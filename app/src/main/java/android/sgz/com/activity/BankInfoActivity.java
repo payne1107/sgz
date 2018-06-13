@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.BankInfoAdapter;
@@ -8,6 +9,8 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.BankListInfoBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
@@ -37,7 +40,21 @@ public class BankInfoActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                BankListInfoBean.DataBean bean = (BankListInfoBean.DataBean) adapterView.getAdapter().getItem(i);
+                if (bean != null) {
+                    String bankCode = bean.getCode();
+                    String bankName = bean.getName();
+                    Intent intent = new Intent();
+                    intent.putExtra("bankcode", bankCode);
+                    intent.putExtra("bankname", bankName);
+                    setResult(BindBankCardActivity.REQUEST_BANK_INFO_CODE,intent);
+                    finish();
+                }
+            }
+        });
     }
 
     @Override
@@ -48,6 +65,7 @@ public class BankInfoActivity extends BaseActivity {
         queryBankInfo();
         adapter = new BankInfoAdapter(mContext, mList);
         listView.setAdapter(adapter);
+
     }
 
     /***
