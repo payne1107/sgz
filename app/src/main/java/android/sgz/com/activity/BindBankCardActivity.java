@@ -110,8 +110,8 @@ public class BindBankCardActivity extends BaseActivity implements View.OnClickLi
             toastMessage("姓名不能为空");
             return;
         }
-        if (StringUtils.isEmpty(bankcard)) {
-            toastMessage("银行卡号不能为空");
+        if (StringUtils.isEmpty(bankcard) || bankcard.length() < 9) {
+            toastMessage("银行卡号输入不正确");
             return;
         }
         if (StringUtils.isEmpty(idCard)) {

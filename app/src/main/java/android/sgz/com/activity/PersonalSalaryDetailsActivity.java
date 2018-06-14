@@ -42,6 +42,9 @@ public class PersonalSalaryDetailsActivity extends BaseActivity implements View.
     private TextView tvSalary;
     private TextView tvTitle;
     private TextView tvIsHaveSalary;
+    private double salary;
+    private double withdrawalBalance;
+    private int projectId;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -116,7 +119,7 @@ public class PersonalSalaryDetailsActivity extends BaseActivity implements View.
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_withdraw:
-                startActivity(new Intent(mContext, WithDrawDespositActivity.class));
+                startActivity(new Intent(mContext, WithDrawDespositActivity.class).putExtra("withdrawalBalance", withdrawalBalance).putExtra("projectId", projectId));
                 break;
         }
     }
@@ -148,11 +151,14 @@ public class PersonalSalaryDetailsActivity extends BaseActivity implements View.
             ProjectIncomeDetailBean.DataBean data = bean.getData();
             if (data != null) {
                 String name = data.getName();
-                double salary = data.getSalary();
+                salary = data.getSalary();
                 String addSalary = data.getAddsalary();
                 double allowance = data.getAllowance();
                 int workDays = data.getWorkdays();
                 String addTime = data.getAddtime();
+                double paymentSalary = data.getPaymentsalary(); //包工头打款金额
+                double withDrawSalary = data.getWithdrawsalary();//提现了多少钱
+                projectId = data.getId();                //项目id
 
                 if (StringUtils.isEmpty(addSalary)) {
                     addSalary = "0";
@@ -167,7 +173,13 @@ public class PersonalSalaryDetailsActivity extends BaseActivity implements View.
                 tvAddTime.setText("" + addTime + "小时");
                 tvTitle.setText("" + name);
 
-                tvIsHaveSalary.setText("工资有没有发");
+                if (paymentSalary > 0) {
+                    tvIsHaveSalary.setText("工资已发放");
+                } else {
+                    tvIsHaveSalary.setText("工资未发放");
+                }
+                //算出剩下可提现余额
+                withdrawalBalance = paymentSalary - withDrawSalary;
             }
         }
     }

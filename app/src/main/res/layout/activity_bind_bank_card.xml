@@ -51,6 +51,8 @@
             android:layout_height="80px" />
 
         <EditText
+
+            android:inputType="number"
             android:id="@+id/et_bank_card"
             android:gravity="center_vertical"
             android:textColorHint="@color/text_color_6"

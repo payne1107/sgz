@@ -27,11 +27,16 @@ import java.util.Map;
 
 public class WithDrawDespositActivity extends BaseActivity implements View.OnClickListener {
 
+    protected static final int REQUEST_BANK_CARD_INFO_CODE = 10002;
     private EditText etMonkey;
     private AutoLinearLayout layoutConfim;
     private TextView tvBindCard;
     private Context mContext;
     private List<BindBankCardInfoBean.DataBean> data;
+    private String strBankListInfo;
+    private int bankId;
+    private double withdrawalBalance;
+    private int projectId;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -48,10 +53,13 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("提现", true, true);
+        withdrawalBalance = getIntent().getDoubleExtra("withdrawalBalance", 0.0);
+        projectId = getIntent().getIntExtra("projectId", 0);
         etMonkey = (EditText) findViewById(R.id.et_money);
         layoutConfim = (AutoLinearLayout) findViewById(R.id.layout_confirm);
         tvBindCard = findViewById(R.id.tv_bind_card);
-
+        TextView tvWithDrawalBlance = findViewById(R.id.withdrawal_balance);
+        tvWithDrawalBlance.setText("" + withdrawalBalance);
         setListener();
     }
 
@@ -64,14 +72,12 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.layout_confirm:
-                String money = etMonkey.getText().toString().trim();
-                if (StringUtils.isEmpty(money)) {
-                    toastMessage("提现金额不能为空");
-                }
+                applyCash();
                 break;
             case R.id.tv_bind_card:
                 if (data != null && data.size() > 0) {
                     //跳转到现有的银行卡信息页面 否则跳转到绑定银行卡信息页面
+                    startActivityForResult(new Intent(mContext, BankCardListInfoActivity.class).putExtra("strBankListInfo", strBankListInfo),REQUEST_BANK_CARD_INFO_CODE);
                 } else {
                     startActivity(new Intent(mContext, BindBankCardActivity.class));
                 }
@@ -98,13 +104,57 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
                 if (bean != null) {
                     data = bean.getData();
                     if (data != null && data.size() > 0) {
+                        strBankListInfo = json;
                         BindBankCardInfoBean.DataBean bankBean = data.get(0);
                         String realName = bankBean.getSubbankname();
                         String bankCard = bankBean.getBankcard();
+                        bankId = bankBean.getId();
                         tvBindCard.setText("" + realName + bankCard.substring(bankCard.length() - 4, bankCard.length()));
                     }
                 }
                 break;
+            case ConfigUtil.APPLY_CASH_URL_ACTION:
+                Log.d("Dong", "提现成功了吗 ---->" +json);
+                if (getRequestCode(json) == 1) {
+                    toastMessage("提现成功");
+                    finish();
+                }
+                break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_BANK_CARD_INFO_CODE:
+                if (data != null) {
+                    String bankCardNo = data.getStringExtra("bankcard_number");
+                    String subBankName = data.getStringExtra("subBankName");
+                    bankId = data.getIntExtra("bankId",0);
+                    tvBindCard.setText("" + subBankName + bankCardNo.substring(bankCardNo.length() - 4, bankCardNo.length()));
+                }
+                break;
+        }
+    }
+
+    /***
+     * 申请提现
+     */
+    private void applyCash() {
+        String money = etMonkey.getText().toString().trim();
+        if (StringUtils.isEmpty(money)) {
+            toastMessage("提现金额不能为空");
+            return;
+        }
+        if (Double.valueOf(money) > withdrawalBalance) {
+            toastMessage("提现金额不能大于可提现余额");
+            return;
+        }
+        Map<String, String> params = new HashMap<>();
+        params.put("tjmoney", money);
+        params.put("userbankid", String.valueOf(bankId));
+        params.put("projectid", String.valueOf(projectId));
+        httpPostRequest(ConfigUtil.APPLY_CASH_URL, params, ConfigUtil.APPLY_CASH_URL_ACTION);
     }
 }

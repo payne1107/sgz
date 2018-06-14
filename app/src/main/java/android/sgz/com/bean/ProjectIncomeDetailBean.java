@@ -120,6 +120,24 @@ public class ProjectIncomeDetailBean {
         private String workfriends;
         private String projectcount;
         private String income;
+        private double paymentsalary;
+        private double withdrawsalary;
+
+        public double getWithdrawsalary() {
+            return withdrawsalary;
+        }
+
+        public void setWithdrawsalary(double withdrawsalary) {
+            this.withdrawsalary = withdrawsalary;
+        }
+
+        public double getPaymentsalary() {
+            return paymentsalary;
+        }
+
+        public void setPaymentsalary(double paymentsalary) {
+            this.paymentsalary = paymentsalary;
+        }
 
         public int getId() {
             return id;

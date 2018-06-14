@@ -227,7 +227,10 @@
         <activity
             android:name=".activity.BankInfoActivity"
             android:screenOrientation="portrait" />
-
+        <!--展示查询出来的银行卡列表-->
+        <activity
+            android:name=".activity.BankCardListInfoActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

@@ -108,5 +108,10 @@ public class ConfigUtil {
      */
     public static final String QUERY_BIND_BANK_CARD_INFO_URL = MyApplication.REQUEST_URL + "salary/getAllBankCard";
     public static final int QUERY_BIND_BANK_CARD_INFO_URL_ACTION = 19;
+    /****
+     * 申请提现
+     */
+    public static final String APPLY_CASH_URL = MyApplication.REQUEST_URL + "salary/toApplyCash";
+    public static final int APPLY_CASH_URL_ACTION = 20;
 
 }
