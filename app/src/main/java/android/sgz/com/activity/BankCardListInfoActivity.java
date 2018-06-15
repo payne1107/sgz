@@ -20,7 +20,7 @@ import java.util.List;
  * Created by WD on 2018/6/14.
  */
 
-public class BankCardListInfoActivity extends BaseActivity {
+public class BankCardListInfoActivity extends BaseActivity implements View.OnClickListener {
     private Context mContext;
     private List<BindBankCardInfoBean.DataBean> mList;
 
@@ -39,7 +39,8 @@ public class BankCardListInfoActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("我的银行卡", true, true);
-        setSettingBtn("添加银行");
+//        setSettingBtn("添加银行");
+        tvSet.setOnClickListener(this);
         String str = getIntent().getStringExtra("strBankListInfo");
         ListView listView = findViewById(R.id.listView);
         BindBankCardInfoBean bean = JSON.parseObject(str, BindBankCardInfoBean.class);
@@ -66,5 +67,14 @@ public class BankCardListInfoActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_set:
+
+                break;
+        }
     }
 }

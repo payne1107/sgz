@@ -180,6 +180,9 @@ public class PersonalSalaryDetailsActivity extends BaseActivity implements View.
                 }
                 //算出剩下可提现余额
                 withdrawalBalance = paymentSalary - withDrawSalary;
+                if (withDrawSalary == 0) {
+                    tvIsHaveSalary.setText("工资已提现");
+                }
             }
         }
     }

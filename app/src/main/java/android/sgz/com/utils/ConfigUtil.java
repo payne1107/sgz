@@ -113,5 +113,10 @@ public class ConfigUtil {
      */
     public static final String APPLY_CASH_URL = MyApplication.REQUEST_URL + "salary/toApplyCash";
     public static final int APPLY_CASH_URL_ACTION = 20;
+    /****
+     * 获取当前用户可以观看的视频
+     */
+    public static final String QUERY_ALL_VIDEO_URL = MyApplication.REQUEST_URL + "course/getAllCourse";
+    public static final int QUERY_ALL_VIDEO_URL_ACTION = 21;
 
 }

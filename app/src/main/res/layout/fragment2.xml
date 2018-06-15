@@ -6,7 +6,6 @@
 
     <include layout="@layout/sys_title" />
 
-
     <com.itheima.pulltorefreshlib.PullToRefreshListView
         android:divider="@null"
         android:id="@+id/listView"
