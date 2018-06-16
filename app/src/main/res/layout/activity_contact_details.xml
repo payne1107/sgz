@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:background="@drawable/timg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <android.sgz.com.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:src="@mipmap/my_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:textColor="@color/white"
+            android:text="亚瑟"
+            android:layout_marginLeft="@dimen/margin_size_5"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:gravity="right|center_vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="80px">
+            <TextView
+                android:padding="5dp"
+                android:drawablePadding="2dp"
+                android:drawableLeft="@mipmap/talk"
+                android:background="@drawable/comment_rectangle_style"
+                android:text="私聊"
+                android:textSize="@dimen/text_size_24"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="@dimen/text_size_24"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:padding="5dp"
+                android:background="@drawable/comment_rectangle_style"
+                android:layout_marginLeft="@dimen/margin_size_5"
+                android:gravity="center"
+                android:text=" + 加关注"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/rg_type"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="120px">
+
+            <RadioButton
+                android:checked="true"
+                android:id="@+id/rb_friend_info"
+                android:textColor="@drawable/radiobutton_textcolor"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:gravity="center"
+                android:button="@null"
+                android:text="资料"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="90px" />
+
+            <RadioButton
+                android:id="@+id/rb_firend_state"
+                android:textColor="@drawable/radiobutton_textcolor"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:layout_marginLeft="@dimen/margin_size_10"
+                android:gravity="center"
+                android:button="@null"
+                android:text="动态"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="90px" />
+        </RadioGroup>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="@dimen/margin_size_10"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center_vertical"
+            android:text="职业"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+        <TextView
+            android:id="@+id/tv_profession"
+            android:layout_marginLeft="@dimen/margin_size_20"
+            android:gravity="center_vertical"
+            android:text="111"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center_vertical"
+            android:text="电话"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_marginLeft="@dimen/margin_size_20"
+            android:gravity="center_vertical"
+            android:text="111"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

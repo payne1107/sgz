@@ -23,7 +23,7 @@
             <EditText
                 android:layout_marginLeft="@dimen/margin_size_15"
                 android:drawablePadding="5dp"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color_3"
                 android:hint="搜索"
                 android:textColorHint="@color/cccccc"
                 android:textSize="@dimen/text_size_28"
@@ -38,6 +38,7 @@
 
 
             <TextView
+                android:id="@+id/tv_search_contact"
                 android:textSize="@dimen/text_size_30"
                 android:textColor="@color/text_color_3"
                 android:gravity="center"
@@ -74,7 +75,7 @@
 
                 <TextView
                     android:textColor="@color/text_color_3"
-                    android:text="手機通訊錄"
+                    android:text="手机通讯录"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -93,7 +94,7 @@
 
                 <TextView
                     android:textColor="@color/text_color_3"
-                    android:text="邀請微信好友"
+                    android:text="邀请微信好友"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -129,7 +130,7 @@
 
                 <TextView
                     android:textColor="@color/text_color_3"
-                    android:text="邀請QQ好友"
+                    android:text="邀请QQ好友"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </com.zhy.autolayout.AutoLinearLayout>
@@ -137,10 +138,9 @@
 
     </com.zhy.autolayout.AutoLinearLayout>
 
-
-    <android.support.v7.widget.RecyclerView
+    <com.itheima.pulltorefreshlib.PullToRefreshListView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+    </com.itheima.pulltorefreshlib.PullToRefreshListView>
 </com.zhy.autolayout.AutoLinearLayout>

@@ -11,6 +11,7 @@
         android:orientation="horizontal">
 
         <android.sgz.com.widget.CircleImageView
+            android:id="@+id/iv_avatar"
             android:layout_marginLeft="@dimen/margin_size_5"
             android:layout_width="50dp"
             android:layout_height="match_parent"

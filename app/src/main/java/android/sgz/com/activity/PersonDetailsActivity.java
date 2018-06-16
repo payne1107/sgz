@@ -11,13 +11,11 @@ import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.ConfigUtil;
-import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.jzxiang.pickerview.TimePickerDialog;
 import com.jzxiang.pickerview.listener.OnDateSetListener;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -135,7 +133,6 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                 startActivity(new Intent(mContext, SetUserSalaryActivity.class));
                 break;
             case R.id.layout_choose_city:
-                //TODO 未完成
                 startActivity(new Intent(mContext, ChooseCityActivity.class));
                 break;
         }

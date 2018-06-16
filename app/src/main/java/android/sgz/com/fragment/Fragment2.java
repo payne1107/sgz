@@ -128,7 +128,7 @@ public class Fragment2 extends BaseFragment{
         if (bean != null) {
             Fragment2Bean.DataBean data = bean.getData();
             if (data != null) {
-                pageSize = data.getPageSize();
+                pageSize = data.getCoutpage();
                 if (swipeLoadMore) {
                     swipeLoadMore = false;
                     mList.addAll(mList.size(), data.getList());

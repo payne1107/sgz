@@ -25,6 +25,7 @@ a
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_number"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
                 android:text="JMI09890222"
@@ -44,6 +45,7 @@ a
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_owner"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
                 android:text="安徽省合肥市蜀山区区委会"
@@ -63,6 +65,7 @@ a
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_company"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
                 android:text="安徽省合肥市建设有限公司"
@@ -104,14 +107,12 @@ a
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_phone"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
                 android:text="18519202025"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </com.zhy.autolayout.AutoLinearLayout>
-
     </com.zhy.autolayout.AutoLinearLayout>
-
-
 </com.zhy.autolayout.AutoLinearLayout>

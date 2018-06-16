@@ -231,6 +231,9 @@
         <activity
             android:name=".activity.BankCardListInfoActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ContactsDetailsActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

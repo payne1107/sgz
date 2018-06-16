@@ -3,7 +3,7 @@ package android.sgz.com.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
-import android.sgz.com.activity.LoginActivity;
+import android.sgz.com.activity.ContactsActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.SearchActivity;
 import android.sgz.com.activity.WorkDayNumActivity;
@@ -11,6 +11,8 @@ import android.sgz.com.activity.WorkOrderActivity;
 import android.sgz.com.adapter.FirstFragmentAdapter;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseFragment;
+import android.sgz.com.bean.TopInfoBean;
+import android.sgz.com.utils.ConfigUtil;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -21,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -28,6 +31,9 @@ import com.amap.api.location.AMapLocationListener;
 import com.zaaach.citypicker.CityPickerActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by 92457 on 2018/4/16.
@@ -46,6 +52,10 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutSalary;
     private String city;
     private TextView tvCity;
+    private TextView tvWorkDays;
+    private TextView tvWorkFriends;
+    private TextView tvWorkOrder;
+    private TextView tvSalary;
 
 
     @Override
@@ -71,6 +81,11 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         layoutFriends = (AutoLinearLayout) mRootView.findViewById(R.id.layout_friends);
         layoutworkOrder = (AutoLinearLayout) mRootView.findViewById(R.id.layout_word_order);
         layoutSalary = (AutoLinearLayout) mRootView.findViewById(R.id.layout_salary);
+        tvWorkDays = mRootView.findViewById(R.id.tv_work_days);
+        tvWorkFriends = mRootView.findViewById(R.id.tv_work_friends);
+        tvWorkOrder = mRootView.findViewById(R.id.tv_work_order);
+        tvSalary = mRootView.findViewById(R.id.tv_salary);
+
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
         FirstFragmentAdapter adapter = new FirstFragmentAdapter(getActivity().getSupportFragmentManager());
@@ -85,6 +100,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
      */
     private void initData() {
         initLocation();
+        queryTopInfo();
     }
 
     /****
@@ -114,11 +130,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), WorkDayNumActivity.class));
                 break;
             case R.id.layout_friends:
-                //工友
-                if (true) {
-                    //TODO：伪代码日后需要更改
-                    startActivity(new Intent(getActivity(), LoginActivity.class));
-                }
+                startActivity(new Intent(getActivity(), ContactsActivity.class));
                 break;
             case R.id.layout_word_order:
                 //工单
@@ -169,4 +181,46 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         });
         mLocationClient.startLocation();
     }
+
+    /****
+     * 获取工友 工资等信息
+     */
+    private void queryTopInfo() {
+        Map<String, String> params = new HashMap<>();
+        params.put("random", "123");
+        httpPostRequest(ConfigUtil.QUERY_INDEX_DATA_URL, params, ConfigUtil.QUERY_INDEX_DATA_URL_ACTION);
+    }
+
+    @Override
+    public void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        switch (action) {
+            case ConfigUtil.QUERY_INDEX_DATA_URL_ACTION:
+                handlerQueryTopInfo(json);
+            break;
+        }
+    }
+
+    /****
+     * 顶部数据处理
+     * @param json
+     */
+    private void handlerQueryTopInfo(String json) {
+        Log.d("Dong", "顶部数据处理----->" + json);
+        TopInfoBean topInfoBean = JSON.parseObject(json, TopInfoBean.class);
+        if (topInfoBean != null) {
+            TopInfoBean.DataBean data = topInfoBean.getData();
+            if (data != null) {
+                int workDays = data.getWorkdays();
+                int workFriends = data.getWorkfriends();
+                int projectCount = data.getProjectcount();
+                double salaryTotal = data.getIncome();//工资
+                tvSalary.setText(salaryTotal+"元");
+                tvWorkDays.setText(workDays+"天");
+                tvWorkFriends.setText(workFriends + "人");
+                tvWorkOrder.setText(projectCount+"个");
+            }
+        }
+    }
 }
+

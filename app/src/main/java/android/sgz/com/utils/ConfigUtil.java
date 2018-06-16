@@ -118,5 +118,25 @@ public class ConfigUtil {
      */
     public static final String QUERY_ALL_VIDEO_URL = MyApplication.REQUEST_URL + "course/getAllCourse";
     public static final int QUERY_ALL_VIDEO_URL_ACTION = 21;
+    /****
+     * 获取当前用户所有工单
+     */
+    public static final String QUERY_ALL_PROJECTS_ORDER_URL = MyApplication.REQUEST_URL + "project/getProjectLists";
+    public static final int QUERY_ALL_PROJECTS_ORDER_URL_ACTION = 22;
+    /***
+     * 主页上信息获取
+     */
+    public static final String QUERY_INDEX_DATA_URL = MyApplication.REQUEST_URL + "index/getIndexData";
+    public static final int QUERY_INDEX_DATA_URL_ACTION = 23;
+    /****
+     * 获取标书列表
+     */
+    public static final String QUERY_TENDER_LIST_URL = MyApplication.REQUEST_URL + "tender/getTenderList";
+    public static final int QUERY_TENDER_LIST_URL_ACTION = 24;
+    /****
+     * 获取好友列表
+     */
+    public static final String QUERY_WORK_FRIEDNS_LIST_URL = MyApplication.REQUEST_URL + "index/getMyWorkfriends";
+    public static final int QUERY_WORK_FRIEDNS_LIST_URL_ACTION = 25;
 
 }

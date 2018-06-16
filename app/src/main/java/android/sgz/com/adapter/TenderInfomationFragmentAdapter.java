@@ -2,9 +2,7 @@ package android.sgz.com.adapter;
 
 import android.content.Context;
 import android.sgz.com.R;
-import android.sgz.com.utils.StringUtils;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.LayoutInflaterCompat;
+import android.sgz.com.bean.TenderListBean;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +19,8 @@ import java.util.List;
 
 public class TenderInfomationFragmentAdapter  extends BaseAdapter{
     private Context mContext;
-    private List<String> mList;
-    public TenderInfomationFragmentAdapter(Context context, List<String> list) {
+    private List<TenderListBean.DataBean.ListBean> mList;
+    public TenderInfomationFragmentAdapter(Context context, List<TenderListBean.DataBean.ListBean> list) {
         this.mContext = context;
         this.mList = list;
     }
@@ -31,7 +29,7 @@ public class TenderInfomationFragmentAdapter  extends BaseAdapter{
      * 更新数据
      * @param data
      */
-    public void setData(List<String> data) {
+    public void setData(List<TenderListBean.DataBean.ListBean> data) {
         mList.clear();
         mList.addAll(data);
         notifyDataSetChanged();
@@ -60,17 +58,26 @@ public class TenderInfomationFragmentAdapter  extends BaseAdapter{
             holder = new ViewHolder();
             convertView.setTag(holder);
             holder.tvLinkPerson = (TextView) convertView.findViewById(R.id.tv_link_person);
+            holder.tvNumber = convertView.findViewById(R.id.tv_number);
+            holder.tvOwner = convertView.findViewById(R.id.tv_owner);
+            holder.tvPhone = convertView.findViewById(R.id.tv_phone);
+            holder.tvCompany = convertView.findViewById(R.id.tv_company);
             AutoUtils.autoSize(convertView);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tvLinkPerson.setText(mList.get(position));
+        TenderListBean.DataBean.ListBean data = mList.get(position);
+        if (data != null) {
+            holder.tvLinkPerson.setText(""+data.getLinkname());
+            holder.tvNumber.setText(""+data.getTenderno());
+            holder.tvOwner.setText(""+data.getProcurement());//采购业主
+            holder.tvCompany.setText(""+data.getTendercompany());
+            holder.tvPhone.setText(""+data.getMobile());
+        }
         return convertView;
     }
 
     class ViewHolder{
-
-        TextView tvLinkPerson;
-
+        TextView tvLinkPerson,tvNumber,tvOwner,tvCompany,tvPhone;
     }
 }
