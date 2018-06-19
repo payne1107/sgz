@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/rg_extra_work_type"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="120px">
+
+            <RadioButton
+                android:checked="true"
+                android:id="@+id/rb_mine_extra_work"
+                android:textColor="@drawable/radiobutton_textcolor"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:gravity="center"
+                android:button="@null"
+                android:text="我的加班"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="90px" />
+
+            <RadioButton
+                android:id="@+id/rb_approve_exra_work"
+                android:textColor="@drawable/radiobutton_textcolor"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:layout_marginLeft="@dimen/margin_size_10"
+                android:gravity="center"
+                android:button="@null"
+                android:text="审批加班"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="90px" />
+        </RadioGroup>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

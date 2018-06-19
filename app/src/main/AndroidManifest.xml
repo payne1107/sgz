@@ -234,6 +234,11 @@
         <activity
             android:name=".activity.ContactsDetailsActivity"
             android:screenOrientation="portrait" />
+        <!--加班管理-->
+        <activity
+            android:name=".activity.ExtraWrokActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--适配用到的配置-->
         <meta-data
