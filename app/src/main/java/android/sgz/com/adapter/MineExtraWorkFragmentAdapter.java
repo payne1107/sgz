@@ -74,11 +74,11 @@ public class MineExtraWorkFragmentAdapter extends BaseAdapter{
             int status = bean.getStatus();
             holder.tvStartDate.setText(starTime);
             holder.tvEndDate.setText(endTime);
-            holder.tvName.setText(""+approveName);
+            holder.tvName.setText("审批人："+approveName);
             if (status == 0) {
-                holder.tvStatus.setText("不通过");
+                holder.tvStatus.setText("审核不通过");
             } else if (status == 1) {
-                holder.tvStatus.setText("通过");
+                holder.tvStatus.setText("审核通过");
             } else {
                 holder.tvStatus.setText("审核中");
             }

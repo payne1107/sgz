@@ -80,6 +80,7 @@
                 android:textColor="@color/color_62d" />
 
             <TextView
+                android:layout_marginLeft="@dimen/margin_size_10"
                 android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
