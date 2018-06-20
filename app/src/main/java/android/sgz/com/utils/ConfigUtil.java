@@ -138,7 +138,7 @@ public class ConfigUtil {
      */
     public static final String QUERY_WORK_FRIEDNS_LIST_URL = MyApplication.REQUEST_URL + "index/getMyWorkfriends";
     public static final int QUERY_WORK_FRIEDNS_LIST_URL_ACTION = 25;
-    
+
     /****
      * 注册发送验证码
      */
