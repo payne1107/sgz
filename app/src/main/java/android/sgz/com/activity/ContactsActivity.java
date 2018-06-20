@@ -41,7 +41,7 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     private boolean swipeLoadMore = false;
     private TextView tvSearchContacts;
     private EditText etSearch;
-    private String searchName;
+    private String searchName ="";
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
         setInVisibleTitleIcon("工友信息", true, true);
         listView = findViewById(R.id.recycler_view);
         tvSearchContacts = findViewById(R.id.tv_search_contact);
-        etSearch = findViewById(R.id.et_search);
+        etSearch = findViewById(R.id.et_search_contact);
         listView.setMode(PullToRefreshBase.Mode.BOTH);
         adapter = new ContactsAdapter(mContext, mList);
         listView.setAdapter(adapter);

@@ -27,7 +27,7 @@
                 android:hint="搜索"
                 android:textColorHint="@color/cccccc"
                 android:textSize="@dimen/text_size_28"
-                android:id="@+id/et_search"
+                android:id="@+id/et_search_contact"
                 android:background="@drawable/contact_search_bgl"
                 android:layout_width="0dp"
                 android:layout_weight="1"

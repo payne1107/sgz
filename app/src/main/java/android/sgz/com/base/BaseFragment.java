@@ -208,9 +208,9 @@ public abstract class BaseFragment extends Fragment {
             if (jsonObject == null) {
                 return;
             }
-            int code = (int) jsonObject.get("flag");
+            String code = jsonObject.getString("resultCode");
             FieldErrors error = null;
-            if (code == 0) {
+            if (code.equals("1")) {
                 Object data = jsonObject.get("data");
                 if (data instanceof JSONObject) {
                     JSONObject jsonData = (JSONObject) data;
@@ -276,7 +276,7 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void httpError(FieldErrors error, int action) {
         if (null != error) {
-            Toast.makeText(getActivity(), error.msg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), error.resultMsg, Toast.LENGTH_SHORT).show();
         }
     }
     /****************************************网络请求框架End******************************************************/

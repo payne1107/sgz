@@ -2,6 +2,7 @@ package android.sgz.com.utils;
 
 
 import android.sgz.com.application.MyApplication;
+import android.text.InputType;
 
 /**
  * Created by Administrator on 2017/9/29 0029.
@@ -154,6 +155,42 @@ public class ConfigUtil {
      * 加班列表
      */
     public static final String QUERY_EXTRA_WORK_LIST_URL = MyApplication.REQUEST_URL + "extrawork/getMyExtraworkList";
-    public static final int QUERY_EXTRA_WORK_LIST_URL_ACTION = 26;
+    public static final int QUERY_EXTRA_WORK_LIST_URL_ACTION = 28;
+    /****
+     * 注册接口
+     */
+    public static final String REGISTER_URL = MyApplication.REQUEST_URL + "reg/register";
+    public static final int REGISTER_URL_ACTION = 29;
+    /****
+     * 找回密码
+     */
+    public static final String REMBER_PASSWORD_URL = MyApplication.REQUEST_URL + "set/setPassword";
+    public static final int REMBER_PASSWORD_URL_ACTION = 30;
+    /****
+     * 工友动态
+     */
+    public static final String QUERY_FRIEND_DYNAMIC_URL = MyApplication.REQUEST_URL + "index/getFriendDynamic";
+    public static final int QUERY_FRIEND_DYNAMIC_URL_ACTION = 31;
+    /****
+     * 需要我审批的加班
+     */
+    public static final String QUERY_TO_APPROVE_EXTRAWORK_LIST_URL = MyApplication.REQUEST_URL + "extrawork/getToApproveExtraworkList";
+    public static final int QUERY_TO_APPROVE_EXTRAWORK_LIST_URL_ACTION = 32;
+    /****
+     * 提交加班申请
+     */
+    public static final String POST_APPLY_EXTRAWORK_RECORD_URL = MyApplication.REQUEST_URL + "extrawork/toApplyExtraworkrecord";
+    public static final int POST_APPLY_EXTRAWORK_RECORD_URL_ACTION = 33;
+    /****
+     * 未审批前删除加班申请
+     */
+    public static final String DELETE_EXTRA_WORK_RECORD_URL = MyApplication.REQUEST_URL + "extrawork/deleteExtraworkrecord";
+    public static final int DELETE_EXTRA_WORK_RECORD_URL_ACTION = 34;
+    /****
+     * 审批某个加班
+     */
+    public static final String APPROVE_EXTRA_WORK_URL = MyApplication.REQUEST_URL + "extrawork/toApproveExtrawork";
+    public static final int APPROVE_EXTRA_WORK_URL_ACTION = 35;
+
 
 }

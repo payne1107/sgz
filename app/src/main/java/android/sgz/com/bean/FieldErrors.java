@@ -5,5 +5,5 @@ package android.sgz.com.bean;
  * Created by KevinLi on 2016/3/1.
  */
 public class FieldErrors {
-    public String msg;
+    public String resultMsg;
 }

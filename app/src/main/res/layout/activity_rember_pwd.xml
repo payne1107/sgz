@@ -52,7 +52,7 @@
             android:textSize="@dimen/text_size_30" />
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_verify_code"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/margin_size_15"
@@ -92,6 +92,7 @@
             android:textSize="@dimen/text_size_30" />
 
         <EditText
+            android:id="@+id/et_pwd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_size_15"

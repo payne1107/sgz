@@ -288,15 +288,16 @@ public abstract class BaseActivity extends FragmentActivity {
      * @param action  标识
      */
     protected void httpOnResponse(String json, int action) {
-        Log.e("httpOnResponsejson", json);
+        Log.d("Dong", "嗯嗯 ---》"+json);
         try {
             JSONObject jsonObject = JSONObject.parseObject(json);
             if (jsonObject == null) {
                 return;
             }
-            int code = (int) jsonObject.get("flag");
+            String code = jsonObject.getString("resultCode");
+            Log.d("Dong", "------------------------------"+code);
             FieldErrors error = null;
-           if (code == 0) {
+           if (code.equals("1")) {
                 Object data = jsonObject.get("data");
                 if (data instanceof JSONObject) {
                     JSONObject jsonData = (JSONObject) data;
@@ -328,7 +329,7 @@ public abstract class BaseActivity extends FragmentActivity {
      */
     protected void httpError(FieldErrors error, int action) {
         if (null != error) {
-            Toast.makeText(this, error.msg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, error.resultMsg, Toast.LENGTH_SHORT).show();
         }
     }
 
