@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.CardCountingActivity;
+import android.sgz.com.activity.ExtraWrokActivity;
 import android.sgz.com.activity.MineExpendActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.PersonDetailsActivity;
@@ -30,6 +31,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutExpend;
     private AutoLinearLayout layoutCardCounting;
     private AutoLinearLayout layoutWorkOrderManager;
+    private AutoLinearLayout layoutExtraWork;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,12 +64,14 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutExpend = (AutoLinearLayout) mRootView.findViewById(R.id.layout_expend);
         layoutCardCounting = (AutoLinearLayout) mRootView.findViewById(R.id.layout_card_counting);
         layoutWorkOrderManager = (AutoLinearLayout) mRootView.findViewById(R.id.layout_workorder_manager);
+        layoutExtraWork = mRootView.findViewById(R.id.layout_extra_work);
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
         layoutMineSalary.setOnClickListener(this);
         layoutExpend.setOnClickListener(this);
         layoutCardCounting.setOnClickListener(this);
         layoutWorkOrderManager.setOnClickListener(this);
+        layoutExtraWork.setOnClickListener(this);
     }
 
     @Override
@@ -92,6 +96,9 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
             case R.id.layout_workorder_manager:
                 //工单管理
                 startActivity(new Intent(getActivity(), WorkOrderActivity.class));
+                break;
+            case R.id.layout_extra_work:
+                startActivity(new Intent(getActivity(), ExtraWrokActivity.class));
                 break;
         }
     }
