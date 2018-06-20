@@ -138,5 +138,15 @@ public class ConfigUtil {
      */
     public static final String QUERY_WORK_FRIEDNS_LIST_URL = MyApplication.REQUEST_URL + "index/getMyWorkfriends";
     public static final int QUERY_WORK_FRIEDNS_LIST_URL_ACTION = 25;
+    /****
+     * 注册发送验证码
+     */
+    public static final String QUERY_REGISTER_CODE_URL = MyApplication.REQUEST_URL + "user/showvalidphone";
+    public static final int QUERY_REGISTER_CODE_URL_ACTION = 26;
+    /***
+     * 获取其他验证码
+     */
+    public static final String QUERY_OTHER_CODE_URL = MyApplication.REQUEST_URL + "user/showValidphoneAndSendCode";
+    public static final int QUERY_OTHER_CODE_URL_ACTION = 27;
 
 }
