@@ -238,7 +238,10 @@
         <activity
             android:name=".activity.ExtraWrokActivity"
             android:screenOrientation="portrait" />
-
+        <!--退出登录-->
+        <activity
+            android:name=".activity.SettingActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

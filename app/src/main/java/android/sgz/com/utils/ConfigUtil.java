@@ -2,7 +2,6 @@ package android.sgz.com.utils;
 
 
 import android.sgz.com.application.MyApplication;
-import android.text.InputType;
 
 /**
  * Created by Administrator on 2017/9/29 0029.
@@ -191,6 +190,9 @@ public class ConfigUtil {
      */
     public static final String APPROVE_EXTRA_WORK_URL = MyApplication.REQUEST_URL + "extrawork/toApproveExtrawork";
     public static final int APPROVE_EXTRA_WORK_URL_ACTION = 35;
-
-
+    /****
+     * 刷新token
+     */
+    public static final String REFRESH_TOKEN_URL = MyApplication.REQUEST_URL + "user/refresh";
+    public static final int REFRESH_TOKEN_URL_ACTION = 36;
 }

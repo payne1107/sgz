@@ -10,6 +10,7 @@ import android.sgz.com.fragment.Fragment1;
 import android.sgz.com.fragment.Fragment2;
 import android.sgz.com.fragment.Fragment3;
 import android.sgz.com.fragment.Fragment4;
+import android.sgz.com.utils.AppManager;
 import android.sgz.com.utils.PopupMenuUtil;
 import android.sgz.com.utils.StatusUtils;
 import android.support.annotation.RequiresApi;
@@ -44,6 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
+        AppManager.getInstance().PushActivity(MainActivity.this);
         mContext = MainActivity.this;
         mRlStatus = (RelativeLayout) findViewById(R.id.rl_status);
         imageView = (ImageView) findViewById(R.id.iv_img);

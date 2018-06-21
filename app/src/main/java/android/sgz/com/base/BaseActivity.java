@@ -297,7 +297,7 @@ public abstract class BaseActivity extends FragmentActivity {
             String code = jsonObject.getString("resultCode");
             Log.d("Dong", "------------------------------"+code);
             FieldErrors error = null;
-           if (code.equals("1")) {
+           if ("1".equals(code)) {
                 Object data = jsonObject.get("data");
                 if (data instanceof JSONObject) {
                     JSONObject jsonData = (JSONObject) data;
@@ -1102,10 +1102,10 @@ public abstract class BaseActivity extends FragmentActivity {
      * 清除应用所有的缓存数据
      */
     public void clearAppData() {
+        SPUtil.remove(mContext, "refresh_token");
         SPUtil.remove(mContext, "token");
-        SPUtil.remove(mContext, "userId");
         MyApplication.isLogin = "";
-        MyApplication.userId = "";
+        MyApplication.refreshToken = "";
     }
 
     /**

@@ -7,6 +7,7 @@ import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.LoginSucessBean;
+import android.sgz.com.utils.AppManager;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.SPUtil;
 import android.sgz.com.utils.StringUtils;
@@ -53,7 +54,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initView() {
         super.initView();
-        setInVisibleTitleIcon("登录", true, true);
+        setInVisibleTitleIcon("登录", true, false);
         ivPhoneClear = (ImageView) findViewById(R.id.iv_phone_clear);
         etPhone = (EditText) findViewById(R.id.et_phone);
         etPassword = (EditText) findViewById(R.id.et_password);
@@ -154,5 +155,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         }
         etPassword.setSelection(etPassword.getText().length());
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        AppManager.getInstance().finishActivity();
+        finish();
     }
 }

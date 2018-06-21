@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_motify_pwd"
+        android:layout_marginTop="@dimen/margin_size_5"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="120px">
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/text_color_3"
+            android:text="修改密码"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_has_set_pwd"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:gravity="right"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/text_color_9"
+            android:text="已设置"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
+        android:id="@+id/layout_smrz"
+        android:layout_marginTop="0.1dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="120px">
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/text_color_3"
+            android:text="实名认证"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:gravity="right"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/text_color_9"
+            android:text="未认证"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_update_version"
+        android:layout_marginTop="0.1dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="120px">
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/text_color_3"
+            android:text="新版本检测"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_version_code"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:gravity="right"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/text_color_9"
+            android:text="v1.0"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_logout"
+        android:gravity="center"
+        android:layout_marginTop="260px"
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:layout_gravity="center"
+        android:background="@color/color_62d"
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_36"
+            android:text="退出账号"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

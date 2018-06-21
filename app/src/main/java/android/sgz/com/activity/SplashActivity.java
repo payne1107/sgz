@@ -11,11 +11,19 @@ import android.provider.Settings;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.RefreshTokenBean;
+import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.NetWorkUtils;
 import android.sgz.com.utils.SPUtil;
 import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.MyDialog;
+import android.util.Log;
 import android.view.View;
+
+import com.alibaba.fastjson.JSON;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import kr.co.namee.permissiongen.PermissionFail;
 import kr.co.namee.permissiongen.PermissionGen;
@@ -55,18 +63,23 @@ public class SplashActivity extends BaseActivity {
     @PermissionSuccess(requestCode = 100)
     public void doSomething(){
         //延时跳转到主页面，splash用来做引导页
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //判断是否当前有可用网络
-                if (!NetWorkUtils.isNetworkConnected(mContext)) {
-                    showSetNetworkDialog();
-                    return;
+        if (StringUtils.isEmpty(MyApplication.refreshToken)) {
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //判断是否当前有可用网络
+                    if (!NetWorkUtils.isNetworkConnected(mContext)) {
+                        showSetNetworkDialog();
+                        return;
+                    }
+                    startActivity(new Intent(mContext, LoginActivity.class));
+                    finish();
                 }
-                toIntent();
-            }
-        },2000);
+            },2000);
+        } else {
+            refreshToken();
+        }
     }
 
     @PermissionFail(requestCode = 100)
@@ -103,6 +116,7 @@ public class SplashActivity extends BaseActivity {
         super.onResume();
 
     }
+
 
     /***
      * 跳转到主页面
@@ -144,6 +158,48 @@ public class SplashActivity extends BaseActivity {
         });
         if (!this.isFinishing()) {
             builder.create().show();
+        }
+    }
+
+    /****
+     * 刷新token
+     */
+    private void refreshToken() {
+        startIOSDialogLoading(mContext,"加载中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("refreshcode", MyApplication.refreshToken);
+        httpPostRequest(ConfigUtil.REFRESH_TOKEN_URL, params, ConfigUtil.REFRESH_TOKEN_URL_ACTION);
+    }
+
+    @Override
+    protected void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        switch (action) {
+            case ConfigUtil.REFRESH_TOKEN_URL_ACTION:
+                Log.d("Dong", "刷新token === " +json);
+                handleFreshToken(json);
+                break;
+        }
+    }
+
+    /****
+     * 刷新token处理
+     * @param json
+     */
+    private void handleFreshToken(String json) {
+        if (getRequestCode(json) == 1) {
+            //刷新成功
+            RefreshTokenBean tokenBean = JSON.parseObject(json, RefreshTokenBean.class);
+            if (tokenBean != null) {
+                String refreshToken = tokenBean.getRefreshMsg();
+                String token = tokenBean.getResultMsg();
+                SPUtil.putString(mContext, "token", token);
+                SPUtil.putString(mContext, "refresh_token", refreshToken);
+                MyApplication.isLogin = token;
+                MyApplication.refreshToken = refreshToken;
+                startActivity(new Intent(mContext, MainActivity.class));
+                finish();
+            }
         }
     }
 }

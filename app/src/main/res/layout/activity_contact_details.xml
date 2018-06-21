@@ -98,6 +98,12 @@
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_marginTop="@dimen/margin_size_10"
+        android:background="@color/fafafa"
+        android:id="@+id/layout_person_info"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <com.zhy.autolayout.AutoLinearLayout
         android:background="@color/white"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -118,6 +124,7 @@
             android:layout_height="80px" />
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoLinearLayout
+
         android:layout_marginTop="1px"
         android:background="@color/white"
         android:orientation="horizontal"
@@ -137,5 +144,18 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="80px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_friend_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.itheima.pulltorefreshlib.PullToRefreshListView
+            android:divider="@null"
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.itheima.pulltorefreshlib.PullToRefreshListView>
+
     </com.zhy.autolayout.AutoLinearLayout>
 </com.zhy.autolayout.AutoLinearLayout>

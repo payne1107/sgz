@@ -8,6 +8,7 @@ import android.sgz.com.activity.ExtraWrokActivity;
 import android.sgz.com.activity.MineExpendActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.PersonDetailsActivity;
+import android.sgz.com.activity.SettingActivity;
 import android.sgz.com.activity.VipMemberCenterActivity;
 import android.sgz.com.activity.WorkOrderActivity;
 import android.sgz.com.base.BaseFragment;
@@ -16,7 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zhy.autolayout.AutoLayoutInfo;
 import com.zhy.autolayout.AutoLinearLayout;
 
 /**
@@ -32,6 +32,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutCardCounting;
     private AutoLinearLayout layoutWorkOrderManager;
     private AutoLinearLayout layoutExtraWork;
+    private AutoLinearLayout layoutSetting;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutCardCounting = (AutoLinearLayout) mRootView.findViewById(R.id.layout_card_counting);
         layoutWorkOrderManager = (AutoLinearLayout) mRootView.findViewById(R.id.layout_workorder_manager);
         layoutExtraWork = mRootView.findViewById(R.id.layout_extra_work);
+        layoutSetting = mRootView.findViewById(R.id.layout_setting);
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
         layoutMineSalary.setOnClickListener(this);
@@ -72,6 +74,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutCardCounting.setOnClickListener(this);
         layoutWorkOrderManager.setOnClickListener(this);
         layoutExtraWork.setOnClickListener(this);
+        layoutSetting.setOnClickListener(this);
     }
 
     @Override
@@ -99,6 +102,9 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.layout_extra_work:
                 startActivity(new Intent(getActivity(), ExtraWrokActivity.class));
+                break;
+            case R.id.layout_setting:
+                startActivity(new Intent(getActivity(),SettingActivity.class));
                 break;
         }
     }
