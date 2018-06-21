@@ -32,6 +32,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initView() {
         super.initView();
+        setInVisibleTitleIcon("设置", true, true);
         layoutLogout = findViewById(R.id.layout_logout);
         layoutLogout.setOnClickListener(this);
     }

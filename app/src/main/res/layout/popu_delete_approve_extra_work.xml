@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/margin_size_20"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="@dimen/margin_size_30"
+            android:background="@drawable/save_photo_dialog_style"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/color_62d"
+            android:id="@+id/tv_delete_extra_work"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:text="删除加班申请"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_marginBottom="@dimen/margin_size_30"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:id="@+id/tv_cancel"
+            android:background="@drawable/save_photo_dialog_style"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/text_color_3"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:text="取消"
+            android:textSize="16sp" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</LinearLayout>

@@ -1,5 +1,7 @@
 package android.sgz.com.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
@@ -9,6 +11,7 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.widget.RadioGroup;
 
 /**
@@ -16,13 +19,15 @@ import android.widget.RadioGroup;
  * 加班管理
  */
 
-public class ExtraWrokActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
+public class ExtraWrokActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
     private int mIndex = 0;
     private Fragment[] mFragments;
+    private Context mContext;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_extra_wrok);
+        mContext = ExtraWrokActivity.this;
     }
 
     @Override
@@ -34,9 +39,11 @@ public class ExtraWrokActivity extends BaseActivity implements RadioGroup.OnChec
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("加班管理", true, true);
+        setSettingBtn("申请加班");
         RadioGroup rbExtraWorkType = findViewById(R.id.rg_extra_work_type);
         rbExtraWorkType.setOnCheckedChangeListener(this);
 
+        tvSet.setOnClickListener(this);
         initFragment();
     }
 
@@ -80,6 +87,15 @@ public class ExtraWrokActivity extends BaseActivity implements RadioGroup.OnChec
                 break;
             case R.id.rb_approve_exra_work:
                 setIndexSelected(1);
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_set:
+                startActivity(new Intent(mContext, ApplyExtraWorkActivity.class));
                 break;
         }
     }

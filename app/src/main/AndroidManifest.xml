@@ -242,6 +242,13 @@
         <activity
             android:name=".activity.SettingActivity"
             android:screenOrientation="portrait" />
+        <!--审核加班-->
+        <activity
+            android:name=".activity.ApproveExtroWorkDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ApplyExtraWorkActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

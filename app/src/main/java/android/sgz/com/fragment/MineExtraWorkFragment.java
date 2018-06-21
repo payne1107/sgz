@@ -1,17 +1,23 @@
 package android.sgz.com.fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.MineExtraWorkFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.MineExtraWorkBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.widget.MyDialog;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -27,7 +33,7 @@ import java.util.Map;
  * Created by WD on 2018/6/19.
  */
 
-public class MineExtraWorkFragment extends BaseFragment{
+public class MineExtraWorkFragment extends BaseFragment implements View.OnClickListener {
 
     private PullToRefreshListView listView;
     private List<MineExtraWorkBean.DataBean.ListBean> mList = new ArrayList<>();
@@ -35,6 +41,8 @@ public class MineExtraWorkFragment extends BaseFragment{
     private int pageNo = 1;
     private int pageSize;
     private boolean swipeLoadMore = false;
+    private Dialog dialog;
+    private int extraWorkId = 0;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,12 +80,25 @@ public class MineExtraWorkFragment extends BaseFragment{
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
                 ++pageNo;
-                ++pageNo;
                 if (pageNo <= pageSize) {
                     swipeLoadMore = true;
                     queryExtraWorkList(pageNo);
                 } else {
                     delayedToast();
+                }
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MineExtraWorkBean.DataBean.ListBean bean = (MineExtraWorkBean.DataBean.ListBean) adapterView.getAdapter().getItem(i);
+                if (bean != null) {
+                    int status = bean.getStatus();
+                    extraWorkId = bean.getId();
+                    if (status == 2) {
+                        showPopuWindow();
+                    }
                 }
             }
         });
@@ -102,6 +123,15 @@ public class MineExtraWorkFragment extends BaseFragment{
         httpPostRequest(ConfigUtil.QUERY_EXTRA_WORK_LIST_URL, params, ConfigUtil.QUERY_EXTRA_WORK_LIST_URL_ACTION);
     }
 
+    /***
+     * 删除加班申请
+     */
+    private void deleteExtraWork() {
+        Map<String, String> params = new HashMap<>();
+        params.put("id", String.valueOf(extraWorkId));
+        httpPostRequest(ConfigUtil.DELETE_EXTRA_WORK_RECORD_URL, params, ConfigUtil.DELETE_EXTRA_WORK_RECORD_URL_ACTION);
+    }
+
     @Override
     public void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
@@ -109,6 +139,23 @@ public class MineExtraWorkFragment extends BaseFragment{
             case ConfigUtil.QUERY_EXTRA_WORK_LIST_URL_ACTION:
                 handleQueryExtraWorkList(json);
                 break;
+            case ConfigUtil.DELETE_EXTRA_WORK_RECORD_URL_ACTION:
+                handleDeleteExtraWork(json);
+                break;
+        }
+    }
+
+    /***
+     * 删除加班申请处理
+     * @param json
+     */
+    private void handleDeleteExtraWork(String json) {
+        Log.d("Dong", "删除加班申请---->" + json);
+        if (getRequestCode(json) == 1) {
+            pageNo = 1;
+            //删除成功后刷新列表
+            queryExtraWorkList(pageNo);
+            Toast.makeText(getActivity(), "删除成功", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -138,4 +185,40 @@ public class MineExtraWorkFragment extends BaseFragment{
             }
         }
     }
+
+    /****
+     * 展示对话框
+     */
+    private void showPopuWindow() {
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.popu_delete_approve_extra_work, null);
+        dialog = new Dialog(getActivity(), R.style.transparentFrameWindowStyle);
+        dialog.setContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams wl = window.getAttributes();
+        // 以下这两句是为了保证按钮可以水平满屏
+        wl.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+        wl.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        // 设置显示位置
+        dialog.onWindowAttributesChanged(wl);
+        // 设置点击外围解散
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+        TextView tvSavePhoto = (TextView) dialog.findViewById(R.id.tv_delete_extra_work);
+        tvSavePhoto.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_delete_extra_work:
+                deleteExtraWork();
+                dialog.dismiss();
+                break;
+            case R.id.tv_cancel:
+                dialog.dismiss();
+                break;
+        }
+    }
+
+
 }
