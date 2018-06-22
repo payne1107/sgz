@@ -195,4 +195,38 @@ public class ConfigUtil {
      */
     public static final String REFRESH_TOKEN_URL = MyApplication.REQUEST_URL + "user/refresh";
     public static final int REFRESH_TOKEN_URL_ACTION = 36;
+    /****
+     * 获取监管单位
+     */
+    public static final String QUERY_MY_COMPANY_URL = MyApplication.REQUEST_URL + "project/getMyCompany";
+    public static final int QUERY_MY_COMPANY_URL_ACTION = 37;
+    /***
+     * 新增工单
+     */
+    public static final String ADD_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "project/addProject";
+    public static final int ADD_PROJECT_ORDER_URL_ACTION = 38;
+    /***
+     * 获取首页默认工单
+     */
+    public static final String QUERY_DEFAULT_PROJECT_URL = MyApplication.REQUEST_URL + "project/queryDefaultProject";
+    public static final int QUERY_DEFAULT_PROJECT_URL_ACTION = 39;
+    /****
+     * 获取打卡按钮状态
+     */
+    public static final String QUERY_WORK_STATUS_URL = MyApplication.REQUEST_URL + "project/queryWorkStatus";
+    public static final int QUERY_WORK_STATUS_URL_ACTION = 40;
+    /***
+     * 获取当天打卡记录
+     */
+    public static final String QUERY_WORK_RECORD_URL = MyApplication.REQUEST_URL + "project/queryWorkRecord";
+    public static final int QUERY_WORK_RECORD_URL_ACTION = 41;
+    /****
+     * 打卡
+     */
+    public static final String ADD_WORK_RECORD_URL = MyApplication.REQUEST_URL + "project/addWorkRecord";
+    public static final int ADD_WORK_RECORD_URL_ACTION = 42;
+
+
+
+
 }

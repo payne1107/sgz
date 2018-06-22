@@ -45,6 +45,8 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     //工友信息
     private static final int REQUEST_CHOOSE_CONTACTS_CODE = 10005;
     protected static final String REQUEST_CHOOSE_CONTACTS_KEY = "request_choose_contacts_key";
+    //选择城市信息
+    private static final int REQUEST_CHOOSE_COMPANY_CODE = 10006;
 
     private TextView tvAddPerson;
     private Context mContext;
@@ -58,6 +60,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     private List<String> listContacts = new ArrayList<>();
     private RecyclerView recyclerView;
     private ReleaseOrderAdapter adapter;
+    private TextView tvChooseCompany;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -81,6 +84,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvLeader = (TextView) findViewById(R.id.tv_leader);
         tvStartDate = (TextView) findViewById(R.id.tv_start_date);
         tvChooseLocation = (TextView) findViewById(R.id.tv_choose_location);
+        tvChooseCompany = findViewById(R.id.tv_choose_company);
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 6);
         recyclerView.setLayoutManager(layoutManager);
@@ -99,6 +103,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvStartDate.setOnClickListener(this);
         tvChooseLocation.setOnClickListener(this);
         tvSet.setOnClickListener(this);
+        tvChooseCompany.setOnClickListener(this);
     }
 
     @Override
@@ -128,6 +133,9 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
             case R.id.activity_set:
                 //保存工单信息
                 toastMessage("save order details");
+                break;
+            case R.id.tv_choose_company:
+//                startActivityForResult(new Intent(mContext, ChooseCompanyActivity.class),REQUEST_CHOOSE_COMPANY_CODE);
                 break;
         }
     }
