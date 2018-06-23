@@ -1,7 +1,6 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
-import android.graphics.ColorFilter;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import com.jzxiang.pickerview.TimePickerDialog;
 import com.jzxiang.pickerview.data.Type;
 import com.jzxiang.pickerview.listener.OnDateSetListener;
-import com.zhy.autolayout.AutoLayoutInfo;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.text.SimpleDateFormat;
@@ -126,7 +124,7 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
     @Override
     public void onDateSet(TimePickerDialog timePickerView, long millseconds) {
         Date d = new Date(millseconds);
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd-hh-mm");
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd-HH:mm");
         if (setTime == 1) {
             tvStartDate.setText(sf.format(d));
         } else {
