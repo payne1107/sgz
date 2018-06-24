@@ -153,7 +153,7 @@ public class WorkOrderListBean {
             private Object lng;
             private Object lat;
             private Object createtime;
-            private long starttime;
+            private String starttime;
             private Object startworktime;
             private Object endworktime;
             private int status;
@@ -268,11 +268,11 @@ public class WorkOrderListBean {
                 this.createtime = createtime;
             }
 
-            public long getStarttime() {
+            public String getStarttime() {
                 return starttime;
             }
 
-            public void setStarttime(long starttime) {
+            public void setStarttime(String starttime) {
                 this.starttime = starttime;
             }
 

@@ -216,7 +216,7 @@ public class ConfigUtil {
     public static final String QUERY_WORK_STATUS_URL = MyApplication.REQUEST_URL + "project/queryWorkStatus";
     public static final int QUERY_WORK_STATUS_URL_ACTION = 40;
     /***
-     * 获取当天打卡记录
+     * 获取当天打卡记录 废弃接口
      */
     public static final String QUERY_WORK_RECORD_URL = MyApplication.REQUEST_URL + "project/queryWorkRecord";
     public static final int QUERY_WORK_RECORD_URL_ACTION = 41;
@@ -225,8 +225,77 @@ public class ConfigUtil {
      */
     public static final String ADD_WORK_RECORD_URL = MyApplication.REQUEST_URL + "project/addWorkRecord";
     public static final int ADD_WORK_RECORD_URL_ACTION = 42;
-
-
-
+    /***
+     * 设置默认工单
+     */
+    public static final String SET_DEFAUTL_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "project/setDefaultProject";
+    public static final int SET_DEFAUTL_PROJECT_ORDER_URL_ACTION = 43;
+    /****
+     * 我的财务 获取当前账户余额
+     */
+    public static final String QUERY_MY_BALANCE_URL = MyApplication.REQUEST_URL + "pay/getMyBalance";
+    public static final int QUERY_MY_BALANCE_URL_ACTION = 44;
+    /****
+     * 获取我创建的工单的支出情况列表
+     */
+    public static final String QUERY_PAYMENT_BY_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "pay/getPaymentByProject";
+    public static final int QUERY_PAYMENT_BY_PROJECT_ORDER_URL_ACTION = 45;
+    /****
+     * 具体某个工单的花名册 projectid
+     * 具体工单中具体某个工人的支出情况  projectid  & id
+     */
+    public static final String QUERY_PROJECT_WORK_SALARY_URL = MyApplication.REQUEST_URL + "pay/getProjectWorkSalary";
+    public static final int QUERY_PROJECT_WORK_SALARY_URL_ACTION = 47;
+    /****
+     * 发布动态
+     */
+    public static final String RELEAST_DYNAMIC_URL = MyApplication.REQUEST_URL + "dynamic/saveDynamic";
+    public static final int RELEAST_DYNAMIC_URL_ACTION = 48;
+    /***
+     * 获取主页动态
+     */
+    public static final String QUERY_DYNMAIC_LIST_URL = MyApplication.REQUEST_URL + "dynamic/dynamicList";
+    public static final int QUERY_DYNMAIC_LIST_URL_ACTION = 49;
+    /***
+     * 消息推送接口
+     */
+    public static final String QUERY_MY_PUSH_MESSAGE_ULR = MyApplication.REQUEST_URL + "pushMessage/queryMyPushMessage";
+    public static final int QUERY_MY_PUSH_MESSAGE_ULR_ACTION = 50;
+    /****
+     * 修改手机号
+     */
+    public static final String UPDATE_MOBILE_NUMBER_URL = MyApplication.REQUEST_URL + "personal/saveMobile";
+    public static final int UPDATE_MOBILE_NUMBER_URL_ACTION = 51;
+    /***
+     * 一键发放工资
+     */
+    public static final String TO_PAY_ALL_SALARY_URL = MyApplication.REQUEST_URL + "pay/toPayForAll";
+    public static final int TO_PAY_ALL_SALARY_URL_ACTION = 52;
+    /****
+     * 单个发工资
+     */
+    public static final String TO_PAY_FOR_ONE_SALARY_URL = MyApplication.REQUEST_URL + "pay/toPayForOne";
+    public static final int TO_PAY_FOR_ONE_SALARY_URL_ACTION = 53;
+    /****
+     * 充值明细  page   type=3
+     * 支出明细  page   type=1
+     */
+    public static final String QUERY_USER_FLOW_LIST_URL = MyApplication.REQUEST_URL + "pay/getUserFlowList";
+    public static final int QUERY_USER_FLOW_LIST_URL_ACTION = 54;
+    /****
+     *根据月份获取打卡信息
+     */
+    public static final String QUERY_WORK_RECORD_BY_TIME_URL = MyApplication.REQUEST_URL + "project/queryWorkRecordByTime";
+    public static final int QUERY_WORK_RECORD_BY_TIME_URL_ACTION = 55;
+    /***
+     * 获取我创建的工单
+     */
+    public static final String QUERY_MY_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "project/getMyProject";
+    public static final int QUERY_MY_PROJECT_ORDER_URL_ACTION = 56;
+    /****
+     * 获取我参与的工单
+     */
+    public static final String QUERY_MY_JOIN_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "project/getMyJoinProject";
+    public static final int QUERY_MY_JOIN_PROJECT_ORDER_URL_ACTION = 57;
 
 }

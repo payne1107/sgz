@@ -322,8 +322,9 @@ public abstract class BaseFragment extends Fragment {
      * @return
      */
     public int getRequestCode(String json) {
-        JSONObject jsonObject = JSONObject.parseObject(json);
-        return jsonObject.getInteger("flag");
+        JSONObject object = JSONObject.parseObject(json);
+        int resultCode = Integer.valueOf(object.getString("resultCode"));
+        return resultCode;
     }
 
 

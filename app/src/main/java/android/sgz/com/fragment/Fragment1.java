@@ -12,7 +12,9 @@ import android.sgz.com.adapter.FirstFragmentAdapter;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.TopInfoBean;
+import android.sgz.com.bean.WorkStatusBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.DateUtils;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -22,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.amap.api.location.AMapLocation;
@@ -56,6 +59,9 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private TextView tvWorkFriends;
     private TextView tvWorkOrder;
     private TextView tvSalary;
+    private AutoLinearLayout layoutWorkRecord;
+    private TextView tvWorkStatus;
+    private TextView tvDate;
 
 
     @Override
@@ -85,6 +91,9 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         tvWorkFriends = mRootView.findViewById(R.id.tv_work_friends);
         tvWorkOrder = mRootView.findViewById(R.id.tv_work_order);
         tvSalary = mRootView.findViewById(R.id.tv_salary);
+        layoutWorkRecord = mRootView.findViewById(R.id.layout_work_record);
+        tvWorkStatus =mRootView.findViewById(R.id.tv_work_status);
+        tvDate = mRootView.findViewById(R.id.tv_date);
 
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
@@ -100,6 +109,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
      */
     private void initData() {
         initLocation();
+        queryWorkStatus();
         queryTopInfo();
     }
 
@@ -112,6 +122,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         layoutFriends.setOnClickListener(this);
         layoutworkOrder.setOnClickListener(this);
         layoutSalary.setOnClickListener(this);
+        layoutWorkRecord.setOnClickListener(this);
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -142,6 +153,10 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
             case R.id.rl_title:
                 startLocationActivity();
                 break;
+            case R.id.layout_work_record:
+                //打卡按钮
+                addWorkRecord();
+                break;
         }
     }
 
@@ -167,10 +182,10 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                         //登陆之后记录经纬度
                         MyApplication.currentLat = aMapLocation.getLatitude();
                         MyApplication.currentLon = aMapLocation.getLongitude();
-                        MyApplication.currentArea = aMapLocation.getAddress();
+                        MyApplication.currentArea = aMapLocation.getCity() + aMapLocation.getPoiName();
                         city = aMapLocation.getCity();
                         tvCity.setText(city);
-                        Log.d("Dong", "定位成功-----》" + city);
+                        Log.d("Dong", "定位成功-----》" + MyApplication.currentArea + "," + MyApplication.currentLat +","  + MyApplication.currentLon);
                     } else {
                         //定位失败
                         city = "合肥市";
@@ -191,6 +206,27 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         httpPostRequest(ConfigUtil.QUERY_INDEX_DATA_URL, params, ConfigUtil.QUERY_INDEX_DATA_URL_ACTION);
     }
 
+    /****
+     * 获取打卡按钮状态
+     */
+    private void queryWorkStatus() {
+        Map<String, String> params = new HashMap<>();
+        params.put("random", "123");
+        httpPostRequest(ConfigUtil.QUERY_WORK_STATUS_URL, params, ConfigUtil.QUERY_WORK_STATUS_URL_ACTION);
+    }
+
+    /***
+     * 打卡请求
+     */
+    private void addWorkRecord() {
+        startIOSDialogLoading(getActivity(),"打卡中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("address", MyApplication.currentArea);
+        params.put("lng", String.valueOf(MyApplication.currentLon));
+        params.put("lat", String.valueOf(MyApplication.currentLat));
+        httpPostRequest(ConfigUtil.ADD_WORK_RECORD_URL, params, ConfigUtil.ADD_WORK_RECORD_URL_ACTION);
+    }
+
     @Override
     public void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
@@ -198,6 +234,37 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
             case ConfigUtil.QUERY_INDEX_DATA_URL_ACTION:
                 handlerQueryTopInfo(json);
             break;
+            case ConfigUtil.QUERY_WORK_STATUS_URL_ACTION:
+                handleQueryWorkStatus(json);
+                break;
+            case ConfigUtil.ADD_WORK_RECORD_URL_ACTION:
+                handleAddWorkRecord(json);
+                break;
+        }
+    }
+
+    /****
+     * 处理打卡反馈
+     * @param json
+     */
+    private void handleAddWorkRecord(String json) {
+        Log.d("Dong", "处理打卡反馈结果---》" + json);
+        if (getRequestCode(json) == 1) {
+            Toast.makeText(getActivity(), "打卡成功", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /***
+     * 处理打卡状态状态
+     * @param json
+     */
+    private void handleQueryWorkStatus(String json) {
+        Log.d("Dong", "打卡状态---》" + json);
+        WorkStatusBean bean = JSON.parseObject(json, WorkStatusBean.class);
+        if (bean != null) {
+            String result = bean.getResultMsg();
+            tvWorkStatus.setText("start".equals(result) ? "上班打卡" : "下班打卡");
+            tvDate.setText("" + DateUtils.getMonth()+"月" + DateUtils.getCurrentDayOfMonth()+"号");
         }
     }
 

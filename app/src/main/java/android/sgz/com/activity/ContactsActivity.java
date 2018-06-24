@@ -42,6 +42,7 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     private TextView tvSearchContacts;
     private EditText etSearch;
     private String searchName ="";
+    private int queryContactId; //等于1 就是发布工单进入好友信息 ，点击好友信息就关闭当前页面
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("工友信息", true, true);
+        queryContactId = getIntent().getIntExtra("query_contacts_info", -1);
         listView = findViewById(R.id.recycler_view);
         tvSearchContacts = findViewById(R.id.tv_search_contact);
         etSearch = findViewById(R.id.et_search_contact);
@@ -69,23 +71,36 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void setListener() {
-//        adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
-//            @Override
-//            public void onItemClick(View view, int position) {
-//                Intent intent = new Intent(mContext, ReleaseOrderActivity.class);
-//                intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_CONTACTS_KEY, mList.get(position));
-//                setResult(RESULT_OK,intent);
-//                finish();
-//            }
-//        });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ContactsBean.DataBean.ListBean bean = (ContactsBean.DataBean.ListBean) parent.getAdapter().getItem(position);
-                if (bean != null) {
-                    int friendId = bean.getId();
-                    startActivity(new Intent(mContext, ContactsDetailsActivity.class).putExtra("friendId", friendId));
+                if (queryContactId == 1) {
+                    if (bean != null) {
+                        int userid =bean.getId();
+                        String allowance = bean.getAllowance();
+                        String salary =bean.getAllsalary();
+                        String overWorkSalary = bean.getAddsalary();
+                        String realName = bean.getRealname();
+                        String profession = bean.getProfession();
+
+                        //跳转到发布工单
+                        Intent intent = new Intent(mContext, ReleaseOrderActivity.class);
+                        intent.putExtra("userid", userid);
+                        intent.putExtra("allowance", allowance);
+                        intent.putExtra("salary", salary);
+                        intent.putExtra("overWorkSalary", overWorkSalary);
+                        intent.putExtra("realName", realName);
+                        intent.putExtra("profession", profession);
+                        setResult(RESULT_OK,intent);
+                        finish();
+                    }
+                } else {
+                    //跳转到工友详情页面
+                    if (bean != null) {
+                        int friendId = bean.getId();
+                        startActivity(new Intent(mContext, ContactsDetailsActivity.class).putExtra("friendId", friendId));
+                    }
                 }
             }
         });
@@ -145,7 +160,7 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void handlerQueryContactsList(String json) {
-        Log.d("Dong", "json ----------->" + json);
+        Log.d("Dong", "获取好友列表 ----------->" + json);
         if (listView != null && listView.isRefreshing()) {
             listView.onRefreshComplete();
         }

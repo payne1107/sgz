@@ -1,17 +1,15 @@
-package android.sgz.com.fragment;
+package android.sgz.com.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.sgz.com.R;
-import android.sgz.com.adapter.MessageAdapter;
-import android.sgz.com.base.BaseFragment;
-import android.sgz.com.bean.MessageBean;
+import android.sgz.com.adapter.MineHomePageAdapter;
+import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.MineHomePageBean;
 import android.sgz.com.utils.ConfigUtil;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.itheima.pulltorefreshlib.PullToRefreshBase;
@@ -23,40 +21,38 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by 92457 on 2018/4/16.
+ * Created by WD on 2018/6/24.
+ * 我的主页
  */
 
-public class Fragment3 extends BaseFragment {
+public class MineHomePageActivity extends BaseActivity{
 
     private PullToRefreshListView listView;
-    private List<MessageBean.DataBean.ListBean> mList = new ArrayList<>();
-    private MessageAdapter adapter;
+    private Context mContext;
+    private List<MineHomePageBean.DataBean.ListBean> mList  = new ArrayList<>();
+    private int pageNo = 1;
     private int pageSize;
     private boolean swipeLoadMore = false;
-    private int pageNo = 1;
-
+    private MineHomePageAdapter adapter;
 
     @Override
-    public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (mRootView == null) {
-            mRootView = inflater.inflate(R.layout.fragment3, null);
-        }
-        //缓存的rootView需要判断是否已经被加过parent,如果有parent需要从parent删除，要不然会发生这个rootview已经有parent的错误。
-        ViewGroup parent = (ViewGroup) mRootView.getParent();
-        if (parent != null) {
-            parent.removeView(mRootView);
-        }
-        return mRootView;
+    protected void onCreateCustom(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_mine_homepage);
+        mContext = MineHomePageActivity.this;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setInVisibleTitleIcon("消息", true, false);
-        queryPushMessage(pageNo);
-        listView = mRootView.findViewById(R.id.listview);
+    protected void initData() {
+        queryDynamicList(pageNo);
+    }
+
+    @Override
+    protected void initView() {
+        super.initView();
+        setInVisibleTitleIcon("我的主页", true, true);
+        listView = findViewById(R.id.listview);
+        adapter = new MineHomePageAdapter(mContext, mList);
         listView.setMode(PullToRefreshBase.Mode.BOTH);
-        adapter = new MessageAdapter(getActivity(),mList);
         listView.setAdapter(adapter);
         setListener();
     }
@@ -66,7 +62,7 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 pageNo = 1;
-                queryPushMessage(pageNo);
+                queryDynamicList(pageNo);
             }
 
             @Override
@@ -74,7 +70,7 @@ public class Fragment3 extends BaseFragment {
                 ++pageNo;
                 if (pageNo <= pageSize) {
                     swipeLoadMore = true;
-                    queryPushMessage(pageNo);
+                    queryDynamicList(pageNo);
                 } else {
                     delayedToast();
                 }
@@ -83,7 +79,7 @@ public class Fragment3 extends BaseFragment {
     }
 
     private void delayedToast() {
-        Toast.makeText(getActivity(),"没有更多数据啦",Toast.LENGTH_LONG).show();
+        toastMessage("没有更多数据啦");
         listView.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -93,37 +89,35 @@ public class Fragment3 extends BaseFragment {
         },1000);
     }
     /****
-     * 查询消息推送
+     * 查询我主页数据
      */
-    private void queryPushMessage(int pageNo) {
+    private void queryDynamicList(int pageNo) {
+        startIOSDialogLoading(mContext,"加载中..");
         Map<String, String> params = new HashMap<>();
         params.put("page", String.valueOf(pageNo));
-        httpPostRequest(ConfigUtil.QUERY_MY_PUSH_MESSAGE_ULR, params, ConfigUtil.QUERY_MY_PUSH_MESSAGE_ULR_ACTION);
+        httpPostRequest(ConfigUtil.QUERY_DYNMAIC_LIST_URL, params, ConfigUtil.QUERY_DYNMAIC_LIST_URL_ACTION);
     }
 
     @Override
-    public void httpOnResponse(String json, int action) {
+    protected void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
         switch (action) {
-            case ConfigUtil.QUERY_MY_PUSH_MESSAGE_ULR_ACTION:
-                hanldeQueryMyPushMessage(json);
+            case ConfigUtil.QUERY_DYNMAIC_LIST_URL_ACTION:
+                handleQueryDynamicList(json);
                 break;
         }
     }
 
-    /***
-     * 处理消息推送
-     * @param json
-     */
-    private void hanldeQueryMyPushMessage(String json) {
+    private void handleQueryDynamicList(String json) {
+        Log.d("Dong", "查询我的动态---》" + json);
         if (listView != null && listView.isRefreshing()) {
             listView.onRefreshComplete();
         }
-        MessageBean bean =  JSON.parseObject(json, MessageBean.class);
+        MineHomePageBean bean = JSON.parseObject(json, MineHomePageBean.class);
         if (bean != null) {
-            MessageBean.DataBean data = bean.getData();
+            MineHomePageBean.DataBean data = bean.getData();
             if (data != null) {
-                pageSize = data.getCoutpage();
+                pageSize =data.getCoutpage();
                 if (swipeLoadMore) {
                     swipeLoadMore = false;
                     mList.addAll(mList.size(), data.getList());

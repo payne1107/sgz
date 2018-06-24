@@ -29,6 +29,12 @@ public class WorkAttendanceFragment extends BaseFragment {
     private TextView tvDate;
     private TextView tvStartWorkTime;
     private TextView tvEndWorkTime;
+    private TextView tvStartWorkRecord;
+    private TextView tvStartWorkStatus;
+    private TextView tvStartWorkAddress;
+    private TextView tvEndRecordAddress;
+    private TextView tvEndRecordTime;
+    private TextView tvEndWorkStatus;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +61,13 @@ public class WorkAttendanceFragment extends BaseFragment {
         tvDate = mRootView.findViewById(R.id.tv_date);
         tvStartWorkTime = mRootView.findViewById(R.id.tv_start_work_time);
         tvEndWorkTime = mRootView.findViewById(R.id.tv_end_work_time);
+        tvStartWorkRecord = mRootView.findViewById(R.id.tv_start_work_record);
+        tvStartWorkStatus = mRootView.findViewById(R.id.tv_start_work_status);
+        tvStartWorkAddress = mRootView.findViewById(R.id.tv_start_work_address);
+        tvEndRecordAddress = mRootView.findViewById(R.id.tv_end_record_address);
+        tvEndRecordTime = mRootView.findViewById(R.id.tv_end_record_time);
+        tvEndWorkStatus = mRootView.findViewById(R.id.tv_end_work_status);
+
 
     }
 
@@ -66,13 +79,6 @@ public class WorkAttendanceFragment extends BaseFragment {
         Map<String, String> params = new HashMap<>();
         params.put("randow", "123");
         httpPostRequest(ConfigUtil.QUERY_DEFAULT_PROJECT_URL, params, ConfigUtil.QUERY_DEFAULT_PROJECT_URL_ACTION);
-    }
-
-    /***
-     * 获取当天打卡记录
-     */
-    private void queryWorkRecord() {
-        Map<String, String> parms = new HashMap<>();
     }
 
     @Override
@@ -91,14 +97,28 @@ public class WorkAttendanceFragment extends BaseFragment {
         if (bean != null) {
             DefaultProjectOrderBean.DataBean data = bean.getData();
             if (data != null) {
-                String projectName = data.getName();
-                String startTime = data.getStarttime();
-                String startWorkTime = data.getStartworktime();
-                String endWorkTime = data.getEndworktime();
-                tvProjectName.setText("" + projectName);
-                tvDate.setText("" + startTime);
-                tvStartWorkTime.setText("上班时间 " + startWorkTime);
-                tvEndWorkTime.setText("下班时间" + endWorkTime);
+                DefaultProjectOrderBean.DataBean.ProjectBean projectBean = data.getProject();
+                if (projectBean != null) {
+                    String projectName = projectBean.getName();
+                    String startTime = projectBean.getStarttime();
+                    String startWorkTime = projectBean.getStartworktime();
+                    String endWorkTime = projectBean.getEndworktime();
+                    tvProjectName.setText("" + projectName);
+                    tvDate.setText("" + startTime);
+                    tvStartWorkTime.setText("上班时间 " + startWorkTime);
+                    tvEndWorkTime.setText("下班时间" + endWorkTime);
+                }
+                DefaultProjectOrderBean.DataBean.WorkRecordBean workRecordBean = data.getWorkRecord();
+                if (workRecordBean != null) {
+                    String startRecordAddress = workRecordBean.getStartrecordaddress();
+                    String endRecordAddress = workRecordBean.getEndrecordaddress();
+                    String startRecordTime = workRecordBean.getStartrecordtime();
+                    String endRecordTime= workRecordBean.getEndrecordtime();
+                    tvStartWorkRecord.setText("打卡时间" + startRecordTime);
+                    tvStartWorkAddress.setText("" + startRecordAddress);
+                    tvEndRecordAddress.setText("" + endRecordAddress);
+                    tvEndRecordTime.setText("下班时间" + endRecordTime);
+                }
             }
         }
     }

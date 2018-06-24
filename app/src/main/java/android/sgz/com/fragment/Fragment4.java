@@ -6,6 +6,7 @@ import android.sgz.com.R;
 import android.sgz.com.activity.CardCountingActivity;
 import android.sgz.com.activity.ExtraWrokActivity;
 import android.sgz.com.activity.MineExpendActivity;
+import android.sgz.com.activity.MineHomePageActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.PersonDetailsActivity;
 import android.sgz.com.activity.SettingActivity;
@@ -33,6 +34,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutWorkOrderManager;
     private AutoLinearLayout layoutExtraWork;
     private AutoLinearLayout layoutSetting;
+    private AutoLinearLayout layoutMineHomePage;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutWorkOrderManager = (AutoLinearLayout) mRootView.findViewById(R.id.layout_workorder_manager);
         layoutExtraWork = mRootView.findViewById(R.id.layout_extra_work);
         layoutSetting = mRootView.findViewById(R.id.layout_setting);
+        layoutMineHomePage = mRootView.findViewById(R.id.layout_mine_homepage);
+
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
         layoutMineSalary.setOnClickListener(this);
@@ -75,6 +79,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutWorkOrderManager.setOnClickListener(this);
         layoutExtraWork.setOnClickListener(this);
         layoutSetting.setOnClickListener(this);
+        layoutMineHomePage.setOnClickListener(this);
     }
 
     @Override
@@ -105,6 +110,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.layout_setting:
                 startActivity(new Intent(getActivity(),SettingActivity.class));
+                break;
+            case R.id.layout_mine_homepage:
+                //我的主页
+                startActivity(new Intent(getActivity(), MineHomePageActivity.class));
                 break;
         }
     }

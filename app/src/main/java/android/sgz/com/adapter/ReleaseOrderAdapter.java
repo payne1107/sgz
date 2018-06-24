@@ -2,6 +2,7 @@ package android.sgz.com.adapter;
 
 import android.content.Context;
 import android.sgz.com.R;
+import android.sgz.com.bean.AddOrderContactsBean;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +18,10 @@ import java.util.List;
 public class ReleaseOrderAdapter extends RecyclerView.Adapter {
 
     private Context mContext;
-    private List<String> mList;
+    private List<AddOrderContactsBean> mList;
     private LayoutInflater inflater;
 
-    public ReleaseOrderAdapter(Context context, List<String> list) {
+    public ReleaseOrderAdapter(Context context, List<AddOrderContactsBean> list) {
         this.mContext = context;
         this.mList = list;
         inflater = LayoutInflater.from(mContext);
@@ -34,7 +35,8 @@ public class ReleaseOrderAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolder viewHolder = (ViewHolder) holder;
-        viewHolder.tvName.setText(mList.get(position));
+        String realName = mList.get(position).getRealName();
+        viewHolder.tvName.setText( "" + realName);
     }
 
     @Override

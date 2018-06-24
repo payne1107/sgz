@@ -8,11 +8,12 @@ import java.util.List;
 
 public class ContactsBean {
 
+
     /**
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : {"curPage":1,"coutpage":1,"pageSize":15,"list":[{"id":7,"username":"15955978338","password":null,"mobile":"15955978338","wxcode":null,"realname":"Rebecca","photo":null,"provinceid":null,"cityid":null,"msalary":null,"dsalary":null,"addsalary":null,"birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"enabled":true,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},{"id":8,"username":"15856505441","password":null,"mobile":"15856505441","wxcode":null,"realname":"1111","photo":null,"provinceid":null,"cityid":null,"msalary":"111.00","dsalary":"1111.00","addsalary":"111.00","birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"enabled":true,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true}]}
+     * data : {"curPage":1,"coutpage":1,"pageSize":15,"list":[{"id":7,"username":"15955978338","mobile":"15955978338","wxcode":null,"realname":"Rebecca","photo":null,"provinceid":null,"cityid":null,"msalary":null,"dsalary":null,"addsalary":null,"birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"provincename":null,"cityname":null,"professionlevelname":null,"name":null,"allowance":null,"paymentsalary":null,"allsalary":null,"alladdsalary":null,"workdays":null,"projectid":null},{"id":8,"username":"15856505441","mobile":"15856505441","wxcode":null,"realname":"1111","photo":null,"provinceid":null,"cityid":null,"msalary":"111.00","dsalary":"1111.00","addsalary":"111.00","birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"provincename":null,"cityname":null,"professionlevelname":null,"name":null,"allowance":null,"paymentsalary":null,"allsalary":null,"alladdsalary":null,"workdays":null,"projectid":null}]}
      * exception : false
      */
 
@@ -67,7 +68,7 @@ public class ContactsBean {
          * curPage : 1
          * coutpage : 1
          * pageSize : 15
-         * list : [{"id":7,"username":"15955978338","password":null,"mobile":"15955978338","wxcode":null,"realname":"Rebecca","photo":null,"provinceid":null,"cityid":null,"msalary":null,"dsalary":null,"addsalary":null,"birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"enabled":true,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},{"id":8,"username":"15856505441","password":null,"mobile":"15856505441","wxcode":null,"realname":"1111","photo":null,"provinceid":null,"cityid":null,"msalary":"111.00","dsalary":"1111.00","addsalary":"111.00","birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"enabled":true,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true}]
+         * list : [{"id":7,"username":"15955978338","mobile":"15955978338","wxcode":null,"realname":"Rebecca","photo":null,"provinceid":null,"cityid":null,"msalary":null,"dsalary":null,"addsalary":null,"birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"provincename":null,"cityname":null,"professionlevelname":null,"name":null,"allowance":null,"paymentsalary":null,"allsalary":null,"alladdsalary":null,"workdays":null,"projectid":null},{"id":8,"username":"15856505441","mobile":"15856505441","wxcode":null,"realname":"1111","photo":null,"provinceid":null,"cityid":null,"msalary":"111.00","dsalary":"1111.00","addsalary":"111.00","birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","friendsid":null,"provincename":null,"cityname":null,"professionlevelname":null,"name":null,"allowance":null,"paymentsalary":null,"allsalary":null,"alladdsalary":null,"workdays":null,"projectid":null}]
          */
 
         private int curPage;
@@ -111,7 +112,6 @@ public class ContactsBean {
             /**
              * id : 7
              * username : 15955978338
-             * password : null
              * mobile : 15955978338
              * wxcode : null
              * realname : Rebecca
@@ -133,15 +133,20 @@ public class ContactsBean {
              * vipuserid : null
              * profession : 水电工
              * friendsid : null
-             * enabled : true
-             * accountNonExpired : true
-             * accountNonLocked : true
-             * credentialsNonExpired : true
+             * provincename : null
+             * cityname : null
+             * professionlevelname : null
+             * name : null
+             * allowance : null
+             * paymentsalary : null
+             * allsalary : null
+             * alladdsalary : null
+             * workdays : null
+             * projectid : null
              */
 
             private int id;
             private String username;
-            private String password;
             private String mobile;
             private String wxcode;
             private String realname;
@@ -163,10 +168,16 @@ public class ContactsBean {
             private String vipuserid;
             private String profession;
             private String friendsid;
-            private boolean enabled;
-            private boolean accountNonExpired;
-            private boolean accountNonLocked;
-            private boolean credentialsNonExpired;
+            private String provincename;
+            private String cityname;
+            private String professionlevelname;
+            private String name;
+            private String allowance;
+            private String paymentsalary;
+            private String allsalary;
+            private String alladdsalary;
+            private String workdays;
+            private String projectid;
 
             public int getId() {
                 return id;
@@ -182,14 +193,6 @@ public class ContactsBean {
 
             public void setUsername(String username) {
                 this.username = username;
-            }
-
-            public String getPassword() {
-                return password;
-            }
-
-            public void setPassword(String password) {
-                this.password = password;
             }
 
             public String getMobile() {
@@ -360,36 +363,84 @@ public class ContactsBean {
                 this.friendsid = friendsid;
             }
 
-            public boolean isEnabled() {
-                return enabled;
+            public String getProvincename() {
+                return provincename;
             }
 
-            public void setEnabled(boolean enabled) {
-                this.enabled = enabled;
+            public void setProvincename(String provincename) {
+                this.provincename = provincename;
             }
 
-            public boolean isAccountNonExpired() {
-                return accountNonExpired;
+            public String getCityname() {
+                return cityname;
             }
 
-            public void setAccountNonExpired(boolean accountNonExpired) {
-                this.accountNonExpired = accountNonExpired;
+            public void setCityname(String cityname) {
+                this.cityname = cityname;
             }
 
-            public boolean isAccountNonLocked() {
-                return accountNonLocked;
+            public String getProfessionlevelname() {
+                return professionlevelname;
             }
 
-            public void setAccountNonLocked(boolean accountNonLocked) {
-                this.accountNonLocked = accountNonLocked;
+            public void setProfessionlevelname(String professionlevelname) {
+                this.professionlevelname = professionlevelname;
             }
 
-            public boolean isCredentialsNonExpired() {
-                return credentialsNonExpired;
+            public String getName() {
+                return name;
             }
 
-            public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-                this.credentialsNonExpired = credentialsNonExpired;
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getAllowance() {
+                return allowance;
+            }
+
+            public void setAllowance(String allowance) {
+                this.allowance = allowance;
+            }
+
+            public String getPaymentsalary() {
+                return paymentsalary;
+            }
+
+            public void setPaymentsalary(String paymentsalary) {
+                this.paymentsalary = paymentsalary;
+            }
+
+            public String getAllsalary() {
+                return allsalary;
+            }
+
+            public void setAllsalary(String allsalary) {
+                this.allsalary = allsalary;
+            }
+
+            public String getAlladdsalary() {
+                return alladdsalary;
+            }
+
+            public void setAlladdsalary(String alladdsalary) {
+                this.alladdsalary = alladdsalary;
+            }
+
+            public String getWorkdays() {
+                return workdays;
+            }
+
+            public void setWorkdays(String workdays) {
+                this.workdays = workdays;
+            }
+
+            public String getProjectid() {
+                return projectid;
+            }
+
+            public void setProjectid(String projectid) {
+                this.projectid = projectid;
             }
         }
     }

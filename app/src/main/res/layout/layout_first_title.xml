@@ -88,6 +88,7 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
             <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/layout_work_record"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_marginTop="@dimen/margin_size_10"
@@ -95,13 +96,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/tv_work_status"
                     android:text="打卡工作"
                     android:textSize="@dimen/text_size_28"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="04月22日"
+                    android:id="@+id/tv_date"
                     android:textSize="@dimen/text_size_24"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"

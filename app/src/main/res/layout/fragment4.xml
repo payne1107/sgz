@@ -120,7 +120,21 @@
                     style="@style/PersonCenterTextRightStyle"
                     android:drawableRight="@mipmap/icon_arrow_right" />
             </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/layout_waring_manage"
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
 
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:drawableLeft="@mipmap/icon_waring"
+                    android:text="异常管理" />
+
+                <TextView
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right" />
+            </com.zhy.autolayout.AutoLinearLayout>
             <com.zhy.autolayout.AutoLinearLayout
                 android:id="@+id/layout_mine_salary"
                 style="@style/PersonCenterLayoutStyle"
@@ -146,7 +160,7 @@
                 <TextView
                     style="@style/PersonCenterTextLeftStyle"
                     android:drawableLeft="@mipmap/icon_my_card"
-                    android:text="我的支出" />
+                    android:text="我的财务" />
 
                 <TextView
                     style="@style/PersonCenterTextRightStyle"
@@ -154,6 +168,7 @@
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/layout_mine_homepage"
                 style="@style/PersonCenterLayoutStyle"
                 android:layout_marginTop="15px"
                 android:background="@color/white">
@@ -169,6 +184,7 @@
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
+                android:visibility="gone"
                 style="@style/PersonCenterLayoutStyle"
                 android:layout_marginTop="1px"
                 android:background="@color/white">
@@ -184,6 +200,7 @@
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
+                android:visibility="gone"
                 style="@style/PersonCenterLayoutStyle"
                 android:layout_marginTop="1px"
                 android:background="@color/white">

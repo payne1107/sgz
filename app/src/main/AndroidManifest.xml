@@ -249,7 +249,20 @@
         <activity
             android:name=".activity.ApplyExtraWorkActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".activity.ChooseCompanyActivity"
+            android:screenOrientation="portrait" />
+        <!--设置打卡时间-->
+        <activity
+            android:name=".activity.SetWorkRecordActivity"
+            android:screenOrientation="portrait" />
+        <!--我的主页-->
+        <activity
+            android:name=".activity.MineHomePageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MineExpendDetails"
+            android:screenOrientation="portrait" />
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"

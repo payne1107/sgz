@@ -100,7 +100,6 @@ public class ChooseLocationActivity extends BaseActivity implements View.OnClick
                 intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_LON_KEY, data.getLongitude());
                 setResult(RESULT_OK,intent);
                 finish();
-                toastMessage("你点击了---》" + data.getCity() +" -->" +data.getDetailAddress() +"-->" +data.getDistrict() +"->>" +data.getProvince());
             }
         });
     }
