@@ -1152,4 +1152,30 @@ public abstract class BaseActivity extends FragmentActivity {
         int resultCode = Integer.valueOf(object.getString("resultCode"));
         return resultCode;
     }
+
+    /***
+     * 更新apk之前先删除文件夹内缓存的apk文件
+     */
+    protected void deleteAllFiles(File root) {
+        File files[] = root.listFiles();
+        if (files != null)
+            for (File f : files) {
+                if (f.isDirectory()) { // 判断是否为文件夹
+                    deleteAllFiles(f);
+                    try {
+                        f.delete();
+                    } catch (Exception e) {
+                    }
+                } else {
+                    if (f.exists()) { // 判断是否存在
+                        deleteAllFiles(f);
+                        try {
+                            f.delete();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                }
+            }
+    }
 }

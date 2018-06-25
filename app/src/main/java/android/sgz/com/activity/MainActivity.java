@@ -11,6 +11,7 @@ import android.sgz.com.fragment.Fragment2;
 import android.sgz.com.fragment.Fragment3;
 import android.sgz.com.fragment.Fragment4;
 import android.sgz.com.utils.AppManager;
+import android.sgz.com.utils.CacheImgUtil;
 import android.sgz.com.utils.PopupMenuUtil;
 import android.sgz.com.utils.StatusUtils;
 import android.support.annotation.RequiresApi;
@@ -26,6 +27,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.io.File;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -69,6 +72,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
+        deleteAllFiles(new File(CacheImgUtil.PATH_DATA_CACHE));
         isUpdateApk();
     }
 
