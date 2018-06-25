@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.MineExpendDetailsAdapter;
@@ -27,7 +28,7 @@ import java.util.Map;
  * 具体工单的花名册
  */
 
-public class MineExpendDetails extends BaseActivity{
+public class MineExpendDetails extends BaseActivity implements View.OnClickListener {
 
     private TextView tvProjectName;
     private TextView tvWorkAddress;
@@ -55,6 +56,7 @@ public class MineExpendDetails extends BaseActivity{
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("工资详情", true, true);
+        setSettingBtn("统一发工资");
         projectId = getIntent().getIntExtra("projectId", 0);
         address = getIntent().getStringExtra("address");
         startTime = getIntent().getStringExtra("startTime");
@@ -74,6 +76,7 @@ public class MineExpendDetails extends BaseActivity{
     }
 
     private void setListener() {
+        tvSet.setOnClickListener(this);
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
@@ -83,7 +86,12 @@ public class MineExpendDetails extends BaseActivity{
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                toastMessage("----发工资了---？" + position);
+                toastMessage("----发工资了---？" + mList.get(position).getId() + " -->" + mList.get(position).getProjectid());
+                MineExpendDetailsBean.DataBean bean = mList.get(position);
+                if (bean != null) {
+                    int userId = bean.getId();
+                    startActivity(new Intent(mContext, PayForOneSalaryActivity.class).putExtra("projectId", projectId).putExtra("userId", userId));
+                }
             }
         });
     }
@@ -121,6 +129,16 @@ public class MineExpendDetails extends BaseActivity{
         if (bean != null) {
             mList = bean.getData();
             adapter.setData(mList);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_set:
+                startActivity(new Intent(mContext, PayForAllSalaryActivity.class).putExtra("projectId", projectId));
+                break;
+
         }
     }
 }

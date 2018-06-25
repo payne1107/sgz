@@ -131,10 +131,11 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
                 toastMessage("充值");
                 break;
             case R.id.tv_recharge_details:
-                toastMessage("充值明细");
+                startActivity(new Intent(mContext, ToRechargeDetailsActivity.class));
                 break;
             case R.id.tv_expend_details:
                 toastMessage("支出明细");
+                startActivity(new Intent(mContext, ExpendDetailsActivity.class));
                 break;
         }
     }

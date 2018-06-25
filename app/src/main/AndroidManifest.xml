@@ -263,6 +263,20 @@
         <activity
             android:name=".activity.MineExpendDetails"
             android:screenOrientation="portrait" />
+        <!--统一发工资-->
+        <activity
+            android:name=".activity.PayForAllSalaryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PayForOneSalaryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ToRechargeDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExpendDetailsActivity"
+            android:screenOrientation="portrait" />
+
         <!--适配用到的配置-->
         <meta-data
             android:name="design_width"

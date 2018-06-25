@@ -1,15 +1,25 @@
 package android.sgz.com.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.WorkOrderListBean;
+import android.sgz.com.fragment.ApproveExtroWorkFragment;
+import android.sgz.com.fragment.MineExtraWorkFragment;
+import android.sgz.com.fragment.MineReleaseOrderFragment;
+import android.sgz.com.fragment.MineWorkOrderkFragment;
 import android.sgz.com.utils.ConfigUtil;
+import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 
 import com.alibaba.fastjson.JSON;
 import com.itheima.pulltorefreshlib.PullToRefreshBase;
@@ -25,82 +35,73 @@ import java.util.Map;
  * 工单
  */
 
-public class WorkOrderActivity extends BaseActivity {
+public class WorkOrderActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
-    private PullToRefreshListView listView;
-    private List<WorkOrderListBean.DataBean.ListBean> mList = new ArrayList<>();
-    private int pageNo = 1;
-    private int pageSize;
+    private Context mContext;
+    private Fragment[] mFragments;
+    private int mIndex;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_work_order);
+        mContext = WorkOrderActivity.this;
     }
 
     @Override
     protected void initData() {
-        queryAllProjectOrder(pageNo);
+
     }
 
     @Override
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("我的工单", true, true);
-
-        listView = (PullToRefreshListView) findViewById(R.id.listView);
-        // 设置模式BOTH: 既能上拉也能下拉，
-        listView.setMode(PullToRefreshBase.Mode.BOTH);
-//        MineWorkOrderAdapter adapter = new MineWorkOrderAdapter(this,mList);
-//        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(WorkOrderActivity.this, WorkOrderDetailsActivity.class));
-            }
-        });
-
-        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-            @Override
-            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-
-            }
-
-            @Override
-            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-
-            }
-        });
+        RadioGroup rbExtraWorkType = findViewById(R.id.rg_extra_work_type);
+        rbExtraWorkType.setOnCheckedChangeListener(this);
+        initFragment();
     }
 
-    /****
-     * 获取所有的工单
-     */
-    private void queryAllProjectOrder(int pageNo) {
-        Map<String, String> params = new HashMap<>();
-        params.put("page", String.valueOf(pageNo));
-        httpPostRequest(ConfigUtil.QUERY_ALL_PROJECTS_ORDER_URL, params, ConfigUtil.QUERY_ALL_PROJECTS_ORDER_URL_ACTION);
+    private void initFragment() {
+        MineWorkOrderkFragment fragment1 = new MineWorkOrderkFragment();
+        MineReleaseOrderFragment fragment2 = new MineReleaseOrderFragment();
+
+        mFragments = new Fragment[]{fragment1, fragment2};
+        //开始事务
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        //添加首页
+        ft.add(R.id.layout_container, fragment1).commit();
+        //默认设置为第0个
+        setIndexSelected(0);
+    }
+
+    private void setIndexSelected(int index) {
+        if (mIndex == index) {
+            return;
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        //隐藏
+        ft.hide(mFragments[mIndex]);
+        //判断是否添加
+        if (!mFragments[index].isAdded()) {
+            ft.add(R.id.layout_container, mFragments[index]).show(mFragments[index]);
+        } else {
+            ft.show(mFragments[index]);
+        }
+        ft.commit();
+        //再次赋值
+        mIndex = index;
     }
 
     @Override
-    protected void httpOnResponse(String json, int action) {
-        super.httpOnResponse(json, action);
-        switch (action) {
-            case ConfigUtil.QUERY_ALL_PROJECTS_ORDER_URL_ACTION:
-                handlerQueryAllProjectOrder(json);
+    public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkId) {
+        switch (checkId) {
+            case R.id.rb_mine_extra_work:
+                setIndexSelected(0);
                 break;
-        }
-    }
-
-    private void handlerQueryAllProjectOrder(String json) {
-        Log.d("Dong", "获取所有order---》" +json);
-        WorkOrderListBean bean = JSON.parseObject(json, WorkOrderListBean.class);
-        if (bean != null) {
-            WorkOrderListBean.DataBean data = bean.getData();
-            if (data != null) {
-                pageSize = data.getCoutpage();
-                mList = data.getList();
-            }
+            case R.id.rb_approve_exra_work:
+                setIndexSelected(1);
+                break;
         }
     }
 }

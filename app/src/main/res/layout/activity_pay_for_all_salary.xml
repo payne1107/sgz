@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_size_10"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_project_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="项目名称"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_30" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_e" />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="开工地点："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_work_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合肥"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_size_10"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="开工时间："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_start_work_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2014年"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_e" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="工作人数："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_work_person_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33人"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="总工作天数："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_work_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1天"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="总加班天数："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_add_work_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1天"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="平均工资："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_avgsalary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29/人"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="总工资："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_salart_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000000"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="已发总工资："
+                android:textColor="@color/color_888"
+                android:textSize="@dimen/text_size_26" />
+
+            <TextView
+                android:id="@+id/tv_all_pay_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/text_size_28" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_pay_all_salary"
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:background="@color/color_62d"
+        android:layout_marginTop="@dimen/margin_size_25"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="一键发放"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

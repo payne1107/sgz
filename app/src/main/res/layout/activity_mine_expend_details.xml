@@ -5,10 +5,11 @@
     android:orientation="vertical">
 
     <include layout="@layout/sys_title" />
+
     <com.zhy.autolayout.AutoLinearLayout
-        android:layout_marginTop="@dimen/margin_size_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_size_10"
         android:background="@color/white"
         android:orientation="vertical">
 
@@ -59,9 +60,9 @@
         </com.zhy.autolayout.AutoLinearLayout>
 
         <com.zhy.autolayout.AutoLinearLayout
-            android:layout_marginBottom="@dimen/margin_size_10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_size_10"
             android:layout_marginTop="@dimen/margin_size_5"
             android:orientation="horizontal">
 
@@ -105,11 +106,10 @@
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.itheima.pulltorefreshlib.PullToRefreshListView
-        android:layout_width="match_parent"
-        android:divider="@color/e5e5e5"
-        android:dividerHeight="0.1dp"
         android:id="@+id/listView"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/e5e5e5"
+        android:dividerHeight="0.1dp">
     </com.itheima.pulltorefreshlib.PullToRefreshListView>
-
 </com.zhy.autolayout.AutoLinearLayout>

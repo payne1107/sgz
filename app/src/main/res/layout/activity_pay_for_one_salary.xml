@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <EditText
+        android:layout_marginTop="@dimen/margin_size_5"
+        android:id="@+id/et_salary"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:paddingLeft="@dimen/margin_size_15"
+        android:background="@null"
+        android:hint="请输入发放金额"
+        android:textColor="@color/text_color_6"
+        android:textColorHint="@color/cccccc"
+        android:textSize="@dimen/text_size_30" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_pay_salary"
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:background="@color/color_62d"
+        android:layout_marginTop="@dimen/margin_size_25"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="一键发放"
+            android:textSize="@dimen/text_size_28"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>
