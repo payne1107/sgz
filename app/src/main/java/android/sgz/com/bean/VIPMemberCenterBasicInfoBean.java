@@ -11,7 +11,7 @@ public class VIPMemberCenterBasicInfoBean {
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : {"id":8,"username":null,"password":null,"mobile":null,"wxcode":null,"realname":"1111","photo":null,"provinceid":null,"cityid":null,"msalary":null,"dsalary":null,"addsalary":null,"birthday":null,"sign":null,"professionid":null,"professionlevelid":null,"locked":null,"type":null,"createtime":null,"projectnum":null,"roles":null,"vipuserid":null,"profession":"水电工","accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true,"enabled":true}
+     * data : {"id":1,"username":null,"mobile":"18130055543","realname":"Lisa","photo":"2018/06/26/e4641bf3a3154c669feb79c50dd81de4.png","provinceid":320000,"cityid":320100,"msalary":"10000.00","dsalary":"300.00","addsalary":"30.00","birthday":null,"sign":"www","professionid":null,"professionlevelid":null,"type":null,"projectnum":null,"vipuserid":null,"profession":"塔吊工","friendsid":null,"provincename":"江苏省","cityname":"南京市","professionlevelname":"中级职称","name":null,"allowance":null,"paymentsalary":null,"allsalary":null,"alladdsalary":null,"workdays":null,"projectid":null}
      * exception : false
      */
 
@@ -63,44 +63,44 @@ public class VIPMemberCenterBasicInfoBean {
 
     public static class DataBean {
         /**
-         * id : 8
+         * id : 1
          * username : null
-         * password : null
-         * mobile : null
-         * wxcode : null
-         * realname : 1111
-         * photo : null
-         * provinceid : null
-         * cityid : null
-         * msalary : null
-         * dsalary : null
-         * addsalary : null
+         * mobile : 18130055543
+         * realname : Lisa
+         * photo : 2018/06/26/e4641bf3a3154c669feb79c50dd81de4.png
+         * provinceid : 320000
+         * cityid : 320100
+         * msalary : 10000.00
+         * dsalary : 300.00
+         * addsalary : 30.00
          * birthday : null
-         * sign : null
+         * sign : www
          * professionid : null
          * professionlevelid : null
-         * locked : null
          * type : null
-         * createtime : null
          * projectnum : null
-         * roles : null
          * vipuserid : null
-         * profession : 水电工
-         * accountNonExpired : true
-         * accountNonLocked : true
-         * credentialsNonExpired : true
-         * enabled : true
+         * profession : 塔吊工
+         * friendsid : null
+         * provincename : 江苏省
+         * cityname : 南京市
+         * professionlevelname : 中级职称
+         * name : null
+         * allowance : null
+         * paymentsalary : null
+         * allsalary : null
+         * alladdsalary : null
+         * workdays : null
+         * projectid : null
          */
 
         private int id;
         private String username;
-        private String password;
         private String mobile;
-        private String wxcode;
         private String realname;
         private String photo;
-        private String provinceid;
-        private String cityid;
+        private int provinceid;
+        private int cityid;
         private String msalary;
         private String dsalary;
         private String addsalary;
@@ -108,17 +108,21 @@ public class VIPMemberCenterBasicInfoBean {
         private String sign;
         private String professionid;
         private String professionlevelid;
-        private String locked;
         private String type;
-        private String createtime;
         private String projectnum;
-        private String roles;
         private String vipuserid;
         private String profession;
-        private boolean accountNonExpired;
-        private boolean accountNonLocked;
-        private boolean credentialsNonExpired;
-        private boolean enabled;
+        private String friendsid;
+        private String provincename;
+        private String cityname;
+        private String professionlevelname;
+        private String name;
+        private String allowance;
+        private String paymentsalary;
+        private String allsalary;
+        private String alladdsalary;
+        private String workdays;
+        private String projectid;
 
         public int getId() {
             return id;
@@ -136,28 +140,12 @@ public class VIPMemberCenterBasicInfoBean {
             this.username = username;
         }
 
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
-
         public String getMobile() {
             return mobile;
         }
 
         public void setMobile(String mobile) {
             this.mobile = mobile;
-        }
-
-        public String getWxcode() {
-            return wxcode;
-        }
-
-        public void setWxcode(String wxcode) {
-            this.wxcode = wxcode;
         }
 
         public String getRealname() {
@@ -176,19 +164,19 @@ public class VIPMemberCenterBasicInfoBean {
             this.photo = photo;
         }
 
-        public String getProvinceid() {
+        public int getProvinceid() {
             return provinceid;
         }
 
-        public void setProvinceid(String provinceid) {
+        public void setProvinceid(int provinceid) {
             this.provinceid = provinceid;
         }
 
-        public String getCityid() {
+        public int getCityid() {
             return cityid;
         }
 
-        public void setCityid(String cityid) {
+        public void setCityid(int cityid) {
             this.cityid = cityid;
         }
 
@@ -248,14 +236,6 @@ public class VIPMemberCenterBasicInfoBean {
             this.professionlevelid = professionlevelid;
         }
 
-        public String getLocked() {
-            return locked;
-        }
-
-        public void setLocked(String locked) {
-            this.locked = locked;
-        }
-
         public String getType() {
             return type;
         }
@@ -264,28 +244,12 @@ public class VIPMemberCenterBasicInfoBean {
             this.type = type;
         }
 
-        public String getCreatetime() {
-            return createtime;
-        }
-
-        public void setCreatetime(String createtime) {
-            this.createtime = createtime;
-        }
-
         public String getProjectnum() {
             return projectnum;
         }
 
         public void setProjectnum(String projectnum) {
             this.projectnum = projectnum;
-        }
-
-        public String getRoles() {
-            return roles;
-        }
-
-        public void setRoles(String roles) {
-            this.roles = roles;
         }
 
         public String getVipuserid() {
@@ -304,36 +268,92 @@ public class VIPMemberCenterBasicInfoBean {
             this.profession = profession;
         }
 
-        public boolean isAccountNonExpired() {
-            return accountNonExpired;
+        public String getFriendsid() {
+            return friendsid;
         }
 
-        public void setAccountNonExpired(boolean accountNonExpired) {
-            this.accountNonExpired = accountNonExpired;
+        public void setFriendsid(String friendsid) {
+            this.friendsid = friendsid;
         }
 
-        public boolean isAccountNonLocked() {
-            return accountNonLocked;
+        public String getProvincename() {
+            return provincename;
         }
 
-        public void setAccountNonLocked(boolean accountNonLocked) {
-            this.accountNonLocked = accountNonLocked;
+        public void setProvincename(String provincename) {
+            this.provincename = provincename;
         }
 
-        public boolean isCredentialsNonExpired() {
-            return credentialsNonExpired;
+        public String getCityname() {
+            return cityname;
         }
 
-        public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-            this.credentialsNonExpired = credentialsNonExpired;
+        public void setCityname(String cityname) {
+            this.cityname = cityname;
         }
 
-        public boolean isEnabled() {
-            return enabled;
+        public String getProfessionlevelname() {
+            return professionlevelname;
         }
 
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
+        public void setProfessionlevelname(String professionlevelname) {
+            this.professionlevelname = professionlevelname;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getAllowance() {
+            return allowance;
+        }
+
+        public void setAllowance(String allowance) {
+            this.allowance = allowance;
+        }
+
+        public String getPaymentsalary() {
+            return paymentsalary;
+        }
+
+        public void setPaymentsalary(String paymentsalary) {
+            this.paymentsalary = paymentsalary;
+        }
+
+        public String getAllsalary() {
+            return allsalary;
+        }
+
+        public void setAllsalary(String allsalary) {
+            this.allsalary = allsalary;
+        }
+
+        public String getAlladdsalary() {
+            return alladdsalary;
+        }
+
+        public void setAlladdsalary(String alladdsalary) {
+            this.alladdsalary = alladdsalary;
+        }
+
+        public String getWorkdays() {
+            return workdays;
+        }
+
+        public void setWorkdays(String workdays) {
+            this.workdays = workdays;
+        }
+
+        public String getProjectid() {
+            return projectid;
+        }
+
+        public void setProjectid(String projectid) {
+            this.projectid = projectid;
         }
     }
 }

@@ -12,13 +12,23 @@ import android.sgz.com.activity.PersonDetailsActivity;
 import android.sgz.com.activity.SettingActivity;
 import android.sgz.com.activity.VipMemberCenterActivity;
 import android.sgz.com.activity.WorkOrderActivity;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseFragment;
+import android.sgz.com.bean.VIPMemberCenterBasicInfoBean;
+import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.StringUtils;
+import android.sgz.com.widget.CircleImageView;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.fastjson.JSON;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by 92457 on 2018/4/16.
@@ -35,6 +45,8 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutExtraWork;
     private AutoLinearLayout layoutSetting;
     private AutoLinearLayout layoutMineHomePage;
+    private CircleImageView ivAvatar;
+    private String personBasicJson = ""; //个人中心基本资料json
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,7 +66,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         setInVisibleTitleIcon("我的", true, false);
         initView();
-
+        getBasicInfo();
     }
 
     /****
@@ -70,6 +82,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutExtraWork = mRootView.findViewById(R.id.layout_extra_work);
         layoutSetting = mRootView.findViewById(R.id.layout_setting);
         layoutMineHomePage = mRootView.findViewById(R.id.layout_mine_homepage);
+        ivAvatar = mRootView.findViewById(R.id.circleImageView);
 
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
@@ -86,7 +99,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.layout_person_details:
-                startActivity(new Intent(getActivity(), PersonDetailsActivity.class));
+                startActivity(new Intent(getActivity(), PersonDetailsActivity.class).putExtra("person_basic_info",personBasicJson));
                 break;
             case R.id.layout_vip_member:
                 startActivity(new Intent(getActivity(), VipMemberCenterActivity.class));
@@ -115,6 +128,45 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
                 //我的主页
                 startActivity(new Intent(getActivity(), MineHomePageActivity.class));
                 break;
+        }
+    }
+
+    /****
+     * 获取基本信息
+     */
+    private void getBasicInfo() {
+        startIOSDialogLoading(getActivity(),"加载中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("random", "123");
+        httpPostRequest(ConfigUtil.QUERY_VIP_BASIC_INFO_URL, params, ConfigUtil.QUERY_VIP_BASIC_INFO_URL_ACTION);
+    }
+
+    @Override
+    public void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        switch (action) {
+            case ConfigUtil.QUERY_VIP_BASIC_INFO_URL_ACTION:
+                Log.d("Dong", "获取基本信息----》" +json);
+                handleQueryBasicInfo(json);
+                break;
+        }
+    }
+
+    /****
+     * 处理查询我的基本信息
+     * @param json
+     */
+    private void handleQueryBasicInfo(String json) {
+        VIPMemberCenterBasicInfoBean bean = JSON.parseObject(json, VIPMemberCenterBasicInfoBean.class);
+        if (bean != null) {
+            VIPMemberCenterBasicInfoBean.DataBean data = bean.getData();
+            if (data != null) {
+                personBasicJson = json;
+                String photo =data.getPhoto();
+                if (!StringUtils.isEmpty(photo)) {
+                    MyApplication.imageLoader.displayImage(photo, ivAvatar);
+                }
+            }
         }
     }
 }

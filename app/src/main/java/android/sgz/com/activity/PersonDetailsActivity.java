@@ -10,12 +10,16 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.VIPMemberCenterBasicInfoBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.SDCardUtil;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.jzxiang.pickerview.TimePickerDialog;
 import com.jzxiang.pickerview.listener.OnDateSetListener;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -45,6 +49,15 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
     private AutoLinearLayout layoutSetPhone;
     private AutoLinearLayout layoutSalary;
     private AutoLinearLayout layoutChooseCity;
+    // 裁剪之后保存图片到新路径 专用头像路径，更换后会被替换头像
+    private String newPath = MyApplication.getImageFolderPath() + ".png";
+    private String personBasicInfoJson;
+    private TextView tvName;
+    private TextView tvProfessionNameLevel;
+    private TextView tvSalary;
+    private TextView tvPhone;
+    private TextView tvCityName;
+    private TextView tvSgin;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -64,11 +77,18 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         tvSaveInfo = (TextView) findViewById(R.id.activity_set);
         tvSaveInfo.setText("保存");
         tvSaveInfo.setVisibility(View.VISIBLE);
+        personBasicInfoJson = getIntent().getStringExtra("person_basic_info");
 
         circleImageView = (CircleImageView) findViewById(R.id.update_avatar);
         layoutMineName = (AutoLinearLayout) findViewById(R.id.layout_mine_name);
         layoutProfession = (AutoLinearLayout) findViewById(R.id.layout_profession);
         tvProfessionName = (TextView) findViewById(R.id.tv_profession_name);
+        tvName = findViewById(R.id.tv_name);
+        tvProfessionNameLevel = findViewById(R.id.tv_profession_level);
+        tvSalary = findViewById(R.id.tv_salary);
+        tvPhone = findViewById(R.id.tv_phone);
+        tvCityName = findViewById(R.id.tv_city_name);
+        tvSgin = findViewById(R.id.tv_sign);
         layoutProfessionTitle = (AutoLinearLayout) findViewById(R.id.layout_profession_title);
         layoutBirthday = (AutoLinearLayout) findViewById(R.id.layout_birthday);
         tvBirthday = (TextView) findViewById(R.id.tv_birthday);
@@ -78,7 +98,54 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         layoutChooseCity = findViewById(R.id.layout_choose_city);
 
         setListener();
-        initViewDateDialog(this,System.currentTimeMillis() - ConfigUtil.TenYears);
+        initViewDateDialog(this, System.currentTimeMillis() - ConfigUtil.TenYears);
+
+        setBasicInfoValue(personBasicInfoJson);
+    }
+
+
+    /****
+     * 获取基本信息
+     */
+    private void getBasicInfo() {
+        startIOSDialogLoading(mContext,"加载中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("random", "123");
+        httpPostRequest(ConfigUtil.QUERY_VIP_BASIC_INFO_URL, params, ConfigUtil.QUERY_VIP_BASIC_INFO_URL_ACTION);
+    }
+
+
+    /****
+     * 设置用户基本信息
+     * @param personBasicInfoJson
+     */
+    private void setBasicInfoValue(String personBasicInfoJson) {
+        VIPMemberCenterBasicInfoBean bean = JSON.parseObject(personBasicInfoJson, VIPMemberCenterBasicInfoBean.class);
+        if (bean != null) {
+            VIPMemberCenterBasicInfoBean.DataBean data = bean.getData();
+            if (data != null) {
+                String photo =data.getPhoto();
+                String realName =data.getRealname();
+                String profession =data.getProfession();
+                String professionLevelName =data.getProfessionlevelname();
+                String salary =data.getMsalary();
+                String mobile =data.getMobile();
+                String cityName =data.getCityname();
+                String birthday =data.getBirthday();
+                String sign = data.getSign();
+                if (!StringUtils.isEmpty(photo)) {
+                    MyApplication.imageLoader.displayImage(photo,  circleImageView);
+                }
+                tvName.setText(StringUtils.isEmpty(realName) ? "" : realName);
+                tvProfessionName.setText(StringUtils.isEmpty(profession) ? "请选择" : profession);
+                tvProfessionNameLevel.setText(StringUtils.isEmpty(professionLevelName) ? "请选择" : professionLevelName);
+                tvSalary.setText(StringUtils.isEmpty(salary) ? "" : salary);
+                tvPhone.setText(StringUtils.isEmpty(mobile) ? "" : mobile);
+                tvCityName.setText(StringUtils.isEmpty(cityName) ? "请选择" : cityName);
+                tvBirthday.setText(StringUtils.isEmpty(birthday)?"请选择":birthday);
+                tvSgin.setText(StringUtils.isEmpty(sign) ? "未填写" : sign);
+            }
+        }
     }
 
     private void setListener() {
@@ -181,8 +248,8 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                             Bitmap bitmap = bundle.getParcelable("data");
                             //将bitmap保存到本地，下次在获取可以从本地获取展示，之后在从网络获取显示
                             circleImageView.setImageBitmap(bitmap);
-//                            SDCardUtil.saveBitmap(bitmap, newPath);
-//                            uploadImg(MyApplication.userId, newPath);
+                            SDCardUtil.saveBitmap(bitmap, newPath);
+                            uploadImg(MyApplication.userId, newPath);
                         }
                     }
                     break;
@@ -216,6 +283,12 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         tvBirthday.setText(sf.format(d));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getBasicInfo();
+    }
+
     /***
      * 保存生日日期
      */
@@ -238,6 +311,10 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                 Log.d("Dong", "出生日期---》" +json);
                 handleSaveBirthday(json);
                 break;
+            case ConfigUtil.QUERY_VIP_BASIC_INFO_URL_ACTION:
+                Log.d("Dong", "获取基本信息----》" +json);
+                setBasicInfoValue(json);
+                break;
         }
     }
 
@@ -250,5 +327,11 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         if (requestCode == 1) {
             toastMessage("保存成功");
         }
+    }
+
+    @Override
+    protected void getImageUrl(String url) {
+        super.getImageUrl(url);
+        Log.d("Dong", "url --->" + url + "new Path--- " + newPath);
     }
 }

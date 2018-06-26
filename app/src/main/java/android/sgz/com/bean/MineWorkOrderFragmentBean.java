@@ -144,33 +144,33 @@ public class MineWorkOrderFragmentBean {
             private int id;
             private int userid;
             private String name;
-            private Object categoryid;
-            private Object regulatoryagency;
+            private String categoryid;
+            private String regulatoryagency;
             private String headman;
-            private Object mobile;
+            private String mobile;
             private String address;
-            private Object clockrange;
-            private Object lng;
-            private Object lat;
-            private Object createtime;
+            private String clockrange;
+            private String lng;
+            private String lat;
+            private String createtime;
             private String starttime;
-            private Object startworktime;
-            private Object endworktime;
+            private String startworktime;
+            private String endworktime;
             private int status;
-            private Object worknum;
-            private Object merchantid;
+            private String worknum;
+            private String merchantid;
             private String categoryname;
-            private Object merchantname;
-            private Object salary;
-            private Object addsalary;
-            private Object allowance;
-            private Object addtime;
-            private Object workdays;
-            private Object workfriends;
-            private Object projectcount;
-            private Object income;
-            private Object paymentsalary;
-            private Object withdrawsalary;
+            private String merchantname;
+            private String salary;
+            private String addsalary;
+            private String allowance;
+            private String addtime;
+            private String workdays;
+            private String workfriends;
+            private String projectcount;
+            private String income;
+            private String paymentsalary;
+            private String withdrawsalary;
 
             public int getId() {
                 return id;
@@ -196,19 +196,19 @@ public class MineWorkOrderFragmentBean {
                 this.name = name;
             }
 
-            public Object getCategoryid() {
+            public String getCategoryid() {
                 return categoryid;
             }
 
-            public void setCategoryid(Object categoryid) {
+            public void setCategoryid(String categoryid) {
                 this.categoryid = categoryid;
             }
 
-            public Object getRegulatoryagency() {
+            public String getRegulatoryagency() {
                 return regulatoryagency;
             }
 
-            public void setRegulatoryagency(Object regulatoryagency) {
+            public void setRegulatoryagency(String regulatoryagency) {
                 this.regulatoryagency = regulatoryagency;
             }
 
@@ -220,11 +220,11 @@ public class MineWorkOrderFragmentBean {
                 this.headman = headman;
             }
 
-            public Object getMobile() {
+            public String getMobile() {
                 return mobile;
             }
 
-            public void setMobile(Object mobile) {
+            public void setMobile(String mobile) {
                 this.mobile = mobile;
             }
 
@@ -236,35 +236,35 @@ public class MineWorkOrderFragmentBean {
                 this.address = address;
             }
 
-            public Object getClockrange() {
+            public String getClockrange() {
                 return clockrange;
             }
 
-            public void setClockrange(Object clockrange) {
+            public void setClockrange(String clockrange) {
                 this.clockrange = clockrange;
             }
 
-            public Object getLng() {
+            public String getLng() {
                 return lng;
             }
 
-            public void setLng(Object lng) {
+            public void setLng(String lng) {
                 this.lng = lng;
             }
 
-            public Object getLat() {
+            public String getLat() {
                 return lat;
             }
 
-            public void setLat(Object lat) {
+            public void setLat(String lat) {
                 this.lat = lat;
             }
 
-            public Object getCreatetime() {
+            public String getCreatetime() {
                 return createtime;
             }
 
-            public void setCreatetime(Object createtime) {
+            public void setCreatetime(String createtime) {
                 this.createtime = createtime;
             }
 
@@ -276,19 +276,19 @@ public class MineWorkOrderFragmentBean {
                 this.starttime = starttime;
             }
 
-            public Object getStartworktime() {
+            public String getStartworktime() {
                 return startworktime;
             }
 
-            public void setStartworktime(Object startworktime) {
+            public void setStartworktime(String startworktime) {
                 this.startworktime = startworktime;
             }
 
-            public Object getEndworktime() {
+            public String getEndworktime() {
                 return endworktime;
             }
 
-            public void setEndworktime(Object endworktime) {
+            public void setEndworktime(String endworktime) {
                 this.endworktime = endworktime;
             }
 
@@ -300,19 +300,19 @@ public class MineWorkOrderFragmentBean {
                 this.status = status;
             }
 
-            public Object getWorknum() {
+            public String getWorknum() {
                 return worknum;
             }
 
-            public void setWorknum(Object worknum) {
+            public void setWorknum(String worknum) {
                 this.worknum = worknum;
             }
 
-            public Object getMerchantid() {
+            public String getMerchantid() {
                 return merchantid;
             }
 
-            public void setMerchantid(Object merchantid) {
+            public void setMerchantid(String merchantid) {
                 this.merchantid = merchantid;
             }
 
@@ -324,91 +324,91 @@ public class MineWorkOrderFragmentBean {
                 this.categoryname = categoryname;
             }
 
-            public Object getMerchantname() {
+            public String getMerchantname() {
                 return merchantname;
             }
 
-            public void setMerchantname(Object merchantname) {
+            public void setMerchantname(String merchantname) {
                 this.merchantname = merchantname;
             }
 
-            public Object getSalary() {
+            public String getSalary() {
                 return salary;
             }
 
-            public void setSalary(Object salary) {
+            public void setSalary(String salary) {
                 this.salary = salary;
             }
 
-            public Object getAddsalary() {
+            public String getAddsalary() {
                 return addsalary;
             }
 
-            public void setAddsalary(Object addsalary) {
+            public void setAddsalary(String addsalary) {
                 this.addsalary = addsalary;
             }
 
-            public Object getAllowance() {
+            public String getAllowance() {
                 return allowance;
             }
 
-            public void setAllowance(Object allowance) {
+            public void setAllowance(String allowance) {
                 this.allowance = allowance;
             }
 
-            public Object getAddtime() {
+            public String getAddtime() {
                 return addtime;
             }
 
-            public void setAddtime(Object addtime) {
+            public void setAddtime(String addtime) {
                 this.addtime = addtime;
             }
 
-            public Object getWorkdays() {
+            public String getWorkdays() {
                 return workdays;
             }
 
-            public void setWorkdays(Object workdays) {
+            public void setWorkdays(String workdays) {
                 this.workdays = workdays;
             }
 
-            public Object getWorkfriends() {
+            public String getWorkfriends() {
                 return workfriends;
             }
 
-            public void setWorkfriends(Object workfriends) {
+            public void setWorkfriends(String workfriends) {
                 this.workfriends = workfriends;
             }
 
-            public Object getProjectcount() {
+            public String getProjectcount() {
                 return projectcount;
             }
 
-            public void setProjectcount(Object projectcount) {
+            public void setProjectcount(String projectcount) {
                 this.projectcount = projectcount;
             }
 
-            public Object getIncome() {
+            public String getIncome() {
                 return income;
             }
 
-            public void setIncome(Object income) {
+            public void setIncome(String income) {
                 this.income = income;
             }
 
-            public Object getPaymentsalary() {
+            public String getPaymentsalary() {
                 return paymentsalary;
             }
 
-            public void setPaymentsalary(Object paymentsalary) {
+            public void setPaymentsalary(String paymentsalary) {
                 this.paymentsalary = paymentsalary;
             }
 
-            public Object getWithdrawsalary() {
+            public String getWithdrawsalary() {
                 return withdrawsalary;
             }
 
-            public void setWithdrawsalary(Object withdrawsalary) {
+            public void setWithdrawsalary(String withdrawsalary) {
                 this.withdrawsalary = withdrawsalary;
             }
         }

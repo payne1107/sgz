@@ -40,7 +40,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tv_title"
+                        android:id="@+id/tv_project_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -70,6 +70,7 @@
                         android:textSize="@dimen/text_size_26" />
 
                     <TextView
+                        android:id="@+id/tv_start_work_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2018年1月1日"
@@ -92,6 +93,7 @@
                         android:textSize="@dimen/text_size_26" />
 
                     <TextView
+                        android:id="@+id/tv_end_work_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2018年5月1日"
@@ -114,6 +116,7 @@
                         android:textSize="@dimen/text_size_26" />
 
                     <TextView
+                        android:id="@+id/tv_work_days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="13天"
@@ -125,6 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_size_5"
+                    android:layout_marginBottom="@dimen/margin_size_15"
                     android:orientation="horizontal">
 
                     <TextView
@@ -136,6 +140,7 @@
                         android:textSize="@dimen/text_size_26" />
 
                     <TextView
+                        android:id="@+id/tv_add_work_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6小时"
@@ -144,6 +149,7 @@
                 </com.zhy.autolayout.AutoLinearLayout>
 
                 <com.zhy.autolayout.AutoLinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_size_15"
@@ -165,6 +171,23 @@
                         android:textColor="@color/text_color_3"
                         android:textSize="@dimen/text_size_28" />
                 </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:id="@+id/layout_default_worker_order"
+                android:layout_marginTop="@dimen/margin_size_15"
+                android:gravity="center"
+                android:background="@color/color_62d"
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+                <TextView
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_30"
+                    android:text="设置为默认打卡工单"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </com.zhy.autolayout.AutoLinearLayout>
         </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>

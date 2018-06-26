@@ -7,6 +7,7 @@
 
     <include layout="@layout/sys_title" />
     <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
         android:id="@+id/layout_motify_pwd"
         android:layout_marginTop="@dimen/margin_size_5"
         android:gravity="center_vertical"
@@ -75,7 +76,7 @@
             android:layout_marginLeft="@dimen/margin_size_15"
             android:textSize="@dimen/text_size_32"
             android:textColor="@color/text_color_3"
-            android:text="新版本检测"
+            android:text="当前版本"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />

@@ -8,52 +8,56 @@ public class UploadImgBean {
 
 
     /**
-     * flag : 0
-     * data : {"path":"http://120.79.0.163:206//upload/20180319/1ad28500e32640e3b6e0c0471b6863f8.png"}
-     * msg : null
+     * success : true
+     * resultCode : 1
+     * resultMsg : http://47.101.46.2/2018/06/26/0ff00bac86604d629bde32d1f5d7e922.png
+     * data : null
+     * exception : false
      */
 
-    private int flag;
-    private DataBean data;
-    private Object msg;
+    private boolean success;
+    private String resultCode;
+    private String resultMsg;
+    private Object data;
+    private boolean exception;
 
-    public int getFlag() {
-        return flag;
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setFlag(int flag) {
-        this.flag = flag;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
-    public DataBean getData() {
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
+
+    public String getResultMsg() {
+        return resultMsg;
+    }
+
+    public void setResultMsg(String resultMsg) {
+        this.resultMsg = resultMsg;
+    }
+
+    public Object getData() {
         return data;
     }
 
-    public void setData(DataBean data) {
+    public void setData(Object data) {
         this.data = data;
     }
 
-    public Object getMsg() {
-        return msg;
+    public boolean isException() {
+        return exception;
     }
 
-    public void setMsg(Object msg) {
-        this.msg = msg;
-    }
-
-    public static class DataBean {
-        /**
-         * path : http://120.79.0.163:206//upload/20180319/1ad28500e32640e3b6e0c0471b6863f8.png
-         */
-
-        private String path;
-
-        public String getPath() {
-            return path;
-        }
-
-        public void setPath(String path) {
-            this.path = path;
-        }
+    public void setException(boolean exception) {
+        this.exception = exception;
     }
 }

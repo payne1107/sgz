@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.zhy.autolayout.AutoLinearLayout;
 
@@ -17,6 +18,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     private AutoLinearLayout layoutLogout;
     private Context mContext;
+    private TextView tvVeresionCode;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         super.initView();
         setInVisibleTitleIcon("设置", true, true);
         layoutLogout = findViewById(R.id.layout_logout);
+        tvVeresionCode = findViewById(R.id.tv_version_code);
+
+        tvVeresionCode.setText("v"+getAppVersionName());
         layoutLogout.setOnClickListener(this);
     }
 

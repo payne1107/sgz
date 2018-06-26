@@ -349,18 +349,18 @@ public abstract class BaseFragment extends Fragment {
             public void onSuccess(ResponseInfo<Object> responseInfo) {
                 stopIOSDialogLoading(getActivity());
                 String json = (String) responseInfo.result;
-                UploadImgBean uploadImgBean = JSON.parseObject(json, UploadImgBean.class);
-                if (uploadImgBean != null) {
-                    if (uploadImgBean.getFlag() == 0) { //上传成功
-                        UploadImgBean.DataBean data = uploadImgBean.getData();
-                        if (data != null) {
-                            String path = data.getPath();
-                            getImageUrl(path);
-                        }
-                    } else {
-                        Toast.makeText(getActivity(), "图片上传失败", Toast.LENGTH_SHORT).show();
-                    }
-                }
+//                UploadImgBean uploadImgBean = JSON.parseObject(json, UploadImgBean.class);
+//                if (uploadImgBean != null) {
+//                    if (uploadImgBean.getFlag() == 0) { //上传成功
+//                        UploadImgBean.DataBean data = uploadImgBean.getData();
+//                        if (data != null) {
+//                            String path = data.getPath();
+//                            getImageUrl(path);
+//                        }
+//                    } else {
+//                        Toast.makeText(getActivity(), "图片上传失败", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
             }
 
             @Override

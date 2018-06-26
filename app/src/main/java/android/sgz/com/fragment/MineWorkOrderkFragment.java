@@ -30,6 +30,7 @@ import java.util.Map;
 
 /**
  * Created by WD on 2018/6/25.
+ * 我的工单
  */
 
 public class MineWorkOrderkFragment extends BaseFragment{
@@ -71,7 +72,23 @@ public class MineWorkOrderkFragment extends BaseFragment{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity(), WorkOrderDetailsActivity.class));
+                MineWorkOrderFragmentBean.DataBean.ListBean bean = (MineWorkOrderFragmentBean.DataBean.ListBean) parent.getAdapter().getItem(position);
+                if (bean != null) {
+                    String projectName =bean.getName();
+                    String startWorkTime =bean.getStartworktime();
+                    String endWorkTime =bean.getEndworktime();
+                    String workDays =bean.getWorkdays();
+                    String addTime =bean.getAddtime();
+                    int projectId =bean.getId();
+                    Intent intent = new Intent(getActivity(), WorkOrderDetailsActivity.class);
+                    intent.putExtra("projectId", projectId);
+                    intent.putExtra("projectName", projectName);
+                    intent.putExtra("startWorkTime", startWorkTime);
+                    intent.putExtra("endWorkTime", endWorkTime);
+                    intent.putExtra("workDays", workDays);
+                    intent.putExtra("addTime", addTime);
+                    startActivity(intent);
+                }
             }
         });
 

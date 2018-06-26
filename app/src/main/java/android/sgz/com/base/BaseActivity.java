@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.bean.FieldErrors;
+import android.sgz.com.bean.UploadImgBean;
 import android.sgz.com.httpstack.OkHttpStack;
 import android.sgz.com.utils.CacheImgUtil;
 import android.sgz.com.utils.ConfigUtil;
@@ -352,24 +353,24 @@ public abstract class BaseActivity extends FragmentActivity {
         HttpUtils httpUtils = new HttpUtils();
         httpUtils.configResponseTextCharset("UTF-8");
         RequestParams params = new RequestParams();
-        params.addBodyParameter("file", new File(photoPath));
-        params.addBodyParameter("userId", userId);
+        params.addBodyParameter("photo", new File(photoPath));
+//        params.addBodyParameter("userId", userId);
         params.addHeader("Accept", "application/json");
         if (!StringUtils.isEmpty(MyApplication.isLogin)) {
             params.addHeader("Authorization", MyApplication.isLogin);
         }
-        httpUtils.send(HttpRequest.HttpMethod.POST, "url-------->", params, new RequestCallBack<Object>() {
+        httpUtils.send(HttpRequest.HttpMethod.POST, ConfigUtil.UPLOAD_AVATAR_URL, params, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(ResponseInfo<Object> responseInfo) {
                 stopIOSDialogLoading(mContext);
                 String json = (String) responseInfo.result;
-                Log.d("Dong", "上传图片== " + json);
-//                UploadImgBean uploadImgBean = JSON.parseObject(json, UploadImgBean.class);
-//                if (uploadImgBean.getCode() == 0) { //上传成功
-//                    getImageUrl(uploadImgBean.getUrl());
-//                } else {
-//                    Toast.makeText(BaseActivity.this, "图片上传失败", Toast.LENGTH_SHORT).show();
-//                }
+                UploadImgBean uploadImgBean = JSON.parseObject(json, UploadImgBean.class);
+                if ("1".equals(uploadImgBean.getResultCode())) { //上传成功
+                    toastMessage("上传头像成功");
+                    getImageUrl(uploadImgBean.getResultMsg());
+                } else {
+                    Toast.makeText(BaseActivity.this, "图片上传失败", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

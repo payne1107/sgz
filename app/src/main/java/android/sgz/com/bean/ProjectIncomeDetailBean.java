@@ -104,7 +104,7 @@ public class ProjectIncomeDetailBean {
         private String lng;
         private String lat;
         private String createtime;
-        private long starttime;
+        private String starttime;
         private String startworktime;
         private String endworktime;
         private String status;
@@ -235,11 +235,11 @@ public class ProjectIncomeDetailBean {
             this.createtime = createtime;
         }
 
-        public long getStarttime() {
+        public String getStarttime() {
             return starttime;
         }
 
-        public void setStarttime(long starttime) {
+        public void setStarttime(String starttime) {
             this.starttime = starttime;
         }
 

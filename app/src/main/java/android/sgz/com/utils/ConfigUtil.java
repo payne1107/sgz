@@ -119,7 +119,7 @@ public class ConfigUtil {
     public static final String QUERY_ALL_VIDEO_URL = MyApplication.REQUEST_URL + "course/getAllCourse";
     public static final int QUERY_ALL_VIDEO_URL_ACTION = 21;
     /****
-     * 获取当前用户所有工单
+     * 获取当前用户所有工单 & 废弃接口
      */
     public static final String QUERY_ALL_PROJECTS_ORDER_URL = MyApplication.REQUEST_URL + "project/getProjectLists";
     public static final int QUERY_ALL_PROJECTS_ORDER_URL_ACTION = 22;
@@ -297,5 +297,31 @@ public class ConfigUtil {
      */
     public static final String QUERY_MY_JOIN_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "project/getMyJoinProject";
     public static final int QUERY_MY_JOIN_PROJECT_ORDER_URL_ACTION = 57;
+    /****
+     * 上传头像
+     */
+    public static final String UPLOAD_AVATAR_URL = MyApplication.REQUEST_URL + "personal/savePhoto";
+    public static final int UPLOAD_AVATAR_URL_ACTION = 58;
+
+    /****
+     * 根据月份查询打卡情况
+     */
+    public static final String QUERY_RECORD_BY_MONTH_URL = MyApplication.REQUEST_URL + "statistic/clockRecord";
+    public static final int QUERY_RECORD_BY_MONTH_URL_ACTION = 59;
+    /****
+     * 补卡申请
+     */
+    public static final String POST_MAKE_CARD_APPLY_URL = MyApplication.REQUEST_URL + "apply/apply";
+    public static final int POST_MAKE_CARD_APPLY_URL_ACTION = 60;
+    /****
+     * 补卡申请列表  page  type=1  我的审核列表page  type=2
+     */
+    public static final String QUERY_MAKE_CARD_APPLY_LIST_URL = MyApplication.REQUEST_URL + "apply/applyList";
+    public static final int QUERY_MAKE_CARD_APPLY_LIST_URL_ACTION = 61;
+    /***
+     * 审核补卡申请
+     */
+    public static final String CHECK_MAKE_CARD_APPLY_URL = MyApplication.REQUEST_URL + "apply/handle";
+    public static final int CHECK_MAKE_CARD_APPLY_URL_ACTION = 62;
 
 }

@@ -296,10 +296,10 @@ public class DefaultProjectOrderBean {
             private String endrecordtime;
             private String startrecordaddress;
             private String endrecordaddress;
-            private double startlat;
-            private double startlng;
-            private double endlat;
-            private double endlng;
+            private String startlat;
+            private String startlng;
+            private String endlat;
+            private String endlng;
             private double daysalary;
             private double allowance;
 
@@ -359,35 +359,35 @@ public class DefaultProjectOrderBean {
                 this.endrecordaddress = endrecordaddress;
             }
 
-            public double getStartlat() {
+            public String getStartlat() {
                 return startlat;
             }
 
-            public void setStartlat(double startlat) {
+            public void setStartlat(String startlat) {
                 this.startlat = startlat;
             }
 
-            public double getStartlng() {
+            public String getStartlng() {
                 return startlng;
             }
 
-            public void setStartlng(double startlng) {
+            public void setStartlng(String startlng) {
                 this.startlng = startlng;
             }
 
-            public double getEndlat() {
+            public String getEndlat() {
                 return endlat;
             }
 
-            public void setEndlat(double endlat) {
+            public void setEndlat(String endlat) {
                 this.endlat = endlat;
             }
 
-            public double getEndlng() {
+            public String getEndlng() {
                 return endlng;
             }
 
-            public void setEndlng(double endlng) {
+            public void setEndlng(String endlng) {
                 this.endlng = endlng;
             }
 
