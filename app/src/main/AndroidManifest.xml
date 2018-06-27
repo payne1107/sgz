@@ -276,6 +276,12 @@
         <activity
             android:name=".activity.ExpendDetailsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MineWaringManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CheckWaringWorkRecordActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data

@@ -43,12 +43,14 @@
             android:text="出勤天数" />
 
         <TextView
+            android:id="@+id/tv_work_days"
             style="@style/PersonCenterTextRightStyle"
             android:drawableRight="@mipmap/icon_arrow_right"
             android:text="12天" />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
         android:id="@+id/layout_turn_for_work"
         android:layout_height="90px"
         android:background="@color/white"
@@ -77,6 +79,7 @@
             android:text="迟到"
             />
         <TextView
+            android:id="@+id/tv_late_count"
             android:text="0次"
             style="@style/PersonCenterTextRightStyle"
             android:drawableRight="@mipmap/icon_arrow_right"
@@ -94,6 +97,7 @@
             android:text="早退"
             />
         <TextView
+            android:id="@+id/tv_leave_count"
             android:text="0次"
             style="@style/PersonCenterTextRightStyle"
             android:drawableRight="@mipmap/icon_arrow_right"
@@ -111,6 +115,7 @@
             android:text="缺卡"
             />
         <TextView
+            android:id="@+id/tv_no_record_count"
             android:text="0次"
             style="@style/PersonCenterTextRightStyle"
             android:drawableRight="@mipmap/icon_arrow_right"
@@ -118,6 +123,7 @@
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
         android:id="@+id/layout_absenteeism"
         style="@style/PersonCenterLayoutStyle"
         android:layout_height="90px"
@@ -146,6 +152,7 @@
             android:text="加班"
             />
         <TextView
+            android:id="@+id/tv_add_work_count"
             android:text="10小时"
             style="@style/PersonCenterTextRightStyle"
             android:drawableRight="@mipmap/icon_arrow_right"

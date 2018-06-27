@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.CardCountingAdapter;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.RecordWorkBean;
+import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
 import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +21,13 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by WD on 2018/5/10.
@@ -42,30 +48,31 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
     private AutoLinearLayout layoutLackCard;
     private AutoLinearLayout layoutAbsenteeism;
     private AutoLinearLayout layoutOverTime;
+    private String currentYearMoth;
+    private TextView tvWorkDays;
+    private TextView tvLateCount;
+    private TextView tvLeaveCount;
+    private TextView tvNoRecordCount;
+    private TextView tvAddWorkCount;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_card_counting);
         mContext = CardCountingActivity.this;
-        mList.add("2018年1月");
-        mList.add("2018年2月");
-        mList.add("2018年3月");
-        mList.add("2018年4月");
-        mList.add("2018年5月");
-        mList.add("2018年6月");
-        mList.add("2018年7月");
-        mList.add("2018年8月");
-        mList.add("2018年9月");
-        mList.add("2018年10月");
-        mList.add("2018年11月");
-        mList.add("2018年12月");
+        mList.add("2018-06");
+        mList.add("2018-07");
+        mList.add("2018-08");
+        mList.add("2018-09");
+        mList.add("2018-10");
+        mList.add("2018-11");
+        mList.add("2018-12");
 
         initRightPopuWindow(R.layout.item_card_counting_title);
     }
 
     @Override
     protected void initData() {
-
+        queryWorkRecord();
     }
 
     @Override
@@ -82,7 +89,14 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
         layoutLackCard = (AutoLinearLayout) findViewById(R.id.layout_lack_card);
         layoutAbsenteeism = (AutoLinearLayout) findViewById(R.id.layout_absenteeism);
         layoutOverTime = (AutoLinearLayout) findViewById(R.id.layout_overtime);
+        tvWorkDays = findViewById(R.id.tv_work_days);
+        tvLateCount = findViewById(R.id.tv_late_count);
+        tvLeaveCount = findViewById(R.id.tv_leave_count);
+        tvNoRecordCount = findViewById(R.id.tv_no_record_count);
+        tvAddWorkCount = findViewById(R.id.tv_add_work_count);
 
+        currentYearMoth = DateUtils.getYear() + "-" + DateUtils.getMonth();
+        tvChooseDay.setText(currentYearMoth);
         setListener();
     }
 
@@ -149,8 +163,10 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                tvChooseDay.setText(mList.get(position));
+                currentYearMoth = mList.get(position);
+                tvChooseDay.setText(currentYearMoth);
                 dimissPopuWindow();
+                queryWorkRecord();
             }
         });
     }
@@ -172,7 +188,6 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_lack_card:
             case R.id.layout_absenteeism:
             case R.id.layout_overtime:
-
                 //打卡详情
                 startActivity(new Intent(mContext, CardCountingDetailsActivity.class));
                 break;
@@ -187,6 +202,50 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
     private void dimissPopuWindow() {
         if (popuRightWindow != null) {
             popuRightWindow.dismiss();
+        }
+    }
+
+    /****
+     * 根据年月查询打卡统计数据
+     */
+    private void queryWorkRecord() {
+        startIOSDialogLoading(mContext,"加载中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("month", currentYearMoth);
+        httpPostRequest(ConfigUtil.QUERY_RECORD_BY_MONTH_URL, params, ConfigUtil.QUERY_RECORD_BY_MONTH_URL_ACTION);
+    }
+
+    @Override
+    protected void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        switch (action) {
+            case ConfigUtil.QUERY_RECORD_BY_MONTH_URL_ACTION:
+                handleQueryRecordByMoth(json);
+                break;
+        }
+    }
+
+    /*****
+     * 处理查询打卡统计数据
+     * @param json
+     */
+    private void handleQueryRecordByMoth(String json) {
+        Log.d("Dong", "处理查询打卡----》" + json);
+        RecordWorkBean bean = JSON.parseObject(json, RecordWorkBean.class);
+        if (bean != null) {
+            RecordWorkBean.DataBean data = bean.getData();
+            if (data != null) {
+                int leak = data.getLeak();//漏打卡
+                int attendance = data.getAttendance();//出勤天数
+                int late = data.getLate();//迟到
+                int extraworkTime = data.getExtraworktime();//加班时长
+                int leave = data.getLeave();//早退
+                tvWorkDays.setText(attendance+"天");
+                tvLateCount.setText(late + "次");
+                tvLeaveCount.setText(leave + "次");
+                tvAddWorkCount.setText(extraworkTime + "小时");
+                tvNoRecordCount.setText(leak+"次");
+            }
         }
     }
 }

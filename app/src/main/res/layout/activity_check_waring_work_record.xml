@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="80px">
+            <TextView
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:textColor="@color/text_color_3"
+                android:text="项目名称"
+                android:id="@+id/tv_project_name"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:gravity="right"
+                android:text="张三"
+                android:textColor="@color/text_color_3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="80px">
+            <TextView
+                android:id="@+id/tv_start_work_time"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:textColor="@color/text_color_3"
+                android:text="起始时间："
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:gravity="right"
+                android:id="@+id/tv_end_work_time"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:text="结束时间："
+                android:textColor="@color/text_color_3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="80px">
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:textColor="@color/text_color_3"
+                android:text="地址："
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_remark"
+                android:gravity="right"
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:text="标记"
+                android:textColor="@color/text_color_3"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="@dimen/margin_size_50"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+        <TextView
+            android:id="@+id/tv_agree"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:background="@color/color_62d"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="同意"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_no_agree"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:background="@color/color_62d"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="不同意"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

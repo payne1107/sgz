@@ -8,6 +8,7 @@ import android.sgz.com.activity.ExtraWrokActivity;
 import android.sgz.com.activity.MineExpendActivity;
 import android.sgz.com.activity.MineHomePageActivity;
 import android.sgz.com.activity.MineSalaryActivity;
+import android.sgz.com.activity.MineWaringManagerActivity;
 import android.sgz.com.activity.PersonDetailsActivity;
 import android.sgz.com.activity.SettingActivity;
 import android.sgz.com.activity.VipMemberCenterActivity;
@@ -47,6 +48,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutMineHomePage;
     private CircleImageView ivAvatar;
     private String personBasicJson = ""; //个人中心基本资料json
+    private AutoLinearLayout layoutWaringManager;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -83,6 +85,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutSetting = mRootView.findViewById(R.id.layout_setting);
         layoutMineHomePage = mRootView.findViewById(R.id.layout_mine_homepage);
         ivAvatar = mRootView.findViewById(R.id.circleImageView);
+        layoutWaringManager = mRootView.findViewById(R.id.layout_waring_manage);
 
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
@@ -93,6 +96,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutExtraWork.setOnClickListener(this);
         layoutSetting.setOnClickListener(this);
         layoutMineHomePage.setOnClickListener(this);
+        layoutWaringManager.setOnClickListener(this);
     }
 
     @Override
@@ -127,6 +131,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
             case R.id.layout_mine_homepage:
                 //我的主页
                 startActivity(new Intent(getActivity(), MineHomePageActivity.class));
+                break;
+            case R.id.layout_waring_manage:
+                //异常打卡信息管理
+                startActivity(new Intent(getActivity(), MineWaringManagerActivity.class));
                 break;
         }
     }
