@@ -1251,11 +1251,11 @@ public abstract class BaseActivity extends FragmentActivity {
      * @param share_media 分享的类型
      * @param mContext 上下文
      * @param inviteUrl 分享的链接
-     * @param taskId 当前用户id
+     * @param userPhone 手机号
      */
-    public void shareAction(SHARE_MEDIA share_media, Context mContext, String inviteUrl, int taskId) {
+    public void shareAction(SHARE_MEDIA share_media, Context mContext, String inviteUrl, String userPhone) {
         UMImage image = new UMImage(mContext, R.drawable.logo);
-        UMWeb web = new UMWeb(inviteUrl/* + taskId*/);
+        UMWeb web = new UMWeb(inviteUrl + userPhone);
         web.setTitle("轻轻松松工作 舒舒服服拿钱");//标题
         web.setThumb(image);  //缩略图
         web.setDescription("算工资，最牛逼，全国都在用……");//描述
