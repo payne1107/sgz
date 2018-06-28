@@ -2,6 +2,7 @@ package android.sgz.com.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ContactsAdapter;
@@ -19,6 +20,9 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.itheima.pulltorefreshlib.PullToRefreshBase;
 import com.itheima.pulltorefreshlib.PullToRefreshListView;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,6 +47,10 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     private EditText etSearch;
     private String searchName ="";
     private int queryContactId; //等于1 就是发布工单进入好友信息 ，点击好友信息就关闭当前页面
+    private AutoLinearLayout layoutShareSMS;
+    private AutoLinearLayout layoutShareWxFriend;
+    private AutoLinearLayout layoutShareWXMoments;
+    private AutoLinearLayout layoutShareQQ;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -63,6 +71,11 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
         listView = findViewById(R.id.recycler_view);
         tvSearchContacts = findViewById(R.id.tv_search_contact);
         etSearch = findViewById(R.id.et_search_contact);
+        layoutShareSMS = findViewById(R.id.layout_share_sms);
+        layoutShareWxFriend = findViewById(R.id.layout_share_wx_friend);
+        layoutShareWXMoments = findViewById(R.id.layout_share_wx_moments);
+        layoutShareQQ = findViewById(R.id.layout_share_qq);
+
         listView.setMode(PullToRefreshBase.Mode.BOTH);
         adapter = new ContactsAdapter(mContext, mList);
         listView.setAdapter(adapter);
@@ -71,6 +84,11 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void setListener() {
+        layoutShareSMS.setOnClickListener(this);
+        layoutShareWxFriend.setOnClickListener(this);
+        layoutShareWXMoments.setOnClickListener(this);
+        layoutShareQQ.setOnClickListener(this);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -178,6 +196,10 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                     adapter.setData(mList);
                     listView.setVisibility(View.VISIBLE);
                 }
+            } else {
+                mList.clear();
+                adapter.setData(mList);
+                setEmptyView(listView);
             }
         }
     }
@@ -194,6 +216,39 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                 }
                 queryContactsList(pageNo, searchName);
                 break;
+            case R.id.layout_share_sms:
+                sendSms(mContext,"http://www.baidu.com");
+                break;
+            case R.id.layout_share_qq:
+                shareAction(SHARE_MEDIA.QQ,mContext,"http://www.baidu.com",Integer.parseInt("1"));
+                break;
+            case R.id.layout_share_wx_friend:
+                shareAction(SHARE_MEDIA.WEIXIN,mContext,"http://www.baidu.com", Integer.parseInt("1"));
+                break;
+            case R.id.layout_share_wx_moments:
+                shareAction(SHARE_MEDIA.WEIXIN_CIRCLE,mContext,"http://www.baidu.com",Integer.parseInt("1"));
+                break;
         }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * 短信分享
+     * @param mContext
+     * @param smstext 短信分享内容
+     * @return
+     */
+    public static Boolean sendSms(Context mContext, String smstext) {
+        Uri smsToUri = Uri.parse("smsto:");
+        Intent mIntent = new Intent(Intent.ACTION_SENDTO, smsToUri);
+        mIntent.putExtra("sms_body", smstext);
+        mContext.startActivity(mIntent);
+        return null;
     }
 }

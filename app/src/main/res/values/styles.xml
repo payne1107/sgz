@@ -51,7 +51,7 @@
     <style name="AppThemeSplash" parent="@android:style/Theme.NoTitleBar.Fullscreen">
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
-        <!--<item name="android:windowBackground">@drawable/splash</item>-->
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
     <!-- 自定义dialog -->

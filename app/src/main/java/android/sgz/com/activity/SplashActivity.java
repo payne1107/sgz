@@ -38,7 +38,7 @@ public class SplashActivity extends BaseActivity {
     private Context mContext;
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_splash);
+//        setContentView(R.layout.activity_splash);
         mContext = SplashActivity.this;
         //每次进入app进行赋值
         MyApplication.isLogin = SPUtil.getString(mContext, "token");

@@ -75,6 +75,11 @@ import com.lidroid.xutils.http.client.HttpRequest;
 import com.pgyersdk.javabean.AppBean;
 import com.pgyersdk.update.PgyUpdateManager;
 import com.pgyersdk.update.UpdateManagerListener;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.KeyValue;
@@ -345,38 +350,46 @@ public abstract class BaseActivity extends FragmentActivity {
 
     /***
      * 上传头像
-     * @param userId
+     * @param content
      * @param photoPath
+     * @param type 1=发动态 2=上传头像
      */
-    public void uploadImg(String userId,String photoPath) {
+    public void uploadImg(String content,String photoPath,String url,int type) {
         startIOSDialogLoading(mContext,"正在上传中..");
         HttpUtils httpUtils = new HttpUtils();
         httpUtils.configResponseTextCharset("UTF-8");
         RequestParams params = new RequestParams();
-        params.addBodyParameter("photo", new File(photoPath));
-//        params.addBodyParameter("userId", userId);
+        if (type == 1) {
+            params.addBodyParameter("content", content);
+            if (!StringUtils.isEmpty(photoPath)) {
+                params.addBodyParameter("photos", new File(photoPath));
+            }
+        } else {
+            params.addBodyParameter("photo", new File(photoPath));
+        }
         params.addHeader("Accept", "application/json");
         if (!StringUtils.isEmpty(MyApplication.isLogin)) {
             params.addHeader("Authorization", MyApplication.isLogin);
         }
-        httpUtils.send(HttpRequest.HttpMethod.POST, ConfigUtil.UPLOAD_AVATAR_URL, params, new RequestCallBack<Object>() {
+        Log.d("Dong", "==-=====?>>" + " content --"+content +" phot" +photoPath +" typ=="+type);
+        httpUtils.send(HttpRequest.HttpMethod.POST, url, params, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(ResponseInfo<Object> responseInfo) {
                 stopIOSDialogLoading(mContext);
                 String json = (String) responseInfo.result;
                 UploadImgBean uploadImgBean = JSON.parseObject(json, UploadImgBean.class);
                 if ("1".equals(uploadImgBean.getResultCode())) { //上传成功
-                    toastMessage("上传头像成功");
+                    toastMessage("上传成功");
                     getImageUrl(uploadImgBean.getResultMsg());
                 } else {
-                    Toast.makeText(BaseActivity.this, "图片上传失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BaseActivity.this, "上传失败", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(HttpException e, String s) {
                 stopIOSDialogLoading(mContext);
-                Toast.makeText(BaseActivity.this, "图片上传失败", Toast.LENGTH_SHORT).show();//请求上传图片接口失败
+                Toast.makeText(BaseActivity.this, "上传失败", Toast.LENGTH_SHORT).show();//请求上传图片接口失败
             }
         });
     }
@@ -420,6 +433,58 @@ public abstract class BaseActivity extends FragmentActivity {
         }
         par.addBodyParameter("attendId", attendId);
 
+        Log.d("Dong", "入参-----> " + par.toString());
+        startIOSDialogLoading(mContext,"正在上传中..");
+        x.http().post(par, new Callback.CacheCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                stopIOSDialogLoading(mContext);
+                getImageUrl(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                stopIOSDialogLoading(mContext);
+                Log.d("Dong", "上传失败----》" + ex.getMessage());
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+            }
+
+            @Override
+            public void onFinished() {
+                stopIOSDialogLoading(mContext);
+            }
+
+            @Override
+            public boolean onCache(String result) {
+                return false;
+            }
+        });
+    }
+
+    /****
+     * 发布动态
+     * @param path
+     * @param content
+     * @param url
+     */
+    public void uploadImg(List<String> path, String content,String url) {
+        List<KeyValue> listPath = new ArrayList<>();
+        Log.d("Dong", "图片集合大小--》" +path.size());
+        for (int i = 0; i < path.size(); i++) {
+            listPath.add(new KeyValue("photos", new File(path.get(i))));
+        }
+        org.xutils.http.RequestParams par = new org.xutils.http.RequestParams(url);
+        MultipartBody body = new MultipartBody(listPath, "utf-8");
+        par.setRequestBody(body);
+        par.setMultipart(true);
+        par.addHeader("Accept", "application/json");
+        if (!StringUtils.isEmpty(MyApplication.isLogin)) {
+            par.addHeader("Authorization", MyApplication.isLogin);
+        }
+        par.addBodyParameter("content", content);
         Log.d("Dong", "入参-----> " + par.toString());
         startIOSDialogLoading(mContext,"正在上传中..");
         x.http().post(par, new Callback.CacheCallback<String>() {
@@ -1179,4 +1244,57 @@ public abstract class BaseActivity extends FragmentActivity {
                 }
             }
     }
+
+
+    /****
+     * 分享功能
+     * @param share_media 分享的类型
+     * @param mContext 上下文
+     * @param inviteUrl 分享的链接
+     * @param taskId 当前用户id
+     */
+    public void shareAction(SHARE_MEDIA share_media, Context mContext, String inviteUrl, int taskId) {
+        UMImage image = new UMImage(mContext, R.drawable.logo);
+        UMWeb web = new UMWeb(inviteUrl/* + taskId*/);
+        web.setTitle("轻轻松松工作 舒舒服服拿钱");//标题
+        web.setThumb(image);  //缩略图
+        web.setDescription("算工资，最牛逼，全国都在用……");//描述
+        new ShareAction(this).withMedia(web)
+                .setPlatform(share_media)
+                .setCallback(umShareListener)
+                .share();
+    }
+
+    private UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+            //分享开始的回调
+            Log.d("Dong", "onStart platform" + platform);
+        }
+
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Log.d("Dong", " 分享成功啦" + platform);
+
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            if (t != null) {
+                Log.d("Dong", "throw:" + t.getMessage());
+            }
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            platform.name();
+            if (platform.name().equals("SINA")) {
+                return;
+            } else if (platform.name().equals("WEIXIN")) {
+                toastMessage("微信邀请取消了");
+                return;
+            }
+            toastMessage(platform + "邀请取消了");
+        }
+    };
 }

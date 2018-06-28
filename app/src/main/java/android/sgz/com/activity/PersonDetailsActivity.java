@@ -249,7 +249,7 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
                             //将bitmap保存到本地，下次在获取可以从本地获取展示，之后在从网络获取显示
                             circleImageView.setImageBitmap(bitmap);
                             SDCardUtil.saveBitmap(bitmap, newPath);
-                            uploadImg(MyApplication.userId, newPath);
+                            uploadImg(MyApplication.userId, newPath, ConfigUtil.UPLOAD_AVATAR_URL, 2);
                         }
                     }
                     break;

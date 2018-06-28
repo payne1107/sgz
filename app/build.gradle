@@ -61,7 +61,6 @@ dependencies {
     compile project(path: ':pulltorefreshlib')
     //适配
     compile 'com.zhy:autolayout:1.4.5'
-
     //浮动标签
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile project(path: ':citypicker')
@@ -70,6 +69,15 @@ dependencies {
     compile 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
     compile 'com.amap.api:search:latest.integration'
     compile 'com.amap.api:map2d:latest.integration'
-    compile 'cn.jiguang.sdk:jpush:3.1.1'  // 此处以JPush 3.1.1 版本为例。
-    compile 'cn.jiguang.sdk:jcore:1.1.9'  // 此处以JCore 1.1.9 版本为例。
+    compile 'cn.jiguang.sdk:jpush:3.1.1'
+    // 此处以JPush 3.1.1 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.9'
+    // 此处以JCore 1.1.9 版本为例。
+
+    compile files('libs/umeng-common-1.5.3.jar')
+    compile files('libs/umeng-share-core-6.9.2.jar')
+    compile files('libs/umeng-share-QQ-simplify-6.9.2.jar')
+    compile files('libs/umeng-share-wechat-simplify-6.9.2.jar')
+    compile files('libs/umeng-shareboard-widget-6.9.2.jar')
+    compile files('libs/umeng-sharetool-6.9.2.jar')
 }
