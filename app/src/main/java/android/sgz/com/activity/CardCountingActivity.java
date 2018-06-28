@@ -54,6 +54,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
     private TextView tvLeaveCount;
     private TextView tvNoRecordCount;
     private TextView tvAddWorkCount;
+    private int projectId;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -66,7 +67,6 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
         mList.add("2018-10");
         mList.add("2018-11");
         mList.add("2018-12");
-
         initRightPopuWindow(R.layout.item_card_counting_title);
     }
 
@@ -189,7 +189,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_absenteeism:
             case R.id.layout_overtime:
                 //打卡详情
-                startActivity(new Intent(mContext, CardCountingDetailsActivity.class));
+                startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId));
                 break;
 
         }
@@ -240,6 +240,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
                 int late = data.getLate();//迟到
                 int extraworkTime = data.getExtraworktime();//加班时长
                 int leave = data.getLeave();//早退
+                projectId = data.getProjectid();
                 tvWorkDays.setText(attendance+"天");
                 tvLateCount.setText(late + "次");
                 tvLeaveCount.setText(leave + "次");

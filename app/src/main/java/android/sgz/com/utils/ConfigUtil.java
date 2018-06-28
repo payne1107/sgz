@@ -283,7 +283,7 @@ public class ConfigUtil {
     public static final String QUERY_USER_FLOW_LIST_URL = MyApplication.REQUEST_URL + "pay/getUserFlowList";
     public static final int QUERY_USER_FLOW_LIST_URL_ACTION = 54;
     /****
-     *根据月份获取打卡信息
+     *根据日期获取打卡信息
      */
     public static final String QUERY_WORK_RECORD_BY_TIME_URL = MyApplication.REQUEST_URL + "project/queryWorkRecordByTime";
     public static final int QUERY_WORK_RECORD_BY_TIME_URL_ACTION = 55;

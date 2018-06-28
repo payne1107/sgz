@@ -6,11 +6,12 @@ package android.sgz.com.bean;
 
 public class RecordWorkBean {
 
+
     /**
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : {"leave":0,"extraworktime":0,"attendance":0,"leak":0,"late":0}
+     * data : {"extraworktime":0,"leak":0,"leave":0,"late":0,"attendance":0,"projectid":1}
      * exception : false
      */
 
@@ -62,26 +63,20 @@ public class RecordWorkBean {
 
     public static class DataBean {
         /**
-         * leave : 0
          * extraworktime : 0
-         * attendance : 0
          * leak : 0
+         * leave : 0
          * late : 0
+         * attendance : 0
+         * projectid : 1
          */
 
-        private int leave;
         private int extraworktime;
-        private int attendance;
         private int leak;
+        private int leave;
         private int late;
-
-        public int getLeave() {
-            return leave;
-        }
-
-        public void setLeave(int leave) {
-            this.leave = leave;
-        }
+        private int attendance;
+        private int projectid;
 
         public int getExtraworktime() {
             return extraworktime;
@@ -89,14 +84,6 @@ public class RecordWorkBean {
 
         public void setExtraworktime(int extraworktime) {
             this.extraworktime = extraworktime;
-        }
-
-        public int getAttendance() {
-            return attendance;
-        }
-
-        public void setAttendance(int attendance) {
-            this.attendance = attendance;
         }
 
         public int getLeak() {
@@ -107,12 +94,36 @@ public class RecordWorkBean {
             this.leak = leak;
         }
 
+        public int getLeave() {
+            return leave;
+        }
+
+        public void setLeave(int leave) {
+            this.leave = leave;
+        }
+
         public int getLate() {
             return late;
         }
 
         public void setLate(int late) {
             this.late = late;
+        }
+
+        public int getAttendance() {
+            return attendance;
+        }
+
+        public void setAttendance(int attendance) {
+            this.attendance = attendance;
+        }
+
+        public int getProjectid() {
+            return projectid;
+        }
+
+        public void setProjectid(int projectid) {
+            this.projectid = projectid;
         }
     }
 }

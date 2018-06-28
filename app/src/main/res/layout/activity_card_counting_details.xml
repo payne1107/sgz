@@ -27,6 +27,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_size_40"
@@ -79,6 +80,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tv_start_record_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="打卡时间 09：10"
@@ -86,6 +88,7 @@
                         android:textSize="@dimen/text_size_28" />
 
                     <TextView
+                        android:id="@+id/tv_start_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_size_5"
@@ -101,7 +104,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/tv_start_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_size_15"
@@ -117,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_size_15"
                         android:layout_marginTop="@dimen/margin_size_30"
-                        android:text="下班时间 18：00"
+                        android:text=""
                         android:textColor="@color/color_888"
                         android:textSize="@dimen/text_size_24" />
                 </com.zhy.autolayout.AutoLinearLayout>
@@ -131,6 +134,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tv_end_record_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="打卡时间 18：10"
@@ -138,6 +142,7 @@
                         android:textSize="@dimen/text_size_28" />
 
                     <TextView
+                        android:id="@+id/tv_end_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_size_5"
@@ -147,6 +152,7 @@
                 </com.zhy.autolayout.AutoLinearLayout>
 
                 <TextView
+                    android:id="@+id/tv_end_record_address"
                     android:layout_marginBottom="@dimen/margin_size_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

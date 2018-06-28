@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="100px">
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center_vertical"
+            android:text="补卡类型："
+            android:layout_width="wrap_content"
+            android:layout_height="100px" />
+        <TextView
+            android:id="@+id/tv_type"
+            android:textColor="@color/text_color_3"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center_vertical"
+            android:text="上班缺卡"
+            android:layout_width="match_parent"
+            android:layout_height="100px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="100px">
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center_vertical"
+            android:text="补卡日期："
+            android:layout_width="wrap_content"
+            android:layout_height="100px" />
+        <TextView
+            android:id="@+id/tv_apply_time"
+            android:textColor="@color/text_color_3"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center_vertical"
+            android:text="2018-09-9"
+            android:layout_width="match_parent"
+            android:layout_height="100px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <EditText
+            android:id="@+id/et_remark"
+            android:paddingTop="11dp"
+            android:gravity="top"
+            android:textSize="@dimen/text_size_26"
+            android:textColorHint="@color/text_color_9"
+            android:textColor="@color/text_color_3"
+            android:paddingLeft="@dimen/margin_size_15"
+            android:hint="填写申请补卡的理由.."
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/tv_apply_record"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_size_15"
+        android:layout_width="match_parent"
+        android:background="@color/color_62d"
+        android:layout_height="100px">
+
+        <TextView
+            android:textSize="@dimen/text_size_30"
+            android:textColor="@color/white"
+            android:text="申请补卡"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

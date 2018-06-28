@@ -282,6 +282,9 @@
         <activity
             android:name=".activity.CheckWaringWorkRecordActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ApplyMakeRecordActivity"
+            android:screenOrientation="portrait" />
 
         <!--适配用到的配置-->
         <meta-data
