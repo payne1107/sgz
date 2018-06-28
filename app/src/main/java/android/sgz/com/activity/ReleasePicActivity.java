@@ -12,8 +12,11 @@ import android.sgz.com.adapter.HorizontalListViewAdapter;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.Bimp;
+import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.SDCardUtil;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.HorizontalListView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zhy.autolayout.AutoLinearLayout;
+
+import org.xutils.common.Callback;
+import org.xutils.common.util.KeyValue;
+import org.xutils.http.body.MultipartBody;
+import org.xutils.x;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import static android.sgz.com.application.MyApplication.PHOTO_PATH;
 
@@ -68,6 +82,7 @@ public class ReleasePicActivity extends BaseActivity implements View.OnClickList
 
     private void setListener() {
         ivCamera.setOnClickListener(this);
+        layoutRelease.setOnClickListener(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -82,6 +97,10 @@ public class ReleasePicActivity extends BaseActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
+                if (Bimp.drr.size() >= 1) {
+                    toastMessage("只能上传一张");
+                    return;
+                }
                 showSeclectPhotoDialog();
                 break;
             case R.id.tv_cancel_photo:
@@ -98,6 +117,18 @@ public class ReleasePicActivity extends BaseActivity implements View.OnClickList
                     startPhoto();
                 }
                 dialog.dismiss();
+                break;
+            case R.id.layout_release:
+                String feedBack = etFeedBack.getText().toString().trim();
+                if (StringUtils.isEmpty(feedBack)) {
+                    toastMessage("说点什么吧..");
+                    return;
+                }
+                if (Bimp.drr.size() < 1) {
+                   toastMessage("上传一张图片吧..");
+                } else {
+                    uploadImg(Bimp.drr, feedBack, ConfigUtil.RELEAST_DYNAMIC_URL);
+                }
                 break;
         }
     }
@@ -200,5 +231,14 @@ public class ReleasePicActivity extends BaseActivity implements View.OnClickList
         btnCancel.setOnClickListener(this);
         btnTakePhoto.setOnClickListener(this);
         btnSelectPhoto.setOnClickListener(this);
+    }
+
+    @Override
+    protected void getImageUrl(String url) {
+        super.getImageUrl(url);
+        if (getRequestCode(url) ==1) {
+            toastMessage("上传成功");
+            finish();
+        }
     }
 }

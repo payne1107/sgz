@@ -1,10 +1,8 @@
 package android.sgz.com.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
-import android.sgz.com.bean.ContactsBean;
 import android.sgz.com.bean.MineHomePageBean;
 import android.sgz.com.utils.StringUtils;
 import android.view.LayoutInflater;
@@ -82,6 +80,8 @@ public class MineHomePageAdapter extends BaseAdapter {
             if (photolist != null && photolist.size() > 0) {
                 String contentImg = photolist.get(0);
                 MyApplication.imageLoader.displayImage(contentImg, holder.ivPic);
+            } else {
+                holder.ivPic.setVisibility(View.GONE);
             }
             MineHomePageBean.DataBean.ListBean.UserBean userBean = bean.getUser();
             if (userBean != null) {

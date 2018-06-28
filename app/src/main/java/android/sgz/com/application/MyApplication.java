@@ -18,6 +18,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.pgyersdk.crash.PgyCrashManager;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.socialize.PlatformConfig;
 
 import org.xutils.x;
 
@@ -90,6 +92,8 @@ public class MyApplication extends Application {
         //注册Crash接口(必选) 蒲公英
         PgyCrashManager.register(this);
         JPushInterface.init(this);
+        //初始化
+        UMConfigure.init(this, "5b348af1f43e480284000042", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
         //设置全局的异常捕获器
        //CatchExceptionHandler.getInstance().setDefaultUnCachExceptionHandler();
     }
@@ -99,6 +103,13 @@ public class MyApplication extends Application {
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(this, new OkHttpStack());
         }
+    }
+
+    /** 友盟三方登录 Id & key 入口 **/
+    {
+        PlatformConfig.setWeixin("wx94db1f1acddbfcd6","2ccceed033eda7939323cdf4703fe000");
+        PlatformConfig.setQQZone("1106919069","8BuoORvKxidGie64");
+        //PlatformConfig.setSinaWeibo("2597775029","0e89b0d8b79b943615ed541b4bfda00c","http://www.sina.com");
     }
 
     /***
