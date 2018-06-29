@@ -2,6 +2,7 @@ package android.sgz.com.adapter;
 
 import android.content.Context;
 import android.sgz.com.R;
+import android.sgz.com.bean.ProjectSalaryListBean;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,9 @@ import java.util.List;
 
 public class WorkDayNumAdapter extends BaseAdapter{
     private Context mContext;
-    private List<String> mList;
+    private List<ProjectSalaryListBean.DataBean.ListBean> mList;
 
-    public WorkDayNumAdapter(Context context, List<String> list) {
+    public WorkDayNumAdapter(Context context, List<ProjectSalaryListBean.DataBean.ListBean> list) {
         this.mContext = context;
         this.mList = list;
     }
@@ -52,7 +53,7 @@ public class WorkDayNumAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tvTitle.setText(mList.get(position));
+//        holder.tvTitle.setText(mList.get(position));
         return convertView;
     }
 

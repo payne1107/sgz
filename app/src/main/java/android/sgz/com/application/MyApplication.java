@@ -72,6 +72,7 @@ public class MyApplication extends Application {
     public static boolean isForUpdate = false;
     public static String SERVER_VERSION_NAME = "";
     public static boolean isClickUpdateVersionBtn = false;
+    public static String userPhone ="";
 
     public static MyApplication getApplication() {
         if (mInstance == null) {
