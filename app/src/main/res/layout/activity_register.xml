@@ -158,7 +158,7 @@
             android:layout_marginLeft="18px"
             android:textColor="@color/color_62d"
             android:textSize="@dimen/text_size_32"
-            android:text="《猎手用户协议》"
+            android:text="《用户协议》"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </com.zhy.autolayout.AutoLinearLayout>
