@@ -39,7 +39,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextView tvRemeberPwd;
     private Context mContext;
     private boolean isVisble = false;
-    private String userPhone;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -101,7 +100,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * 登录
      */
     private void login() {
-        userPhone = etPhone.getText().toString().trim();
+        String userPhone = etPhone.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         if (StringUtils.isEmpty(userPhone) || StringUtils.isEmpty(password)) {
             toastMessage("用户名或者密码不能为空");
@@ -109,7 +108,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
         startIOSDialogLoading(mContext,"登录中..");
         Map<String, String> params = new HashMap<>();
-        params.put("username", userPhone);
+        params.put("username",userPhone);
         params.put("password",password);
         params.put("type", "password");
         httpPostRequest(ConfigUtil.LOGIN_URL, params, ConfigUtil.LOGIN_URL_ACTION);
@@ -135,16 +134,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 LoginSucessBean.DataBean data = bean.getData();
                 if (data != null) {
                     String token =data.getToken();///保存token
-                    String refreshToken =  data.getRefreshtoken();//刷新token需要
+                    String refreshToken =data.getRefreshtoken();//刷新token需要
                     String userId =data.getUserid();
                     SPUtil.putString(mContext, "token", token);
                     SPUtil.putString(mContext, "refresh_token", refreshToken);
-                    SPUtil.putString(mContext, "userPhone", userPhone);
                     SPUtil.putString(mContext, "userId", userId);
                     MyApplication.isLogin = token;
                     MyApplication.refreshToken = refreshToken;
                     MyApplication.userId = userId;
-                    MyApplication.userPhone = userPhone;
                     finish();
                 }
             }

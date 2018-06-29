@@ -8,7 +8,7 @@ public class LoginSucessBean {
 
 
     /**
-     * data : {"refreshtoken":"4l9uONmrRiIcd2eZkL/NdQ==","token":"eyJBVVRIT1JJVFkiOiI0Vk1GMm9vYm8vOD0iLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNTMwMjg0MjU1fQ.iA2xbOi48NKH3kTvxzzN2k3VLacrgjAK4awGR3q-sjlKXpZSHF3p4XH_s_QZBOQ6wGi6XBMX8NvOrxc-MGMlZQ","userid":1}
+     * data : {"refreshtoken":"+ku9OwFKzLiOnkHp+stiLNSm4AuO3yZd","token":"eyJBVVRIT1JJVFkiOiI0Vk1GMm9vYm8vOD0iLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNSIsImV4cCI6MTUzMDMyNTcwNn0.vY9ytEgAXh-ad7PLDBCKicE8wZmYh8MX6LCIehFMmLxOOHRB1SxKDJLyhNKCeh2vfVB1XPPyCXEQ2CEfwoqOMg","userid":15}
      * resultCode : 1
      * success : true
      */
@@ -43,9 +43,9 @@ public class LoginSucessBean {
 
     public static class DataBean {
         /**
-         * refreshtoken : 4l9uONmrRiIcd2eZkL/NdQ==
-         * token : eyJBVVRIT1JJVFkiOiI0Vk1GMm9vYm8vOD0iLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNTMwMjg0MjU1fQ.iA2xbOi48NKH3kTvxzzN2k3VLacrgjAK4awGR3q-sjlKXpZSHF3p4XH_s_QZBOQ6wGi6XBMX8NvOrxc-MGMlZQ
-         * userid : 1
+         * refreshtoken : +ku9OwFKzLiOnkHp+stiLNSm4AuO3yZd
+         * token : eyJBVVRIT1JJVFkiOiI0Vk1GMm9vYm8vOD0iLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNSIsImV4cCI6MTUzMDMyNTcwNn0.vY9ytEgAXh-ad7PLDBCKicE8wZmYh8MX6LCIehFMmLxOOHRB1SxKDJLyhNKCeh2vfVB1XPPyCXEQ2CEfwoqOMg
+         * userid : 15
          */
 
         private String refreshtoken;

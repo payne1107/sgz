@@ -78,7 +78,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         String phone = etPhone.getText().toString().trim();
         String nickName = etNickName.getText().toString().trim();
         String pwd = etPwd.getText().toString().trim();
-        String verifyCode = etVerifyCode.toString().trim();
+        String verifyCode = etVerifyCode.getText().toString().trim();
         if (StringUtils.isEmpty(phone) || phone.length() != 11) {
             toastMessage("手机号格式不正确");
             return;

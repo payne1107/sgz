@@ -6,10 +6,9 @@
     <include layout="@layout/sys_title" />
 
     <ListView
-        android:divider="@color/fafafa"
         android:dividerHeight="1px"
         android:id="@+id/listView"
-
+        android:divider="@color/fafafa"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>

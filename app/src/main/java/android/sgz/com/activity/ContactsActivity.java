@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ContactsAdapter;
-import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.ContactsBean;
 import android.sgz.com.utils.ConfigUtil;
@@ -52,7 +51,6 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     private AutoLinearLayout layoutShareWxFriend;
     private AutoLinearLayout layoutShareWXMoments;
     private AutoLinearLayout layoutShareQQ;
-    private String inviteUrl = "http://salary.chenximeng.top/share/register.html?referee=" ;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -219,16 +217,16 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                 queryContactsList(pageNo, searchName);
                 break;
             case R.id.layout_share_sms:
-                sendSms(mContext, inviteUrl + MyApplication.userPhone);
+                sendSms(mContext,"http://www.baidu.com");
                 break;
             case R.id.layout_share_qq:
-                shareAction(SHARE_MEDIA.QQ,mContext,inviteUrl,MyApplication.userPhone);
+                shareAction(SHARE_MEDIA.QQ,mContext,"http://www.baidu.com",Integer.parseInt("1"));
                 break;
             case R.id.layout_share_wx_friend:
-                shareAction(SHARE_MEDIA.WEIXIN,mContext,inviteUrl, MyApplication.userPhone);
+                shareAction(SHARE_MEDIA.WEIXIN,mContext,"http://www.baidu.com", Integer.parseInt("1"));
                 break;
             case R.id.layout_share_wx_moments:
-                shareAction(SHARE_MEDIA.WEIXIN_CIRCLE,mContext,inviteUrl,MyApplication.userPhone);
+                shareAction(SHARE_MEDIA.WEIXIN_CIRCLE,mContext,"http://www.baidu.com",Integer.parseInt("1"));
                 break;
         }
     }

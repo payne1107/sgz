@@ -55,8 +55,6 @@ public class MyApplication extends Application {
     public static String refreshToken = "";
     //用户的userId
     public static String userId = "";
-    //用户的手机号
-    public static String userPhone = "";
 
     /** 相册选择 */
     public static final int SELECT_PICTURE_CODE = 1;
