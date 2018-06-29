@@ -131,13 +131,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         if (null != bean) {
             if (bean.isSuccess()) {
                 startActivity(new Intent(mContext, MainActivity.class));
-                String token = bean.getResultMsg();///保存token
-                String refreshToken = bean.getRefreshMsg();//刷新token需要
-                SPUtil.putString(mContext, "token", token);
-                SPUtil.putString(mContext, "refresh_token", refreshToken);
-                MyApplication.isLogin = token;
-                MyApplication.refreshToken = refreshToken;
-                finish();
+                LoginSucessBean.DataBean data = bean.getData();
+                if (data != null) {
+                    String token =data.getToken();///保存token
+                    String refreshToken =data.getRefreshtoken();//刷新token需要
+                    String userId =data.getUserid();
+                    SPUtil.putString(mContext, "token", token);
+                    SPUtil.putString(mContext, "refresh_token", refreshToken);
+                    SPUtil.putString(mContext, "userId", userId);
+                    MyApplication.isLogin = token;
+                    MyApplication.refreshToken = refreshToken;
+                    MyApplication.userId = userId;
+                    finish();
+                }
             }
         }
     }

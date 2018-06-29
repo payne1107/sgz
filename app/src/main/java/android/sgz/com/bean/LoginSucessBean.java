@@ -6,24 +6,23 @@ package android.sgz.com.bean;
 
 public class LoginSucessBean {
 
+
     /**
-     * refreshMsg : D4jtPziJX9SzZGC2TOo93g==
+     * data : {"refreshtoken":"+ku9OwFKzLiOnkHp+stiLNSm4AuO3yZd","token":"eyJBVVRIT1JJVFkiOiI0Vk1GMm9vYm8vOD0iLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNSIsImV4cCI6MTUzMDMyNTcwNn0.vY9ytEgAXh-ad7PLDBCKicE8wZmYh8MX6LCIehFMmLxOOHRB1SxKDJLyhNKCeh2vfVB1XPPyCXEQ2CEfwoqOMg","userid":15}
      * resultCode : 1
-     * resultMsg : eyJBVVRIT1JJVFkiOiI0Vk1GMm9vYm8vOD0iLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4IiwiZXhwIjoxNTI4NDM5NTQ1fQ.iBcCC8mfnKDyZvKnYi_W6qVmcAxb4LFlzYd63ZLR-BPWg1b5cxYAoHbBsbtHzdO0sVAnue5p93YvjxfDWb4fdA
      * success : true
      */
 
-    private String refreshMsg;
+    private DataBean data;
     private String resultCode;
-    private String resultMsg;
     private boolean success;
 
-    public String getRefreshMsg() {
-        return refreshMsg;
+    public DataBean getData() {
+        return data;
     }
 
-    public void setRefreshMsg(String refreshMsg) {
-        this.refreshMsg = refreshMsg;
+    public void setData(DataBean data) {
+        this.data = data;
     }
 
     public String getResultCode() {
@@ -34,19 +33,47 @@ public class LoginSucessBean {
         this.resultCode = resultCode;
     }
 
-    public String getResultMsg() {
-        return resultMsg;
-    }
-
-    public void setResultMsg(String resultMsg) {
-        this.resultMsg = resultMsg;
-    }
-
     public boolean isSuccess() {
         return success;
     }
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public static class DataBean {
+        /**
+         * refreshtoken : +ku9OwFKzLiOnkHp+stiLNSm4AuO3yZd
+         * token : eyJBVVRIT1JJVFkiOiI0Vk1GMm9vYm8vOD0iLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNSIsImV4cCI6MTUzMDMyNTcwNn0.vY9ytEgAXh-ad7PLDBCKicE8wZmYh8MX6LCIehFMmLxOOHRB1SxKDJLyhNKCeh2vfVB1XPPyCXEQ2CEfwoqOMg
+         * userid : 15
+         */
+
+        private String refreshtoken;
+        private String token;
+        private String userid;
+
+        public String getRefreshtoken() {
+            return refreshtoken;
+        }
+
+        public void setRefreshtoken(String refreshtoken) {
+            this.refreshtoken = refreshtoken;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        public String getUserid() {
+            return userid;
+        }
+
+        public void setUserid(String userid) {
+            this.userid = userid;
+        }
     }
 }
