@@ -44,6 +44,7 @@ public class SplashActivity extends BaseActivity {
         MyApplication.isLogin = SPUtil.getString(mContext, "token");
         MyApplication.refreshToken = SPUtil.getString(mContext, "refresh_token");
         MyApplication.userId = SPUtil.getString(mContext, "userId");
+        MyApplication.userPhone = SPUtil.getString(mContext, "userPhone");
     }
 
     @Override

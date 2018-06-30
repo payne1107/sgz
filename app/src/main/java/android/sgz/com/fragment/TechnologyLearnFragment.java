@@ -1,7 +1,9 @@
 package android.sgz.com.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.PlayVideoActivity;
 import android.sgz.com.adapter.TechnologyLearnFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.Fragment2Bean;
@@ -86,7 +88,12 @@ public class TechnologyLearnFragment extends BaseFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fragment2Bean.DataBean.ListBean bean = (Fragment2Bean.DataBean.ListBean) parent.getAdapter().getItem(position);
+                if (bean != null) {
+                    String videoUrl = bean.getVideo();
+                    startActivity(new Intent(getActivity(), PlayVideoActivity.class).putExtra("videoUrl", videoUrl));
 
+                }
             }
         });
     }
@@ -145,6 +152,8 @@ public class TechnologyLearnFragment extends BaseFragment {
                 }
             } else {
                 //没有数据
+                adapter.setData(mList);
+                setEmptyView(listView);
             }
         }
     }

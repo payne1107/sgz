@@ -285,6 +285,9 @@
         <activity
             android:name=".activity.ApplyMakeRecordActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PlayVideoActivity"
+            android:screenOrientation="portrait" />
 
         <!--友盟分享集成-->
         <activity
