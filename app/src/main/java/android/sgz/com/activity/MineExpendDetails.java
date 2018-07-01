@@ -93,6 +93,11 @@ public class MineExpendDetails extends BaseActivity implements View.OnClickListe
                     startActivity(new Intent(mContext, PayForOneSalaryActivity.class).putExtra("projectId", projectId).putExtra("userId", userId));
                 }
             }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
         });
     }
 

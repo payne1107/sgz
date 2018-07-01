@@ -288,6 +288,15 @@
         <activity
             android:name=".activity.PlayVideoActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SetWorkPresonSalaryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChooseLocation2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChooseLocation3Activity"
+            android:screenOrientation="portrait" />
 
         <!--友盟分享集成-->
         <activity

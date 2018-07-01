@@ -8,8 +8,11 @@ import android.sgz.com.R;
 import android.sgz.com.adapter.ReleaseOrderAdapter;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.AddOrderContactsBean;
+import android.sgz.com.bean.SetContactsSalaryBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.StringUtils;
+import android.sgz.com.widget.IRecycleViewOnItemClickListener;
+import android.sgz.com.widget.MyDialog;
 import android.sgz.com.widget.SpacesItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,8 +29,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by 92457 on 2018/5/19.
@@ -58,6 +63,9 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     protected static final String REQUEST_CHOOSE_COMPANY_KEY = "request_choose_company_key";
     //打卡时间设置
     private static final int REQUEST_SET_WORK_RECORD_CODE =  10007;
+    //设置工资工资信息
+    private static final int REQUEST_SET_CONTACTS_SALARY_CODE = 10008;
+
 
     private TextView tvAddPerson;
     private Context mContext;
@@ -69,6 +77,8 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
 
     //存储联系人集合
     private List<AddOrderContactsBean> listContacts = new ArrayList<>();
+    //设置工人工资临时存储的集合
+    private List<SetContactsSalaryBean> listSalary = new ArrayList<>();
     private RecyclerView recyclerView;
     private ReleaseOrderAdapter adapter;
     private TextView tvChooseCompany;
@@ -126,6 +136,57 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvSet.setOnClickListener(this);
         tvChooseCompany.setOnClickListener(this);
         layoutSetWorkRecord.setOnClickListener(this);
+        adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Log.d("Dong", "------->" + listContacts.get(position).getRealName());
+                AddOrderContactsBean contactsBean = listContacts.get(position);
+                if (contactsBean != null) {
+                    int userId = contactsBean.getUserId();
+                    Intent intent = new Intent(mContext, SetWorkPresonSalaryActivity.class);
+                    intent.putExtra("userId", userId);
+                    startActivityForResult(intent,REQUEST_SET_CONTACTS_SALARY_CODE);
+                }
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+                deleteContacts(position);
+            }
+        });
+    }
+
+    /****
+     * 删除联系人对话框
+     * @param position
+     */
+    private void deleteContacts(final int position) {
+        AddOrderContactsBean bean = listContacts.get(position);
+        final int userId =bean.getUserId();
+        final MyDialog dialog = new MyDialog(mContext);
+        dialog.setMessage("是否删除此工人信息？");
+        dialog.setOnNegativeListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //取消
+                dialog.dismiss();
+            }
+        });
+        dialog.setOnPositiveListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listContacts.remove(position);
+                adapter.notifyDataSetChanged();
+                //确认
+                for (int i = 0; i < listSalary.size(); i++) {
+                    if (listSalary.get(i).getUserId() == userId) {
+                        listSalary.remove(i);
+                    }
+                }
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     @Override
@@ -151,7 +212,8 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.tv_choose_location:
                 //选择位置信息
-                Intent intent = new Intent(mContext, ChooseLocationActivity.class);
+//                Intent intent = new Intent(mContext, ChooseLocationActivity.class);
+                Intent intent = new Intent(mContext, ChooseLocation3Activity.class);
                 startActivityForResult(intent,REQUEST_CHOOSE_LOCATION_CODE);
                 break;
             case R.id.activity_set:
@@ -192,12 +254,13 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                     tvWorkOrderName.setText(workOrderName);
                     break;
                 case REQUEST_CHOOSE_CONTACTS_CODE:
+                    //此处除了userid和name有用其他无意义
                     int userid = data.getIntExtra("userid", -1);
-                    String allowance =data.getStringExtra("allowance");
-                    String salary =data.getStringExtra("salary");
-                    String overWorkSalary =data.getStringExtra("overWorkSalary");
-                    String realName =data.getStringExtra("realName");
-                    String profession =data.getStringExtra("profession");
+                    String allowance = data.getStringExtra("allowance");
+                    String salary = data.getStringExtra("salary");
+                    String overWorkSalary = data.getStringExtra("overWorkSalary");
+                    String realName = data.getStringExtra("realName");
+                    String profession = data.getStringExtra("profession");
                     AddOrderContactsBean contactsName = new AddOrderContactsBean();
                     contactsName.setUserId(userid);
                     contactsName.setSalary(StringUtils.isEmpty(salary) ? "" : salary);
@@ -217,6 +280,22 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                     startWorkTime = data.getStringExtra("startworktime");
                     endWorkTime = data.getStringExtra("endworktime");
                     tvSetWorkRecord.setText("" + startWorkTime + "~" + endWorkTime);
+                    break;
+                case REQUEST_SET_CONTACTS_SALARY_CODE:
+                    Log.d("Dong", "设置工人工资---->" );
+                    if (data != null) {
+                        int userId = data.getIntExtra("userId", -1);
+                        String allowanceSalary = data.getStringExtra("allownce");
+                        String contactSalary = data.getStringExtra("salary");
+                        String addWorkSalary = data.getStringExtra("extraworksalary");
+                        SetContactsSalaryBean bean = new SetContactsSalaryBean();
+
+                        bean.setUserId(userId);
+                        bean.setOverWorkSalary(addWorkSalary);
+                        bean.setAllowance(allowanceSalary);
+                        bean.setSalary(contactSalary);
+                        listSalary.add(bean);
+                    }
                     break;
             }
         }
@@ -264,7 +343,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
             return;
         }
         //工单员工信息
-        String strJson = JSON.toJSONString(listContacts);
+        String strJson = JSON.toJSONString(listSalary);
         if (StringUtils.isEmpty(strJson)) {
             toastMessage("请添加员工");
             return;

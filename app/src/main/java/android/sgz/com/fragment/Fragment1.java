@@ -281,11 +281,11 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                 int workDays = data.getWorkdays();
                 int workFriends = data.getWorkfriends();
                 int projectCount = data.getProjectcount();
-                double salaryTotal = data.getIncome();//工资
-                tvSalary.setText(salaryTotal+"元");
-                tvWorkDays.setText(workDays+"天");
-                tvWorkFriends.setText(workFriends + "人");
-                tvWorkOrder.setText(projectCount+"个");
+                String salaryTotal = data.getIncome();//工资
+                tvSalary.setText(""+salaryTotal+"元");
+                tvWorkDays.setText(""+workDays+"天");
+                tvWorkFriends.setText(""+workFriends + "人");
+                tvWorkOrder.setText(""+projectCount+"个");
             }
         }
     }

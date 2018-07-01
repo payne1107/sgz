@@ -168,6 +168,11 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
                 dimissPopuWindow();
                 queryWorkRecord();
             }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
         });
     }
 

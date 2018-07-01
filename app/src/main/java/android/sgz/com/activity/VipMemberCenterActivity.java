@@ -80,6 +80,11 @@ public class VipMemberCenterActivity extends BaseActivity {
             public void onItemClick(View view, int position) {
                 toastMessage("开通----》" + mList.get(position).getMonth());
             }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
         });
     }
 

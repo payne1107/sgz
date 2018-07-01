@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="设置工资:"
+                android:textColor="@color/text_color_3" />
+
+            <EditText
+                android:id="@+id/et_salary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_size_10"
+                android:background="@null"
+                android:hint="设置工资"
+                android:inputType="number"
+                android:textSize="@dimen/text_size_24" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="设置加班费:"
+                android:textColor="@color/text_color_3" />
+
+            <EditText
+                android:id="@+id/et_add_work_salary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_size_10"
+                android:background="@null"
+                android:hint="设置加班费"
+                android:inputType="number"
+                android:textSize="@dimen/text_size_24" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:text="设置津贴:"
+                android:textColor="@color/text_color_3" />
+
+            <EditText
+                android:id="@+id/et_allowce"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_size_10"
+                android:background="@null"
+                android:hint="设置津贴"
+                android:inputType="number"
+                android:textSize="@dimen/text_size_24" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_confirm"
+        android:layout_marginTop="@dimen/margin_size_15"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="@color/color_62d"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_30" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

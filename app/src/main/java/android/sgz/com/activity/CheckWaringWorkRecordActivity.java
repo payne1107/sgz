@@ -74,7 +74,7 @@ public class CheckWaringWorkRecordActivity extends BaseActivity implements View.
                 checkWaringWorkRecord(id, 1);
                 break;
             case R.id.tv_no_agree:
-                checkWaringWorkRecord(id, 2);
+                checkWaringWorkRecord(id,0);
                 break;
         }
     }

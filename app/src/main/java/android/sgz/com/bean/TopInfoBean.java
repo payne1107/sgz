@@ -121,7 +121,7 @@ public class TopInfoBean {
         private int workdays;
         private int workfriends;
         private int projectcount;
-        private double income;
+        private String income;
         private Object paymentsalary;
         private Object withdrawsalary;
 
@@ -341,11 +341,11 @@ public class TopInfoBean {
             this.projectcount = projectcount;
         }
 
-        public double getIncome() {
+        public String getIncome() {
             return income;
         }
 
-        public void setIncome(double income) {
+        public void setIncome(String income) {
             this.income = income;
         }
 

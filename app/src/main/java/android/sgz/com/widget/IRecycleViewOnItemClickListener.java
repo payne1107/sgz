@@ -14,4 +14,10 @@ public interface IRecycleViewOnItemClickListener {
      * @param position
      */
     void onItemClick(View view, int position);
+
+
+    /*****
+     * 设置item长按点击事件
+     */
+    void onLongItemClick(View view, int position);
 }
