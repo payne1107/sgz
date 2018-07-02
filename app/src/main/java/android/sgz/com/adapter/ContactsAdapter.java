@@ -6,6 +6,8 @@ import android.sgz.com.application.MyApplication;
 import android.sgz.com.bean.ContactsBean;
 import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
+import android.sgz.com.widget.LoadingDailog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

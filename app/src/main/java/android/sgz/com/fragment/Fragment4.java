@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -49,6 +50,8 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private CircleImageView ivAvatar;
     private String personBasicJson = ""; //个人中心基本资料json
     private AutoLinearLayout layoutWaringManager;
+    private TextView tvUserName;
+    private TextView tvWorkCategory;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,6 +89,8 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutMineHomePage = mRootView.findViewById(R.id.layout_mine_homepage);
         ivAvatar = mRootView.findViewById(R.id.circleImageView);
         layoutWaringManager = mRootView.findViewById(R.id.layout_waring_manage);
+        tvUserName = mRootView.findViewById(R.id.tv_username);
+        tvWorkCategory = mRootView.findViewById(R.id.tv_work_category);//工作类别
 
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
@@ -171,9 +176,13 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
             if (data != null) {
                 personBasicJson = json;
                 String photo =data.getPhoto();
+                String realName = data.getRealname();
+                String profession = data.getProfession();
                 if (!StringUtils.isEmpty(photo)) {
                     MyApplication.imageLoader.displayImage(photo, ivAvatar);
                 }
+                tvUserName.setText(StringUtils.isEmpty(realName) ? "" : realName);
+                tvWorkCategory.setText(StringUtils.isEmpty(profession) ? "" : profession);
             }
         }
     }
