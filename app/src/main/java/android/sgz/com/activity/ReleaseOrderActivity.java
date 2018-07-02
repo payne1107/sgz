@@ -2,7 +2,6 @@ package android.sgz.com.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ReleaseOrderAdapter;
@@ -29,10 +28,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by 92457 on 2018/5/19.
@@ -322,10 +319,10 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
             toastMessage("请输入工单名称");
             return;
         }
-        if ("请选择".equals(company)) {
-            toastMessage("请选择所属公司");
-            return;
-        }
+//        if ("请选择".equals(company)) {
+//            toastMessage("请选择所属公司");
+//            return;
+//        }
         if ("自己".equals(leader)) {
             toastMessage("请选择负责人");
             return;
@@ -358,7 +355,9 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         params.put("starttime", projectStartDate);
         params.put("startworktime", startWorkTime);
         params.put("endworktime", endWorkTime);
-        params.put("merchantid", String.valueOf(merchantId));
+        if (merchantId > 0) {
+            params.put("merchantid", String.valueOf(merchantId));
+        }
         params.put("roster", strJson);
         httpPostRequest(ConfigUtil.ADD_PROJECT_ORDER_URL, params, ConfigUtil.ADD_PROJECT_ORDER_URL_ACTION);
     }
