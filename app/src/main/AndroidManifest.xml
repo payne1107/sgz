@@ -298,6 +298,10 @@
             android:name=".activity.ChooseLocation3Activity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.Fragment2DetailsActivity"
+            android:screenOrientation="portrait" />
+
         <!--友盟分享集成-->
         <activity
             android:name="com.tencent.tauth.AuthActivity"

@@ -15,7 +15,7 @@
             android:layout_marginLeft="@dimen/margin_size_5"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:src="@mipmap/avatar" />
+            android:src="@mipmap/default_avatar" />
 
         <TextView
             android:id="@+id/tv_name"

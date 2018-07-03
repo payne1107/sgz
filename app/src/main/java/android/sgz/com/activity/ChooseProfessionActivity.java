@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ChooseProfessionAdapter;
@@ -32,6 +33,8 @@ public class ChooseProfessionActivity extends BaseActivity implements View.OnCli
     private ChooseProfessionAdapter adapter;
     private ListView listView;
     private int professionId = 0;
+    public static final String EXTRA_TYPE_KEY = "extra_type_key";
+    private int type;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class ChooseProfessionActivity extends BaseActivity implements View.OnCli
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("职业", true, true);
+        type = getIntent().getIntExtra(EXTRA_TYPE_KEY, - 1);
         setSettingBtn("保存");
         getProfessionList();
         listView = findViewById(R.id.listView);
@@ -62,10 +66,23 @@ public class ChooseProfessionActivity extends BaseActivity implements View.OnCli
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ProfessionBean.DataBean bean = (ProfessionBean.DataBean) parent.getAdapter().getItem(position);
-                if (bean != null) {
-                    professionId = bean.getId();
+                if (type == 1) {
+                    //从注册进入的
+                    if (bean != null) {
+                        int professionId = bean.getId();
+                        String professionName = bean.getProfession();
+                        Intent intent = new Intent();
+                        intent.putExtra("professionId", professionId);
+                        intent.putExtra("professionName", professionName);
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                } else {
+                    if (bean != null) {
+                        professionId = bean.getId();
+                    }
+                    adapter.updateTextColor(position);
                 }
-                adapter.updateTextColor(position);
             }
         });
     }

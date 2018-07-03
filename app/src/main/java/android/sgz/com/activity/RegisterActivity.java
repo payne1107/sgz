@@ -1,5 +1,7 @@
 package android.sgz.com.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -21,6 +23,7 @@ import java.util.Map;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener {
 
+    private static final int REUQEST_PROGFESSION_CODE = 10001;//选择职业
     private TextView tvGetCode;
     private EditText etPhone;
     boolean isRun = true;//是否在获取验证码中
@@ -29,10 +32,14 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private EditText etNickName;
     private EditText etPwd;
     private EditText etVerifyCode;
+    private Context mContext;
+    private TextView tvChooseProfession;
+    private int professionId;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_register);
+        mContext = RegisterActivity.this;
     }
 
     @Override
@@ -50,6 +57,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         etNickName = findViewById(R.id.et_nick_name);
         etVerifyCode = findViewById(R.id.et_verify_code);
         etPwd = findViewById(R.id.et_pwd);
+        tvChooseProfession = findViewById(R.id.tv_choose_profession);
 
         setListener();
     }
@@ -57,6 +65,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private void setListener() {
         tvGetCode.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
+        tvChooseProfession.setOnClickListener(this);
     }
 
     @Override
@@ -67,6 +76,25 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.tv_register:
                 register();
+                break;
+            case R.id.tv_choose_profession:
+                //未完成
+                startActivityForResult(new Intent(mContext, ChooseProfessionActivity.class).putExtra(ChooseProfessionActivity.EXTRA_TYPE_KEY, 1), REUQEST_PROGFESSION_CODE);
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REUQEST_PROGFESSION_CODE:
+                if (data != null) {
+                    professionId = data.getIntExtra("professionId", -1);
+                    String professionName = data.getStringExtra("professionName");
+                    tvChooseProfession.setText("" + professionName);
+                    Log.d("Dong", "--->" + professionId);
+                }
                 break;
         }
     }
@@ -79,6 +107,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         String nickName = etNickName.getText().toString().trim();
         String pwd = etPwd.getText().toString().trim();
         String verifyCode = etVerifyCode.getText().toString().trim();
+        String professionName = tvChooseProfession.getText().toString().trim();
         if (StringUtils.isEmpty(phone) || phone.length() != 11) {
             toastMessage("手机号格式不正确");
             return;
@@ -95,11 +124,16 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             toastMessage("密码不能为空");
             return;
         }
+        if ("请选择".equals(professionName)) {
+            toastMessage("职业不能为空");
+            return;
+        }
         Map<String, String> params = new HashMap<>();
         params.put("mobile", phone);
         params.put("code", verifyCode);
         params.put("password", pwd);
         params.put("realname", nickName);
+        params.put("professionid", String.valueOf(professionId));
         httpPostRequest(ConfigUtil.REGISTER_URL, params, ConfigUtil.REGISTER_URL_ACTION);
     }
 

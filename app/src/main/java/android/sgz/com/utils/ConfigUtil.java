@@ -323,5 +323,26 @@ public class ConfigUtil {
      */
     public static final String CHECK_MAKE_CARD_APPLY_URL = MyApplication.REQUEST_URL + "apply/handle";
     public static final int CHECK_MAKE_CARD_APPLY_URL_ACTION = 62;
+    /****
+     * 获取所有工单接口
+     */
+    public static final String QUERY_PROJECT_LISTS_URL = MyApplication.REQUEST_URL + "project/getProjectLists";
+    public static final int QUERY_PROJECT_LISTS_URL_ACTION = 63;
+    /****
+     * 工单申请列表
+     */
+    public static final String QUERY_PROJECT_ORDER_APPLY_LIST_URL = MyApplication.REQUEST_URL + "projectApply/applyList";
+    public static final int QUERY_PROJECT_ORDER_APPLY_LIST_URL_ACTION = 64;
+    /****
+     * 申请加入工单
+     */
+    public static final String APPLY_IN_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "projectApply/apply";
+    public static final int APPLY_IN_PROJECT_ORDER_URL_ACTION = 65;
+    /****
+     * 审核加入工单的申请
+     */
+    public static final String CHECK_IN_PROJECT_ORDER_APPLY_URL = MyApplication.REQUEST_URL + "projectApply/handle";
+    public static final int CHECK_IN_PROJECT_ORDER_APPLY_URL_ACTION = 66;
+
 
 }

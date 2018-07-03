@@ -15,6 +15,7 @@ import android.sgz.com.bean.TopInfoBean;
 import android.sgz.com.bean.WorkStatusBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
+import android.sgz.com.utils.SPUtil;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -37,6 +38,8 @@ import com.zhy.autolayout.AutoRelativeLayout;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by 92457 on 2018/4/16.
@@ -167,6 +170,19 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         startActivityForResult(new Intent(getActivity(),CityPickerActivity.class),REQUEST_CODE_PICK_CITY);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_PICK_CITY && resultCode ==  RESULT_OK) {
+            if (data != null) {
+                city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
+                SPUtil.putString(getActivity(), "current_city", city);
+                tvCity.setText(city);
+                //选择城市后将当前选择城市赋值
+                MyApplication.currentCity = city;
+            }
+        }
+    }
 
     private void initLocation() {
         AMapLocationClient mLocationClient = new AMapLocationClient(getActivity());
@@ -183,6 +199,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                         MyApplication.currentLat = aMapLocation.getLatitude();
                         MyApplication.currentLon = aMapLocation.getLongitude();
                         MyApplication.currentArea = aMapLocation.getCity() + aMapLocation.getPoiName();
+                        MyApplication.currentCity = aMapLocation.getCity();
                         city = aMapLocation.getCity();
                         tvCity.setText(city);
                         Log.d("Dong", "定位成功-----》" + MyApplication.currentArea + "," + MyApplication.currentLat +","  + MyApplication.currentLon);
@@ -190,6 +207,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                         //定位失败
                         city = "合肥市";
                         tvCity.setText(city);
+                        MyApplication.currentCity = city;
                     }
                 }
             }

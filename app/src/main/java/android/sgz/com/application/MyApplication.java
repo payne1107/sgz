@@ -66,6 +66,7 @@ public class MyApplication extends Application {
     public static double currentLon = 0.0;
     public static double currentLat = 0.0;
     public static String currentArea;
+    public static String currentCity = "";//只有城市不包含区域
 
     private static MyApplication mInstance;
     //是否需要强制更新

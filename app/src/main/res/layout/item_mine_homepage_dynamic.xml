@@ -14,10 +14,10 @@
             android:orientation="vertical"
             android:layout_width="100dp"
             android:layout_height="wrap_content">
-            <ImageView
+            <android.sgz.com.widget.CircleImageView
                 android:layout_marginTop="@dimen/margin_size_15"
                 android:id="@+id/iv_avatar"
-                android:src="@mipmap/avatar"
+                android:src="@mipmap/default_avatar"
                 android:layout_width="100px"
                 android:layout_height="100px" />
             <TextView

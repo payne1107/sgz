@@ -30,7 +30,7 @@
                     android:layout_height="110px"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/margin_size_15"
-                    android:src="@mipmap/my_header" />
+                    android:src="@mipmap/default_avatar" />
 
                 <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="match_parent"

@@ -309,9 +309,8 @@ public class ChooseLocation3Activity extends AppCompatActivity {
                                 position = mList.size();
                             }
                             PoiItem poiItem = mList.get(position);
-
                             Intent intent = new Intent();
-                            intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_ADDRESS_KEY, poiItem.getCityName()+poiItem.getTitle());
+                            intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_ADDRESS_KEY, poiItem.getProvinceName()+poiItem.getCityName()+poiItem.getTitle());
                             intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_LAT_KEY,  ""+poiItem.getLatLonPoint().getLatitude());
                             intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_LON_KEY, ""+poiItem.getLatLonPoint().getLongitude());
                             setResult(RESULT_OK,intent);

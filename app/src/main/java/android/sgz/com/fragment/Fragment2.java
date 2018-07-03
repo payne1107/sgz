@@ -1,18 +1,26 @@
 package android.sgz.com.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.Fragment2DetailsActivity;
+import android.sgz.com.adapter.AllProjectOrderAdapter;
 import android.sgz.com.adapter.TechnologyLearnFragmentAdapter;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseFragment;
+import android.sgz.com.bean.AllPorjectOrderBean;
 import android.sgz.com.bean.Fragment2Bean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.StringUtils;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -26,16 +34,19 @@ import java.util.Map;
 
 /**
  * Created by 92457 on 2018/4/16.
+ * 所有工單列表
  */
 
-public class Fragment2 extends BaseFragment{
-    private List<Fragment2Bean.DataBean.ListBean> mList = new ArrayList<>();
+public class Fragment2 extends BaseFragment implements View.OnClickListener {
+    private List<AllPorjectOrderBean.DataBean.ListBean> mList = new ArrayList<>();
     private PullToRefreshListView listView;
     private int pageNo = 1;
-    private TechnologyLearnFragmentAdapter adapter;
+    private AllProjectOrderAdapter adapter;
     private int pageSize;
     private boolean swipeLoadMore = false;
-
+    private EditText etSearch;
+    private TextView tvSearch;
+    private String orderName = "";//搜索工單名稱
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,24 +64,31 @@ public class Fragment2 extends BaseFragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setInVisibleTitleIcon("学习", true, false);
+        setInVisibleTitleIcon("", true, false);
+        etSearch = (EditText) mRootView.findViewById(R.id.et_search);
+        etSearch.setHint("搜索工单..");
+        etSearch.setVisibility(View.VISIBLE);
+        tvSearch = (TextView) mRootView.findViewById(R.id.activity_set);
+        tvSearch.setText("搜索");
+        tvSearch.setVisibility(View.VISIBLE);
 
         listView = (PullToRefreshListView) mRootView.findViewById(R.id.listView);
         // 设置模式BOTH: 既能上拉也能下拉，
         listView.setMode(PullToRefreshBase.Mode.BOTH);
-        adapter = new TechnologyLearnFragmentAdapter(getActivity(),mList);
+        adapter = new AllProjectOrderAdapter(getActivity(),mList);
         listView.setAdapter(adapter);
-        queryAllVideo(pageNo);
+        queryAllProjectOrder(pageNo, MyApplication.currentCity, orderName);
 
         setListener();
     }
 
     private void setListener() {
+        tvSearch.setOnClickListener(this);
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 pageNo = 1;
-                queryAllVideo(pageNo);
+                queryAllProjectOrder(pageNo, MyApplication.currentCity, orderName);
             }
 
             @Override
@@ -78,9 +96,32 @@ public class Fragment2 extends BaseFragment{
                 ++pageNo;
                 swipeLoadMore = true;
                 if (pageNo <= pageSize) {
-                    queryAllVideo(pageNo);
+                    queryAllProjectOrder(pageNo, MyApplication.currentCity, orderName);
                 } else {
                     delayedToast();
+                }
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                AllPorjectOrderBean.DataBean.ListBean bean = (AllPorjectOrderBean.DataBean.ListBean) adapterView.getAdapter().getItem(i);
+                if (bean != null) {
+                    String name = bean.getName();
+                    String headMan =bean.getHeadman();//负责人
+                    String address =bean.getAddress();
+                    String categoryname=bean.getCategoryname();
+                    String startTime =bean.getStarttime();
+                    int projectId = bean.getId();
+                    Intent intent = new Intent(getActivity(), Fragment2DetailsActivity.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("headMan", headMan);
+                    intent.putExtra("address", address);
+                    intent.putExtra("categoryname", categoryname);
+                    intent.putExtra("startTime", startTime);
+                    intent.putExtra("projectId", projectId);
+                    startActivity(intent);
                 }
             }
         });
@@ -98,20 +139,27 @@ public class Fragment2 extends BaseFragment{
     }
 
     /****
-     * 查询所有能观看的视频
+     * 查询所有工单
+     * @param pageNo
+     * @param address 地址
      */
-    private void queryAllVideo(int pageNo) {
+    private void queryAllProjectOrder(int pageNo, String address,String orderName) {
+        startIOSDialogLoading(getActivity(), "加载中..");
         Map<String, String> params = new HashMap<>();
         params.put("page", String.valueOf(pageNo));
-        httpPostRequest(ConfigUtil.QUERY_ALL_VIDEO_URL, params, ConfigUtil.QUERY_ALL_VIDEO_URL_ACTION);
+        params.put("address", address);
+        if (!StringUtils.isEmpty(orderName)) {
+            params.put("name", orderName);
+        }
+        httpPostRequest(ConfigUtil.QUERY_PROJECT_LISTS_URL, params, ConfigUtil.QUERY_PROJECT_LISTS_URL_ACTION);
     }
 
     @Override
     public void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
         switch (action) {
-            case ConfigUtil.QUERY_ALL_VIDEO_URL_ACTION:
-                handlerQueryAllVideo(json);
+            case ConfigUtil.QUERY_PROJECT_LISTS_URL_ACTION:
+                handlerQueryAllProjectOrder(json);
                 break;
         }
     }
@@ -120,14 +168,14 @@ public class Fragment2 extends BaseFragment{
      * 查询所有视频
      * @param json
      */
-    private void handlerQueryAllVideo(String json) {
-        Log.d("Dong", "所有视频---》" + json);
+    private void handlerQueryAllProjectOrder(String json) {
+        Log.d("Dong", "获取所有工单---》" + json);
         if (listView != null && listView.isRefreshing()) {
             listView.onRefreshComplete();
         }
-        Fragment2Bean bean = JSON.parseObject(json, Fragment2Bean.class);
+        AllPorjectOrderBean bean = JSON.parseObject(json, AllPorjectOrderBean.class);
         if (bean != null) {
-            Fragment2Bean.DataBean data = bean.getData();
+            AllPorjectOrderBean.DataBean data = bean.getData();
             if (data != null) {
                 pageSize = data.getCoutpage();
                 if (swipeLoadMore) {
@@ -135,12 +183,36 @@ public class Fragment2 extends BaseFragment{
                     mList.addAll(mList.size(), data.getList());
                     adapter.setData(mList);
                 } else {
-                    mList = data.getList();
-                    adapter.setData(mList);
+                    if (mList != null && mList.size() <= 0) {
+                        //没有数据
+                        adapter.setData(mList);
+                        setEmptyView(listView);
+                    } else {
+                        mList = data.getList();
+                        adapter.setData(mList);
+                    }
                 }
             } else {
                 //没有数据
+                adapter.setData(mList);
+                setEmptyView(listView);
             }
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_set:
+                //搜索
+                pageNo = 1;
+                orderName = etSearch.getText().toString().trim();
+                if (StringUtils.isEmpty(orderName)) {
+                    Toast.makeText(getActivity(), "请输入工单名称", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                queryAllProjectOrder(pageNo, MyApplication.currentCity, orderName);
+                break;
         }
     }
 }
