@@ -176,7 +176,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                 adapter.notifyDataSetChanged();
                 //确认
                 for (int i = 0; i < listSalary.size(); i++) {
-                    if (listSalary.get(i).getUserId() == userId) {
+                    if (listSalary.get(i).getUserid() == userId) {
                         listSalary.remove(i);
                     }
                 }
@@ -287,8 +287,8 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                         String addWorkSalary = data.getStringExtra("extraworksalary");
                         SetContactsSalaryBean bean = new SetContactsSalaryBean();
 
-                        bean.setUserId(userId);
-                        bean.setOverWorkSalary(addWorkSalary);
+                        bean.setUserid(userId);
+                        bean.setOverworksalary(addWorkSalary);
                         bean.setAllowance(allowanceSalary);
                         bean.setSalary(contactSalary);
                         listSalary.add(bean);
@@ -359,6 +359,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
             params.put("merchantid", String.valueOf(merchantId));
         }
         params.put("roster", strJson);
+        Log.d("Dong", "roster ---->" + strJson);
         httpPostRequest(ConfigUtil.ADD_PROJECT_ORDER_URL, params, ConfigUtil.ADD_PROJECT_ORDER_URL_ACTION);
     }
 

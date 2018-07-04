@@ -5,17 +5,17 @@ package android.sgz.com.bean;
  */
 
 public class SetContactsSalaryBean {
-    private int userId;
+    private int userid;
     private String salary;
-    private String overWorkSalary;
+    private String overworksalary;
     private String allowance;
 
-    public int getUserId() {
-        return userId;
+    public int getUserid() {
+        return userid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
     public String getSalary() {
@@ -26,12 +26,12 @@ public class SetContactsSalaryBean {
         this.salary = salary;
     }
 
-    public String getOverWorkSalary() {
-        return overWorkSalary;
+    public String getOverworksalary() {
+        return overworksalary;
     }
 
-    public void setOverWorkSalary(String overWorkSalary) {
-        this.overWorkSalary = overWorkSalary;
+    public void setOverworksalary(String overworksalary) {
+        this.overworksalary = overworksalary;
     }
 
     public String getAllowance() {
