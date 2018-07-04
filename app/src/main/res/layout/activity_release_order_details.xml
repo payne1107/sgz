@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+    <com.zhy.autolayout.AutoLinearLayout
+        style="@style/PersonCenterLayoutStyle"
+        android:layout_marginTop="1px"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/PersonCenterTextLeftStyle"
+            android:text="添加员工信息(限100人)" />
+
+        <TextView
+            android:id="@+id/tv_add_person"
+            style="@style/PersonCenterTextRightStyle"
+            android:drawableRight="@mipmap/icon_plus"
+            android:text="" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_height="90px">
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:text="姓名"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:text="工资"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:text="加班工资"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:text="津贴"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <ListView
+        android:background="@color/white"
+        android:dividerHeight="1dp"
+        android:divider="@color/fafafa"
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</com.zhy.autolayout.AutoLinearLayout>

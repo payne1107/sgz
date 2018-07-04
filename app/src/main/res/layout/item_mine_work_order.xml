@@ -60,26 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </com.zhy.autolayout.AutoLinearLayout>
-        <com.zhy.autolayout.AutoLinearLayout
-            android:layout_marginTop="@dimen/margin_size_5"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_marginLeft="@dimen/margin_size_15"
-                android:text="手机号："
-                android:textSize="@dimen/text_size_26"
-                android:textColor="@color/color_888"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tv_phone"
-                android:textColor="@color/text_color_3"
-                android:textSize="@dimen/text_size_28"
-                android:text=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </com.zhy.autolayout.AutoLinearLayout>
+
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_marginTop="@dimen/margin_size_5"
             android:orientation="horizontal"
@@ -161,6 +142,7 @@
                 android:layout_height="wrap_content" />
         </com.zhy.autolayout.AutoLinearLayout>
         <com.zhy.autolayout.AutoLinearLayout
+            android:layout_marginBottom="@dimen/margin_size_15"
             android:layout_marginTop="@dimen/margin_size_5"
             android:orientation="horizontal"
             android:layout_width="match_parent"

@@ -55,7 +55,7 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_work_order, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_mine_work_order, null);
             convertView.setTag(holder);
             holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_title);
             holder.tvHeadMan = (TextView) convertView.findViewById(R.id.tv_headman);

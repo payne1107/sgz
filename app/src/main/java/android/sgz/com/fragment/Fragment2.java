@@ -102,29 +102,29 @@ public class Fragment2 extends BaseFragment implements View.OnClickListener {
                 }
             }
         });
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                AllPorjectOrderBean.DataBean.ListBean bean = (AllPorjectOrderBean.DataBean.ListBean) adapterView.getAdapter().getItem(i);
-                if (bean != null) {
-                    String name = bean.getName();
-                    String headMan =bean.getHeadman();//负责人
-                    String address =bean.getAddress();
-                    String categoryname=bean.getCategoryname();
-                    String startTime =bean.getStarttime();
-                    int projectId = bean.getId();
-                    Intent intent = new Intent(getActivity(), Fragment2DetailsActivity.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("headMan", headMan);
-                    intent.putExtra("address", address);
-                    intent.putExtra("categoryname", categoryname);
-                    intent.putExtra("startTime", startTime);
-                    intent.putExtra("projectId", projectId);
-                    startActivity(intent);
-                }
-            }
-        });
+        ////暂时不需要此功能
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                AllPorjectOrderBean.DataBean.ListBean bean = (AllPorjectOrderBean.DataBean.ListBean) adapterView.getAdapter().getItem(i);
+//                if (bean != null) {
+//                    String name = bean.getName();
+//                    String headMan =bean.getHeadman();//负责人
+//                    String address =bean.getAddress();
+//                    String categoryname=bean.getCategoryname();
+//                    String startTime =bean.getStarttime();
+//                    int projectId = bean.getId();
+//                    Intent intent = new Intent(getActivity(), Fragment2DetailsActivity.class);
+//                    intent.putExtra("name", name);
+//                    intent.putExtra("headMan", headMan);
+//                    intent.putExtra("address", address);
+//                    intent.putExtra("categoryname", categoryname);
+//                    intent.putExtra("startTime", startTime);
+//                    intent.putExtra("projectId", projectId);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
     }
 
     private void delayedToast() {
@@ -183,12 +183,12 @@ public class Fragment2 extends BaseFragment implements View.OnClickListener {
                     mList.addAll(mList.size(), data.getList());
                     adapter.setData(mList);
                 } else {
+                    mList = data.getList();
                     if (mList != null && mList.size() <= 0) {
                         //没有数据
                         adapter.setData(mList);
                         setEmptyView(listView);
                     } else {
-                        mList = data.getList();
                         adapter.setData(mList);
                     }
                 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.zhy.autolayout.AutoLinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_height="90px">
+        <TextView
+            android:id="@+id/tv_username"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_salary"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_add_work_salary"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_allowance"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_edit"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@mipmap/icon_edit"
+            android:text="编辑"
+            android:gravity="center"
+            android:textColor="@color/color_62d"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

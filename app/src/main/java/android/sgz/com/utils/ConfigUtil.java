@@ -329,20 +329,49 @@ public class ConfigUtil {
     public static final String QUERY_PROJECT_LISTS_URL = MyApplication.REQUEST_URL + "project/getProjectLists";
     public static final int QUERY_PROJECT_LISTS_URL_ACTION = 63;
     /****
-     * 工单申请列表
+     * 工单申请列表  暂时废弃
      */
     public static final String QUERY_PROJECT_ORDER_APPLY_LIST_URL = MyApplication.REQUEST_URL + "projectApply/applyList";
     public static final int QUERY_PROJECT_ORDER_APPLY_LIST_URL_ACTION = 64;
     /****
-     * 申请加入工单
+     * 申请加入工单  暂时废弃
      */
     public static final String APPLY_IN_PROJECT_ORDER_URL = MyApplication.REQUEST_URL + "projectApply/apply";
     public static final int APPLY_IN_PROJECT_ORDER_URL_ACTION = 65;
     /****
-     * 审核加入工单的申请
+     * 审核加入工单的申请  暂时废弃
      */
     public static final String CHECK_IN_PROJECT_ORDER_APPLY_URL = MyApplication.REQUEST_URL + "projectApply/handle";
     public static final int CHECK_IN_PROJECT_ORDER_APPLY_URL_ACTION = 66;
-
+    /****
+     * 改变工单状态
+     */
+    public static final String CHANGE_PROJECT_ORDER_STATUS_URL = MyApplication.REQUEST_URL + "project/toChangeProjectStatus";
+    public static final int CHANGE_PROJECT_ORDER_STATUS_URL_ACTION = 67;
+    /****
+     * 给工单添加好友
+     */
+    public static final String ADD_PROJECT_ORDER_WORK_URL = MyApplication.REQUEST_URL + "oject/toAddProjectWork";
+    public static final int ADD_PROJECT_ORDER_WORK_URL_ACTION = 68;
+    /****
+     * 获取工程类别
+     */
+    public static final String QUERY_PROJECT_CATEGORY_URL = MyApplication.REQUEST_URL + "project/getProjectCategory";
+    public static final int QUERY_PROJECT_CATEGORY_URL_ACTION = 69;
+    /****
+     * 获取所有用户
+     */
+    public static final String QUERY_ALL_USER_URL = MyApplication.REQUEST_URL + "user/getAllUser";
+    public static final int QUERY_ALL_USER_URL_ACTION = 70;
+    /****
+     * 获取工单人员
+     */
+    public static final String QUERY_PROJECT_WORK_USER_URL = MyApplication.REQUEST_URL + "project/getProjectWorkUser";
+    public static final int QUERY_PROJECT_WORK_USER_URL_ACTION = 71;
+    /****
+     * 删除工单好友
+     */
+    public static final String DELETE_ORDER_USER_URL = MyApplication.REQUEST_URL + "project/toReduceProjectWork";
+    public static final int DELETE_ORDER_USER_URL_ACTION = 72;
 
 }

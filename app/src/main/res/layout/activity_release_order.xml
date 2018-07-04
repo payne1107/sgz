@@ -48,6 +48,21 @@
                     android:text="请选择" />
             </com.zhy.autolayout.AutoLinearLayout>
             <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
+
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="工程类别" />
+
+                <TextView
+                    android:id="@+id/tv_project_category"
+                    style="@style/PersonCenterTextRightStyle"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    android:text="请选择" />
+            </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
                 android:visibility="gone"
                 style="@style/PersonCenterLayoutStyle"
                 android:layout_marginTop="1px"

@@ -3,6 +3,7 @@ package android.sgz.com.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.ReleaseWorkOrderDetailsActivity;
 import android.sgz.com.activity.WorkOrderDetailsActivity;
 import android.sgz.com.adapter.MineReleaseOrderFragmentAdapter;
 import android.sgz.com.adapter.MineWorkOrderFragmentAdapter;
@@ -71,7 +72,11 @@ public class MineReleaseOrderFragment extends BaseFragment{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity(), WorkOrderDetailsActivity.class));
+                MineWorkOrderFragmentBean.DataBean.ListBean bean = (MineWorkOrderFragmentBean.DataBean.ListBean) parent.getAdapter().getItem(position);
+                if (bean != null) {
+                    int projectId = bean.getId();
+                    startActivity(new Intent(getActivity(), ReleaseWorkOrderDetailsActivity.class).putExtra("projectId", projectId));
+                }
             }
         });
 

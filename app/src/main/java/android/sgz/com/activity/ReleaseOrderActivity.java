@@ -62,6 +62,8 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     private static final int REQUEST_SET_WORK_RECORD_CODE =  10007;
     //设置工资工资信息
     private static final int REQUEST_SET_CONTACTS_SALARY_CODE = 10008;
+    //工程类别
+    private static final int REQUEST_CHOOSE_PROJECT_CATEGORY_CODE = 10009;
 
 
     private TextView tvAddPerson;
@@ -87,6 +89,8 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     private String lonLocation;
     private String latLocation;
     private TextView tvSetWorkRecord;
+    private TextView tvProjectCategory;
+    private int categoryid;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -113,6 +117,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvChooseCompany = findViewById(R.id.tv_choose_company);
         layoutSetWorkRecord = findViewById(R.id.layout_set_work_record);
         tvSetWorkRecord = findViewById(R.id.tv_set_work_record);
+        tvProjectCategory = findViewById(R.id.tv_project_category);
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 6);
         recyclerView.setLayoutManager(layoutManager);
@@ -133,6 +138,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         tvSet.setOnClickListener(this);
         tvChooseCompany.setOnClickListener(this);
         layoutSetWorkRecord.setOnClickListener(this);
+        tvProjectCategory.setOnClickListener(this);
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -223,6 +229,10 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_set_work_record:
                 startActivityForResult(new Intent(mContext, SetWorkRecordActivity.class),REQUEST_SET_WORK_RECORD_CODE); //设置打卡时间
                 break;
+            case R.id.tv_project_category:
+                startActivityForResult(new Intent(mContext, SetProjectCategoryActivity.class),REQUEST_CHOOSE_PROJECT_CATEGORY_CODE);
+                break;
+
         }
     }
 
@@ -294,6 +304,11 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                         listSalary.add(bean);
                     }
                     break;
+                case REQUEST_CHOOSE_PROJECT_CATEGORY_CODE:
+                    categoryid = data.getIntExtra("categoryid", -1);
+                    String categoryName = data.getStringExtra("categoryName");
+                    tvProjectCategory.setText("" + categoryName);
+                    break;
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -315,14 +330,15 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         String leader =tvLeader.getText().toString().trim();
         String address = tvChooseLocation.getText().toString().trim();
         String projectStartDate =tvStartDate.getText().toString().trim();
+        String projectCategory =tvProjectCategory.getText().toString().toString();
         if (("请输入").equals(workOrderName)) {
             toastMessage("请输入工单名称");
             return;
         }
-//        if ("请选择".equals(company)) {
-//            toastMessage("请选择所属公司");
-//            return;
-//        }
+        if ("请选择".equals(projectCategory)) {
+            toastMessage("请选择工程类别");
+            return;
+        }
         if ("自己".equals(leader)) {
             toastMessage("请选择负责人");
             return;
