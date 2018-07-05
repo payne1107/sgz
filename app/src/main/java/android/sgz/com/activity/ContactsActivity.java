@@ -53,6 +53,7 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     private AutoLinearLayout layoutShareWXMoments;
     private AutoLinearLayout layoutShareQQ;
     private String inviteUrl = "http://www.52sgz.com/share/register.html?referee=" ;
+    private int projectId;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -69,7 +70,8 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("工友信息", true, true);
-        queryContactId = getIntent().getIntExtra("query_contacts_info", -1);
+        queryContactId = getIntent().getIntExtra("query_contacts_info", -1);//入口从哪来
+        projectId = getIntent().getIntExtra("projectId", 0);
         listView = findViewById(R.id.recycler_view);
         tvSearchContacts = findViewById(R.id.tv_search_contact);
         etSearch = findViewById(R.id.et_search_contact);
@@ -115,6 +117,11 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                         setResult(RESULT_OK,intent);
                         finish();
                     }
+                } else if (queryContactId == 2) {
+                    //跳转设置工资页面
+                    int userid = bean.getId();
+                    startActivity(new Intent(mContext, SetWorkPresonSalaryActivity.class).putExtra("projectId", projectId).putExtra("userId", userid).putExtra("update_person_salary", 1));
+                    finish();
                 } else {
                     //跳转到工友详情页面
                     if (bean != null) {

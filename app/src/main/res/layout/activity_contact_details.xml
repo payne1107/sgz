@@ -12,9 +12,9 @@
             android:id="@+id/iv_avatar"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/margin_size_15"
-            android:src="@mipmap/my_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:src="@mipmap/default_avatar"
+            android:layout_width="100px"
+            android:layout_height="100px" />
         <TextView
             android:id="@+id/tv_name"
             android:textColor="@color/white"

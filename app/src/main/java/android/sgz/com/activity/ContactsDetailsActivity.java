@@ -6,10 +6,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ContactDynamicAdapter;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.ContactDynamicBean;
 import android.sgz.com.bean.ContactsDetailsBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.widget.CircleImageView;
 import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +50,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     private ContactDynamicAdapter adapter;
     private RadioGroup rgType;
     private int pageNo = 1;
+    private CircleImageView circleImageView;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -79,6 +82,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
         tvPhone = findViewById(R.id.tv_phone);
         layoutPersonInfo = findViewById(R.id.layout_person_info);
         layoutFriendState =findViewById(R.id.layout_friend_state);
+        circleImageView = findViewById(R.id.iv_avatar);
         listView = findViewById(R.id.gridView);
         listView.setMode(PullToRefreshBase.Mode.BOTH);
         adapter = new ContactDynamicAdapter(mContext, mList);
@@ -205,9 +209,11 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                 String mobile = data.getMobile();
                 String profession =data.getProfession();
                 String realName = data.getRealname();
+                String photoUrl = data.getPhoto();
                 tvName.setText("" + realName);
                 tvPhone.setText("" + mobile);
                 tvProfession.setText("" + profession);
+                MyApplication.imageLoader.displayImage(photoUrl, circleImageView);
             }
         }
     }

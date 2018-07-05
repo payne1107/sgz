@@ -75,7 +75,9 @@ public class MineReleaseOrderFragment extends BaseFragment{
                 MineWorkOrderFragmentBean.DataBean.ListBean bean = (MineWorkOrderFragmentBean.DataBean.ListBean) parent.getAdapter().getItem(position);
                 if (bean != null) {
                     int projectId = bean.getId();
-                    startActivity(new Intent(getActivity(), ReleaseWorkOrderDetailsActivity.class).putExtra("projectId", projectId));
+                    String projectName = bean.getName();
+                    Log.d("Dong", "---------------projectName" + projectName);
+                    startActivity(new Intent(getActivity(), ReleaseWorkOrderDetailsActivity.class).putExtra("projectId", projectId).putExtra("projectName", projectName));
                 }
             }
         });

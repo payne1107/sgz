@@ -94,28 +94,28 @@ public class ContactsDetailsBean {
 
         private int id;
         private String username;
-        private Object password;
+        private String password;
         private String mobile;
-        private Object wxcode;
+        private String wxcode;
         private String realname;
-        private Object photo;
-        private Object provinceid;
-        private Object cityid;
-        private Object msalary;
-        private Object dsalary;
-        private Object addsalary;
-        private Object birthday;
-        private Object sign;
-        private Object professionid;
-        private Object professionlevelid;
-        private Object locked;
-        private Object type;
-        private Object createtime;
-        private Object projectnum;
-        private Object roles;
-        private Object vipuserid;
+        private String photo;
+        private String provinceid;
+        private String cityid;
+        private String msalary;
+        private String dsalary;
+        private String addsalary;
+        private String birthday;
+        private String sign;
+        private String professionid;
+        private String professionlevelid;
+        private String locked;
+        private String type;
+        private String createtime;
+        private String projectnum;
+        private String roles;
+        private String vipuserid;
         private String profession;
-        private Object friendsid;
+        private String friendsid;
         private boolean enabled;
         private boolean accountNonExpired;
         private boolean accountNonLocked;
@@ -137,11 +137,11 @@ public class ContactsDetailsBean {
             this.username = username;
         }
 
-        public Object getPassword() {
+        public String getPassword() {
             return password;
         }
 
-        public void setPassword(Object password) {
+        public void setPassword(String password) {
             this.password = password;
         }
 
@@ -153,11 +153,11 @@ public class ContactsDetailsBean {
             this.mobile = mobile;
         }
 
-        public Object getWxcode() {
+        public String getWxcode() {
             return wxcode;
         }
 
-        public void setWxcode(Object wxcode) {
+        public void setWxcode(String wxcode) {
             this.wxcode = wxcode;
         }
 
@@ -169,131 +169,131 @@ public class ContactsDetailsBean {
             this.realname = realname;
         }
 
-        public Object getPhoto() {
+        public String getPhoto() {
             return photo;
         }
 
-        public void setPhoto(Object photo) {
+        public void setPhoto(String photo) {
             this.photo = photo;
         }
 
-        public Object getProvinceid() {
+        public String getProvinceid() {
             return provinceid;
         }
 
-        public void setProvinceid(Object provinceid) {
+        public void setProvinceid(String provinceid) {
             this.provinceid = provinceid;
         }
 
-        public Object getCityid() {
+        public String getCityid() {
             return cityid;
         }
 
-        public void setCityid(Object cityid) {
+        public void setCityid(String cityid) {
             this.cityid = cityid;
         }
 
-        public Object getMsalary() {
+        public String getMsalary() {
             return msalary;
         }
 
-        public void setMsalary(Object msalary) {
+        public void setMsalary(String msalary) {
             this.msalary = msalary;
         }
 
-        public Object getDsalary() {
+        public String getDsalary() {
             return dsalary;
         }
 
-        public void setDsalary(Object dsalary) {
+        public void setDsalary(String dsalary) {
             this.dsalary = dsalary;
         }
 
-        public Object getAddsalary() {
+        public String getAddsalary() {
             return addsalary;
         }
 
-        public void setAddsalary(Object addsalary) {
+        public void setAddsalary(String addsalary) {
             this.addsalary = addsalary;
         }
 
-        public Object getBirthday() {
+        public String getBirthday() {
             return birthday;
         }
 
-        public void setBirthday(Object birthday) {
+        public void setBirthday(String birthday) {
             this.birthday = birthday;
         }
 
-        public Object getSign() {
+        public String getSign() {
             return sign;
         }
 
-        public void setSign(Object sign) {
+        public void setSign(String sign) {
             this.sign = sign;
         }
 
-        public Object getProfessionid() {
+        public String getProfessionid() {
             return professionid;
         }
 
-        public void setProfessionid(Object professionid) {
+        public void setProfessionid(String professionid) {
             this.professionid = professionid;
         }
 
-        public Object getProfessionlevelid() {
+        public String getProfessionlevelid() {
             return professionlevelid;
         }
 
-        public void setProfessionlevelid(Object professionlevelid) {
+        public void setProfessionlevelid(String professionlevelid) {
             this.professionlevelid = professionlevelid;
         }
 
-        public Object getLocked() {
+        public String getLocked() {
             return locked;
         }
 
-        public void setLocked(Object locked) {
+        public void setLocked(String locked) {
             this.locked = locked;
         }
 
-        public Object getType() {
+        public String getType() {
             return type;
         }
 
-        public void setType(Object type) {
+        public void setType(String type) {
             this.type = type;
         }
 
-        public Object getCreatetime() {
+        public String getCreatetime() {
             return createtime;
         }
 
-        public void setCreatetime(Object createtime) {
+        public void setCreatetime(String createtime) {
             this.createtime = createtime;
         }
 
-        public Object getProjectnum() {
+        public String getProjectnum() {
             return projectnum;
         }
 
-        public void setProjectnum(Object projectnum) {
+        public void setProjectnum(String projectnum) {
             this.projectnum = projectnum;
         }
 
-        public Object getRoles() {
+        public String getRoles() {
             return roles;
         }
 
-        public void setRoles(Object roles) {
+        public void setRoles(String roles) {
             this.roles = roles;
         }
 
-        public Object getVipuserid() {
+        public String getVipuserid() {
             return vipuserid;
         }
 
-        public void setVipuserid(Object vipuserid) {
+        public void setVipuserid(String vipuserid) {
             this.vipuserid = vipuserid;
         }
 
@@ -305,11 +305,11 @@ public class ContactsDetailsBean {
             this.profession = profession;
         }
 
-        public Object getFriendsid() {
+        public String getFriendsid() {
             return friendsid;
         }
 
-        public void setFriendsid(Object friendsid) {
+        public void setFriendsid(String friendsid) {
             this.friendsid = friendsid;
         }
 

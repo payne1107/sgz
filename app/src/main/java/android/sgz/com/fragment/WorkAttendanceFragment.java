@@ -53,6 +53,11 @@ public class WorkAttendanceFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         queryDefaultOrder();
     }
 
@@ -67,8 +72,6 @@ public class WorkAttendanceFragment extends BaseFragment {
         tvEndRecordAddress = mRootView.findViewById(R.id.tv_end_record_address);
         tvEndRecordTime = mRootView.findViewById(R.id.tv_end_record_time);
         tvEndWorkStatus = mRootView.findViewById(R.id.tv_end_work_status);
-
-
     }
 
     /***
@@ -113,11 +116,40 @@ public class WorkAttendanceFragment extends BaseFragment {
                     String startRecordAddress = workRecordBean.getStartrecordaddress();
                     String endRecordAddress = workRecordBean.getEndrecordaddress();
                     String startRecordTime = workRecordBean.getStartrecordtime();
-                    String endRecordTime= workRecordBean.getEndrecordtime();
-                    tvStartWorkRecord.setText("打卡时间" + startRecordTime);
-                    tvStartWorkAddress.setText("" + startRecordAddress);
-                    tvEndRecordAddress.setText("" + endRecordAddress);
-                    tvEndRecordTime.setText("下班时间" + endRecordTime);
+                    String endRecordTime = workRecordBean.getEndrecordtime();
+                    int startSatus =workRecordBean.getStartstatus();
+                    int endStatus = workRecordBean.getEndstatus();
+
+                    tvStartWorkRecord.setText(StringUtils.isEmpty(startRecordTime) ? "打卡时间" : "打卡时间" + startRecordTime);
+                    tvStartWorkAddress.setText(StringUtils.isEmpty(startRecordAddress) ? "" : "" + startRecordAddress);
+                    tvEndRecordAddress.setText(StringUtils.isEmpty(endRecordAddress) ? "" : "" + endRecordAddress);
+                    tvEndRecordTime.setText(StringUtils.isEmpty(endRecordTime) ? "下班时间" : "下班时间" + endRecordTime);
+                    if (startSatus == 1) {
+                        tvStartWorkStatus.setText("正常");
+                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
+                    } else if(startSatus ==2) {
+                        tvStartWorkStatus.setText("迟到");
+                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                    } else if (startSatus == 3) {
+                        tvStartWorkStatus.setText("早退");
+                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                    } else {
+                        tvStartWorkStatus.setText("未打卡");
+                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                    }
+                    if (endStatus == 1) {
+                        tvEndWorkStatus.setText("正常");
+                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
+                    } else if(endStatus ==2) {
+                        tvEndWorkStatus.setText("迟到");
+                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                    } else if (endStatus == 3) {
+                        tvEndWorkStatus.setText("早退");
+                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                    } else {
+                        tvEndWorkStatus.setText("未打卡");
+                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                    }
                 }
             }
         }

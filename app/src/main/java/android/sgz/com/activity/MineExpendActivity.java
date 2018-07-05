@@ -26,7 +26,7 @@ import java.util.Map;
 
 /**
  * Created by WD on 2018/5/7.
- * 我的支出
+ * 我的财务
  */
 
 public class MineExpendActivity extends BaseActivity implements View.OnClickListener {
@@ -58,7 +58,7 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void initView() {
         super.initView();
-        setInVisibleTitleIcon("我的支出", true, true);
+        setInVisibleTitleIcon("我的财务", true, true);
         tvRecharge = findViewById(R.id.tv_recharge);
         tvRechargeDetails = findViewById(R.id.tv_recharge_details);
         tvExpendDetails = findViewById(R.id.tv_expend_details);

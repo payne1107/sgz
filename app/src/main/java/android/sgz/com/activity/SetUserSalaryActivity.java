@@ -25,6 +25,7 @@ public class SetUserSalaryActivity extends BaseActivity implements View.OnClickL
     private EditText etMonthSalary;
     private EditText etOvertimeSalary;
 
+
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_set_user_salary);
@@ -39,6 +40,7 @@ public class SetUserSalaryActivity extends BaseActivity implements View.OnClickL
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("工资单价", true, true);
+
         etDaySalary = findViewById(R.id.et_day_salary);
         etMonthSalary = findViewById(R.id.et_month_salary);
         etOvertimeSalary = findViewById(R.id.et_overtime);

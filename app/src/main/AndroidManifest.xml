@@ -307,7 +307,9 @@
         <activity
             android:name=".activity.ReleaseWorkOrderDetailsActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".activity.PersonOrderSalaryActivity"
+            android:screenOrientation="portrait" />
         <!--友盟分享集成-->
         <activity
             android:name="com.tencent.tauth.AuthActivity"

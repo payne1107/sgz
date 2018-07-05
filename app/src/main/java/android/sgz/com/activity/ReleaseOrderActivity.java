@@ -17,6 +17,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -91,6 +92,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     private TextView tvSetWorkRecord;
     private TextView tvProjectCategory;
     private int categoryid;
+    private EditText etMobile;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -118,6 +120,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         layoutSetWorkRecord = findViewById(R.id.layout_set_work_record);
         tvSetWorkRecord = findViewById(R.id.tv_set_work_record);
         tvProjectCategory = findViewById(R.id.tv_project_category);
+        etMobile = findViewById(R.id.et_mobile);
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 6);
         recyclerView.setLayoutManager(layoutManager);
@@ -331,6 +334,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         String address = tvChooseLocation.getText().toString().trim();
         String projectStartDate =tvStartDate.getText().toString().trim();
         String projectCategory =tvProjectCategory.getText().toString().toString();
+        String mobile = etMobile.getText().toString().trim();
         if (("请输入").equals(workOrderName)) {
             toastMessage("请输入工单名称");
             return;
@@ -371,6 +375,9 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         params.put("starttime", projectStartDate);
         params.put("startworktime", startWorkTime);
         params.put("endworktime", endWorkTime);
+        if (!StringUtils.isEmpty(mobile)) {
+            params.put("mobile", mobile);
+        }
         if (merchantId > 0) {
             params.put("merchantid", String.valueOf(merchantId));
         }

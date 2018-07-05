@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 
@@ -35,6 +36,8 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
     private int projectId;
     private ListView listView;
     private ReleaseWorkOrderDetailsAdapter adapter;
+    private TextView tvAddPerson;
+    private String projectName;
 
 
     @Override
@@ -53,22 +56,30 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
         super.initView();
         setInVisibleTitleIcon("工单详情", true, true);
         projectId = getIntent().getIntExtra("projectId", 0);
+        projectName = getIntent().getStringExtra("projectName");
+
         setSettingBtn("结束工单");
         listView = findViewById(R.id.listView);
+        tvAddPerson = findViewById(R.id.tv_add_person);
         adapter = new ReleaseWorkOrderDetailsAdapter(mContext, mList);
         listView.setAdapter(adapter);
 
         setListener();
-        queryProjectOrderUsers(projectId);
+
     }
 
     private void setListener() {
         tvSet.setOnClickListener(this);
+        tvAddPerson.setOnClickListener(this);
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                toastMessage("position" +position);
-
+                toastMessage("position" +mList.get(position).getUserid());
+                if (mList != null) {
+                    int userId = mList.get(position).getUserid();
+                    //编辑工资暂时未是实现
+                    //startActivity(new Intent(mContext, SetWorkPresonSalaryActivity.class).putExtra("projectId", projectId).putExtra("update_person_salary", 1).putExtra("userId", userId));
+                }
             }
 
             @Override
@@ -76,6 +87,7 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
 
             }
         });
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -83,6 +95,26 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
                 return true;
             }
         });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                if (mList != null) {
+                    int userId = mList.get(position).getUserid();
+                    Intent intent = new Intent(mContext, PersonOrderSalaryActivity.class);
+                    intent.putExtra("projectId", projectId);
+                    intent.putExtra("userId", userId);
+                    intent.putExtra("projectName", projectName);
+                    Log.d("Dong", "projectName===" + projectName);
+                    startActivity(intent);
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        queryProjectOrderUsers(projectId);
     }
 
     /****
@@ -120,6 +152,11 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
             case R.id.activity_set:
                 finishOrder(projectId, 1);
                 break;
+            case R.id.tv_add_person:
+                //添加好友
+                startActivity(new Intent(mContext, ContactsActivity.class).putExtra("query_contacts_info", 2).putExtra("projectId", projectId));
+                break;
+
         }
     }
 

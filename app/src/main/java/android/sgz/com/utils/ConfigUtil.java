@@ -218,8 +218,8 @@ public class ConfigUtil {
     /***
      * 获取当天打卡记录 废弃接口
      */
-    public static final String QUERY_WORK_RECORD_URL = MyApplication.REQUEST_URL + "project/queryWorkRecord";
-    public static final int QUERY_WORK_RECORD_URL_ACTION = 41;
+    public static final String QUERY_DAY_WORK_RECORD_URL = MyApplication.REQUEST_URL + "project/queryWorkRecord";
+    public static final int QUERY_DAY_WORK_RECORD_URL_ACTION = 41;
     /****
      * 打卡
      */
@@ -351,7 +351,7 @@ public class ConfigUtil {
     /****
      * 给工单添加好友
      */
-    public static final String ADD_PROJECT_ORDER_WORK_URL = MyApplication.REQUEST_URL + "oject/toAddProjectWork";
+    public static final String ADD_PROJECT_ORDER_WORK_URL = MyApplication.REQUEST_URL + "project/toAddProjectWork";
     public static final int ADD_PROJECT_ORDER_WORK_URL_ACTION = 68;
     /****
      * 获取工程类别
@@ -373,5 +373,10 @@ public class ConfigUtil {
      */
     public static final String DELETE_ORDER_USER_URL = MyApplication.REQUEST_URL + "project/toReduceProjectWork";
     public static final int DELETE_ORDER_USER_URL_ACTION = 72;
+    /****
+     * 工单打卡记录
+     */
+    public static final String QUERY_WORK_RECORD_URL = MyApplication.REQUEST_URL + "workRecord/getWorkRecord";
+    public static final int QUERY_WORK_RECORD_URL_ACTION = 73;
 
 }

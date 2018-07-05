@@ -263,7 +263,7 @@ public class StringUtils {
      * 验证密码是否包含字母
      * @param txt
      */
-    public static boolean isContainLetter(String txt) {
+    public static boolean   isContainLetter(String txt) {
         String regex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$";
         return txt.matches(regex);
     }

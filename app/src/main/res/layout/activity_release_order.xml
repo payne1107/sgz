@@ -94,7 +94,25 @@
                     android:drawableRight="@mipmap/icon_arrow_right"
                     android:text="自己" />
             </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/PersonCenterLayoutStyle"
+                android:layout_marginTop="1px"
+                android:background="@color/white">
 
+                <TextView
+                    style="@style/PersonCenterTextLeftStyle"
+                    android:text="负责人手机号" />
+
+                <EditText
+                    android:maxLength="11"
+                    android:inputType="number"
+                    android:layout_marginRight="@dimen/margin_size_15"
+                    android:textSize="@dimen/text_size_24"
+                    android:background="@null"
+                    android:id="@+id/et_mobile"
+                    style="@style/PersonCenterTextRightStyle"
+                    android:text="请输入" />
+            </com.zhy.autolayout.AutoLinearLayout>
             <com.zhy.autolayout.AutoLinearLayout
                 style="@style/PersonCenterLayoutStyle"
                 android:layout_marginTop="1px"
