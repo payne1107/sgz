@@ -62,6 +62,9 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             holder.tvAddress = (TextView) convertView.findViewById(R.id.tv_address);
             holder.tvCategory = (TextView) convertView.findViewById(R.id.tv_category);
             holder.tvStartTime = (TextView) convertView.findViewById(R.id.tv_start_date);
+            holder.tvEndWorkTime =convertView.findViewById(R.id.tv_end_work_time);
+            holder.tvStartWorkTime=convertView.findViewById(R.id.tv_start_work_time);
+
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tv_status);
             AutoUtils.autoSize(convertView);
         } else {
@@ -75,16 +78,20 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             String categoryname=bean.getCategoryname();
             String startTime =bean.getStarttime();
             int status = bean.getStatus();
+            String startWorkTime = bean.getStartworktime();
+            String endWorkTime = bean.getEndworktime();
             holder.tvTitle.setText("" + name);
             holder.tvHeadMan.setText("" + headMan);
             holder.tvAddress.setText("" + address);
             holder.tvCategory.setText("" + categoryname);
             holder.tvStartTime.setText("" + startTime);
+            holder.tvEndWorkTime.setText("" + endWorkTime);
+            holder.tvStartWorkTime.setText("" + startWorkTime);
         }
         return convertView;
     }
 
     class ViewHolder{
-        TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus;
+        TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus,tvStartWorkTime,tvEndWorkTime;
     }
 }
