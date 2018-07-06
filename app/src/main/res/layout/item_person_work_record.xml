@@ -31,7 +31,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <TextView
-            android:id="@+id/tv_waring_work_record"
+            android:id="@+id/tv_waring_start_work_record"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_waring_end_work_record"
             android:gravity="center"
             android:textColor="@color/text_color_3"
             android:layout_weight="1"

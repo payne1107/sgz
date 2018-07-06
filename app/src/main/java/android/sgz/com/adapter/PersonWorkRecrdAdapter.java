@@ -61,7 +61,8 @@ public class PersonWorkRecrdAdapter extends BaseAdapter{
             holder.tvDate =view.findViewById(R.id.tv_date);
             holder.tvStartWorkRecord=view.findViewById(R.id.tv_start_work_record);
             holder.tvEndWorkRecord=view.findViewById(R.id.tv_end_work_record);
-            holder.tvWaringWorkRecord = view.findViewById(R.id.tv_waring_work_record);
+            holder.tvWaringStartWorkRecord = view.findViewById(R.id.tv_waring_start_work_record);
+            holder.tvWaringEndWorkRecord = view.findViewById(R.id.tv_waring_end_work_record);
             AutoUtils.autoSize(view);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -71,31 +72,44 @@ public class PersonWorkRecrdAdapter extends BaseAdapter{
             String createTime =bean.getCreatetime();
             String startRecordTime =bean.getStartrecordtime();
             String endRecordTime=bean.getEndrecordtime();
-            int startStatus=bean.getStartstatus();
+            int startSatus=bean.getStartstatus();
             int endStatus = bean.getEndstatus();
 
             holder.tvDate.setText("" + createTime);
-            holder.tvStartWorkRecord.setText("" + StringUtils.stringSpacingToString(startRecordTime));
-            holder.tvEndWorkRecord.setText("" + StringUtils.stringSpacingToString(endRecordTime));
-//            if (startSatus == 1) {
-//                tvStartWorkStatus.setText("正常");
-//                tvStartWorkStatus.setTextColor(mContext.getResources().getColor(R.color.color_62d));
-//            } else if(startSatus ==2) {
-//                tvStartWorkStatus.setText("迟到");
-//                tvStartWorkStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
-//            } else if (startSatus == 3) {
-//                tvStartWorkStatus.setText("早退");
-//                tvStartWorkStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
-//            } else {
-//                tvStartWorkStatus.setText("未打卡");
-//                tvStartWorkStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
-//            }
+            holder.tvStartWorkRecord.setText(StringUtils.isEmpty(startRecordTime) ?"未打卡": startRecordTime.substring(startRecordTime.indexOf(" "),startRecordTime.length()));
+            holder.tvEndWorkRecord.setText(StringUtils.isEmpty(endRecordTime) ? "未打卡" : endRecordTime.substring(endRecordTime.indexOf(" "), endRecordTime.length()));
+            if (startSatus == 1) {
+                holder.tvWaringStartWorkRecord.setText("正常");
+                holder.tvWaringStartWorkRecord.setTextColor(mContext.getResources().getColor(R.color.color_62d));
+            } else if (startSatus == 2) {
+                holder.tvWaringStartWorkRecord.setText("上班迟到");
+                holder.tvWaringStartWorkRecord.setTextColor(mContext.getResources().getColor(R.color.google_red));
+            } else if (startSatus == 3) {
+                holder.tvWaringStartWorkRecord.setText("早退");
+                holder.tvWaringStartWorkRecord.setTextColor(mContext.getResources().getColor(R.color.google_red));
+            } else {
+                holder.tvWaringStartWorkRecord.setText("未打卡");
+                holder.tvWaringStartWorkRecord.setTextColor(mContext.getResources().getColor(R.color.google_red));
+            }
+            if (endStatus == 1) {
+                holder.tvWaringEndWorkRecord.setText("正常");
+                holder.tvWaringEndWorkRecord.setTextColor(mContext.getResources().getColor(R.color.color_62d));
+            } else if (endStatus == 2) {
+                holder.tvWaringEndWorkRecord.setText("上班迟到");
+                holder.tvWaringEndWorkRecord.setTextColor(mContext.getResources().getColor(R.color.google_red));
+            } else if (endStatus == 3) {
+                holder.tvWaringEndWorkRecord.setText("早退");
+                holder.tvWaringEndWorkRecord.setTextColor(mContext.getResources().getColor(R.color.google_red));
+            } else {
+                holder.tvWaringEndWorkRecord.setText("未打卡");
+                holder.tvWaringEndWorkRecord.setTextColor(mContext.getResources().getColor(R.color.google_red));
+            }
         }
         return view;
     }
 
     class ViewHolder{
-        TextView tvDate,tvStartWorkRecord,tvEndWorkRecord,tvWaringWorkRecord;
+        TextView tvDate,tvStartWorkRecord,tvEndWorkRecord,tvWaringStartWorkRecord,tvWaringEndWorkRecord;
 
     }
 }

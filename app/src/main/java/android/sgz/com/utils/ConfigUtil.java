@@ -378,5 +378,10 @@ public class ConfigUtil {
      */
     public static final String QUERY_WORK_RECORD_URL = MyApplication.REQUEST_URL + "workRecord/getWorkRecord";
     public static final int QUERY_WORK_RECORD_URL_ACTION = 73;
+    /****
+     * 修改工人工资
+     */
+    public static final String EDIT_PROJECT_WORK_SALARY_URL = MyApplication.REQUEST_URL + "project/editProjectWorkSalary";
+    public static final int EDIT_PROJECT_WORK_SALARY_URL_ACTION = 74;
 
 }

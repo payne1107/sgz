@@ -55,7 +55,7 @@ public class SetWorkPresonSalaryActivity extends BaseActivity implements View.On
         setInVisibleTitleIcon("设置工人工资", true, true);
         userId = getIntent().getIntExtra("userId", 0);
         projectId = getIntent().getIntExtra("projectId", 0);
-        ///一共有2处进入这个activity 发布工单 修改工单 修改工单直接在这设置工资 1=修改
+        ///一共有3处进入这个activity 发布工单 修改工单 修改工单直接在这设置工资 1=修改工单添加人添加工资 2=修改工资
         updatePersonSalry = getIntent().getIntExtra("update_person_salary",0);
         etSalary = findViewById(R.id.et_salary);
         etAddWorkSalary = findViewById(R.id.et_add_work_salary);
@@ -79,6 +79,8 @@ public class SetWorkPresonSalaryActivity extends BaseActivity implements View.On
                 if (updatePersonSalry == 1) {
                     //修改工单的时候设置工资
                     addPersonSalary(projectId, userId, salary, allownce, addWorkSalary);
+                } else if (updatePersonSalry == 2) {
+                    editWorkPersonSalary(userId, salary, allownce, addWorkSalary);
                 } else {
                     //不等于说明是发布工单的时候设置工资
                     Intent intent = new Intent();
@@ -108,8 +110,25 @@ public class SetWorkPresonSalaryActivity extends BaseActivity implements View.On
         params.put("userid", String.valueOf(userid));
         params.put("salary", salary);
         params.put("allowance", allowance);
-        params.put("overworksalay", overworksalay);
+        params.put("overworksalary", overworksalay);
         httpPostRequest(ConfigUtil.ADD_PROJECT_ORDER_WORK_URL, params, ConfigUtil.ADD_PROJECT_ORDER_WORK_URL_ACTION);
+    }
+
+    /*****
+     * 修改工资
+     * @param id
+     * @param salary
+     * @param allowance
+     * @param overworksalay
+     */
+    private void editWorkPersonSalary(int id ,String salary,String allowance,String overworksalay) {
+        startIOSDialogLoading(mContext,"修改中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("id", String.valueOf(id));
+        params.put("salary", salary);
+        params.put("allowance", allowance);
+        params.put("overworksalary", overworksalay);
+        httpPostRequest(ConfigUtil.EDIT_PROJECT_WORK_SALARY_URL, params, ConfigUtil.EDIT_PROJECT_WORK_SALARY_URL_ACTION);
     }
 
     @Override
@@ -120,6 +139,14 @@ public class SetWorkPresonSalaryActivity extends BaseActivity implements View.On
                 Log.d("Dong", "json ------ " + json);
                 if (getRequestCode(json) == 1) {
                     toastMessage("添加成功");
+                    finish();
+                }
+                break;
+            case ConfigUtil.EDIT_PROJECT_WORK_SALARY_URL_ACTION:
+                //修改工人工资
+                Log.d("Dong", "修改工人工资" +json);
+                if (getRequestCode(json) == 1) {
+                    toastMessage("修改成功");
                     finish();
                 }
                 break;

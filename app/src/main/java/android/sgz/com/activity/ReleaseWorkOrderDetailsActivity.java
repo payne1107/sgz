@@ -74,11 +74,11 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                toastMessage("position" +mList.get(position).getUserid());
+//                toastMessage("position" +mList.get(position).getUserid());
                 if (mList != null) {
-                    int userId = mList.get(position).getUserid();
+                    int userId = mList.get(position).getId();
                     //编辑工资暂时未是实现
-                    //startActivity(new Intent(mContext, SetWorkPresonSalaryActivity.class).putExtra("projectId", projectId).putExtra("update_person_salary", 1).putExtra("userId", userId));
+                    startActivity(new Intent(mContext, SetWorkPresonSalaryActivity.class).putExtra("projectId", projectId).putExtra("update_person_salary", 2).putExtra("userId", userId));
                 }
             }
 

@@ -38,7 +38,7 @@ public class SplashActivity extends BaseActivity {
     private Context mContext;
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
-//        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_splash);
         mContext = SplashActivity.this;
         //每次进入app进行赋值
         MyApplication.isLogin = SPUtil.getString(mContext, "token");
@@ -78,7 +78,7 @@ public class SplashActivity extends BaseActivity {
                     startActivity(new Intent(mContext, LoginActivity.class));
                     finish();
                 }
-            },2000);
+            },3000);
         } else {
             refreshToken();
         }
@@ -167,7 +167,6 @@ public class SplashActivity extends BaseActivity {
      * 刷新token
      */
     private void refreshToken() {
-        startIOSDialogLoading(mContext,"加载中..");
         Map<String, String> params = new HashMap<>();
         params.put("refreshcode", MyApplication.refreshToken);
         httpPostRequest(ConfigUtil.REFRESH_TOKEN_URL, params, ConfigUtil.REFRESH_TOKEN_URL_ACTION);

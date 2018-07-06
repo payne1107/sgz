@@ -205,11 +205,11 @@ public class PersonOrderSalaryActivity extends BaseActivity {
                 int workdays = data.getWorkdays();
                 double allSalary = data.getAllsalary();
                 String addSalary = data.getAddsalary();
-                int allowance =data.getTotalallowance();
+                String allowance =data.getTotalallowance();
                 int allAddTime =data.getAlladdtime();
                 tvProjectName.setText(projectName);
                 tvUserName.setText("" + realName);
-                tvWorkDays.setText("" + workdays);
+                tvWorkDays.setText("" + workdays+"天");
                 tvAllSalary.setText("" + allSalary);
                 tvAddSalary.setText(StringUtils.isEmpty(addSalary) ? "加班费:0" : "加班费：" + addSalary);
                 tvAllowance.setText("津贴：" + allowance);

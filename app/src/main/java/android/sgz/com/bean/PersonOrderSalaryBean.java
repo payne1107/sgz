@@ -124,8 +124,8 @@ public class PersonOrderSalaryBean {
         private int allowance;
         private int paymentsalary;
         private int allsalary;
-        private int totalallowance;
-        private int alladdsalary;
+        private String totalallowance;
+        private String alladdsalary;
         private int workdays;
         private Object projectid;
         private int alladdtime;
@@ -346,19 +346,19 @@ public class PersonOrderSalaryBean {
             this.allsalary = allsalary;
         }
 
-        public int getTotalallowance() {
+        public String getTotalallowance() {
             return totalallowance;
         }
 
-        public void setTotalallowance(int totalallowance) {
+        public void setTotalallowance(String totalallowance) {
             this.totalallowance = totalallowance;
         }
 
-        public int getAlladdsalary() {
+        public String getAlladdsalary() {
             return alladdsalary;
         }
 
-        public void setAlladdsalary(int alladdsalary) {
+        public void setAlladdsalary(String alladdsalary) {
             this.alladdsalary = alladdsalary;
         }
 

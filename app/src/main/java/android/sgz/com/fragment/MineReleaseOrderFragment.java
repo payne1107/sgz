@@ -116,6 +116,7 @@ public class MineReleaseOrderFragment extends BaseFragment{
      * 获取我发布的工单
      */
     private void queryAllProjectOrder(int pageNo) {
+        startIOSDialogLoading(getActivity(),"加载中..");
         Map<String, String> params = new HashMap<>();
         params.put("page", String.valueOf(pageNo));
         httpPostRequest(ConfigUtil.QUERY_MY_PROJECT_ORDER_URL, params, ConfigUtil.QUERY_MY_PROJECT_ORDER_URL_ACTION);
