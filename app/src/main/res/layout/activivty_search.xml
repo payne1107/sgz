@@ -7,6 +7,7 @@
 
     <include layout="@layout/sys_title" />
     <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
         android:id="@+id/layout_search"
         android:background="@color/white"
         android:orientation="vertical"

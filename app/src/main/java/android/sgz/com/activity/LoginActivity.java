@@ -113,7 +113,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         params.put("password",password);
         params.put("type", "password");
         httpPostRequest(ConfigUtil.LOGIN_URL, params, ConfigUtil.LOGIN_URL_ACTION);
-
     }
 
     @Override

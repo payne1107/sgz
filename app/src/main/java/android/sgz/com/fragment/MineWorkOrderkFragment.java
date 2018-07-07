@@ -3,9 +3,11 @@ package android.sgz.com.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.PersonOrderSalaryActivity;
 import android.sgz.com.activity.WorkOrderDetailsActivity;
 import android.sgz.com.adapter.MineWorkOrderAdapter;
 import android.sgz.com.adapter.MineWorkOrderFragmentAdapter;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.MineWorkOrderFragmentBean;
 import android.sgz.com.bean.WorkOrderListBean;
@@ -75,18 +77,13 @@ public class MineWorkOrderkFragment extends BaseFragment{
                 MineWorkOrderFragmentBean.DataBean.ListBean bean = (MineWorkOrderFragmentBean.DataBean.ListBean) parent.getAdapter().getItem(position);
                 if (bean != null) {
                     String projectName =bean.getName();
-                    String startWorkTime =bean.getStartworktime();
-                    String endWorkTime =bean.getEndworktime();
-                    String workDays =bean.getWorkdays();
-                    String addTime =bean.getAddtime();
                     int projectId =bean.getId();
-                    Intent intent = new Intent(getActivity(), WorkOrderDetailsActivity.class);
+                    //update 2018 7月7号 跳转到个人工资和考勤  我的工单需要设置默认打卡工单 设置标签区分
+                    Intent intent = new Intent(getActivity(), PersonOrderSalaryActivity.class);
                     intent.putExtra("projectId", projectId);
+                    intent.putExtra("userId", Integer.valueOf(MyApplication.userId));
                     intent.putExtra("projectName", projectName);
-                    intent.putExtra("startWorkTime", startWorkTime);
-                    intent.putExtra("endWorkTime", endWorkTime);
-                    intent.putExtra("workDays", workDays);
-                    intent.putExtra("addTime", addTime);
+                    intent.putExtra(ConfigUtil.EXTRA_SET_DEFAULT_ORDER_KEY, 1);
                     startActivity(intent);
                 }
             }

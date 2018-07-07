@@ -63,6 +63,9 @@ public class MineWorkOrderFragmentAdapter extends BaseAdapter{
             holder.tvCategory = (TextView) convertView.findViewById(R.id.tv_category);
             holder.tvStartTime = (TextView) convertView.findViewById(R.id.tv_start_date);
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tv_status);
+            holder.tvStartWorkTime = convertView.findViewById(R.id.tv_start_work_time);
+            holder.tvEndWorkTime = convertView.findViewById(R.id.tv_end_work_time);
+            holder.tvPhone = convertView.findViewById(R.id.tv_phone);
             AutoUtils.autoSize(convertView);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -75,16 +78,22 @@ public class MineWorkOrderFragmentAdapter extends BaseAdapter{
             String categoryname=bean.getCategoryname();
             String startTime =bean.getStarttime();
             int status = bean.getStatus();
+            String startWorkTime = bean.getStartworktime();
+            String endWorkTime =bean.getEndworktime();
+            String mobile =bean.getMobile();
             holder.tvTitle.setText("" + name);
             holder.tvHeadMan.setText("" + headMan);
             holder.tvAddress.setText("" + address);
             holder.tvCategory.setText("" + categoryname);
             holder.tvStartTime.setText("" + startTime);
+            holder.tvPhone.setText("" + mobile);
+            holder.tvStartWorkTime.setText("" + startWorkTime);
+            holder.tvEndWorkTime.setText("" + endWorkTime);
         }
         return convertView;
     }
 
     class ViewHolder{
-        TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus;
+        TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus, tvPhone,tvStartWorkTime,tvEndWorkTime;
     }
 }

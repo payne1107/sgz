@@ -11,6 +11,7 @@ import android.provider.Settings;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.LoginSucessBean;
 import android.sgz.com.bean.RefreshTokenBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.NetWorkUtils;
@@ -201,6 +202,9 @@ public class SplashActivity extends BaseActivity {
                 startActivity(new Intent(mContext, MainActivity.class));
                 finish();
             }
+        } else if (getRequestCode(json) == 18011) {
+            startActivity(new Intent(mContext, LoginActivity.class));
+            finish();
         }
     }
 }

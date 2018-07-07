@@ -6,12 +6,14 @@ import android.sgz.com.bean.ContactsBean;
 import android.sgz.com.bean.PersonWorkRecordBean;
 import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
+import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
@@ -53,7 +55,7 @@ public class PersonWorkRecrdAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
@@ -63,6 +65,7 @@ public class PersonWorkRecrdAdapter extends BaseAdapter{
             holder.tvEndWorkRecord=view.findViewById(R.id.tv_end_work_record);
             holder.tvWaringStartWorkRecord = view.findViewById(R.id.tv_waring_start_work_record);
             holder.tvWaringEndWorkRecord = view.findViewById(R.id.tv_waring_end_work_record);
+            holder.layoutWaring=view.findViewById(R.id.layout_waring);
             AutoUtils.autoSize(view);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -105,11 +108,24 @@ public class PersonWorkRecrdAdapter extends BaseAdapter{
                 holder.tvWaringEndWorkRecord.setTextColor(mContext.getResources().getColor(R.color.google_red));
             }
         }
+
+        holder.layoutWaring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOnItemClickListener.onItemClick(v,i);
+            }
+        });
         return view;
     }
 
     class ViewHolder{
         TextView tvDate,tvStartWorkRecord,tvEndWorkRecord,tvWaringStartWorkRecord,tvWaringEndWorkRecord;
+        AutoLinearLayout layoutWaring;
 
+    }
+
+    private IRecycleViewOnItemClickListener mOnItemClickListener;//声明接口
+    public void setOnItemClickListener(IRecycleViewOnItemClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
     }
 }

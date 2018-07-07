@@ -40,8 +40,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
     private TextView tvEndRecordAddress;
     private TextView tvEndStatus;
     private GridView gridView;
-    private int isNeedApplyStartRecord = 0; //是否需要补上班卡
-    private int isNeedApplyEndRecord = 0; //是否需要补下班卡
+
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_card_counting_details);
@@ -58,13 +57,12 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
         super.initView();
         int year = DateUtils.getYear();
         final int month = DateUtils.getMonth();
-        final int day = DateUtils.getCurrentDayOfMonth();
-
-        setSettingBtn("申请补卡");
+        int day = DateUtils.getCurrentDayOfMonth();
 
         projectId = getIntent().getIntExtra("projectId", 0);
         curentYearMonth = getIntent().getStringExtra("current_month");
-        curentYearMonth = curentYearMonth + "-" + day;
+        //第一次进入用这个查询
+        String firstYearMonth = curentYearMonth + "-" + (day < 10 ? "0" + day : day);
         setInVisibleTitleIcon(curentYearMonth, true, true);
         gridView = (GridView) findViewById(R.id.calendar_gridView);
         tvStartRecordTime = findViewById(R.id.tv_start_record_time);
@@ -81,15 +79,15 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
         gridView.setVerticalSpacing(60);
         gridView.setEnabled(true);
 
-        queryWorkRecordByTime(projectId,curentYearMonth);
-
+        queryWorkRecordByTime(projectId,firstYearMonth);
 
         setListener();
-
     }
 
     private void setListener() {
         tvSet.setOnClickListener(this);
+        tvStartStatus.setOnClickListener(this);
+        tvEndStatus.setOnClickListener(this);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -102,8 +100,8 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                     int clickDay = (int) parent.getAdapter().getItem(position);
                     dateAdapter.updateTextColor(position);
                     dateAdapter.notifyDataSetChanged();
-                    curentYearMonth = curentYearMonth + "-" + clickDay;
-                    queryWorkRecordByTime(projectId,curentYearMonth);
+                    String month = curentYearMonth + "-" + (clickDay < 10 ? "0" + clickDay : clickDay);
+                    queryWorkRecordByTime(projectId,month);
                 }
             }
         });
@@ -169,7 +167,6 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 } else if (startStatus == 3) {
                     tvStartStatus.setText("早退");
                 } else {
-                    isNeedApplyStartRecord = 4;
                     tvStartStatus.setText("未打卡");
                 }
                 tvEndRecordAddress.setText("" + endRecordAddress);
@@ -181,32 +178,38 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 } else if (endStatus == 3) {
                     tvEndStatus.setText("早退");
                 } else {
-                    isNeedApplyEndRecord = 4;
                     tvEndStatus.setText("未打卡");
                 }
-            }
-            if (isNeedApplyEndRecord != 4 && isNeedApplyStartRecord != 4) {
-                tvSet.setVisibility(View.GONE);
-            } else {
-                tvSet.setVisibility(View.VISIBLE);
             }
         }
     }
 
     @Override
     public void onClick(View view) {
+        Intent intent = new Intent(mContext, ApplyMakeRecordActivity.class);
         switch (view.getId()) {
             case R.id.activity_set:
-                //申请补卡
-                Intent intent = new Intent(mContext, ApplyMakeRecordActivity.class);
-                intent.putExtra("projectId", projectId);
-                intent.putExtra("applyTime", curentYearMonth);
-                if (isNeedApplyStartRecord == 4) {
+
+                break;
+            case R.id.tv_start_status:
+                //申请补上班卡
+                String startStatus = tvStartStatus.getText().toString().trim();
+                if (startStatus.equals("未打卡")) {
+                    intent.putExtra("projectId", projectId);
+                    intent.putExtra("applyTime", curentYearMonth);
                     intent.putExtra("type", 1); //上班卡
-                } else if (isNeedApplyEndRecord == 4) {
-                    intent.putExtra("type", 2);
+                    startActivity(intent);
                 }
-                startActivity(intent);
+                break;
+            case R.id.tv_end_status:
+                //申请补下班卡
+                String endStatus = tvEndStatus.getText().toString().trim();
+                if (endStatus.equals("未打卡")) {
+                    intent.putExtra("projectId", projectId);
+                    intent.putExtra("applyTime", curentYearMonth);
+                    intent.putExtra("type", 2);
+                    startActivity(intent);
+                }
                 break;
         }
     }

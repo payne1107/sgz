@@ -13,6 +13,8 @@ import android.sgz.com.bean.Fragment2Bean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.StringUtils;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,6 +102,24 @@ public class Fragment2 extends BaseFragment implements View.OnClickListener {
                 } else {
                     delayedToast();
                 }
+            }
+        });
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("Dong", "12131231" +editable.toString());
+                orderName = "";
             }
         });
         ////暂时不需要此功能

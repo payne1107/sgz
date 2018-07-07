@@ -375,6 +375,7 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
         params.put("starttime", projectStartDate);
         params.put("startworktime", startWorkTime);
         params.put("endworktime", endWorkTime);
+        params.put("categoryid", String.valueOf(categoryid));
         if (!StringUtils.isEmpty(mobile)) {
             params.put("mobile", mobile);
         }

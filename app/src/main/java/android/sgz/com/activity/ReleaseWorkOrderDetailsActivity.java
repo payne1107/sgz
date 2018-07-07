@@ -77,7 +77,7 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
 //                toastMessage("position" +mList.get(position).getUserid());
                 if (mList != null) {
                     int userId = mList.get(position).getId();
-                    //编辑工资暂时未是实现
+                    //编辑工资
                     startActivity(new Intent(mContext, SetWorkPresonSalaryActivity.class).putExtra("projectId", projectId).putExtra("update_person_salary", 2).putExtra("userId", userId));
                 }
             }
@@ -104,7 +104,6 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
                     intent.putExtra("projectId", projectId);
                     intent.putExtra("userId", userId);
                     intent.putExtra("projectName", projectName);
-                    Log.d("Dong", "projectName===" + projectName);
                     startActivity(intent);
                 }
             }

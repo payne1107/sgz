@@ -30,19 +30,26 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_waring_start_work_record"
-            android:gravity="center"
-            android:textColor="@color/text_color_3"
-            android:layout_weight="1"
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/layout_waring"
+            android:layout_weight="2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_waring_end_work_record"
-            android:gravity="center"
-            android:textColor="@color/text_color_3"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_waring_start_work_record"
+                android:gravity="center"
+                android:textColor="@color/text_color_3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_waring_end_work_record"
+                android:gravity="center"
+                android:textColor="@color/text_color_3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
 </com.zhy.autolayout.AutoLinearLayout>

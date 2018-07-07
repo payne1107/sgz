@@ -211,11 +211,12 @@ public class MineSalaryActivity extends BaseActivity implements View.OnClickList
                 String salary = data.getSalary();//总工资
                 String addSalary = data.getAddsalary(); //加班费
                 String allowance = data.getAllowance(); //总津贴
+                double allSalary = Double.valueOf((StringUtils.isEmpty(salary)?"0":salary)) +Double.valueOf((StringUtils.isEmpty(addSalary)?"0":addSalary)) +Double.valueOf((StringUtils.isEmpty(allowance)?"0":allowance));//总工资
                 if (StringUtils.isEmpty(salary)) {
                     tvAllSalary.setText("0");
                     tvSalary.setText("0");
                 } else {
-                    tvAllSalary.setText(salary + "");
+                    tvAllSalary.setText(allSalary + "");
                     tvSalary.setText(salary + "");
                 }
                 if (StringUtils.isEmpty(addSalary)) {

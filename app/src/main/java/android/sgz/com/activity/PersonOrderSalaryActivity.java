@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ContactsAdapter;
@@ -11,6 +12,7 @@ import android.sgz.com.bean.PersonOrderSalaryBean;
 import android.sgz.com.bean.PersonWorkRecordBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.StringUtils;
+import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -30,7 +32,7 @@ import java.util.Map;
  * 个人考勤于工资表
  */
 
-public class PersonOrderSalaryActivity extends BaseActivity {
+public class PersonOrderSalaryActivity extends BaseActivity implements View.OnClickListener {
 
     private int projectId;
     private int userId;
@@ -49,6 +51,8 @@ public class PersonOrderSalaryActivity extends BaseActivity {
     private PersonWorkRecrdAdapter adapter;
     private int pageSize;
     private boolean swipeLoadMore =false;
+    private int extraSetDefaultOrder;
+    private TextView tvDSalary;
 
 
     @Override
@@ -65,7 +69,9 @@ public class PersonOrderSalaryActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        setInVisibleTitleIcon("个人考勤与工资表", true, true);
+        setInVisibleTitleIcon("个人考勤", true, true);
+        //是否显示设置默认工单
+        extraSetDefaultOrder = getIntent().getIntExtra(ConfigUtil.EXTRA_SET_DEFAULT_ORDER_KEY, 0);
         projectId = getIntent().getIntExtra("projectId", 0);
         userId = getIntent().getIntExtra("userId", 0);
         projectName = getIntent().getStringExtra("projectName");
@@ -76,11 +82,19 @@ public class PersonOrderSalaryActivity extends BaseActivity {
         tvAllSalary = findViewById(R.id.tv_all_salary);
         tvAddSalary = findViewById(R.id.tv_add_salary);
         tvAllowance = findViewById(R.id.tv_allowance);
+        tvDSalary = findViewById(R.id.tv_dsalary);
         listView = findViewById(R.id.listview);
         adapter = new PersonWorkRecrdAdapter(mContext, mList);
         listView.setAdapter(adapter);
 
         setListener();
+
+        if (extraSetDefaultOrder == 1) {
+            //显示设置默认工单
+            tvSet.setText("设置默认工单");
+            tvSet.setVisibility(View.VISIBLE);
+            tvSet.setOnClickListener(this);
+        }
     }
 
     private void setListener() {
@@ -100,6 +114,23 @@ public class PersonOrderSalaryActivity extends BaseActivity {
                 } else {
                     delayedToast();
                 }
+            }
+        });
+
+        adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                int startStatus = mList.get(position).getStartstatus();
+                int endStatus = mList.get(position).getEndstatus();
+                if (startStatus != 1 && endStatus != 1) {
+                    startActivity(new Intent(mContext, CardCountingActivity.class));
+                    finish();
+                }
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
             }
         });
     }
@@ -129,6 +160,7 @@ public class PersonOrderSalaryActivity extends BaseActivity {
         Map<String, String> params = new HashMap<>();
         params.put("projectid", String.valueOf(projectId));
         params.put("id", String.valueOf(userId));
+        Log.d("Dong", "获取员工个人信息---》" +params.toString());
         httpPostRequest(ConfigUtil.QUERY_PROJECT_WORK_SALARY_URL, params, ConfigUtil.QUERY_PROJECT_WORK_SALARY_URL_ACTION);
     }
 
@@ -146,6 +178,15 @@ public class PersonOrderSalaryActivity extends BaseActivity {
         httpPostRequest(ConfigUtil.QUERY_WORK_RECORD_URL,params,ConfigUtil.QUERY_WORK_RECORD_URL_ACTION);
     }
 
+    /****
+     * 设置默认工单
+     */
+    private void setDefaultProject() {
+        Map<String, String> params = new HashMap<>();
+        params.put("projectid", String.valueOf(projectId));
+        httpPostRequest(ConfigUtil.SET_DEFAUTL_PROJECT_ORDER_URL, params, ConfigUtil.SET_DEFAUTL_PROJECT_ORDER_URL_ACTION);
+    }
+
     @Override
     protected void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
@@ -156,6 +197,12 @@ public class PersonOrderSalaryActivity extends BaseActivity {
             case ConfigUtil.QUERY_WORK_RECORD_URL_ACTION:
                 hanldeQueryWorkRecord(json);
                 break;
+            case ConfigUtil.SET_DEFAUTL_PROJECT_ORDER_URL_ACTION:
+                Log.d("Dong", "设置默认工单——》" + json);
+                if (getRequestCode(json) == 1) {
+                    toastMessage("设置默认打卡工单成功");
+                    finish();
+                }
         }
     }
 
@@ -207,6 +254,7 @@ public class PersonOrderSalaryActivity extends BaseActivity {
                 String addSalary = data.getAddsalary();
                 String allowance =data.getTotalallowance();
                 int allAddTime =data.getAlladdtime();
+                String dSalary = data.getDsalary();
                 tvProjectName.setText(projectName);
                 tvUserName.setText("" + realName);
                 tvWorkDays.setText("" + workdays+"天");
@@ -214,7 +262,20 @@ public class PersonOrderSalaryActivity extends BaseActivity {
                 tvAddSalary.setText(StringUtils.isEmpty(addSalary) ? "加班费:0" : "加班费：" + addSalary);
                 tvAllowance.setText("津贴：" + allowance);
                 tvAddWorkTime.setText("" + allAddTime + "小时");
+                tvDSalary.setText(StringUtils.isEmpty(dSalary) ? "0元" : "" + dSalary+"元");
             }
         }
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_set:
+                //设置默认工单
+                setDefaultProject();
+                break;
+        }
+    }
+
+
 }

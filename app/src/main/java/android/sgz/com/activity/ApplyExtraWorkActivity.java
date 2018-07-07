@@ -94,8 +94,8 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
         }
         startIOSDialogLoading(mContext,"加载中..");
         Map<String, String> params = new HashMap<>();
-        params.put("starttime", startDate);
-        params.put("endtime", endDate);
+        params.put("starttime", startDate+":00");
+        params.put("endtime", endDate+":00");
         httpPostRequest(ConfigUtil.POST_APPLY_EXTRAWORK_RECORD_URL, params, ConfigUtil.POST_APPLY_EXTRAWORK_RECORD_URL_ACTION);
     }
 
@@ -124,7 +124,7 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
     @Override
     public void onDateSet(TimePickerDialog timePickerView, long millseconds) {
         Date d = new Date(millseconds);
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd-HH:mm");
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd:HH:mm");
         if (setTime == 1) {
             tvStartDate.setText(sf.format(d));
         } else {

@@ -77,6 +77,8 @@ public class ContactsAdapter extends BaseAdapter{
             String photoUrl = bean.getPhoto();
             if (!StringUtils.isEmpty(photoUrl)) {
                 MyApplication.imageLoader.displayImage(photoUrl, holder.ivAvatar);
+            } else {
+                holder.ivAvatar.setImageResource(R.mipmap.default_avatar);
             }
         }
         return convertView;

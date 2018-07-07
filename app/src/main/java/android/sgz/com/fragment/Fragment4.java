@@ -71,6 +71,11 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         setInVisibleTitleIcon("我的", true, false);
         initView();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         getBasicInfo();
     }
 

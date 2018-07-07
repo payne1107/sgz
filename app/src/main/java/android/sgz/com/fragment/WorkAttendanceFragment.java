@@ -16,6 +16,10 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,6 +56,7 @@ public class WorkAttendanceFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        EventBus.getDefault().register(WorkAttendanceFragment.this);
         initView();
     }
 
@@ -153,5 +158,20 @@ public class WorkAttendanceFragment extends BaseFragment {
                 }
             }
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(WorkAttendanceFragment.this);
+    }
+
+    /**
+     * 4.事件订阅者处理事件
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMoonEvent(Integer messageEvent) {
+        Log.d("Dong", "事件类型 ---》" + messageEvent);
+        queryDefaultOrder();
     }
 }

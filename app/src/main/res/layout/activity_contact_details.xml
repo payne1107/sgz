@@ -147,6 +147,7 @@
     </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
         android:id="@+id/layout_friend_state"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -124,9 +124,9 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
         if (bean != null) {
             VIPMemberCenterBasicInfoBean.DataBean data = bean.getData();
             if (data != null) {
-                String photo =data.getPhoto();
-                String realName =data.getRealname();
-                String profession =data.getProfession();
+                String photo = data.getPhoto();
+                String realName = data.getRealname();
+                String profession = data.getProfession();
                 String professionLevelName =data.getProfessionlevelname();
                 String salary =data.getMsalary();
                 String mobile =data.getMobile();
@@ -333,5 +333,6 @@ public class PersonDetailsActivity extends BaseActivity implements View.OnClickL
     protected void getImageUrl(String url) {
         super.getImageUrl(url);
         Log.d("Dong", "url --->" + url + "new Path--- " + newPath);
+        MyApplication.imageLoader.displayImage(url, circleImageView);
     }
 }

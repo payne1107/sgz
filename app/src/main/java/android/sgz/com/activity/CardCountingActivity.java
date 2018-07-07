@@ -95,7 +95,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
         tvNoRecordCount = findViewById(R.id.tv_no_record_count);
         tvAddWorkCount = findViewById(R.id.tv_add_work_count);
 
-        currentYearMoth = DateUtils.getYear() + "-" + DateUtils.getMonth();
+        currentYearMoth = DateUtils.getYear() + "-" + (DateUtils.getMonth() < 10 ? "0" + DateUtils.getMonth() : DateUtils.getMonth());
         tvChooseDay.setText(currentYearMoth);
         setListener();
     }
@@ -196,7 +196,6 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
                 //打卡详情
                 startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId));
                 break;
-
         }
     }
 

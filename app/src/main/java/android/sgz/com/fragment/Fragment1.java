@@ -36,6 +36,9 @@ import com.zaaach.citypicker.CityPickerActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,6 +86,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         tvTitle = (AutoRelativeLayout) mRootView.findViewById(R.id.rl_title);
         etSearch = (EditText) mRootView.findViewById(R.id.et_search);
         tvCity = (TextView) mRootView.findViewById(R.id.activity_city);
@@ -269,6 +273,8 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         Log.d("Dong", "处理打卡反馈结果---》" + json);
         if (getRequestCode(json) == 1) {
             Toast.makeText(getActivity(), "打卡成功", Toast.LENGTH_LONG).show();
+            //打卡成功刷新下面的数据
+            EventBus.getDefault().post(ConfigUtil.EVENT_TYPE_CODE_ONE);
         }
     }
 
@@ -306,6 +312,11 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                 tvWorkOrder.setText(""+projectCount+"个");
             }
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 }
 

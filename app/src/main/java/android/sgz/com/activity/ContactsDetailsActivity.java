@@ -11,6 +11,7 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.ContactDynamicBean;
 import android.sgz.com.bean.ContactsDetailsBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.CircleImageView;
 import android.support.annotation.IdRes;
 import android.util.Log;
@@ -213,7 +214,9 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                 tvName.setText("" + realName);
                 tvPhone.setText("" + mobile);
                 tvProfession.setText("" + profession);
-                MyApplication.imageLoader.displayImage(photoUrl, circleImageView);
+                if (!StringUtils.isEmpty(photoUrl)) {
+                    MyApplication.imageLoader.displayImage(photoUrl, circleImageView);
+                }
             }
         }
     }

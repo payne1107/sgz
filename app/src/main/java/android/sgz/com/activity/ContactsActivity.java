@@ -52,7 +52,7 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
     private AutoLinearLayout layoutShareWxFriend;
     private AutoLinearLayout layoutShareWXMoments;
     private AutoLinearLayout layoutShareQQ;
-    private String inviteUrl = "http://www.52sgz.com/share/register.html?referee=" ;
+    private String inviteUrl = "http://www.52sgz.com/share/login.html?referee=" ;
     private int projectId;
 
     @Override

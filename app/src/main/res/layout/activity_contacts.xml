@@ -8,6 +8,8 @@
     <include layout="@layout/sys_title"></include>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:background="@color/white"
         android:layout_width="match_parent"
@@ -21,6 +23,7 @@
             android:layout_height="wrap_content">
 
             <EditText
+
                 android:layout_marginLeft="@dimen/margin_size_15"
                 android:drawablePadding="5dp"
                 android:textColor="@color/text_color_3"

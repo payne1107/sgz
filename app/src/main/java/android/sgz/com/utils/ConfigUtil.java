@@ -12,6 +12,10 @@ public class ConfigUtil {
     public static long TenYears8 = 10L * 365 * 1000 * 60 * 60 * 24L * 80;
     public static long TenYears = 10L * 365 * 1000 * 60 * 60 * 24L * 3;
     public static String sessionId;
+    //1.我的工单2.我发起的工单
+    public static final String EXTRA_SET_DEFAULT_ORDER_KEY = "extra_set_default_order_key";
+    //eventbus 事件类型
+    public static final int EVENT_TYPE_CODE_ONE = 1;
 
     /****
      * 登录接口

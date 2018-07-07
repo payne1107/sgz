@@ -7,6 +7,7 @@ import android.sgz.com.adapter.ChooseProfessionLevelAdapter;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.ProfessionLevelBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.StringUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,7 +31,7 @@ public class ChooseProfessionLevelActivity extends BaseActivity implements View.
     private List<ProfessionLevelBean.DataBean> mList = new ArrayList<>();
     private Context mContext;
     private ListView listView;
-    private int professionlevelId = 0; //保存职称的id
+    private String professionlevelCode;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -66,7 +67,7 @@ public class ChooseProfessionLevelActivity extends BaseActivity implements View.
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 ProfessionLevelBean.DataBean bean = (ProfessionLevelBean.DataBean) adapterView.getAdapter().getItem(position);
                 if (bean != null) {
-                    professionlevelId = bean.getId();
+                    professionlevelCode = bean.getCode();
                 }
                 adapter.updateTextColor(position);
             }
@@ -136,13 +137,13 @@ public class ChooseProfessionLevelActivity extends BaseActivity implements View.
      * 保存用户职业
      */
     private void saveUserProfessionLevelInfo() {
-        if (professionlevelId == 0) {
+        if (StringUtils.isEmpty(professionlevelCode)) {
             toastMessage("请选择职称");
             return;
         }
         startIOSDialogLoading(mContext, "保存中..");
         Map<String, String> params = new HashMap<>();
-        params.put("professionlevelid", String.valueOf(professionlevelId));
+        params.put("professionlevelcode", String.valueOf(professionlevelCode));
         httpPostRequest(ConfigUtil.SAVE_PROFESSION_LEVEL_URL, params, ConfigUtil.SAVE_PROFESSION_LEVEL_URL_ACTION);
     }
 }
