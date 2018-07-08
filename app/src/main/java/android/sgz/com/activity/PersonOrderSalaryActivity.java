@@ -53,6 +53,8 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
     private boolean swipeLoadMore =false;
     private int extraSetDefaultOrder;
     private TextView tvDSalary;
+    private TextView tvAllPaySalalry;
+    private double withdrawalBalance;
 
 
     @Override
@@ -83,6 +85,7 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
         tvAddSalary = findViewById(R.id.tv_add_salary);
         tvAllowance = findViewById(R.id.tv_allowance);
         tvDSalary = findViewById(R.id.tv_dsalary);
+        tvAllPaySalalry = findViewById(R.id.tv_all_pay_salary);
         listView = findViewById(R.id.listview);
         adapter = new PersonWorkRecrdAdapter(mContext, mList);
         listView.setAdapter(adapter);
@@ -92,6 +95,10 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
         if (extraSetDefaultOrder == 1) {
             //显示设置默认工单
             tvSet.setText("设置默认工单");
+            tvSet.setVisibility(View.VISIBLE);
+            tvSet.setOnClickListener(this);
+        } else if (extraSetDefaultOrder == 3) {
+            tvSet.setText("提现");
             tvSet.setVisibility(View.VISIBLE);
             tvSet.setOnClickListener(this);
         }
@@ -255,6 +262,8 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
                 String allowance =data.getTotalallowance();
                 int allAddTime =data.getAlladdtime();
                 String dSalary = data.getDsalary();
+                double withDrawSalary = data.getWithdrawsalary();//提现了多少钱
+                double paymentSalary = data.getPaymentsalary();//包工头已发工资
                 tvProjectName.setText(projectName);
                 tvUserName.setText("" + realName);
                 tvWorkDays.setText("" + workdays+"天");
@@ -263,6 +272,12 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
                 tvAllowance.setText("津贴：" + allowance);
                 tvAddWorkTime.setText("" + allAddTime + "小时");
                 tvDSalary.setText(StringUtils.isEmpty(dSalary) ? "0元" : "" + dSalary+"元");
+                tvAllPaySalalry.setText("" + paymentSalary);
+                //算出剩下可提现余额
+                withdrawalBalance = paymentSalary - withDrawSalary;
+                if (withDrawSalary == 0) {
+                    tvAllPaySalalry.setText("工资已全提现");
+                }
             }
         }
     }
@@ -271,8 +286,12 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_set:
-                //设置默认工单
-                setDefaultProject();
+                if (extraSetDefaultOrder == 1) {
+                    //设置默认工单
+                    setDefaultProject();
+                } else if (extraSetDefaultOrder == 3) {
+                    startActivity(new Intent(mContext, WithDrawDespositActivity.class).putExtra("withdrawalBalance", withdrawalBalance).putExtra("projectId", projectId));
+                }
                 break;
         }
     }

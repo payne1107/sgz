@@ -86,7 +86,7 @@ public class MineExpendDetails extends BaseActivity implements View.OnClickListe
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                toastMessage("----发工资了---？" + mList.get(position).getId() + " -->" + mList.get(position).getProjectid());
+//                toastMessage("----发工资了---？" + mList.get(position).getId() + " -->" + mList.get(position).getProjectid());
                 MineExpendDetailsBean.DataBean bean = mList.get(position);
                 if (bean != null) {
                     int userId = bean.getId();

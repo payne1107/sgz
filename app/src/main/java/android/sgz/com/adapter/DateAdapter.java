@@ -93,8 +93,10 @@ public class DateAdapter extends BaseAdapter {
         if (i < 7 && days[i] > 20) {
             //判断第一排日期是否大于20 如果大于说明是上个月的日期
             viewHolder.date_item.setTextColor(Color.rgb(204, 204, 204));//将上个月的和下个月的设置为灰色
+            viewHolder.date_item.setBackground(context.getResources().getDrawable(R.drawable.background_item2));
         } else if (i > 20 && days[i] < 15) {
             viewHolder.date_item.setTextColor(Color.rgb(204, 204, 204));
+            viewHolder.date_item.setBackground(context.getResources().getDrawable(R.drawable.background_item2));
         }
 
         return view;

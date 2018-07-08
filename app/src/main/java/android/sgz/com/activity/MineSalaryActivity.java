@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.MineSalaryAdapter;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.ProjectIncomeBean;
 import android.sgz.com.bean.ProjectSalaryListBean;
@@ -81,12 +82,18 @@ public class MineSalaryActivity extends BaseActivity implements View.OnClickList
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (false) {
-                    //包工头进入的页面
-                    startActivity(new Intent(mContext, SalaryDetailsActivity.class));
-                } else {
+                ProjectSalaryListBean.DataBean.ListBean bean = (ProjectSalaryListBean.DataBean.ListBean) parent.getAdapter().getItem(position);
+//                if (false) {
+//                    //包工头进入的页面
+//                    startActivity(new Intent(mContext, SalaryDetailsActivity.class));
+//                } else {
                     //个人工资详情页面
-                    startActivity(new Intent(mContext, PersonalSalaryDetailsActivity.class).putExtra("id", mList.get(position).getId()));
+//                    startActivity(new Intent(mContext, PersonalSalaryDetailsActivity.class).putExtra("id", mList.get(position).getId()));
+                if (bean != null) {
+                    //跳转到个人考勤页面
+                    int projectId = bean.getId();
+                    String projectName = bean.getName();
+                    startActivity(new Intent(mContext, PersonOrderSalaryActivity.class).putExtra("projectId", projectId).putExtra("projectName", projectName).putExtra("userId", Integer.valueOf(MyApplication.userId)).putExtra(ConfigUtil.EXTRA_SET_DEFAULT_ORDER_KEY, 3));
                 }
             }
         });

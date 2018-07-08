@@ -1,10 +1,13 @@
 package android.sgz.com.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.ApplyMakeRecordActivity;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.DefaultProjectOrderBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.DateUtils;
 import android.sgz.com.utils.StringUtils;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,9 +15,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -27,7 +32,7 @@ import java.util.Map;
  * Created by WD on 2018/4/29.
  */
 
-public class WorkAttendanceFragment extends BaseFragment {
+public class WorkAttendanceFragment extends BaseFragment implements View.OnClickListener {
     private View mRootView;
     private TextView tvProjectName;
     private TextView tvDate;
@@ -39,6 +44,9 @@ public class WorkAttendanceFragment extends BaseFragment {
     private TextView tvEndRecordAddress;
     private TextView tvEndRecordTime;
     private TextView tvEndWorkStatus;
+    private int projectId;
+    private AutoLinearLayout layoutNoneOrder;
+    private ScrollView layouotHaveOrder;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -77,6 +85,15 @@ public class WorkAttendanceFragment extends BaseFragment {
         tvEndRecordAddress = mRootView.findViewById(R.id.tv_end_record_address);
         tvEndRecordTime = mRootView.findViewById(R.id.tv_end_record_time);
         tvEndWorkStatus = mRootView.findViewById(R.id.tv_end_work_status);
+        layoutNoneOrder = mRootView.findViewById(R.id.layout_none_order);//没有工单显示页面
+        layouotHaveOrder = mRootView.findViewById(R.id.layout_have_order);
+
+        setLisener();
+    }
+
+    private void setLisener() {
+        tvStartWorkStatus.setOnClickListener(this);
+        tvEndWorkStatus.setOnClickListener(this);
     }
 
     /***
@@ -111,6 +128,7 @@ public class WorkAttendanceFragment extends BaseFragment {
                     String startTime = projectBean.getStarttime();
                     String startWorkTime = projectBean.getStartworktime();
                     String endWorkTime = projectBean.getEndworktime();
+                    projectId = projectBean.getId();
                     tvProjectName.setText("" + projectName);
                     tvDate.setText("" + startTime);
                     tvStartWorkTime.setText("上班时间 " + startWorkTime);
@@ -122,7 +140,7 @@ public class WorkAttendanceFragment extends BaseFragment {
                     String endRecordAddress = workRecordBean.getEndrecordaddress();
                     String startRecordTime = workRecordBean.getStartrecordtime();
                     String endRecordTime = workRecordBean.getEndrecordtime();
-                    int startSatus =workRecordBean.getStartstatus();
+                    int startSatus = workRecordBean.getStartstatus();
                     int endStatus = workRecordBean.getEndstatus();
 
                     tvStartWorkRecord.setText(StringUtils.isEmpty(startRecordTime) ? "打卡时间" : "打卡时间" + startRecordTime);
@@ -132,7 +150,7 @@ public class WorkAttendanceFragment extends BaseFragment {
                     if (startSatus == 1) {
                         tvStartWorkStatus.setText("正常");
                         tvStartWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
-                    } else if(startSatus ==2) {
+                    } else if (startSatus == 2) {
                         tvStartWorkStatus.setText("迟到");
                         tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
                     } else if (startSatus == 3) {
@@ -145,7 +163,7 @@ public class WorkAttendanceFragment extends BaseFragment {
                     if (endStatus == 1) {
                         tvEndWorkStatus.setText("正常");
                         tvEndWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
-                    } else if(endStatus ==2) {
+                    } else if (endStatus == 2) {
                         tvEndWorkStatus.setText("迟到");
                         tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
                     } else if (endStatus == 3) {
@@ -156,6 +174,9 @@ public class WorkAttendanceFragment extends BaseFragment {
                         tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
                     }
                 }
+            } else {
+                layoutNoneOrder.setVisibility(View.VISIBLE);
+                layouotHaveOrder.setVisibility(View.GONE);
             }
         }
     }
@@ -173,5 +194,33 @@ public class WorkAttendanceFragment extends BaseFragment {
     public void onMoonEvent(Integer messageEvent) {
         Log.d("Dong", "事件类型 ---》" + messageEvent);
         queryDefaultOrder();
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ApplyMakeRecordActivity.class);
+        String currentYearMoth = DateUtils.getYear() + "-" + (DateUtils.getMonth() < 10 ? "0" + DateUtils.getMonth() : DateUtils.getMonth());
+        switch (view.getId()) {
+            case R.id.tv_start_work_status:
+                //申请补上班卡
+                String startStatus = tvStartWorkStatus.getText().toString().trim();
+                if (startStatus.equals("未打卡")) {
+                    intent.putExtra("projectId", projectId);
+                    intent.putExtra("applyTime", currentYearMoth+"-"+DateUtils.getCurrentDayOfMonth());
+                    intent.putExtra("type", 1); //上班卡
+                    startActivity(intent);
+                }
+                break;
+            case R.id.tv_end_work_status:
+                //申请补下班卡
+                String endStatus = tvEndWorkStatus.getText().toString().trim();
+                if (endStatus.equals("未打卡")) {
+                    intent.putExtra("projectId", projectId);
+                    intent.putExtra("applyTime", currentYearMoth+"-"+DateUtils.getCurrentDayOfMonth());
+                    intent.putExtra("type", 2);
+                    startActivity(intent);
+                }
+                break;
+        }
     }
 }

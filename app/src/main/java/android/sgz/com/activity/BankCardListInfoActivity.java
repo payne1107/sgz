@@ -39,7 +39,7 @@ public class BankCardListInfoActivity extends BaseActivity implements View.OnCli
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("我的银行卡", true, true);
-//        setSettingBtn("添加银行");
+        setSettingBtn("添加银行卡");
         tvSet.setOnClickListener(this);
         String str = getIntent().getStringExtra("strBankListInfo");
         ListView listView = findViewById(R.id.listView);
@@ -73,7 +73,8 @@ public class BankCardListInfoActivity extends BaseActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_set:
-
+                startActivity(new Intent(mContext, BindBankCardActivity.class));
+                finish();
                 break;
         }
     }

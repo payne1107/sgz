@@ -122,13 +122,22 @@ public class PersonOrderSalaryBean {
         private Object professionlevelname;
         private Object name;
         private int allowance;
-        private int paymentsalary;
+        private double paymentsalary;
         private int allsalary;
         private String totalallowance;
         private String alladdsalary;
         private int workdays;
         private Object projectid;
         private int alladdtime;
+        private double withdrawsalary;
+
+        public double getWithdrawsalary() {
+            return withdrawsalary;
+        }
+
+        public void setWithdrawsalary(double withdrawsalary) {
+            this.withdrawsalary = withdrawsalary;
+        }
 
         public int getId() {
             return id;
@@ -330,11 +339,11 @@ public class PersonOrderSalaryBean {
             this.allowance = allowance;
         }
 
-        public int getPaymentsalary() {
+        public double getPaymentsalary() {
             return paymentsalary;
         }
 
-        public void setPaymentsalary(int paymentsalary) {
+        public void setPaymentsalary(double paymentsalary) {
             this.paymentsalary = paymentsalary;
         }
 

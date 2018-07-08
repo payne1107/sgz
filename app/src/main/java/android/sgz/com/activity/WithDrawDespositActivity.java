@@ -46,6 +46,12 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
 
     @Override
     protected void initData() {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         queryBankCardInfo();
     }
 

@@ -9,6 +9,7 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.WorkRecordByTimeBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
+import android.sgz.com.utils.StringUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -40,6 +41,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
     private TextView tvEndRecordAddress;
     private TextView tvEndStatus;
     private GridView gridView;
+    private int clickDay;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
 
         projectId = getIntent().getIntExtra("projectId", 0);
         curentYearMonth = getIntent().getStringExtra("current_month");
+        clickDay = DateUtils.getCurrentDayOfMonth();
         //第一次进入用这个查询
         String firstYearMonth = curentYearMonth + "-" + (day < 10 ? "0" + day : day);
         setInVisibleTitleIcon(curentYearMonth, true, true);
@@ -93,15 +96,17 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int array = (int) parent.getAdapter().getItem(position);
                 if (position < 7 && array > 20) {
-
+                    View view1 =parent.getChildAt(position);
+                    view1.setEnabled(false);
                 } else if (position > 20 && array < 15) {
-
+                    View view1 =parent.getChildAt(position);
+                    view1.setEnabled(false);
                 } else {
-                    int clickDay = (int) parent.getAdapter().getItem(position);
+                    clickDay = (int) parent.getAdapter().getItem(position);
                     dateAdapter.updateTextColor(position);
                     dateAdapter.notifyDataSetChanged();
                     String month = curentYearMonth + "-" + (clickDay < 10 ? "0" + clickDay : clickDay);
-                    queryWorkRecordByTime(projectId,month);
+                    queryWorkRecordByTime(projectId, month);
                 }
             }
         });
@@ -158,8 +163,8 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 String endRecordAddress =data.getEndrecordaddress();
                 int startStatus =data.getStartstatus();
                 int endStatus =data.getEndstatus();
-                tvStartRecordTime.setText("打卡时间" + startRecordTime);
-                tvStartAddress.setText("" + startRecordAddress);
+                tvStartRecordTime.setText(StringUtils.isEmpty(startRecordTime) ? "打卡时间:" : "打卡时间:" + startRecordTime);
+                tvStartAddress.setText(StringUtils.isEmpty(startRecordAddress) ? "未打卡" : startRecordAddress);
                 if (startStatus == 1) {
                     tvStartStatus.setText("正常");
                 } else if(startStatus == 2){
@@ -169,8 +174,8 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 } else {
                     tvStartStatus.setText("未打卡");
                 }
-                tvEndRecordAddress.setText("" + endRecordAddress);
-                tvEndRecordTime.setText("打卡时间：" + endRecordTime);
+                tvEndRecordAddress.setText(StringUtils.isEmpty(endRecordAddress) ? "未打卡" : endRecordAddress);
+                tvEndRecordTime.setText(StringUtils.isEmpty(endRecordTime) ? "打卡时间:" : "打卡时间:" + endRecordTime);
                 if (endStatus == 1) {
                     tvEndStatus.setText("正常");
                 } else if(endStatus == 2){
@@ -196,7 +201,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 String startStatus = tvStartStatus.getText().toString().trim();
                 if (startStatus.equals("未打卡")) {
                     intent.putExtra("projectId", projectId);
-                    intent.putExtra("applyTime", curentYearMonth);
+                    intent.putExtra("applyTime", curentYearMonth + "-" + clickDay);
                     intent.putExtra("type", 1); //上班卡
                     startActivity(intent);
                 }
@@ -206,7 +211,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 String endStatus = tvEndStatus.getText().toString().trim();
                 if (endStatus.equals("未打卡")) {
                     intent.putExtra("projectId", projectId);
-                    intent.putExtra("applyTime", curentYearMonth);
+                    intent.putExtra("applyTime", curentYearMonth + "-" + clickDay);
                     intent.putExtra("type", 2);
                     startActivity(intent);
                 }
