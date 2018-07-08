@@ -155,8 +155,12 @@ public class MineWorkOrderkFragment extends BaseFragment{
                     adapter.setData(mList);
                 } else {
                     mList = data.getList();
-                    adapter.setData(mList);
-                    listView.setVisibility(View.VISIBLE);
+                    if (mList != null && mList.size() > 0) {
+                        adapter.setData(mList);
+                        listView.setVisibility(View.VISIBLE);
+                    } else {
+                        setEmptyView(listView);
+                    }
                 }
             }
         }

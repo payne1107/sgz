@@ -10,6 +10,7 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.RecordWorkBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
+import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -194,7 +195,11 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_absenteeism:
             case R.id.layout_overtime:
                 //打卡详情
-                startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId));
+                if (projectId > 0) {
+                    startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId));
+                } else {
+                    toastMessage("没有工单统计数据");
+                }
                 break;
         }
     }

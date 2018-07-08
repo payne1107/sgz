@@ -173,8 +173,7 @@ public class WorkDayNumActivity extends BaseActivity{
                         adapter.setData(mList);
                         listView.setVisibility(View.VISIBLE);
                     } else {
-                        adapter.setData(mList);
-                        //可以加个设置空页面
+                      setEmptyView(listView);
                     }
                 }
             }
