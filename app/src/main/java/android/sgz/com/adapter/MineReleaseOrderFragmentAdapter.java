@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.zhy.autolayout.AutoFrameLayout;
+import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
@@ -66,6 +68,8 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             holder.tvStartWorkTime=convertView.findViewById(R.id.tv_start_work_time);
 
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tv_status);
+            holder.layoutShadow =convertView.findViewById(R.id.layout_shadow);
+            holder.layoutContainer= convertView.findViewById(R.id.layout_container);
             AutoUtils.autoSize(convertView);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -80,6 +84,7 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             int status = bean.getStatus();
             String startWorkTime = bean.getStartworktime();
             String endWorkTime = bean.getEndworktime();
+            int ifend = bean.getIfend(); //工单是否结束 0未结束   1 已结束
             holder.tvTitle.setText("" + name);
             holder.tvHeadMan.setText("" + headMan);
             holder.tvAddress.setText("" + address);
@@ -87,11 +92,18 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             holder.tvStartTime.setText("" + startTime);
             holder.tvEndWorkTime.setText("" + endWorkTime);
             holder.tvStartWorkTime.setText("" + startWorkTime);
+            if (ifend == 0) {
+                holder.layoutShadow.setVisibility(View.GONE);
+            } else {
+                holder.layoutShadow.setVisibility(View.VISIBLE);
+            }
         }
         return convertView;
     }
 
     class ViewHolder{
         TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus,tvStartWorkTime,tvEndWorkTime;
+        AutoFrameLayout layoutShadow;
+        AutoLinearLayout layoutContainer;
     }
 }

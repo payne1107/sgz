@@ -171,6 +171,15 @@ public class MineWorkOrderFragmentBean {
             private String income;
             private String paymentsalary;
             private String withdrawsalary;
+            private int ifend;
+
+            public int getIfend() {
+                return ifend;
+            }
+
+            public void setIfend(int ifend) {
+                this.ifend = ifend;
+            }
 
             public int getId() {
                 return id;

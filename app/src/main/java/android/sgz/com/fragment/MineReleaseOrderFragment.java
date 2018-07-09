@@ -56,9 +56,6 @@ public class MineReleaseOrderFragment extends BaseFragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        queryAllProjectOrder(pageNo);
-
         listView = (PullToRefreshListView) mRootView.findViewById(R.id.listView);
         // 设置模式BOTH: 既能上拉也能下拉，
         listView.setMode(PullToRefreshBase.Mode.BOTH);
@@ -66,6 +63,12 @@ public class MineReleaseOrderFragment extends BaseFragment{
         listView.setAdapter(adapter);
 
         setListener();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        queryAllProjectOrder(pageNo);
     }
 
     private void setListener() {
@@ -76,8 +79,10 @@ public class MineReleaseOrderFragment extends BaseFragment{
                 if (bean != null) {
                     int projectId = bean.getId();
                     String projectName = bean.getName();
-                    Log.d("Dong", "---------------projectName" + projectName);
-                    startActivity(new Intent(getActivity(), ReleaseWorkOrderDetailsActivity.class).putExtra("projectId", projectId).putExtra("projectName", projectName));
+                    int ifent = bean.getIfend();
+                    if (ifent == 0) {
+                        startActivity(new Intent(getActivity(), ReleaseWorkOrderDetailsActivity.class).putExtra("projectId", projectId).putExtra("projectName", projectName));
+                    }
                 }
             }
         });

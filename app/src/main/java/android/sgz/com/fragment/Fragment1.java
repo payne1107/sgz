@@ -273,6 +273,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         Log.d("Dong", "处理打卡反馈结果---》" + json);
         if (getRequestCode(json) == 1) {
             Toast.makeText(getActivity(), "打卡成功", Toast.LENGTH_LONG).show();
+            queryWorkStatus();
             //打卡成功刷新下面的数据
             EventBus.getDefault().post(ConfigUtil.EVENT_TYPE_CODE_ONE);
         }

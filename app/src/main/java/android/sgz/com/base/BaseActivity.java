@@ -1287,14 +1287,20 @@ public abstract class BaseActivity extends FragmentActivity {
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-            platform.name();
+           Log.d("Dong","------------------>"+platform.name()) ;
             if (platform.name().equals("SINA")) {
                 return;
             } else if (platform.name().equals("WEIXIN")) {
                 toastMessage("微信邀请取消了");
                 return;
+            } else if ("WEIXIN_CIRCLE".equals(platform.name())) {
+                toastMessage("微信朋友圈分享取消了");
+                return;
+            } else if ("QQ".equals(platform.name())) {
+                toastMessage("QQ分享取消了");
+                return;
             }
-            toastMessage(platform + "邀请取消了");
+           // toastMessage(platform + "邀请取消了");
         }
     };
 }
