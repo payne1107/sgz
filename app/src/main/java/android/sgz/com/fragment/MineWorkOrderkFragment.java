@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.PersonOrderSalaryActivity;
+import android.sgz.com.activity.ReleaseWorkOrderDetailsActivity;
 import android.sgz.com.activity.WorkOrderDetailsActivity;
 import android.sgz.com.adapter.MineWorkOrderAdapter;
 import android.sgz.com.adapter.MineWorkOrderFragmentAdapter;
@@ -79,12 +80,15 @@ public class MineWorkOrderkFragment extends BaseFragment{
                     String projectName =bean.getName();
                     int projectId =bean.getId();
                     //update 2018 7月7号 跳转到个人工资和考勤  我的工单需要设置默认打卡工单 设置标签区分
-                    Intent intent = new Intent(getActivity(), PersonOrderSalaryActivity.class);
-                    intent.putExtra("projectId", projectId);
-                    intent.putExtra("userId", Integer.valueOf(MyApplication.userId));
-                    intent.putExtra("projectName", projectName);
-                    intent.putExtra(ConfigUtil.EXTRA_SET_DEFAULT_ORDER_KEY, 1);
-                    startActivity(intent);
+                    int ifent = bean.getIfend();
+                    if (ifent == 0) {
+                        Intent intent = new Intent(getActivity(), PersonOrderSalaryActivity.class);
+                        intent.putExtra("projectId", projectId);
+                        intent.putExtra("userId", Integer.valueOf(MyApplication.userId));
+                        intent.putExtra("projectName", projectName);
+                        intent.putExtra(ConfigUtil.EXTRA_SET_DEFAULT_ORDER_KEY, 1);
+                        startActivity(intent);
+                    }
                 }
             }
         });

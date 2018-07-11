@@ -387,5 +387,10 @@ public class ConfigUtil {
      */
     public static final String EDIT_PROJECT_WORK_SALARY_URL = MyApplication.REQUEST_URL + "project/editProjectWorkSalary";
     public static final int EDIT_PROJECT_WORK_SALARY_URL_ACTION = 74;
+    /****
+     * 清除工资
+     */
+    public static final String CLEAR_SALARY_URL = MyApplication.REQUEST_URL + "opera/operaSalary";
+    public static final int CLEAR_SALARY_URL_ACTION = 75;
 
 }

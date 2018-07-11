@@ -3,6 +3,7 @@ package android.sgz.com.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.ClearSalaryActivity;
 import android.sgz.com.activity.ReleaseWorkOrderDetailsActivity;
 import android.sgz.com.activity.WorkOrderDetailsActivity;
 import android.sgz.com.adapter.MineReleaseOrderFragmentAdapter;
@@ -10,6 +11,7 @@ import android.sgz.com.adapter.MineWorkOrderFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.MineWorkOrderFragmentBean;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -103,6 +105,22 @@ public class MineReleaseOrderFragment extends BaseFragment{
                 } else {
                     delayedToast();
                 }
+            }
+        });
+        adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Log.d("Dong", "清除工资");
+                MineWorkOrderFragmentBean.DataBean.ListBean bean = mList.get(position);
+                if (bean != null) {
+                    int projctId = bean.getId();
+                    startActivity(new Intent(getActivity(),ClearSalaryActivity.class).putExtra("projectId",projctId));
+                }
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
             }
         });
     }

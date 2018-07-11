@@ -3,6 +3,7 @@ package android.sgz.com.adapter;
 import android.content.Context;
 import android.sgz.com.R;
 import android.sgz.com.bean.MineWorkOrderFragmentBean;
+import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,7 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
+    public View getView(final int position, View convertView, ViewGroup viewGroup) {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
@@ -70,6 +71,7 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tv_status);
             holder.layoutShadow =convertView.findViewById(R.id.layout_shadow);
             holder.layoutContainer= convertView.findViewById(R.id.layout_container);
+            holder.tvCleanSalary =convertView.findViewById(R.id.tv_clean_salary);
             AutoUtils.autoSize(convertView);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -97,13 +99,23 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             } else {
                 holder.layoutShadow.setVisibility(View.VISIBLE);
             }
+            holder.tvCleanSalary.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onItemClick(view,position);
+                }
+            });
         }
         return convertView;
     }
 
     class ViewHolder{
-        TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus,tvStartWorkTime,tvEndWorkTime;
+        TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus,tvStartWorkTime,tvEndWorkTime,tvCleanSalary;
         AutoFrameLayout layoutShadow;
         AutoLinearLayout layoutContainer;
+    }
+    private IRecycleViewOnItemClickListener mOnItemClickListener;//声明接口
+    public void setOnItemClickListener(IRecycleViewOnItemClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
     }
 }

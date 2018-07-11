@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/sys_title" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_desc"
+            android:paddingTop="@dimen/margin_size_5"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:gravity="top"
+            android:paddingLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_24"
+            android:hint="请备注清除工资记录原因，以便日后查询"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="200px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90px">
+
+        <TextView
+            android:id="@+id/tv_clear_half"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:gravity="center"
+            android:background="@drawable/layout_pay_btn_bg"
+            android:textSize="@dimen/text_size_30"
+            android:text="清除半天"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_clear_day"
+            android:gravity="center"
+            android:background="@drawable/layout_pay_btn_bg"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:text="清除整天"
+            android:textSize="@dimen/text_size_30"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <TextView
+        android:textColor="@color/color_62d"
+        android:layout_marginTop="@dimen/margin_size_15"
+        android:layout_marginLeft="@dimen/margin_size_15"
+        android:text="备注：工资清除后，不可恢复,谨慎操作"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</com.zhy.autolayout.AutoLinearLayout>
