@@ -74,10 +74,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:id="@+id/tv_address"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
-                android:text="合肥市长江西路"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </com.zhy.autolayout.AutoLinearLayout>

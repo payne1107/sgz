@@ -92,6 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:ellipsize="end"
+                android:maxLength="1"
                 android:id="@+id/tv_address"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"
@@ -203,6 +205,7 @@
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
     <com.zhy.autolayout.AutoFrameLayout
+        android:visibility="gone"
         android:id="@+id/layout_shadow"
         android:clickable="false"
         android:background="#90000000"
