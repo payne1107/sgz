@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 
@@ -42,6 +41,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
     private TextView tvEndStatus;
     private GridView gridView;
     private int clickDay;
+    private TextView tvProjectName;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -63,6 +63,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
 
         projectId = getIntent().getIntExtra("projectId", 0);
         curentYearMonth = getIntent().getStringExtra("current_month");
+        String projectName =getIntent().getStringExtra("projectName");
         clickDay = DateUtils.getCurrentDayOfMonth();
         //第一次进入用这个查询
         String firstYearMonth = curentYearMonth + "-" + (day < 10 ? "0" + day : day);
@@ -74,6 +75,8 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
         tvEndRecordTime = findViewById(R.id.tv_end_record_time);
         tvEndStatus = findViewById(R.id.tv_end_status);
         tvEndRecordAddress = findViewById(R.id.tv_end_record_address);
+        tvProjectName = findViewById(R.id.tv_project_name);
+        tvProjectName.setText("项目名称：" + projectName);
 
         days = DateUtils.getDayOfMonthFormat(year, month);
         convertArray();

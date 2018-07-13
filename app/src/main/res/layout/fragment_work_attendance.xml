@@ -307,6 +307,7 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/tv_current_des"
             android:textSize="@dimen/text_size_30"
             android:textColor="@color/color_62d"
             android:layout_width="wrap_content"

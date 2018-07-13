@@ -1,6 +1,5 @@
 package android.sgz.com.activity;
 
-import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -16,10 +15,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -310,6 +307,7 @@ public class ChooseLocation3Activity extends AppCompatActivity {
                             }
                             PoiItem poiItem = mList.get(position);
                             Intent intent = new Intent();
+                            Log.e("Dong","-->"+poiItem.getAdName() +"-->"+poiItem.getTitle());
                             intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_ADDRESS_KEY, poiItem.getProvinceName()+poiItem.getCityName()+poiItem.getTitle());
                             intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_LAT_KEY,  ""+poiItem.getLatLonPoint().getLatitude());
                             intent.putExtra(ReleaseOrderActivity.REQUEST_CHOOSE_LOCATION_LON_KEY, ""+poiItem.getLatLonPoint().getLongitude());

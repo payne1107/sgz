@@ -27,14 +27,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:visibility="gone"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:id="@+id/tv_project_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_size_40"
                 android:layout_marginTop="@dimen/margin_size_10"
-                android:text="上班时间 08:30"
                 android:textColor="@color/color_888"
-                android:textSize="@dimen/text_size_24" />
+                android:textSize="@dimen/text_size_28" />
         </com.zhy.autolayout.AutoLinearLayout>
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"

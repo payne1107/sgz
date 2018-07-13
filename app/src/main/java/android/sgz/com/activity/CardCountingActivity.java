@@ -10,7 +10,6 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.RecordWorkBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
-import android.sgz.com.utils.StringUtils;
 import android.sgz.com.widget.IRecycleViewOnItemClickListener;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -56,6 +55,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
     private TextView tvNoRecordCount;
     private TextView tvAddWorkCount;
     private int projectId;
+    private String projectName;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -196,7 +196,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_overtime:
                 //打卡详情
                 if (projectId > 0) {
-                    startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId));
+                    startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId).putExtra("projectName", projectName));
                 } else {
                     toastMessage("没有工单统计数据");
                 }
@@ -249,6 +249,7 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
                 int late = data.getLate();//迟到
                 int extraworkTime = data.getExtraworktime();//加班时长
                 int leave = data.getLeave();//早退
+                projectName = data.getProjectname();
                 projectId = data.getProjectid();
                 tvWorkDays.setText(attendance+"天");
                 tvLateCount.setText(late + "次");

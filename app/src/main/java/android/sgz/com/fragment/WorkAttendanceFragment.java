@@ -10,7 +10,6 @@ import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
 import android.sgz.com.utils.StringUtils;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +46,7 @@ public class WorkAttendanceFragment extends BaseFragment implements View.OnClick
     private int projectId;
     private AutoLinearLayout layoutNoneOrder;
     private ScrollView layouotHaveOrder;
+    private TextView tvCurrentDesc;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,6 +87,7 @@ public class WorkAttendanceFragment extends BaseFragment implements View.OnClick
         tvEndWorkStatus = mRootView.findViewById(R.id.tv_end_work_status);
         layoutNoneOrder = mRootView.findViewById(R.id.layout_none_order);//没有工单显示页面
         layouotHaveOrder = mRootView.findViewById(R.id.layout_have_order);
+        tvCurrentDesc = mRootView.findViewById(R.id.tv_current_des);
 
         setLisener();
     }
@@ -123,55 +124,63 @@ public class WorkAttendanceFragment extends BaseFragment implements View.OnClick
             DefaultProjectOrderBean.DataBean data = bean.getData();
             if (data != null) {
                 DefaultProjectOrderBean.DataBean.ProjectBean projectBean = data.getProject();
-                if (projectBean != null) {
-                    String projectName = projectBean.getName();
-                    String startTime = projectBean.getStarttime();
-                    String startWorkTime = projectBean.getStartworktime();
-                    String endWorkTime = projectBean.getEndworktime();
-                    projectId = projectBean.getId();
-                    tvProjectName.setText("" + projectName);
-                    tvDate.setText("" + startTime);
-                    tvStartWorkTime.setText("上班时间 " + startWorkTime);
-                    tvEndWorkTime.setText("下班时间" + endWorkTime);
-                }
-                DefaultProjectOrderBean.DataBean.WorkRecordBean workRecordBean = data.getWorkRecord();
-                if (workRecordBean != null) {
-                    String startRecordAddress = workRecordBean.getStartrecordaddress();
-                    String endRecordAddress = workRecordBean.getEndrecordaddress();
-                    String startRecordTime = workRecordBean.getStartrecordtime();
-                    String endRecordTime = workRecordBean.getEndrecordtime();
-                    int startSatus = workRecordBean.getStartstatus();
-                    int endStatus = workRecordBean.getEndstatus();
-
-                    tvStartWorkRecord.setText(StringUtils.isEmpty(startRecordTime) ? "打卡时间" : "打卡时间" + startRecordTime);
-                    tvStartWorkAddress.setText(StringUtils.isEmpty(startRecordAddress) ? "" : "" + startRecordAddress);
-                    tvEndRecordAddress.setText(StringUtils.isEmpty(endRecordAddress) ? "" : "" + endRecordAddress);
-                    tvEndRecordTime.setText(StringUtils.isEmpty(endRecordTime) ? "下班时间" : "下班时间" + endRecordTime);
-                    if (startSatus == 1) {
-                        tvStartWorkStatus.setText("正常");
-                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
-                    } else if (startSatus == 2) {
-                        tvStartWorkStatus.setText("迟到");
-                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
-                    } else if (startSatus == 3) {
-                        tvStartWorkStatus.setText("早退");
-                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
-                    } else {
-                        tvStartWorkStatus.setText("未打卡");
-                        tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                int ifend = projectBean.getIfend();
+                if (ifend == 1) {
+                    //工单已经结束
+                    tvCurrentDesc.setText("该工单已经结束");
+                    layoutNoneOrder.setVisibility(View.VISIBLE);
+                    layouotHaveOrder.setVisibility(View.GONE);
+                } else {
+                    if (projectBean != null) {
+                        String projectName = projectBean.getName();
+                        String startTime = projectBean.getStarttime();
+                        String startWorkTime = projectBean.getStartworktime();
+                        String endWorkTime = projectBean.getEndworktime();
+                        projectId = projectBean.getId();
+                        tvProjectName.setText("" + projectName);
+                        tvDate.setText("" + startTime);
+                        tvStartWorkTime.setText("上班时间 " + startWorkTime);
+                        tvEndWorkTime.setText("下班时间" + endWorkTime);
                     }
-                    if (endStatus == 1) {
-                        tvEndWorkStatus.setText("正常");
-                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
-                    } else if (endStatus == 2) {
-                        tvEndWorkStatus.setText("迟到");
-                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
-                    } else if (endStatus == 3) {
-                        tvEndWorkStatus.setText("早退");
-                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
-                    } else {
-                        tvEndWorkStatus.setText("未打卡");
-                        tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                    DefaultProjectOrderBean.DataBean.WorkRecordBean workRecordBean = data.getWorkRecord();
+                    if (workRecordBean != null) {
+                        String startRecordAddress = workRecordBean.getStartrecordaddress();
+                        String endRecordAddress = workRecordBean.getEndrecordaddress();
+                        String startRecordTime = workRecordBean.getStartrecordtime();
+                        String endRecordTime = workRecordBean.getEndrecordtime();
+                        int startSatus = workRecordBean.getStartstatus();
+                        int endStatus = workRecordBean.getEndstatus();
+
+                        tvStartWorkRecord.setText(StringUtils.isEmpty(startRecordTime) ? "打卡时间" : "打卡时间" + startRecordTime);
+                        tvStartWorkAddress.setText(StringUtils.isEmpty(startRecordAddress) ? "" : "" + startRecordAddress);
+                        tvEndRecordAddress.setText(StringUtils.isEmpty(endRecordAddress) ? "" : "" + endRecordAddress);
+                        tvEndRecordTime.setText(StringUtils.isEmpty(endRecordTime) ? "下班时间" : "下班时间" + endRecordTime);
+                        if (startSatus == 1) {
+                            tvStartWorkStatus.setText("正常");
+                            tvStartWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
+                        } else if (startSatus == 2) {
+                            tvStartWorkStatus.setText("迟到");
+                            tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                        } else if (startSatus == 3) {
+                            tvStartWorkStatus.setText("早退");
+                            tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                        } else {
+                            tvStartWorkStatus.setText("未打卡");
+                            tvStartWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                        }
+                        if (endStatus == 1) {
+                            tvEndWorkStatus.setText("正常");
+                            tvEndWorkStatus.setTextColor(getResources().getColor(R.color.color_62d));
+                        } else if (endStatus == 2) {
+                            tvEndWorkStatus.setText("迟到");
+                            tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                        } else if (endStatus == 3) {
+                            tvEndWorkStatus.setText("早退");
+                            tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                        } else {
+                            tvEndWorkStatus.setText("未打卡");
+                            tvEndWorkStatus.setTextColor(getResources().getColor(R.color.google_red));
+                        }
                     }
                 }
             } else {

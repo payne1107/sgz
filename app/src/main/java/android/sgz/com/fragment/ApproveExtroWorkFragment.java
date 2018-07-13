@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.ApproveExtroWorkDetailsActivity;
 import android.sgz.com.adapter.ApproveExtroWorkFragmentAdapter;
-import android.sgz.com.adapter.MineExtraWorkFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.ApproveExtroWorkBean;
 import android.sgz.com.utils.ConfigUtil;
@@ -96,17 +95,19 @@ public class ApproveExtroWorkFragment extends BaseFragment {
                     int approveId = bean.getId();
                     String workName = bean.getWorkname();
                     int status = bean.getStatus();
-                    String startTime = bean.getStarttime();
-                    String endTime = bean.getEndtime();
-                    String projectName = bean.getProjectname();
-                    Intent intent = new Intent(getActivity(),ApproveExtroWorkDetailsActivity.class);
-                    intent.putExtra("workname", workName);
-                    intent.putExtra("status", status);
-                    intent.putExtra("starttime", startTime);
-                    intent.putExtra("endtime", endTime);
-                    intent.putExtra("projectname", projectName);
-                    intent.putExtra("approveid", approveId);
-                    startActivity(intent);
+                    if (status != 1 && status != 0) {
+                        String startTime = bean.getStarttime();
+                        String endTime = bean.getEndtime();
+                        String projectName = bean.getProjectname();
+                        Intent intent = new Intent(getActivity(),ApproveExtroWorkDetailsActivity.class);
+                        intent.putExtra("workname", workName);
+                        intent.putExtra("status", status);
+                        intent.putExtra("starttime", startTime);
+                        intent.putExtra("endtime", endTime);
+                        intent.putExtra("projectname", projectName);
+                        intent.putExtra("approveid", approveId);
+                        startActivity(intent);
+                    }
                 }
             }
         });

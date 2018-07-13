@@ -77,6 +77,15 @@ public class RecordWorkBean {
         private int late;
         private int attendance;
         private int projectid;
+        private String projectname;
+
+        public String getProjectname() {
+            return projectname;
+        }
+
+        public void setProjectname(String projectname) {
+            this.projectname = projectname;
+        }
 
         public int getExtraworktime() {
             return extraworktime;
