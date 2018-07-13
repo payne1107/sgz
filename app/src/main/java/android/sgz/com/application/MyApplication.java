@@ -18,6 +18,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.pgyersdk.crash.PgyCrashManager;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 
@@ -74,6 +76,9 @@ public class MyApplication extends Application {
     public static String SERVER_VERSION_NAME = "";
     public static boolean isClickUpdateVersionBtn = false;
     public static String userPhone ="";
+    public static final String wxAppID = "wx94db1f1acddbfcd6";
+    public static final String MCH_ID = "1500136582";
+    public static IWXAPI iwxapi;
 
     public static MyApplication getApplication() {
         if (mInstance == null) {
@@ -98,6 +103,8 @@ public class MyApplication extends Application {
         UMConfigure.init(this, "5b348af1f43e480284000042", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
         //设置全局的异常捕获器
        //CatchExceptionHandler.getInstance().setDefaultUnCachExceptionHandler();
+        iwxapi = WXAPIFactory.createWXAPI(getApplicationContext(), wxAppID,true);
+        iwxapi.registerApp(wxAppID);
     }
 
     //配置网络框架

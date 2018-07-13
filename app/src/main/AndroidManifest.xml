@@ -313,6 +313,15 @@
         <activity
             android:name=".activity.ClearSalaryActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ToUpPayActivity"
+            android:screenOrientation="portrait" />
+        <!-- 微信支付回调 -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent" />
         <!--友盟分享集成-->
         <activity
             android:name="com.tencent.tauth.AuthActivity"

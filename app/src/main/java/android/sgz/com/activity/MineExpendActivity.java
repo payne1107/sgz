@@ -128,7 +128,7 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_recharge:
-                toastMessage("充值");
+                startActivity(new Intent(mContext, ToUpPayActivity.class));
                 break;
             case R.id.tv_recharge_details:
                 startActivity(new Intent(mContext, ToRechargeDetailsActivity.class));

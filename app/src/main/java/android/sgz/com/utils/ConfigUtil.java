@@ -392,5 +392,10 @@ public class ConfigUtil {
      */
     public static final String CLEAR_SALARY_URL = MyApplication.REQUEST_URL + "opera/operaSalary";
     public static final int CLEAR_SALARY_URL_ACTION = 75;
+    /****
+     * 充值
+     */
+    public static final String TO_RECHARGE_URL = MyApplication.REQUEST_URL + "recharge/toRecharge";
+    public static final int TO_RECHARGE_URL_ACTION = 76;
 
 }
