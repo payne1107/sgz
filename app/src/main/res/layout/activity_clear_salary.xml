@@ -54,7 +54,7 @@
         android:textColor="@color/color_62d"
         android:layout_marginTop="@dimen/margin_size_15"
         android:layout_marginLeft="@dimen/margin_size_15"
-        android:text="备注：工资清除后，不可恢复,谨慎操作"
+        android:text="备注：仅清除当天工资，工资清除后，不可恢复,谨慎操作"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </com.zhy.autolayout.AutoLinearLayout>
