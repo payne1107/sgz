@@ -55,6 +55,7 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
     private TextView tvDSalary;
     private TextView tvAllPaySalalry;
     private double withdrawalBalance;
+    private int ifend;
 
 
     @Override
@@ -77,6 +78,7 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
         projectId = getIntent().getIntExtra("projectId", 0);
         userId = getIntent().getIntExtra("userId", 0);
         projectName = getIntent().getStringExtra("projectName");
+        ifend = getIntent().getIntExtra("ifend", -1);
         tvProjectName = findViewById(R.id.tv_project_name);
         tvWorkDays = findViewById(R.id.tv_work_days);
         tvUserName = findViewById(R.id.tv_username);
@@ -95,7 +97,9 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
         if (extraSetDefaultOrder == 1) {
             //显示设置默认工单
             tvSet.setText("设置默认工单");
-            tvSet.setVisibility(View.VISIBLE);
+            if (ifend == 0) {
+                tvSet.setVisibility(View.VISIBLE);
+            }
             tvSet.setOnClickListener(this);
         } else if (extraSetDefaultOrder == 3) {
             tvSet.setText("提现");
