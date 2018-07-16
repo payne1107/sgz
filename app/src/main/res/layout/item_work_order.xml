@@ -93,7 +93,6 @@
                 android:layout_height="wrap_content" />
             <TextView
                 android:ellipsize="end"
-                android:maxLength="1"
                 android:id="@+id/tv_address"
                 android:textColor="@color/text_color_3"
                 android:textSize="@dimen/text_size_28"

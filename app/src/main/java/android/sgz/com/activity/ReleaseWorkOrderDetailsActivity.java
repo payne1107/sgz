@@ -38,6 +38,7 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
     private ReleaseWorkOrderDetailsAdapter adapter;
     private TextView tvAddPerson;
     private String projectName;
+    private int ifend;
 
 
     @Override
@@ -57,6 +58,7 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
         setInVisibleTitleIcon("工单详情", true, true);
         projectId = getIntent().getIntExtra("projectId", 0);
         projectName = getIntent().getStringExtra("projectName");
+        ifend = getIntent().getIntExtra("ifend", -1);
 
         setSettingBtn("结束工单");
         listView = findViewById(R.id.listView);
@@ -64,6 +66,11 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
         adapter = new ReleaseWorkOrderDetailsAdapter(mContext, mList);
         listView.setAdapter(adapter);
 
+        if (ifend == 1) {
+            //工单结束隐藏这些按钮
+            tvSet.setVisibility(View.GONE);
+            tvAddPerson.setVisibility(View.GONE);
+        }
         setListener();
 
     }
@@ -77,8 +84,12 @@ public class ReleaseWorkOrderDetailsActivity extends BaseActivity implements Vie
 //                toastMessage("position" +mList.get(position).getUserid());
                 if (mList != null) {
                     int userId = mList.get(position).getId();
-                    //编辑工资
-                    startActivity(new Intent(mContext, SetWorkPresonSalaryActivity.class).putExtra("projectId", projectId).putExtra("update_person_salary", 2).putExtra("userId", userId));
+                    if (ifend == 0) {
+                        //编辑工资
+                        startActivity(new Intent(mContext, SetWorkPresonSalaryActivity.class).putExtra("projectId", projectId).putExtra("update_person_salary", 2).putExtra("userId", userId));
+                    } else {
+                        toastMessage("工单已经结束");
+                    }
                 }
             }
 

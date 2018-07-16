@@ -2,10 +2,8 @@ package android.sgz.com.adapter;
 
 import android.content.Context;
 import android.sgz.com.R;
-import android.sgz.com.bean.MineWorkOrderFragmentBean;
 import android.sgz.com.bean.WaringApplyListBean;
 import android.sgz.com.utils.StringUtils;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,9 +86,9 @@ public class MineWaringWorkRecordkFragmentAdapter extends BaseAdapter {
             if (status == 1) {
                 holder.tvStatus.setText("审核通过");
             } else if (status == 2) {
-                holder.tvStatus.setText("不通过");
-            } else {
                 holder.tvStatus.setText("审核中");
+            } else {
+                holder.tvStatus.setText("不通过");
             }
         }
         return view;

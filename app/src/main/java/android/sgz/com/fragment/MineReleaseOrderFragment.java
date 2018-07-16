@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.ClearSalaryActivity;
 import android.sgz.com.activity.ReleaseWorkOrderDetailsActivity;
-import android.sgz.com.activity.WorkOrderDetailsActivity;
 import android.sgz.com.adapter.MineReleaseOrderFragmentAdapter;
-import android.sgz.com.adapter.MineWorkOrderFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.MineWorkOrderFragmentBean;
 import android.sgz.com.utils.ConfigUtil;
@@ -82,9 +80,9 @@ public class MineReleaseOrderFragment extends BaseFragment{
                     int projectId = bean.getId();
                     String projectName = bean.getName();
                     int ifent = bean.getIfend();
-                    if (ifent == 0) {
-                        startActivity(new Intent(getActivity(), ReleaseWorkOrderDetailsActivity.class).putExtra("projectId", projectId).putExtra("projectName", projectName));
-                    }
+                   // if (ifent == 0) {
+                    startActivity(new Intent(getActivity(), ReleaseWorkOrderDetailsActivity.class).putExtra("projectId", projectId).putExtra("projectName", projectName).putExtra("ifend", ifent));
+                   // }
                 }
             }
         });
@@ -114,7 +112,10 @@ public class MineReleaseOrderFragment extends BaseFragment{
                 MineWorkOrderFragmentBean.DataBean.ListBean bean = mList.get(position);
                 if (bean != null) {
                     int projctId = bean.getId();
-                    startActivity(new Intent(getActivity(),ClearSalaryActivity.class).putExtra("projectId",projctId));
+                    int ifend = bean.getIfend();
+                    if (ifend == 0) {
+                        startActivity(new Intent(getActivity(),ClearSalaryActivity.class).putExtra("projectId",projctId));
+                    }
                 }
             }
 
