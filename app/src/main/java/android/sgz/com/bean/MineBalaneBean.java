@@ -70,7 +70,7 @@ public class MineBalaneBean {
 
         private int id;
         private int userid;
-        private int balance;
+        private double balance;
         private long updatetime;
 
         public int getId() {
@@ -89,11 +89,11 @@ public class MineBalaneBean {
             this.userid = userid;
         }
 
-        public int getBalance() {
+        public double getBalance() {
             return balance;
         }
 
-        public void setBalance(int balance) {
+        public void setBalance(double balance) {
             this.balance = balance;
         }
 

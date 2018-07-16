@@ -210,7 +210,7 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
         if (bean != null) {
             MineBalaneBean.DataBean data = bean.getData();
             if (data != null) {
-                int balance = data.getBalance();
+                double balance = data.getBalance();
                 tvBalance.setText("" + balance);
             }
         }
