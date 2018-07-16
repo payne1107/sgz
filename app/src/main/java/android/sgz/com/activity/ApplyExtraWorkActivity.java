@@ -124,7 +124,7 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
     @Override
     public void onDateSet(TimePickerDialog timePickerView, long millseconds) {
         Date d = new Date(millseconds);
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd:HH:mm");
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         if (setTime == 1) {
             tvStartDate.setText(sf.format(d));
         } else {
