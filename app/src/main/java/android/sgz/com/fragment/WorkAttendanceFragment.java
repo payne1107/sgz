@@ -118,7 +118,7 @@ public class WorkAttendanceFragment extends BaseFragment implements View.OnClick
      * @param json
      */
     private void handleQueryDefaultOrder(String json) {
-        Log.d("Dong", "默认工单---->" + json);
+       // Log.d("Dong", "默认工单---->" + json);
         DefaultProjectOrderBean bean = JSON.parseObject(json, DefaultProjectOrderBean.class);
         if (bean != null) {
             DefaultProjectOrderBean.DataBean data = bean.getData();

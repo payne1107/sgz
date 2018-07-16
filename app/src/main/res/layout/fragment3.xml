@@ -5,13 +5,37 @@
     android:layout_height="match_parent">
 
     <include layout="@layout/sys_title" />
-
-    <com.itheima.pulltorefreshlib.PullToRefreshListView
-        android:divider="#fafafa"
-        android:id="@+id/listview"
-        android:dividerHeight="1dp"
+    <!--
+  <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </com.itheima.pulltorefreshlib.PullToRefreshListView>
+        android:layout_height="90px">
+        <TextView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:textSize="@dimen/text_size_30"
+            android:textColor="@color/text_color_3"
+            android:text="推送消息列表"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:src="@mipmap/icon_arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoLinearLayout>
 
+      <com.itheima.pulltorefreshlib.PullToRefreshListView
+          android:divider="#fafafa"
+          android:id="@+id/listview"
+          android:dividerHeight="1dp"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+      </com.itheima.pulltorefreshlib.PullToRefreshListView>-->
+    <FrameLayout
+        android:id="@+id/rong_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </LinearLayout>

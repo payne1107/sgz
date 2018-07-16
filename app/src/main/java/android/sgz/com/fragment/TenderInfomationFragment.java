@@ -116,7 +116,7 @@ public class TenderInfomationFragment extends BaseFragment {
     }
 
     private void handlerQueryTenderList(String json) {
-        Log.d("Dong", "获取标书列表---》" + json);
+        //Log.d("Dong", "获取标书列表---》" + json);
         if (listView != null && listView.isRefreshing()) {
             listView.onRefreshComplete();
         }

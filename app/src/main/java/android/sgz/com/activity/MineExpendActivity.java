@@ -51,6 +51,12 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void initData() {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         queryMyBalance();
         queryMinePaymentByProject(pageNo);
     }

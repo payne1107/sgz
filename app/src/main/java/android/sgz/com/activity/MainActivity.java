@@ -5,19 +5,24 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.RongCloudBean;
 import android.sgz.com.fragment.Fragment1;
 import android.sgz.com.fragment.Fragment2;
 import android.sgz.com.fragment.Fragment3;
 import android.sgz.com.fragment.Fragment4;
 import android.sgz.com.utils.AppManager;
 import android.sgz.com.utils.CacheImgUtil;
+import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.PopupMenuUtil;
+import android.sgz.com.utils.SPUtil;
 import android.sgz.com.utils.StatusUtils;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -28,7 +33,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -227,5 +239,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             return false;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RongIM.getInstance().disconnect();//不设置收不到推送
     }
 }

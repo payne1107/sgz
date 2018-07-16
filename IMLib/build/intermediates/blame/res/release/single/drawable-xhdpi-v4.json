@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "F:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    }
+]

@@ -9,6 +9,7 @@ import android.sgz.com.bean.WXPayBean;
 import android.sgz.com.utils.AppManager;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.StringUtils;
+import android.sgz.com.wxapi.WXPayEntryActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -112,5 +113,13 @@ public class ToUpPayActivity extends BaseActivity implements View.OnClickListene
         MyApplication.iwxapi.sendReq(req);
         Log.d("Dong", "支付----" + req.toString());
         AppManager.getInstance().PushActivity(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (WXPayEntryActivity.IS_WX_PAY_SUCESS) {
+            finish();
+        }
     }
 }

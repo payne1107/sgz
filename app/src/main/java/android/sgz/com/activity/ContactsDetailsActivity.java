@@ -30,12 +30,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.rong.imkit.RongIM;
+
 /**
  * Created by 92457 on 2018/6/16.
  * 工友详情信息
  */
 
-public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
+public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
     private int friendId;
     private TextView tvName;
@@ -52,7 +54,9 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     private RadioGroup rgType;
     private int pageNo = 1;
     private CircleImageView circleImageView;
+    private TextView tvTalk;
 
+    private String toTargetToken = "KtR4+jcqSUrTkPa6Vo99S4yITe08QV2ie7Bn0DOLBF6YQ+EfX6VD8kNckBX7EO08XDratGAHO2eggWs/rXRHRg==";
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_contact_details);
@@ -88,12 +92,14 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
         listView.setMode(PullToRefreshBase.Mode.BOTH);
         adapter = new ContactDynamicAdapter(mContext, mList);
         listView.setAdapter(adapter);
+        tvTalk = findViewById(R.id.tv_talk);
 
         setListener();
 
     }
 
     private void setListener() {
+        tvTalk.setOnClickListener(this);
         rgType.setOnCheckedChangeListener(this);
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
@@ -218,6 +224,23 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                     MyApplication.imageLoader.displayImage(photoUrl, circleImageView);
                 }
             }
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_talk:
+                /**
+                 * 启动单聊
+                 * context - 应用上下文。
+                 * targetUserId - 要与之聊天的用户 Id。
+                 * title - 聊天的标题，如果传入空值，则默认显示与之聊天的用户名称。
+                 */
+                if (RongIM.getInstance() != null) {
+                    RongIM.getInstance().startPrivateChat(mContext, toTargetToken, "算工作");
+                }
+                break;
         }
     }
 }

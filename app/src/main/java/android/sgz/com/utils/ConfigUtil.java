@@ -16,6 +16,7 @@ public class ConfigUtil {
     public static final String EXTRA_SET_DEFAULT_ORDER_KEY = "extra_set_default_order_key";
     //eventbus 事件类型
     public static final int EVENT_TYPE_CODE_ONE = 1;
+    public static final int EVENT_TYPE_FINISH_PAY_ACTIVITY_CODE = 2;
 
     /****
      * 登录接口
@@ -397,5 +398,10 @@ public class ConfigUtil {
      */
     public static final String TO_RECHARGE_URL = MyApplication.REQUEST_URL + "recharge/toRecharge";
     public static final int TO_RECHARGE_URL_ACTION = 76;
+    /****
+     * 获取融云的toenk
+     */
+    public static final String QUERY_RONG_CLOUD_TOKEN_URL = MyApplication.REQUEST_URL + "rongCloud/getRongCloudToken";
+    public static final int QUERY_RONG_CLOUD_TOKEN_URL_ACTION = 77;
 
 }

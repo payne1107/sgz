@@ -270,7 +270,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
      * @param json
      */
     private void handleAddWorkRecord(String json) {
-        Log.d("Dong", "处理打卡反馈结果---》" + json);
+        //Log.d("Dong", "处理打卡反馈结果---》" + json);
         if (getRequestCode(json) == 1) {
             Toast.makeText(getActivity(), "打卡成功", Toast.LENGTH_LONG).show();
             queryWorkStatus();
@@ -284,7 +284,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
      * @param json
      */
     private void handleQueryWorkStatus(String json) {
-        Log.d("Dong", "打卡状态---》" + json);
+        //Log.d("Dong", "打卡状态---》" + json);
         WorkStatusBean bean = JSON.parseObject(json, WorkStatusBean.class);
         if (bean != null) {
             String result = bean.getResultMsg();
@@ -298,7 +298,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
      * @param json
      */
     private void handlerQueryTopInfo(String json) {
-        Log.d("Dong", "顶部数据处理----->" + json);
+       // Log.d("Dong", "顶部数据处理----->" + json);
         TopInfoBean topInfoBean = JSON.parseObject(json, TopInfoBean.class);
         if (topInfoBean != null) {
             TopInfoBean.DataBean data = topInfoBean.getData();

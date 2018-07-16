@@ -1,5 +1,6 @@
 package android.sgz.com.fragment;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.MessageAdapter;
@@ -7,6 +8,8 @@ import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.MessageBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import io.rong.imkit.fragment.ConversationListFragment;
+import io.rong.imlib.model.Conversation;
 
 /**
  * Created by 92457 on 2018/4/16.
@@ -53,12 +59,14 @@ public class Fragment3 extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setInVisibleTitleIcon("消息", true, false);
-        queryPushMessage(pageNo);
-        listView = mRootView.findViewById(R.id.listview);
-        listView.setMode(PullToRefreshBase.Mode.BOTH);
-        adapter = new MessageAdapter(getActivity(),mList);
-        listView.setAdapter(adapter);
-        setListener();
+//        queryPushMessage(pageNo);
+//        listView = mRootView.findViewById(R.id.listview);
+//        listView.setMode(PullToRefreshBase.Mode.BOTH);
+//        adapter = new MessageAdapter(getActivity(),mList);
+//        listView.setAdapter(adapter);
+//        setListener();
+
+        initConversionList();
     }
 
     private void setListener() {
@@ -139,5 +147,20 @@ public class Fragment3 extends BaseFragment {
                 }
             }
         }
+    }
+
+    private void initConversionList() {
+        //会话列表
+        ConversationListFragment conversationListFragment = new ConversationListFragment();
+        Uri uri = Uri.parse("rong://" + getActivity().getApplicationInfo().packageName).buildUpon()
+                .appendPath("conversationlist").appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "false") //设置私聊会话，该会话聚合显示
+                .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "true")//设置系统会话，该会话非聚合显示
+                .build();
+        conversationListFragment.setUri(uri);
+
+        FragmentManager fragmentManager = getChildFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.rong_container,conversationListFragment);
+        transaction.commit();
     }
 }

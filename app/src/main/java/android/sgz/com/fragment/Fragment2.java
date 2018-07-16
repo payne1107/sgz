@@ -50,6 +50,7 @@ public class Fragment2 extends BaseFragment implements View.OnClickListener {
     private TextView tvSearch;
     private String orderName = "";//搜索工單名稱
 
+
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (mRootView == null) {

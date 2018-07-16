@@ -7,6 +7,7 @@ import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.LoginSucessBean;
+import android.sgz.com.bean.RongCloudBean;
 import android.sgz.com.utils.AppManager;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.SPUtil;
@@ -118,7 +119,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void httpOnResponse(String json, int action) {
         super.httpOnResponse(json, action);
-        handleLoginSucess(json);
+        switch (action) {
+            case ConfigUtil.LOGIN_URL_ACTION:
+                handleLoginSucess(json);
+                break;
+            case ConfigUtil.QUERY_RONG_CLOUD_TOKEN_URL_ACTION:
+                Log.d("Dong", "获取融云的token---------------->" + json);
+                RongCloudBean bean = JSON.parseObject(json, RongCloudBean.class);
+                if (bean != null) {
+                    RongCloudBean.DataBean data = bean.getData();
+                    if (data != null) {
+                        String rongCloudToken = data.getToken();
+                        SPUtil.putString(mContext, "rongCloudToken", rongCloudToken);
+                    }
+                }
+                break;
+        }
     }
 
     /***
@@ -144,10 +160,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     MyApplication.refreshToken = refreshToken;
                     MyApplication.userId = userId;
                     MyApplication.userPhone = userPhone;
+                    getRongCloudToken();
                     finish();
                 }
             }
         }
+    }
+
+    /****
+     * 获取融云的token
+     */
+    private void getRongCloudToken() {
+        Map<String, String> params = new HashMap<>();
+        params.put("random", "123");
+        httpPostRequest(ConfigUtil.QUERY_RONG_CLOUD_TOKEN_URL, params, ConfigUtil.QUERY_RONG_CLOUD_TOKEN_URL_ACTION);
     }
 
     /***

@@ -1,11 +1,15 @@
 package android.sgz.com.application;
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Environment;
 import android.sgz.com.httpstack.OkHttpStack;
 import android.sgz.com.utils.CacheImgUtil;
+import android.sgz.com.utils.SPUtil;
 import android.text.format.DateFormat;
+import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -29,6 +33,8 @@ import java.io.File;
 import java.util.Date;
 
 import cn.jpush.android.api.JPushInterface;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 /**
  * Created by 92457 on 2018/1/12.
@@ -77,8 +83,9 @@ public class MyApplication extends Application {
     public static boolean isClickUpdateVersionBtn = false;
     public static String userPhone ="";
     public static final String wxAppID = "wx94db1f1acddbfcd6";
-    public static final String MCH_ID = "1500136582";
+    public static final String MCH_ID = "1509458841";
     public static IWXAPI iwxapi;
+    public static String rongCloudToken = "";//融云的token
 
     public static MyApplication getApplication() {
         if (mInstance == null) {
@@ -90,6 +97,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        rongCloudToken = SPUtil.getString(this, "rongCloudToken");
         initImageLoader(this);
         createVolley();
         ///xutils3初始化
@@ -105,6 +113,10 @@ public class MyApplication extends Application {
        //CatchExceptionHandler.getInstance().setDefaultUnCachExceptionHandler();
         iwxapi = WXAPIFactory.createWXAPI(getApplicationContext(), wxAppID,true);
         iwxapi.registerApp(wxAppID);
+        //融云初始化
+        RongIM.init(this);
+        Log.d("Dong", "rongCloudToken------------------------>" + rongCloudToken);
+        connect(rongCloudToken);
     }
 
     //配置网络框架
@@ -173,5 +185,64 @@ public class MyApplication extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
+    }
+
+
+
+    /**
+     * <p>连接服务器，在整个应用程序全局，只需要调用一次，需在 {@link #init(Context)} 之后调用。</p>
+     * <p>如果调用此接口遇到连接失败，SDK 会自动启动重连机制进行最多10次重连，分别是1, 2, 4, 8, 16, 32, 64, 128, 256, 512秒后。
+     * 在这之后如果仍没有连接成功，还会在当检测到设备网络状态变化时再次进行重连。</p>
+     *
+     * @param token    从服务端获取的用户身份令牌（Token）。
+     * @param callback 连接回调。
+     * @return RongIM  客户端核心类的实例。
+     */
+    private void connect(String token) {
+        if (getApplicationInfo().packageName.equals(MyApplication.getCurProcessName(getApplicationContext()))) {
+            Log.d("Dong", "进来了吗--------》" + getApplicationInfo().packageName);
+            RongIM.connect(token, new RongIMClient.ConnectCallback() {
+
+                /**
+                 * Token 错误。可以从下面两点检查 1.  Token 是否过期，如果过期您需要向 App Server 重新请求一个新的 Token
+                 *                  2.  token 对应的 appKey 和工程里设置的 appKey 是否一致
+                 */
+                @Override
+                public void onTokenIncorrect() {
+                    Log.d("Dong", "--onTokenIncorrect" );
+                }
+
+                /**
+                 * 连接融云成功
+                 * @param userid 当前 token 对应的用户 id
+                 */
+                @Override
+                public void onSuccess(String userid) {
+                    Log.d("Dong", "----------------------------------------------------------------onSuccess" + userid);
+                    //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                   // finish();
+                }
+
+                /**
+                 * 连接融云失败
+                 * @param errorCode 错误码，可到官网 查看错误码对应的注释
+                 */
+                @Override
+                public void onError(RongIMClient.ErrorCode errorCode) {
+                    Log.d("Dong", "RongIMClient.ErrorCode-------》" + errorCode);
+                }
+            });
+        }
+    }
+
+    public static String getCurProcessName(Context context) {
+        int pid = android.os.Process.myPid();
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningAppProcessInfo appProcess : activityManager.getRunningAppProcesses()) {
+            if (appProcess.pid == pid) {
+                return appProcess.processName;
+            }
+        }
+        return null;
     }
 }

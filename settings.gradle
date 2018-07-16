@@ -1,1 +1,1 @@
-include ':app', ':pulltorefreshlib', ':permissiongen', ':citypicker'
+include ':app', ':pulltorefreshlib', ':permissiongen', ':citypicker', ':IMLib', ':IMKit'

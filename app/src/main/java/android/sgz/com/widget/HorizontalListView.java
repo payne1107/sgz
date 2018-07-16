@@ -64,7 +64,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     protected Scroller mFlingTracker = new Scroller(getContext());
 
     /**
-     * Gesture listener to receive callbacks when gestures are detected
+     * Gesture listener to android.sgz.com.receive callbacks when gestures are detected
      */
     private final GestureListener mGestureListener = new GestureListener();
 
@@ -220,7 +220,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     /**
-     * Registers the gesture detector to receive gesture notifications for this view
+     * Registers the gesture detector to android.sgz.com.receive gesture notifications for this view
      */
     private void bindGestureDetector() {
         // Generic touch listener that can be applied to any view that needs to process gestures
