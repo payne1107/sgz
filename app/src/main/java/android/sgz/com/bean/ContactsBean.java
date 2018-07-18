@@ -178,6 +178,15 @@ public class ContactsBean {
             private String alladdsalary;
             private String workdays;
             private String projectid;
+            private String rongcloudcode;
+
+            public String getRongcloudcode() {
+                return rongcloudcode;
+            }
+
+            public void setRongcloudcode(String rongcloudcode) {
+                this.rongcloudcode = rongcloudcode;
+            }
 
             public int getId() {
                 return id;

@@ -403,5 +403,11 @@ public class ConfigUtil {
      */
     public static final String QUERY_RONG_CLOUD_TOKEN_URL = MyApplication.REQUEST_URL + "rongCloud/getRongCloudToken";
     public static final int QUERY_RONG_CLOUD_TOKEN_URL_ACTION = 77;
+    /****
+     * 开通vip
+     *
+     */
+    public static final String OPEN_VIP_URL = MyApplication.REQUEST_URL + "personal/openVip";
+    public static final int OPEN_VIP_URL_ACTION = 78;
 
 }

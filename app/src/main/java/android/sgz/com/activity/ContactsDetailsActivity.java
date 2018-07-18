@@ -55,8 +55,8 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     private int pageNo = 1;
     private CircleImageView circleImageView;
     private TextView tvTalk;
+    private String rongCloudId;
 
-    private String toTargetToken = "KtR4+jcqSUrTkPa6Vo99S4yITe08QV2ie7Bn0DOLBF6YQ+EfX6VD8kNckBX7EO08XDratGAHO2eggWs/rXRHRg==";
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_contact_details);
@@ -73,6 +73,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     protected void initView() {
         super.initView();
         friendId = getIntent().getIntExtra("friendId", 0);
+        rongCloudId = getIntent().getStringExtra("rongCloudId");
         //设置沉浸式状态栏
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
@@ -238,7 +239,8 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                  * title - 聊天的标题，如果传入空值，则默认显示与之聊天的用户名称。
                  */
                 if (RongIM.getInstance() != null) {
-                    RongIM.getInstance().startPrivateChat(mContext, toTargetToken, "算工作");
+                    Log.d("Dong", "rongCloudId===================" + rongCloudId);
+                    RongIM.getInstance().startPrivateChat(mContext, rongCloudId, "");
                 }
                 break;
         }

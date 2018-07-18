@@ -12,7 +12,7 @@ public class VipMemberListBean {
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : [{"id":1,"type":1,"money":80,"amount":null,"month":6},{"id":2,"type":2,"money":120,"amount":null,"month":12}]
+     * data : [{"id":1,"type":"member","money":90,"month":6},{"id":2,"type":"member","money":120,"month":12}]
      * exception : false
      */
 
@@ -65,16 +65,14 @@ public class VipMemberListBean {
     public static class DataBean {
         /**
          * id : 1
-         * type : 1
-         * money : 80.0
-         * amount : null
+         * type : member
+         * money : 90
          * month : 6
          */
 
         private int id;
-        private int type;
-        private double money;
-        private Object amount;
+        private String type;
+        private int money;
         private int month;
 
         public int getId() {
@@ -85,28 +83,20 @@ public class VipMemberListBean {
             this.id = id;
         }
 
-        public int getType() {
+        public String getType() {
             return type;
         }
 
-        public void setType(int type) {
+        public void setType(String type) {
             this.type = type;
         }
 
-        public double getMoney() {
+        public int getMoney() {
             return money;
         }
 
-        public void setMoney(double money) {
+        public void setMoney(int money) {
             this.money = money;
-        }
-
-        public Object getAmount() {
-            return amount;
-        }
-
-        public void setAmount(Object amount) {
-            this.amount = amount;
         }
 
         public int getMonth() {

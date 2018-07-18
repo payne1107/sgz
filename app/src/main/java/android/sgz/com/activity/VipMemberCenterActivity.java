@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.graphics.ColorFilter;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.VipMemberListAdapter;
@@ -78,7 +79,8 @@ public class VipMemberCenterActivity extends BaseActivity {
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                toastMessage("开通----》" + mList.get(position).getMonth());
+                int vipId = mList.get(position).getId();
+                openVip(vipId);
             }
 
             @Override
@@ -86,6 +88,15 @@ public class VipMemberCenterActivity extends BaseActivity {
 
             }
         });
+    }
+
+    /****
+     * @param vipId
+     */
+    private void openVip(int vipId) {
+        Map<String, String> params = new HashMap<>();
+        params.put("vipid", String.valueOf(vipId));
+        httpPostRequest(ConfigUtil.OPEN_VIP_URL, params, ConfigUtil.OPEN_VIP_URL_ACTION);
     }
 
     /***
@@ -117,6 +128,12 @@ public class VipMemberCenterActivity extends BaseActivity {
             case ConfigUtil.QUERY_VIP_LIST_URL_ACTION:
                 handlerQueryVipList(json);
                 break;
+            case ConfigUtil.OPEN_VIP_URL_ACTION:
+                if (getRequestCode(json) == 1) {
+                    toastMessage("开通VIP成功");
+                    finish();
+                }
+                break;
         }
     }
 
@@ -125,7 +142,6 @@ public class VipMemberCenterActivity extends BaseActivity {
      * @param json
      */
     private void handlerQueryVipList(String json) {
-        Log.d("Dong", "套餐列表===" + json);
         VipMemberListBean bean = JSON.parseObject(json, VipMemberListBean.class);
         if (bean != null) {
             mList = bean.getData();
@@ -138,7 +154,6 @@ public class VipMemberCenterActivity extends BaseActivity {
      * @param json
      */
     private void handlerQueryVipBasicInfo(String json) {
-        Log.d("Dong", "vip基本信息---->" + json);
         VIPMemberCenterBasicInfoBean basicInfoBean = JSON.parseObject(json, VIPMemberCenterBasicInfoBean.class);
         if (basicInfoBean != null) {
             VIPMemberCenterBasicInfoBean.DataBean data = basicInfoBean.getData();
@@ -162,7 +177,7 @@ public class VipMemberCenterActivity extends BaseActivity {
                 if (!StringUtils.isEmpty(isVip)) {
                     tvIsVip.setText("VIP会员");
                 } else {
-                    tvIsVip.setText("开通VIP");
+                    tvIsVip.setText("未开通VIP");
                 }
             }
         }

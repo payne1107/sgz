@@ -35,6 +35,9 @@ import java.util.Date;
 import cn.jpush.android.api.JPushInterface;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.Message;
+import io.rong.imlib.model.MessageContent;
+import io.rong.message.TextMessage;
 
 /**
  * Created by 92457 on 2018/1/12.
@@ -117,6 +120,43 @@ public class MyApplication extends Application {
         RongIM.init(this);
         Log.d("Dong", "rongCloudToken------------------------>" + rongCloudToken);
         connect(rongCloudToken);
+
+        RongIM.getInstance().setSendMessageListener(new RongIM.OnSendMessageListener() {
+            @Override
+            public Message onSend(Message message) {
+                return message;
+            }
+
+            @Override
+            public boolean onSent(Message message, RongIM.SentMessageErrorCode sentMessageErrorCode) {
+                Log.e("Dong", "sentMessageErrorCode ==="+sentMessageErrorCode.getValue() +"message + "+ message.getTargetId());
+                Message.SentStatus status = message.getSentStatus();
+                Log.e("Dong", "sentMessageErrorCode ==="+sentMessageErrorCode.getMessage() +"message + "+status.getValue() );
+                if(message.getSentStatus()== Message.SentStatus.FAILED){
+                    if(sentMessageErrorCode== RongIM.SentMessageErrorCode.NOT_IN_CHATROOM){
+                        //不在聊天室
+                    }else if(sentMessageErrorCode== RongIM.SentMessageErrorCode.NOT_IN_DISCUSSION){
+                        //不在讨论组
+                    }else if(sentMessageErrorCode== RongIM.SentMessageErrorCode.NOT_IN_GROUP){
+                        //不在群组
+                    }else if(sentMessageErrorCode== RongIM.SentMessageErrorCode.REJECTED_BY_BLACKLIST){
+                        //你在他的黑名单中
+                    }
+                    Log.d("Dong", "消息发送失败了");
+                }
+
+                MessageContent messageContent = message.getContent();
+
+                if (messageContent instanceof TextMessage) {//文本消息
+                    TextMessage textMessage = (TextMessage) messageContent;
+                    Log.d("Dong", "onSent-TextMessage:" + textMessage.getContent());
+                } else {
+                    Log.d("Dong", "onSent-其他消息，自己来判断处理");
+                }
+
+                return false;
+            }
+        });
     }
 
     //配置网络框架

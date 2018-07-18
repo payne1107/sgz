@@ -126,7 +126,8 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                     //跳转到工友详情页面
                     if (bean != null) {
                         int friendId = bean.getId();
-                        startActivity(new Intent(mContext, ContactsDetailsActivity.class).putExtra("friendId", friendId));
+                        String rongCloudId =bean.getRongcloudcode();
+                        startActivity(new Intent(mContext, ContactsDetailsActivity.class).putExtra("friendId", friendId).putExtra("rongCloudId", rongCloudId));
                     }
                 }
             }
