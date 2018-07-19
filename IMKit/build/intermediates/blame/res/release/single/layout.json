@@ -1,87 +1,79 @@
 [
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_image.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_image.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_layout_network_unavailable.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_layout_network_unavailable.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_preview_fragment.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_preview_fragment.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_media.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_media.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_text_message.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_text_message.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_original.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_original.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_pager.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_pager.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_icon_group.xml",
         "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\layout\\notification_template_icon_group.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_big_media_narrow.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_robot_evaluation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_robot_evaluation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_conversation_member_list.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_conversation_member_list.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_albums.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_albums.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_voice_input.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_voice_input.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_icon_rt_location_marker.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_icon_rt_location_marker.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_preview_content.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_preview_content.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_group_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_group_conversation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_conversation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_block_popup.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_block_popup.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_manager.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_manager.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_prompt_warning.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_prompt_warning.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_big_media.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menu.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menu.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_location_message.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_location_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_messagelist.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_messagelist.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_search_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_system_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_system_conversation.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_conversation.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_conversation.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_media_cancel_action.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_mention_list_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_mention_list_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_human_evaluation.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_human_evaluation.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_item.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_item.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_plugin_location_activity.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_plugin_location_activity.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_preview_activity.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_preview_activity.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_item_single_choice.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_item_single_choice.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_camera.xml",
@@ -92,12 +84,12 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_plugin_pager.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_extension_bar.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_extension_bar.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_file_list.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_file_list.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_plugin_grid_view.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_plugin_grid_view.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_file_list_adapter.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_file_list_adapter.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_action.xml",
@@ -108,60 +100,40 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_group_conversation.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_base_activity_layout.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_base_activity_layout.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_text_message_evaluate.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_text_message_evaluate.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_list.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_list.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_root_menu_item.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_root_menu_item.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_block.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_block.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_warning.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_warning.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_file_list.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_file_list.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_message.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_message.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_mention_members.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_mention_members.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_grid_item.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_grid_item.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_message.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_message.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_action.xml",
         "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_media_action.xml"
     },
     {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_discussion_notification_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_discussion_notification_message.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_share_location_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_share_location_message.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_voice_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_voice_message.xml"
+    },
+    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_evaluate.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_evaluate.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_discussion_conversation.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_discussion_conversation.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_list.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_list.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_sub_menu_container.xml",
@@ -180,44 +152,36 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_preview.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_title_bar.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_search_title_bar.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_group_information_notification_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_group_information_notification_message.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_conversation.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_icon_rt_location_marker.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_icon_rt_location_marker.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_actions_container.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_actions_container.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_public_service_inf.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_public_service_inf.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_sub_menu_item.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_sub_menu_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_grid_view.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_grid_view.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_activity.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_search_activity.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\layout\\notification_action_tombstone.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_vo_popup.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_vo_popup.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_input_edit_text.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_input_edit_text.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_conversation.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_multi_rich_content_message.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_multi_rich_content_message.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_single_choice_layout.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_single_choice_layout.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_item.xml",
@@ -232,8 +196,8 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_leave_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_conversation_member.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_conversation_member.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_search.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_search.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_rich_content_message.xml",
@@ -244,16 +208,16 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_marker_info_window.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_refresh_list_view.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_refresh_list_view.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\layout\\notification_template_part_chronometer.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_messagelist.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_messagelist.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_time.xml",
         "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_prompt.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_prompt.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_catalog_listview.xml",
@@ -264,6 +228,10 @@
         "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_big_media_narrow_custom.xml"
     },
     {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_image_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_image_message.xml"
+    },
+    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menu.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menu.xml"
     },
@@ -272,20 +240,16 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_image_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_block_popup.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_block_popup.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fragment_base_setting.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fragment_base_setting.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_indicator.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_indicator.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_prompt_warning.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_prompt_warning.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_new_message_divider.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_new_message_divider.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_media_cancel_action.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoticon_tab_container.xml",
@@ -296,32 +260,24 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_options_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_input_pager_layout.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_input_pager_layout.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_real_time_activity.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_real_time_activity.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_activity.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_search_activity.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_image.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_image.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoticon_tab_item.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoticon_tab_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_activity.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_activity.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_plugin_item.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_plugin_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_conversation_member_list.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_conversation_member_list.xml"
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_activity.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_activity.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_public_service_search.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_public_service_search.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_grid_camera.xml",
@@ -332,80 +288,56 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_notice.xml"
     },
     {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_conversationlist.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_conversationlist.xml"
+    },
+    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_vo_popup.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_vo_popup.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menus.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menus.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_item.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_list.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_list.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_options.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_options.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_map_nearby_info_item.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_map_nearby_info_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_rich_content_message.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_rich_content_message.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_list.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_list.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_system_conversation.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_system_conversation.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_media_custom.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_indicator.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_indicator.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_share_location_message.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_share_location_message.xml"
     },
     {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_grid_view.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_grid_view.xml"
+    },
+    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_conversationlist.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_conversationlist.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_search.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_search.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_sub_menu_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_sub_menu_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_conversation_notification_container.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_conversation_notification_container.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_custom.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_big_media_custom.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_dialog_alter.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_dialog_alter.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_pager.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_pager.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_warning.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_warning.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_voice_message.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_voice_message.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_lines_media.xml",
-        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_lines_media.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_robot_evaluation.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_robot_evaluation.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menu_item.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menu_item.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_progress.xml",
@@ -416,40 +348,28 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_information_notification_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_menu_container.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_menu_container.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_photo.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_photo.xml"
-    },
-    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_discussion_notification_message.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_discussion_notification_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_conversation.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_conversation.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picprev_activity.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picprev_activity.xml"
-    },
-    {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_public_service_search.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_public_service_search.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_sub_menu_container.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_sub_menu_container.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_manager.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_manager.xml"
     },
     {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_information_notification_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_information_notification_message.xml"
+    },
+    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_file_message.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_file_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_pic_popup_window.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_pic_popup_window.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_notice.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_notice.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_prompt.xml",
@@ -460,20 +380,20 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_group_information_notification_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_webview.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_webview.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_preview_content.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_preview_content.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_mention_list_item.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_mention_list_item.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_location_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_location_message.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_app_service_conversation.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_app_service_conversation.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_map_nearby_info_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_map_nearby_info_item.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_file_list_adapter.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_file_list_adapter.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_base_conversation.xml",
@@ -488,11 +408,587 @@
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_conversation.xml"
     },
     {
-        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_download.xml",
-        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_download.xml"
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_plugin_grid_view.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_plugin_grid_view.xml"
     },
     {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_notification_realtime_location.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_notification_realtime_location.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_public_service_sub_list.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_public_service_sub_list.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_layout_network_unavailable.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_layout_network_unavailable.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_image.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_image.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_root_menu_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_root_menu_item.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_text_message.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_text_message.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_mention_members.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_mention_members.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_original.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_original.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_marker_info_window.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_marker_info_window.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menu_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menu_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_extension_bar.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_extension_bar.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_real_time_activity.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_real_time_activity.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_leave_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_leave_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_voice_input.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_voice_input.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_new_message_divider.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_new_message_divider.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_albums.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_albums.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_preview_content.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_preview_content.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_plugin_pager.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_plugin_pager.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_voice_input.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_voice_input.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_title_bar.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_search_title_bar.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_messagelist.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_messagelist.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_layout_network_unavailable.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_layout_network_unavailable.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_text_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_text_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_human_evaluation.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_human_evaluation.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_item.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_item.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_plugin_location_activity.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_plugin_location_activity.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_preview_activity.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_preview_activity.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_preview_activity.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_preview_activity.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_extension_bar.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_extension_bar.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_plugin_grid_view.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_plugin_grid_view.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_conversation_member.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_conversation_member.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_base_activity_layout.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_base_activity_layout.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_list.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_list.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_root_menu_item.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_root_menu_item.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_warning.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_warning.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_block.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_block.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_message.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_mention_members.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_mention_members.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_base_activity_layout.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_base_activity_layout.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_message.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_message.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoticon_tab_container.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoticon_tab_container.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_photo.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_photo.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_preview.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_preview.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_original.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_original.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_discussion_conversation.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_discussion_conversation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_menu_container.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_menu_container.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_grid_camera.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_grid_camera.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_title_bar.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_search_title_bar.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_app_service_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_app_service_conversation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_action.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_actions_container.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_actions_container.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_single_choice_layout.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_single_choice_layout.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_public_service_inf.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_public_service_inf.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_grid_view.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_grid_view.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_input_edit_text.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_input_edit_text.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_base_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_base_conversation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_dialog_alter.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_dialog_alter.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_camera.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_camera.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_preview_fragment.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_preview_fragment.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_single_choice_layout.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_single_choice_layout.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_grid_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_grid_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_conversation_member.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_conversation_member.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_file_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_file_message.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fragment_base_setting.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fragment_base_setting.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_refresh_list_view.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_refresh_list_view.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoticon_tab_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoticon_tab_item.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_block_popup.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_block_popup.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_block.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_block.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_indicator.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_indicator.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_new_message_divider.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_new_message_divider.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_input_pager_layout.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_input_pager_layout.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_real_time_activity.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_real_time_activity.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menus.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menus.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_location_search_activity.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_location_search_activity.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_input_pager_layout.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_input_pager_layout.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_conversation_member_list.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_conversation_member_list.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_plugin_location_activity.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_plugin_location_activity.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_plugin_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_plugin_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_refresh_list_view.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_refresh_list_view.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_picture_pager.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_picture_pager.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_webview.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_webview.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_human_evaluation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_human_evaluation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_actions_container.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_actions_container.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menus.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menus.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_options.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_options.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_camera.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_camera.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_rich_content_message.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_rich_content_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_system_conversation.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_system_conversation.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_search.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_search.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_conversation_notification_container.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_conversation_notification_container.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_discussion_conversation.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_discussion_conversation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_evaluate.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_evaluate.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_dialog_alter.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_dialog_alter.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_emoji_pager.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_emoji_pager.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_download.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_download.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_rich_content_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_rich_content_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_cs_alert_robot_evaluation.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_cs_alert_robot_evaluation.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_input_menu_item.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_input_menu_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_pic_popup_window.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_pic_popup_window.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_options_item.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_options_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_activity.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_activity.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_menu_container.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_menu_container.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_multi_rich_content_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_multi_rich_content_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_photo.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_photo.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_conversation.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_conversation.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_public_service_inf.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_public_service_inf.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picprev_activity.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picprev_activity.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_fr_public_service_search.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_fr_public_service_search.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_text_message_evaluate.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_text_message_evaluate.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_message.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_pic_popup_window.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_pic_popup_window.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_notification_realtime_location.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_notification_realtime_location.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picsel_catalog_listview.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picsel_catalog_listview.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ext_input_edit_text.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ext_input_edit_text.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_dialog_popup_options.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_dialog_popup_options.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_webview.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_webview.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_conversation_notification_container.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_conversation_notification_container.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_mention_list_item.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_mention_list_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_public_service_rich_content_message.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_public_service_rich_content_message.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_picprev_activity.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_picprev_activity.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_app_service_conversation.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_app_service_conversation.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_wi_file_list_adapter.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_wi_file_list_adapter.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_item_progress.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_item_progress.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\release\\layout\\rc_ac_file_download.xml",
+        "source": "F:\\workspace\\sgz\\IMKit\\src\\main\\res\\layout\\rc_ac_file_download.xml"
     }
 ]
