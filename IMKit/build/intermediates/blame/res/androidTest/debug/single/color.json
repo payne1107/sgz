@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\rc_btn_file_list_send.xml",
+        "source": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\bundles\\debug\\res\\color\\rc_btn_file_list_send.xml"
+    },
+    {
         "merged": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\rc_btn_file_list_send.xml",
         "source": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\bundles\\debug\\res\\color\\rc_btn_file_list_send.xml"
     }

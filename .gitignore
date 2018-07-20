@@ -7,5 +7,12 @@
 /build
 /captures
 .externalNativeBuild
+<<<<<<< HEAD
 *.apk
 *.apk
+=======
+.idea/misc.xml
+>>>>>>> e9ff62551aa74e5234330afc131bced17f3327d9
+*.apk
+*.xml
+.idea/misc.xml
