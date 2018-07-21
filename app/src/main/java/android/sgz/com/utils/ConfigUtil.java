@@ -409,5 +409,10 @@ public class ConfigUtil {
      */
     public static final String OPEN_VIP_URL = MyApplication.REQUEST_URL + "personal/openVip";
     public static final int OPEN_VIP_URL_ACTION = 78;
+    /****
+     * 获取工单人员
+     */
+    public static final String QUERY_WORKER_USER_URL = MyApplication.REQUEST_URL + "/opera/getWorkUser";
+    public static final int QUERY_WORKER_USER_URL_ACTION = 79;
 
 }
