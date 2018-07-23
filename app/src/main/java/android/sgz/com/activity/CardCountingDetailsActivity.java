@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.adapter.CardCountingDetailsAdapter;
 import android.sgz.com.adapter.DateAdapter;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.MothWorkerStatusBean;
 import android.sgz.com.bean.WorkRecordByTimeBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
@@ -18,7 +20,9 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,7 +32,7 @@ import java.util.Map;
 
 public class CardCountingDetailsActivity extends BaseActivity implements View.OnClickListener {
     private int[][] days;
-    private DateAdapter dateAdapter;
+//    private DateAdapter dateAdapter;
     private int[] dayList =new int[42];
     private String curentYearMonth;
     private int projectId;
@@ -42,6 +46,8 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
     private GridView gridView;
     private int clickDay;
     private TextView tvProjectName;
+    private List<MothWorkerStatusBean.DataBean> mList = new ArrayList<>();
+    private CardCountingDetailsAdapter adapter;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -79,14 +85,12 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
         tvProjectName.setText("项目名称：" + projectName);
 
         days = DateUtils.getDayOfMonthFormat(year, month);
-        convertArray();
-        dateAdapter = new DateAdapter(this, dayList, year, month,day);//传入当前月的年
-        gridView.setAdapter(dateAdapter);
+
         gridView.setVerticalSpacing(60);
         gridView.setEnabled(true);
 
         queryWorkRecordByTime(projectId,firstYearMonth);
-
+        queryMonthWorkStatus();
         setListener();
     }
 
@@ -97,36 +101,16 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int array = (int) parent.getAdapter().getItem(position);
-                if (position < 7 && array > 20) {
-                    View view1 =parent.getChildAt(position);
-                    view1.setEnabled(false);
-                } else if (position > 20 && array < 15) {
-                    View view1 =parent.getChildAt(position);
-                    view1.setEnabled(false);
-                } else {
-                    clickDay = (int) parent.getAdapter().getItem(position);
-                    dateAdapter.updateTextColor(position);
-                    dateAdapter.notifyDataSetChanged();
+                MothWorkerStatusBean.DataBean bean = (MothWorkerStatusBean.DataBean) parent.getAdapter().getItem(position);
+                if (bean != null) {
+                    clickDay = Integer.valueOf(bean.getDate());
+                    adapter.updateTextColor(position);
+                    adapter.notifyDataSetChanged();
                     String month = curentYearMonth + "-" + (clickDay < 10 ? "0" + clickDay : clickDay);
                     queryWorkRecordByTime(projectId, month);
                 }
             }
         });
-    }
-
-    /****
-     * 二维数据转成一维数组
-     */
-    private void convertArray() {
-        int dayNum = 0;
-        //将二维数组转化为一维数组，方便使用
-        for (int i = 0; i < days.length; i++) {
-            for (int j = 0; j < days[i].length; j++) {
-                this.dayList[dayNum] = days[i][j];
-                dayNum++;
-            }
-        }
     }
 
     /****
@@ -147,6 +131,24 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
             case ConfigUtil.QUERY_WORK_RECORD_BY_TIME_URL_ACTION:
                 handleQueryWorkRecordByTime(json);
                 break;
+            case ConfigUtil.QUERY_MONTH_WORKER_STATUS_URL_ACTION:
+                handleQueryMothWorkStatus(json);
+                break;
+        }
+    }
+
+    /****
+     * 获取日历打卡状态
+     * @param json
+     */
+    private void handleQueryMothWorkStatus(String json) {
+        Log.d("Dong", "获取日历打卡状态---->" + json);
+        MothWorkerStatusBean bean = JSON.parseObject(json, MothWorkerStatusBean.class);
+        if (bean != null) {
+            mList = bean.getData();
+//            adapter.setData(mList);
+            adapter = new CardCountingDetailsAdapter(mContext, mList);
+            gridView.setAdapter(adapter);
         }
     }
 
@@ -170,23 +172,31 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 tvStartAddress.setText(StringUtils.isEmpty(startRecordAddress) ? "未打卡" : startRecordAddress);
                 if (startStatus == 1) {
                     tvStartStatus.setText("正常");
+                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.text_color_3));
                 } else if(startStatus == 2){
                     tvStartStatus.setText("迟到");
+                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_yellow));
                 } else if (startStatus == 3) {
                     tvStartStatus.setText("早退");
+                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_blue));
                 } else {
                     tvStartStatus.setText("未打卡");
+                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
                 }
                 tvEndRecordAddress.setText(StringUtils.isEmpty(endRecordAddress) ? "未打卡" : endRecordAddress);
                 tvEndRecordTime.setText(StringUtils.isEmpty(endRecordTime) ? "打卡时间:" : "打卡时间:" + endRecordTime);
                 if (endStatus == 1) {
                     tvEndStatus.setText("正常");
+                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.text_color_3));
                 } else if(endStatus == 2){
                     tvEndStatus.setText("迟到");
+                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_yellow));
                 } else if (endStatus == 3) {
                     tvEndStatus.setText("早退");
+                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_blue));
                 } else {
                     tvEndStatus.setText("未打卡");
+                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
                 }
             }
         }
@@ -220,6 +230,16 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
                 }
                 break;
         }
+    }
+
+    /****
+     * 获取日历打卡状态
+     */
+    private void queryMonthWorkStatus() {
+        Map<String, String> params = new HashMap<>();
+        params.put("projectid", String.valueOf(projectId));
+        params.put("month", curentYearMonth);
+        httpPostRequest(ConfigUtil.QUERY_MONTH_WORKER_STATUS_URL, params, ConfigUtil.QUERY_MONTH_WORKER_STATUS_URL_ACTION);
     }
 }
 

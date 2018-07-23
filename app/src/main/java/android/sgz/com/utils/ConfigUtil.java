@@ -405,7 +405,6 @@ public class ConfigUtil {
     public static final int QUERY_RONG_CLOUD_TOKEN_URL_ACTION = 77;
     /****
      * 开通vip
-     *
      */
     public static final String OPEN_VIP_URL = MyApplication.REQUEST_URL + "personal/openVip";
     public static final int OPEN_VIP_URL_ACTION = 78;
@@ -414,5 +413,9 @@ public class ConfigUtil {
      */
     public static final String QUERY_WORKER_USER_URL = MyApplication.REQUEST_URL + "/opera/getWorkUser";
     public static final int QUERY_WORKER_USER_URL_ACTION = 79;
-
+    /***
+     * 获取日历打卡状态
+     */
+    public static final String QUERY_MONTH_WORKER_STATUS_URL = MyApplication.REQUEST_URL + "/statistic/getMonthWorkStatus";
+    public static final int QUERY_MONTH_WORKER_STATUS_URL_ACTION = 80;
 }

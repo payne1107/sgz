@@ -98,7 +98,6 @@ public class DateAdapter extends BaseAdapter {
             viewHolder.date_item.setTextColor(Color.rgb(204, 204, 204));
             viewHolder.date_item.setBackground(context.getResources().getDrawable(R.drawable.background_item2));
         }
-
         return view;
     }
 

@@ -59,14 +59,14 @@ public class Fragment3 extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setInVisibleTitleIcon("消息", true, false);
-//        queryPushMessage(pageNo);
-//        listView = mRootView.findViewById(R.id.listview);
-//        listView.setMode(PullToRefreshBase.Mode.BOTH);
-//        adapter = new MessageAdapter(getActivity(),mList);
-//        listView.setAdapter(adapter);
-//        setListener();
+        queryPushMessage(pageNo);
+        listView = mRootView.findViewById(R.id.listview);
+        listView.setMode(PullToRefreshBase.Mode.BOTH);
+        adapter = new MessageAdapter(getActivity(),mList);
+        listView.setAdapter(adapter);
+        setListener();
 
-        initConversionList();
+       // initConversionList();
     }
 
     private void setListener() {
@@ -159,8 +159,8 @@ public class Fragment3 extends BaseFragment {
         conversationListFragment.setUri(uri);
 
         FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(R.id.rong_container,conversationListFragment);
-        transaction.commit();
+      //  FragmentTransaction transaction = fragmentManager.beginTransaction();
+        //transaction.add(R.id.rong_container,conversationListFragment);
+        //transaction.commit();
     }
 }
