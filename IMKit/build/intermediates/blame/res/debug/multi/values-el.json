@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-el\\values-el.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 100,
-                    "endOffset": 151
-                },
-                "from": {
-                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-el\\values-el.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 100,
-                        "endOffset": 151
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-el\\values-el.xml",
         "map": [
             {

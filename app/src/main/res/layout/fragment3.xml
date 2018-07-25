@@ -26,16 +26,16 @@
             android:layout_height="wrap_content" />
     </com.zhy.autolayout.AutoLinearLayout>-->s
 
-      <com.itheima.pulltorefreshlib.PullToRefreshListView
+    <!--  <com.itheima.pulltorefreshlib.PullToRefreshListView
           android:divider="#fafafa"
           android:id="@+id/listview"
           android:dividerHeight="1dp"
           android:layout_width="match_parent"
           android:layout_height="match_parent">
-      </com.itheima.pulltorefreshlib.PullToRefreshListView>
-<!--    <FrameLayout
+      </com.itheima.pulltorefreshlib.PullToRefreshListView>-->
+    <FrameLayout
         android:id="@+id/rong_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />-->
+        />
 </LinearLayout>
