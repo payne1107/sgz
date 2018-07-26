@@ -2,6 +2,7 @@ package android.sgz.com.activity;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.sgz.com.R;
@@ -41,6 +42,7 @@ import java.util.Map;
 
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.UserInfo;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -288,6 +290,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     Log.d("Dong", "----------------------------------------------------------------onSuccess" + userid);
                     //startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     // finish();
+
+                    //使用消息携带用户信息
+                    //接收方在接收到消息后，SDK 会自动从消息中取出用户信息，并显示到 UI 上。
+                    RongIM.getInstance().setCurrentUserInfo(new UserInfo(String.valueOf(MyApplication.userId),"hhhhh", Uri.parse("http://47.101.46.2/2018/07/07/638f1cc2f49349deb68ce69927d6e4c4.png")));
+                    RongIM.getInstance().setMessageAttachedUserInfo(true);
                 }
 
                 /**

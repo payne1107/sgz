@@ -32,6 +32,8 @@ import com.zhy.autolayout.AutoLinearLayout;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.rong.imkit.RongIM;
+
 /**
  * Created by 92457 on 2018/4/16.
  */
