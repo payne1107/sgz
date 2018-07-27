@@ -2,6 +2,7 @@ package android.sgz.com.activity;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.sgz.com.R;
@@ -31,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import io.rong.imkit.RongIM;
+import io.rong.imlib.model.UserInfo;
 
 /**
  * Created by 92457 on 2018/6/16.
@@ -55,7 +57,6 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     private int pageNo = 1;
     private CircleImageView circleImageView;
     private TextView tvTalk;
-    private String rongCloudId;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     protected void initView() {
         super.initView();
         friendId = getIntent().getIntExtra("friendId", 0);
-        rongCloudId = getIntent().getStringExtra("rongCloudId");
+
         //设置沉浸式状态栏
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
@@ -239,8 +240,8 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                  * title - 聊天的标题，如果传入空值，则默认显示与之聊天的用户名称。
                  */
                 if (RongIM.getInstance() != null) {
-                    Log.d("Dong", "rongCloudId===================" + rongCloudId);
-                    RongIM.getInstance().startPrivateChat(mContext, rongCloudId, "");
+                    Log.d("Dong", "rongCloudId===================" + friendId);
+                    RongIM.getInstance().startPrivateChat(mContext, String.valueOf(friendId), "");
                 }
                 break;
         }

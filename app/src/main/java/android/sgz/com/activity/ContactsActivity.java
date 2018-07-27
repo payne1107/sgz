@@ -30,6 +30,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.rong.imkit.RongIM;
+import io.rong.imlib.model.UserInfo;
+
 /**
  * Created by 92457 on 2018/5/19.
  * 联系人
@@ -126,8 +129,10 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                     //跳转到工友详情页面
                     if (bean != null) {
                         int friendId = bean.getId();
-                        String rongCloudId =bean.getRongcloudcode();
-                        startActivity(new Intent(mContext, ContactsDetailsActivity.class).putExtra("friendId", friendId).putExtra("rongCloudId", rongCloudId));
+                        String photoUrl = bean.getPhoto();
+                        String realName = bean.getRealname();
+                        startActivity(new Intent(mContext, ContactsDetailsActivity.class).putExtra("friendId", friendId));
+
                     }
                 }
             }

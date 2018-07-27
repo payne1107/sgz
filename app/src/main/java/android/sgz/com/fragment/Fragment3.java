@@ -59,35 +59,35 @@ public class Fragment3 extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setInVisibleTitleIcon("消息", true, false);
-//        queryPushMessage(pageNo);
+       // queryPushMessage(pageNo);
 //        listView = mRootView.findViewById(R.id.listview);
 //        listView.setMode(PullToRefreshBase.Mode.BOTH);
 //        adapter = new MessageAdapter(getActivity(),mList);
 //        listView.setAdapter(adapter);
-//        setListener();
+       // setListener();
 
         initConversionList();
     }
 
     private void setListener() {
-        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-            @Override
-            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-                pageNo = 1;
-                queryPushMessage(pageNo);
-            }
-
-            @Override
-            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-                ++pageNo;
-                if (pageNo <= pageSize) {
-                    swipeLoadMore = true;
-                    queryPushMessage(pageNo);
-                } else {
-                    delayedToast();
-                }
-            }
-        });
+//        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+//            @Override
+//            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+//                pageNo = 1;
+//                queryPushMessage(pageNo);
+//            }
+//
+//            @Override
+//            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+//                ++pageNo;
+//                if (pageNo <= pageSize) {
+//                    swipeLoadMore = true;
+//                    queryPushMessage(pageNo);
+//                } else {
+//                    delayedToast();
+//                }
+//            }
+//        });
     }
 
     private void delayedToast() {

@@ -2,6 +2,7 @@ package android.sgz.com.activity;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.sgz.com.R;
@@ -41,6 +42,7 @@ import java.util.Map;
 
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.UserInfo;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -56,7 +58,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvBtnFourth;
     private RelativeLayout mRlStatus;
     private long mExitTime;
-
+    public static String rongCloudToken = "";//融云的token
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
@@ -86,6 +88,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initData() {
         deleteAllFiles(new File(CacheImgUtil.PATH_DATA_CACHE));
         isUpdateApk();
+        Log.d("Dong", "rongCloudToken------------------------>" + rongCloudToken);
+        connect(rongCloudToken);
+    }
+
+    @Override
+    protected void initView() {
+        super.initView();
+        rongCloudToken = SPUtil.getString(this, "rongCloudToken");
     }
 
     @Override
@@ -245,5 +255,57 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         RongIM.getInstance().disconnect();//不设置收不到推送
+    }
+
+
+    /**
+     * <p>连接服务器，在整个应用程序全局，只需要调用一次，需在 {@link #init(Context)} 之后调用。</p>
+     * <p>如果调用此接口遇到连接失败，SDK 会自动启动重连机制进行最多10次重连，分别是1, 2, 4, 8, 16, 32, 64, 128, 256, 512秒后。
+     * 在这之后如果仍没有连接成功，还会在当检测到设备网络状态变化时再次进行重连。</p>
+     *
+     * @param token    从服务端获取的用户身份令牌（Token）。
+     * @param callback 连接回调。
+     * @return RongIM  客户端核心类的实例。
+     */
+    public void connect(String token) {
+        if (getApplicationInfo().packageName.equals(MyApplication.getCurProcessName(getApplicationContext()))) {
+            Log.d("Dong", "进来了吗--------》" + getApplicationInfo().packageName);
+            RongIM.connect(token, new RongIMClient.ConnectCallback() {
+
+                /**
+                 * Token 错误。可以从下面两点检查 1.  Token 是否过期，如果过期您需要向 App Server 重新请求一个新的 Token
+                 *                  2.  token 对应的 appKey 和工程里设置的 appKey 是否一致
+                 */
+                @Override
+                public void onTokenIncorrect() {
+                    Log.d("Dong", "--onTokenIncorrect" );
+                }
+
+                /**
+                 * 连接融云成功
+                 * @param userid 当前 token 对应的用户 id
+                 */
+                @Override
+                public void onSuccess(String userid) {
+                    Log.d("Dong", "----------------------------------------------------------------onSuccess" + userid);
+                    //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    // finish();
+
+                    //使用消息携带用户信息
+                    //接收方在接收到消息后，SDK 会自动从消息中取出用户信息，并显示到 UI 上。
+                    RongIM.getInstance().setCurrentUserInfo(new UserInfo(String.valueOf(MyApplication.userId),"hhhhh", Uri.parse("http://47.101.46.2/2018/07/07/638f1cc2f49349deb68ce69927d6e4c4.png")));
+                    RongIM.getInstance().setMessageAttachedUserInfo(true);
+                }
+
+                /**
+                 * 连接融云失败
+                 * @param errorCode 错误码，可到官网 查看错误码对应的注释
+                 */
+                @Override
+                public void onError(RongIMClient.ErrorCode errorCode) {
+                    Log.d("Dong", "RongIMClient.ErrorCode-------》" + errorCode);
+                }
+            });
+        }
     }
 }

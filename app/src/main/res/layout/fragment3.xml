@@ -24,9 +24,9 @@
             android:src="@mipmap/icon_arrow_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-    </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>-->s
 
-      <com.itheima.pulltorefreshlib.PullToRefreshListView
+    <!--  <com.itheima.pulltorefreshlib.PullToRefreshListView
           android:divider="#fafafa"
           android:id="@+id/listview"
           android:dividerHeight="1dp"
