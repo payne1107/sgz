@@ -181,8 +181,11 @@ public class SplashActivity extends BaseActivity {
                 Log.d("Dong", "刷新token === " +json);
                 handleFreshToken(json);
                 break;
+
+
         }
     }
+
 
     /****
      * 刷新token处理

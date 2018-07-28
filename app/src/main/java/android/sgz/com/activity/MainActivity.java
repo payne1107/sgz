@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
+import android.sgz.com.bean.MineInfoBean;
 import android.sgz.com.bean.RongCloudBean;
 import android.sgz.com.fragment.Fragment1;
 import android.sgz.com.fragment.Fragment2;
@@ -19,6 +20,7 @@ import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.PopupMenuUtil;
 import android.sgz.com.utils.SPUtil;
 import android.sgz.com.utils.StatusUtils;
+import android.sgz.com.utils.StringUtils;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -59,6 +61,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RelativeLayout mRlStatus;
     private long mExitTime;
     public static String rongCloudToken = "";//融云的token
+    private String realName = "";
+    private String photoUrl = "";
+
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
@@ -89,7 +94,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         deleteAllFiles(new File(CacheImgUtil.PATH_DATA_CACHE));
         isUpdateApk();
         Log.d("Dong", "rongCloudToken------------------------>" + rongCloudToken);
-        connect(rongCloudToken);
+        queryMineInfo();
+
     }
 
     @Override
@@ -293,7 +299,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                     //使用消息携带用户信息
                     //接收方在接收到消息后，SDK 会自动从消息中取出用户信息，并显示到 UI 上。
-                    RongIM.getInstance().setCurrentUserInfo(new UserInfo(String.valueOf(MyApplication.userId),"hhhhh", Uri.parse("http://47.101.46.2/2018/07/07/638f1cc2f49349deb68ce69927d6e4c4.png")));
+                    RongIM.getInstance().setCurrentUserInfo(new UserInfo(String.valueOf(MyApplication.userId), realName, Uri.parse(photoUrl)));
                     RongIM.getInstance().setMessageAttachedUserInfo(true);
                 }
 
@@ -306,6 +312,44 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     Log.d("Dong", "RongIMClient.ErrorCode-------》" + errorCode);
                 }
             });
+        }
+    }
+
+
+    /****
+     * 查询用户头像和昵称
+     */
+    private void queryMineInfo() {
+        Map<String, String> params = new HashMap<>();
+        params.put("random", "123");
+        httpPostRequest(ConfigUtil.QUERY_MINE_INFO_URL, params, ConfigUtil.QUERY_MINE_INFO_URL_ACTION);
+    }
+
+    @Override
+    protected void httpOnResponse(String json, int action) {
+        super.httpOnResponse(json, action);
+        switch (action) {
+            case ConfigUtil.QUERY_MINE_INFO_URL_ACTION:
+                handleQueryMineInfo(json);
+                break;
+        }
+    }
+
+    /***
+     * 头像和昵称处理
+     * @param json
+     */
+    private void handleQueryMineInfo(String json) {
+        if (!StringUtils.isEmpty(json)) {
+            MineInfoBean bean = JSON.parseObject(json, MineInfoBean.class);
+            if (bean != null) {
+                MineInfoBean.DataBean data = bean.getData();
+                if (data != null) {
+                    realName = data.getRealname();
+                    photoUrl = data.getPhoto();
+                    connect(rongCloudToken);
+                }
+            }
         }
     }
 }

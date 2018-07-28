@@ -418,4 +418,9 @@ public class ConfigUtil {
      */
     public static final String QUERY_MONTH_WORKER_STATUS_URL = MyApplication.REQUEST_URL + "/statistic/getMonthWorkStatus";
     public static final int QUERY_MONTH_WORKER_STATUS_URL_ACTION = 80;
+    /***
+     * 获取用户信息
+     */
+    public static final String QUERY_MINE_INFO_URL = MyApplication.REQUEST_URL + "personal/getMyInfo";
+    public static final int QUERY_MINE_INFO_URL_ACTION = 81;
 }

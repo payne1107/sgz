@@ -108,14 +108,18 @@ public class ClearSalaryContactsAdapter extends BaseAdapter{
                 if (mapSelect.get(position)) {
                     mapSelect.put(position, false);
                     if (mlistUseId != null) {
-                        if (mList.get(position).getUserid() == mlistUseId.get(position)) {
-                            mlistUseId.remove(position);
+                        Log.d("Dong", "position ======" + position);
+                        for (int i = 0; i < mlistUseId.size(); i++) {
+                            if (mList.get(position).getUserid() == mlistUseId.get(i)) {
+                                mlistUseId.remove(i);
+                            }
                         }
                     }
                 } else {
                     mapSelect.put(position, true);
                     //添加用户选择的userid
                     mlistUseId.add(mList.get(position).getUserid());
+                    Log.d("Dong", "mliszie ---------." + mlistUseId.size());
                 }
             }
         });
