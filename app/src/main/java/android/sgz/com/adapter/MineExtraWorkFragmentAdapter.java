@@ -4,6 +4,7 @@ import android.content.Context;
 import android.sgz.com.R;
 import android.sgz.com.bean.ContactsBean;
 import android.sgz.com.bean.MineExtraWorkBean;
+import android.sgz.com.utils.StringUtils;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,7 @@ public class MineExtraWorkFragmentAdapter extends BaseAdapter{
             holder.tvStatus= view.findViewById(R.id.tv_status);
             holder.tvStartDate =view.findViewById(R.id.tv_start_date);
             holder.tvEndDate = view.findViewById(R.id.tv_end_date);
+            holder.tvProjectName =view.findViewById(R.id.tv_project_name);
             AutoUtils.autoSize(view);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -72,9 +74,11 @@ public class MineExtraWorkFragmentAdapter extends BaseAdapter{
             String endTime = bean.getEndtime();
             String approveName = bean.getProjectleadname();
             int status = bean.getStatus();
+            String projectName =bean.getProjectname();
             holder.tvStartDate.setText(starTime);
             holder.tvEndDate.setText(endTime);
             holder.tvName.setText("审批人："+approveName);
+            holder.tvProjectName.setText(StringUtils.isEmpty(projectName) ? "" : projectName);
             if (status == 0) {
                 holder.tvStatus.setText("审核不通过");
             } else if (status == 1) {
@@ -91,5 +95,6 @@ public class MineExtraWorkFragmentAdapter extends BaseAdapter{
         TextView tvStatus;
         TextView tvStartDate;
         TextView tvEndDate;
+        TextView tvProjectName;
     }
 }

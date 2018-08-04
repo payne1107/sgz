@@ -423,4 +423,9 @@ public class ConfigUtil {
      */
     public static final String QUERY_MINE_INFO_URL = MyApplication.REQUEST_URL + "personal/getMyInfo";
     public static final int QUERY_MINE_INFO_URL_ACTION = 81;
+    /****
+     * 微信充值vip
+     */
+    public static final String TO_PAY_VIP_WX_URL = MyApplication.REQUEST_URL + "recharge/toPayVip";
+    public static final int TO_PAY_VIP_WX_URL_ACTIN = 82;
 }

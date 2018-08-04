@@ -131,6 +131,7 @@ public class ToRechargeDetailsActivity extends BaseActivity {
                         adapter.setData(mList);
                         listView.setVisibility(View.VISIBLE);
                     } else {
+                        adapter.setData(mList);
                         setEmptyView(listView);
                     }
                 }

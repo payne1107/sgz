@@ -1,7 +1,9 @@
 package android.sgz.com.activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -95,7 +97,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
         adapter = new ContactDynamicAdapter(mContext, mList);
         listView.setAdapter(adapter);
         tvTalk = findViewById(R.id.tv_talk);
-
+        tvPhone.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG );
         setListener();
 
     }
@@ -103,6 +105,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     private void setListener() {
         tvTalk.setOnClickListener(this);
         rgType.setOnCheckedChangeListener(this);
+        tvPhone.setOnClickListener(this);
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
@@ -146,6 +149,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                 layoutFriendState.setVisibility(View.VISIBLE);
                 layoutPersonInfo.setVisibility(View.GONE);
                 break;
+
         }
     }
 
@@ -242,6 +246,17 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                 if (RongIM.getInstance() != null) {
                     Log.d("Dong", "rongCloudId===================" + friendId);
                     RongIM.getInstance().startPrivateChat(mContext, String.valueOf(friendId), "");
+                }
+                break;
+            case R.id.tv_phone:
+                String phoneNumber = tvPhone.getText().toString().trim();
+                if (isGetPermission(Manifest.permission.CALL_PHONE)) {
+                    callPhone();
+                } else {
+                    //拨打企业电话
+                    if (!StringUtils.isEmpty(phoneNumber)) {
+                        callPhoneConsult(phoneNumber);
+                    }
                 }
                 break;
         }

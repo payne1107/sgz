@@ -316,6 +316,9 @@
         <activity
             android:name=".activity.ToUpPayActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RechargeVIPActivity"
+            android:screenOrientation="portrait" />
         <!-- 微信支付回调 -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"
@@ -393,7 +396,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.ConversationActivity" android:screenOrientation="portrait">
+        <activity android:name=".activity.ConversationActivity" android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

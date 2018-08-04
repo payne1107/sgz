@@ -17,6 +17,8 @@
         android:padding="10dp" />
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
+        android:id="@+id/layout_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -82,7 +84,7 @@
                         android:id="@+id/tv_start_record_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打卡时间 09：10"
+                        android:text=""
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/text_size_28" />
 
@@ -91,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_size_5"
-                        android:text="迟到"
+                        android:text=""
                         android:textColor="@color/ff6000"
                         android:textSize="@dimen/text_size_24" />
 
@@ -110,7 +112,7 @@
                         android:layout_marginTop="@dimen/margin_size_5"
                         android:drawableLeft="@mipmap/icon_potiton_map"
                         android:drawablePadding="3dp"
-                        android:text="合肥市长江西路和潜山路交口"
+                        android:text=""
                         android:textColor="@color/color_888"
                         android:textSize="@dimen/text_size_26" />
 
@@ -136,7 +138,7 @@
                         android:id="@+id/tv_end_record_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打卡时间 18：10"
+                        android:text=""
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/text_size_28" />
 
@@ -145,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_size_5"
-                        android:text="正常"
+                        android:text=""
                         android:textColor="@color/color_62d"
                         android:textSize="@dimen/text_size_24" />
                 </com.zhy.autolayout.AutoLinearLayout>
@@ -159,9 +161,72 @@
                     android:layout_marginTop="@dimen/margin_size_5"
                     android:drawableLeft="@mipmap/icon_potiton_map"
                     android:drawablePadding="3dp"
-                    android:text="合肥市长江西路和潜山路交口"
+                    android:text=""
                     android:textColor="@color/color_888"
                     android:textSize="@dimen/text_size_26" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/layout_extra_work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_size_15"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_size_5"
+                        android:text="加班打卡:"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_28" />
+                    <TextView
+                        android:id="@+id/tv_start_extra_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_size_5"
+                        android:text=""
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_28" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_size_15"
+                    android:layout_marginTop="@dimen/margin_size_20"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加班结束:"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_28" />
+                    <TextView
+                        android:id="@+id/tv_end_extra_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_28" />
+                </com.zhy.autolayout.AutoLinearLayout>
             </com.zhy.autolayout.AutoLinearLayout>
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>

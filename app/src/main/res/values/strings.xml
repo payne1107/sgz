@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">算工资</string>
+    <string name="app_name">算功资</string>
     <string name="permission_get_accounts_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_GET_ACCOUNTS</string>
     <string name="permission_read_phone_hint">没有此权限，无法开启这个功能，请开启获取图库权限。</string>
     <string name="permission_call_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CALL_PHONE</string>

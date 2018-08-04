@@ -8,12 +8,13 @@ import java.util.List;
 
 public class MothWorkerStatusBean {
 
+
     /**
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : [{"date":"1","startstatus":4,"endstatus":4},{"date":"2","startstatus":4,"endstatus":4},{"date":"3","startstatus":4,"endstatus":4},{"date":"4","startstatus":4,"endstatus":4},{"date":"5","startstatus":4,"endstatus":4},{"date":"6","startstatus":4,"endstatus":4},{"date":"7","startstatus":4,"endstatus":4},{"date":"8","startstatus":4,"endstatus":4},{"date":"9","startstatus":4,"endstatus":4},{"date":"10","startstatus":4,"endstatus":4},{"date":"11","startstatus":4,"endstatus":4},{"date":"12","startstatus":4,"endstatus":4},{"date":"13","startstatus":4,"endstatus":4},{"date":"14","startstatus":4,"endstatus":4},{"date":"15","startstatus":4,"endstatus":4},{"date":"16","startstatus":4,"endstatus":4},{"date":"17","startstatus":1,"endstatus":4},{"date":"18","startstatus":4,"endstatus":4},{"date":"19","startstatus":4,"endstatus":4},{"date":"20","startstatus":1,"endstatus":1},{"date":"21","startstatus":4,"endstatus":4},{"date":"22","startstatus":4,"endstatus":4},{"date":"23","startstatus":4,"endstatus":4}]
-     * exception : false
+     * data : [{"date":"1","startstatus":2,"endstatus":1,"ifextrawork":0,"projectid":25,"projectname":"魏"}]
+     * exception : true
      */
 
     private boolean success;
@@ -65,13 +66,19 @@ public class MothWorkerStatusBean {
     public static class DataBean {
         /**
          * date : 1
-         * startstatus : 4
-         * endstatus : 4
+         * startstatus : 2
+         * endstatus : 1
+         * ifextrawork : 0
+         * projectid : 25
+         * projectname : 魏
          */
 
         private String date;
         private int startstatus;
         private int endstatus;
+        private int ifextrawork;
+        private int projectid;
+        private String projectname;
 
         public String getDate() {
             return date;
@@ -95,6 +102,30 @@ public class MothWorkerStatusBean {
 
         public void setEndstatus(int endstatus) {
             this.endstatus = endstatus;
+        }
+
+        public int getIfextrawork() {
+            return ifextrawork;
+        }
+
+        public void setIfextrawork(int ifextrawork) {
+            this.ifextrawork = ifextrawork;
+        }
+
+        public int getProjectid() {
+            return projectid;
+        }
+
+        public void setProjectid(int projectid) {
+            this.projectid = projectid;
+        }
+
+        public String getProjectname() {
+            return projectname;
+        }
+
+        public void setProjectname(String projectname) {
+            this.projectname = projectname;
         }
     }
 }

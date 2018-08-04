@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.ColorFilter;
 import android.os.Bundle;
 import android.sgz.com.R;
@@ -69,10 +70,15 @@ public class VipMemberCenterActivity extends BaseActivity {
         adapter = new VipMemberListAdapter(mContext, mList);
         recyclerView.setAdapter(adapter);
 
+        setListener();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         queryVipBasicInfo();
         queryVipListInfo();
-
-        setListener();
     }
 
     private void setListener() {
@@ -80,7 +86,7 @@ public class VipMemberCenterActivity extends BaseActivity {
             @Override
             public void onItemClick(View view, int position) {
                 int vipId = mList.get(position).getId();
-                openVip(vipId);
+                startActivity(new Intent(mContext, RechargeVIPActivity.class).putExtra("vipId", vipId));
             }
 
             @Override
@@ -90,14 +96,6 @@ public class VipMemberCenterActivity extends BaseActivity {
         });
     }
 
-    /****
-     * @param vipId
-     */
-    private void openVip(int vipId) {
-        Map<String, String> params = new HashMap<>();
-        params.put("vipid", String.valueOf(vipId));
-        httpPostRequest(ConfigUtil.OPEN_VIP_URL, params, ConfigUtil.OPEN_VIP_URL_ACTION);
-    }
 
     /***
      * 查询vip会员基本信息
@@ -128,12 +126,7 @@ public class VipMemberCenterActivity extends BaseActivity {
             case ConfigUtil.QUERY_VIP_LIST_URL_ACTION:
                 handlerQueryVipList(json);
                 break;
-            case ConfigUtil.OPEN_VIP_URL_ACTION:
-                if (getRequestCode(json) == 1) {
-                    toastMessage("开通VIP成功");
-                    finish();
-                }
-                break;
+
         }
     }
 

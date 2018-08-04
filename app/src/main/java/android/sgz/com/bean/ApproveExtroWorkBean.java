@@ -127,20 +127,20 @@ public class ApproveExtroWorkBean {
              */
 
             private int id;
-            private Object userid;
-            private Object projectid;
+            private String userid;
+            private String projectid;
             private String starttime;
             private String endtime;
             private double extraworkmoney;
             private int extraworktime;
             private int status;
-            private Object approveuserid;
-            private Object approvetime;
+            private String approveuserid;
+            private String approvetime;
             private String projectname;
             private String workname;
             private double overworksalary;
             private int projectleadid;
-            private Object projectleadname;
+            private String projectleadname;
 
             public int getId() {
                 return id;
@@ -150,19 +150,19 @@ public class ApproveExtroWorkBean {
                 this.id = id;
             }
 
-            public Object getUserid() {
+            public String getUserid() {
                 return userid;
             }
 
-            public void setUserid(Object userid) {
+            public void setUserid(String userid) {
                 this.userid = userid;
             }
 
-            public Object getProjectid() {
+            public String getProjectid() {
                 return projectid;
             }
 
-            public void setProjectid(Object projectid) {
+            public void setProjectid(String projectid) {
                 this.projectid = projectid;
             }
 
@@ -206,19 +206,19 @@ public class ApproveExtroWorkBean {
                 this.status = status;
             }
 
-            public Object getApproveuserid() {
+            public String getApproveuserid() {
                 return approveuserid;
             }
 
-            public void setApproveuserid(Object approveuserid) {
+            public void setApproveuserid(String approveuserid) {
                 this.approveuserid = approveuserid;
             }
 
-            public Object getApprovetime() {
+            public String getApprovetime() {
                 return approvetime;
             }
 
-            public void setApprovetime(Object approvetime) {
+            public void setApprovetime(String approvetime) {
                 this.approvetime = approvetime;
             }
 
@@ -254,11 +254,11 @@ public class ApproveExtroWorkBean {
                 this.projectleadid = projectleadid;
             }
 
-            public Object getProjectleadname() {
+            public String getProjectleadname() {
                 return projectleadname;
             }
 
-            public void setProjectleadname(Object projectleadname) {
+            public void setProjectleadname(String projectleadname) {
                 this.projectleadname = projectleadname;
             }
         }

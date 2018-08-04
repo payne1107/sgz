@@ -197,6 +197,7 @@ public class MineSalaryActivity extends BaseActivity implements View.OnClickList
                         adapter.setData(mList);
                         listView.setVisibility(View.VISIBLE);
                     } else {
+                        adapter.setData(mList);
                        setEmptyView(listView);
                     }
                 }

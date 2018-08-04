@@ -19,6 +19,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,6 +49,10 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
     private TextView tvProjectName;
     private List<MothWorkerStatusBean.DataBean> mList = new ArrayList<>();
     private CardCountingDetailsAdapter adapter;
+    private AutoLinearLayout layoutExtraWork;
+    private TextView tvEndExtraTime;
+    private TextView tvStartExtraTime;
+    private AutoLinearLayout layoutContainer;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -82,14 +87,19 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
         tvEndStatus = findViewById(R.id.tv_end_status);
         tvEndRecordAddress = findViewById(R.id.tv_end_record_address);
         tvProjectName = findViewById(R.id.tv_project_name);
-        tvProjectName.setText("项目名称：" + projectName);
+        layoutExtraWork = findViewById(R.id.layout_extra_work);
+        tvEndExtraTime = findViewById(R.id.tv_end_extra_time);
+        tvStartExtraTime = findViewById(R.id.tv_start_extra_time);
+        layoutContainer = findViewById(R.id.layout_container);
+
+
 
         days = DateUtils.getDayOfMonthFormat(year, month);
 
         gridView.setVerticalSpacing(60);
         gridView.setEnabled(true);
 
-        queryWorkRecordByTime(projectId,firstYearMonth);
+        //queryWorkRecordByTime(projectId,firstYearMonth);
         queryMonthWorkStatus();
         setListener();
     }
@@ -103,11 +113,17 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MothWorkerStatusBean.DataBean bean = (MothWorkerStatusBean.DataBean) parent.getAdapter().getItem(position);
                 if (bean != null) {
+                    projectId = bean.getProjectid();
                     clickDay = Integer.valueOf(bean.getDate());
                     adapter.updateTextColor(position);
                     adapter.notifyDataSetChanged();
                     String month = curentYearMonth + "-" + (clickDay < 10 ? "0" + clickDay : clickDay);
+                    if (projectId > 0) {
+                        String projectName = bean.getProjectname();
+                        tvProjectName.setText("项目名称：" + projectName);
+                    }
                     queryWorkRecordByTime(projectId, month);
+
                 }
             }
         });
@@ -158,45 +174,64 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
      */
     private void handleQueryWorkRecordByTime(String json) {
         Log.d("Dong", "json -----》" +json);
+        if (getRequestCode(json) != 1) {
+            layoutContainer.setVisibility(View.GONE);
+            return;
+        }
         WorkRecordByTimeBean bean = JSON.parseObject(json, WorkRecordByTimeBean.class);
         if (bean != null) {
             WorkRecordByTimeBean.DataBean data = bean.getData();
             if (data != null) {
-                String startRecordTime =data.getStartrecordtime();
-                String endRecordTime =data.getEndrecordtime();
-                String startRecordAddress=data.getStartrecordaddress();
-                String endRecordAddress =data.getEndrecordaddress();
-                int startStatus =data.getStartstatus();
-                int endStatus =data.getEndstatus();
-                tvStartRecordTime.setText(StringUtils.isEmpty(startRecordTime) ? "打卡时间:" : "打卡时间:" + startRecordTime);
-                tvStartAddress.setText(StringUtils.isEmpty(startRecordAddress) ? "未打卡" : startRecordAddress);
-                if (startStatus == 1) {
-                    tvStartStatus.setText("正常");
-                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.text_color_3));
-                } else if(startStatus == 2){
-                    tvStartStatus.setText("迟到");
-                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_yellow));
-                } else if (startStatus == 3) {
-                    tvStartStatus.setText("早退");
-                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_blue));
-                } else {
-                    tvStartStatus.setText("未打卡");
-                    tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
+                layoutContainer.setVisibility(View.VISIBLE);
+                WorkRecordByTimeBean.DataBean.WorkRecordBean workRecordBean = data.getWorkRecord();
+                List<WorkRecordByTimeBean.DataBean.ExtraworkRecordsBean> extraWorkRecord = data.getExtraworkRecords();//加班列表
+                if (workRecordBean != null) {
+                    String startRecordTime = workRecordBean.getStartrecordtime();
+                    String endRecordTime = workRecordBean.getEndrecordtime();
+                    String startRecordAddress = workRecordBean.getStartrecordaddress();
+                    String endRecordAddress = workRecordBean.getEndrecordaddress();
+                    int startStatus = workRecordBean.getStartstatus();
+                    int endStatus = workRecordBean.getEndstatus();
+                    tvStartRecordTime.setText(StringUtils.isEmpty(startRecordTime) ? "打卡时间:" : "打卡时间:" + startRecordTime);
+                    tvStartAddress.setText(StringUtils.isEmpty(startRecordAddress) ? "未打卡" : startRecordAddress);
+                    if (startStatus == 1) {
+                        tvStartStatus.setText("正常");
+                        tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.text_color_3));
+                    } else if (startStatus == 2) {
+                        tvStartStatus.setText("迟到");
+                        tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_yellow));
+                    } else if (startStatus == 3) {
+                        tvStartStatus.setText("早退");
+                        tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_blue));
+                    } else {
+                        tvStartStatus.setText("未打卡");
+                        tvStartStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
+                    }
+                    tvEndRecordAddress.setText(StringUtils.isEmpty(endRecordAddress) ? "未打卡" : endRecordAddress);
+                    tvEndRecordTime.setText(StringUtils.isEmpty(endRecordTime) ? "打卡时间:" : "打卡时间:" + endRecordTime);
+                    if (endStatus == 1) {
+                        tvEndStatus.setText("正常");
+                        tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.text_color_3));
+                    } else if (endStatus == 2) {
+                        tvEndStatus.setText("迟到");
+                        tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_yellow));
+                    } else if (endStatus == 3) {
+                        tvEndStatus.setText("早退");
+                        tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_blue));
+                    } else {
+                        tvEndStatus.setText("未打卡");
+                        tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
+                    }
                 }
-                tvEndRecordAddress.setText(StringUtils.isEmpty(endRecordAddress) ? "未打卡" : endRecordAddress);
-                tvEndRecordTime.setText(StringUtils.isEmpty(endRecordTime) ? "打卡时间:" : "打卡时间:" + endRecordTime);
-                if (endStatus == 1) {
-                    tvEndStatus.setText("正常");
-                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.text_color_3));
-                } else if(endStatus == 2){
-                    tvEndStatus.setText("迟到");
-                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_yellow));
-                } else if (endStatus == 3) {
-                    tvEndStatus.setText("早退");
-                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_blue));
+                if (extraWorkRecord != null && extraWorkRecord.size() > 0) {
+                    String startTime = extraWorkRecord.get(0).getStarttime();
+                    String endTime = extraWorkRecord.get(0).getEndtime();
+                    //展示加班列表
+                    layoutExtraWork.setVisibility(View.VISIBLE);
+                    tvStartExtraTime.setText(StringUtils.isEmpty(startTime) ? "" : startTime);
+                    tvEndExtraTime.setText(StringUtils.isEmpty(endTime) ? "" : endTime);
                 } else {
-                    tvEndStatus.setText("未打卡");
-                    tvEndStatus.setTextColor(mContext.getResources().getColor(R.color.google_red));
+                    layoutExtraWork.setVisibility(View.GONE);
                 }
             }
         }
@@ -237,7 +272,7 @@ public class CardCountingDetailsActivity extends BaseActivity implements View.On
      */
     private void queryMonthWorkStatus() {
         Map<String, String> params = new HashMap<>();
-        params.put("projectid", String.valueOf(projectId));
+//        params.put("projectid", String.valueOf(projectId));
         params.put("month", curentYearMonth);
         httpPostRequest(ConfigUtil.QUERY_MONTH_WORKER_STATUS_URL, params, ConfigUtil.QUERY_MONTH_WORKER_STATUS_URL_ACTION);
     }

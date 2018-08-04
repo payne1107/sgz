@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ContactsAdapter;
+import android.sgz.com.adapter.ReleaseOrderAdapter;
 import android.sgz.com.application.MyApplication;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.bean.ContactsBean;
@@ -103,6 +104,15 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                 if (queryContactId == 1) {
                     if (bean != null) {
                         int userid =bean.getId();
+                        if (ReleaseOrderActivity.listCon != null && ReleaseOrderActivity.listCon.size() > 0) {
+                            for (int i = 0; i < ReleaseOrderActivity.listCon.size(); i++) {
+                                if (ReleaseOrderActivity.listCon.get(i) == userid) {
+                                    toastMessage("已经添加过此工人");
+                                    return;
+                                }
+                            }
+                        }
+                        ReleaseOrderActivity.listCon.add(userid);
                         String allowance = bean.getAllowance();
                         String salary =bean.getAllsalary();
                         String overWorkSalary = bean.getAddsalary();

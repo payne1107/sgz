@@ -749,7 +749,7 @@ public abstract class BaseActivity extends FragmentActivity {
                         boolean connect = NetWorkUtils.isWifiConnected(BaseActivity.this);
                         if (!connect) {
                             AlertDialog.Builder dialog = new AlertDialog.Builder(BaseActivity.this);
-                            dialog.setMessage("亲，连接的不是无线网，下载将要消耗流量,是否继续下载？");
+                            dialog.setMessage("连接的不是无线网，下载将要消耗流量,是否继续下载？");
                             dialog.setPositiveButton("继续", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -1303,4 +1303,12 @@ public abstract class BaseActivity extends FragmentActivity {
            // toastMessage(platform + "邀请取消了");
         }
     };
+
+    //电话咨询
+    protected void callPhoneConsult(String phone) {
+        Intent intent = new Intent();
+        intent.setData(Uri.parse("tel:" + phone));
+        intent.setAction(Intent.ACTION_CALL);
+        startActivity(intent);
+    }
 }

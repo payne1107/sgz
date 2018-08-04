@@ -57,7 +57,6 @@ public class MineCheckWaringWorkRecordFragment extends BaseFragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        queryMineWaringWorkRecordList(pageNo,type);
         listView = (PullToRefreshListView) mRootView.findViewById(R.id.listView);
         // 设置模式BOTH: 既能上拉也能下拉，
         listView.setMode(PullToRefreshBase.Mode.BOTH);
@@ -65,6 +64,12 @@ public class MineCheckWaringWorkRecordFragment extends BaseFragment{
         listView.setAdapter(adapter);
 
         setListener();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        queryMineWaringWorkRecordList(pageNo,type);
     }
 
     private void setListener() {

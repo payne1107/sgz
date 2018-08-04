@@ -55,7 +55,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="取消"
-                android:textColor="@color/ff6000"
+                android:textColor="@color/color_62d"
                 android:textSize="@dimen/text_size_36" />
 
             <View
@@ -70,7 +70,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="确认"
-                android:textColor="@color/ff6000"
+                android:textColor="@color/color_62d"
                 android:textSize="@dimen/text_size_36" />
 
             <View

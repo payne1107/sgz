@@ -3,6 +3,7 @@ package android.sgz.com.adapter;
 import android.content.Context;
 import android.sgz.com.R;
 import android.sgz.com.bean.ApproveExtroWorkBean;
+import android.sgz.com.utils.StringUtils;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,7 @@ public class ApproveExtroWorkFragmentAdapter extends BaseAdapter {
             holder.tvEndDate =view.findViewById(R.id.tv_end_date);
             holder.tvName = view.findViewById(R.id.tv_name);
             holder.tvStatus = view.findViewById(R.id.tv_status);
+            holder.tvApplyTime = view.findViewById(R.id.tv_apply_time);
             view.setTag(holder);
             AutoUtils.autoSize(view);
         } else {
@@ -69,6 +71,7 @@ public class ApproveExtroWorkFragmentAdapter extends BaseAdapter {
             String endTime =bean.getEndtime();
             int status =bean.getStatus();
             String workName = bean.getWorkname();
+            String approveTime = bean.getApprovetime();
             holder.tvStartDate.setText("" + startTime);
             holder.tvEndDate.setText("" + endTime);
             holder.tvName.setText("" + workName +"的加班");
@@ -79,11 +82,12 @@ public class ApproveExtroWorkFragmentAdapter extends BaseAdapter {
             } else {
                 holder.tvStatus.setText("审核中");
             }
+            holder.tvApplyTime.setText(StringUtils.isEmpty(approveTime) ? "" : approveTime);
         }
         return view;
     }
 
     class ViewHolder{
-        TextView tvName,tvStatus,tvStartDate,tvEndDate;
+        TextView tvName,tvStatus,tvStartDate,tvEndDate,tvApplyTime;
     }
 }

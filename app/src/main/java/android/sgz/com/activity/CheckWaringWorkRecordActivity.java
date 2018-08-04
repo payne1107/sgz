@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.ConfigUtil;
+import android.sgz.com.utils.StringUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -56,12 +57,33 @@ public class CheckWaringWorkRecordActivity extends BaseActivity implements View.
         TextView tvNoAgree = findViewById(R.id.tv_no_agree);
         TextView tvAddress =findViewById(R.id.tv_address);
 
+        if (status == 1) {
+            //通过
+            tvAgress.setText("已审核");
+            tvAgress.setBackgroundColor(getResources().getColor(R.color.mask_color));
+            tvAgress.setEnabled(false);
+            tvNoAgree.setEnabled(false);
+            tvNoAgree.setBackgroundColor(getResources().getColor(R.color.mask_color));
+        } else if (status == 0) {
+            tvNoAgree.setText("已拒绝");
+            tvNoAgree.setBackgroundColor(getResources().getColor(R.color.mask_color));
+            tvNoAgree.setEnabled(false);
+            tvAgress.setEnabled(false);
+            tvAgress.setBackgroundColor(getResources().getColor(R.color.mask_color));
+        } else {
+            Log.d("Dong", "没审核");
+            tvAgress.setEnabled(true);
+            tvNoAgree.setEnabled(true);
+            tvAgress.setBackgroundColor(getResources().getColor(R.color.color_62d));
+            tvNoAgree.setBackgroundColor(getResources().getColor(R.color.color_62d));
+        }
+
         tvProjectName.setText("" + projectName);
         tvUserName.setText("" + userName);
         tvAddress.setText("" + address);
         tvStartWorkNaem.setText("" + startWorkTime);
         tvEndWorkTime.setText("" + endWorkTime);
-        tvRemark.setText("" + remark);
+        tvRemark.setText(StringUtils.isEmpty(remark) ? "" : remark);
 
         tvNoAgree.setOnClickListener(this);
         tvAgress.setOnClickListener(this);

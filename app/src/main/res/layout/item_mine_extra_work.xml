@@ -24,6 +24,25 @@
                 android:textSize="@dimen/text_size_30"
                 android:textStyle="bold" />
         </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="项目名称："
+                android:textColor="@color/text_color_6" />
+
+            <TextView
+                android:id="@+id/tv_project_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </com.zhy.autolayout.AutoLinearLayout>
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
@@ -76,13 +95,16 @@
                 android:id="@+id/tv_approve_person"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="魏动"
+                android:text=""
                 android:textColor="@color/color_62d" />
 
             <TextView
+                android:layout_marginRight="@dimen/margin_size_15"
+                android:gravity="right"
+                android:layout_weight="1"
                 android:layout_marginLeft="@dimen/margin_size_10"
                 android:id="@+id/tv_status"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="审批中"
                 android:textColor="@color/color_62d" />
