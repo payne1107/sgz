@@ -8,8 +8,8 @@ android {
         applicationId "android.sgz.com"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 44
-        versionName "1.4.4"
+        versionCode 46
+        versionName "1.4.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled  true
         ndk {

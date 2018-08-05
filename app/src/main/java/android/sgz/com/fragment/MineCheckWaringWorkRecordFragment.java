@@ -103,20 +103,25 @@ public class MineCheckWaringWorkRecordFragment extends BaseFragment{
                     intent.putExtra("id", id);
                     if (bean != null) {
                         WaringApplyListBean.DataBean.ListBean.ProjectBean projectBean = bean.getProject();
+                        WaringApplyListBean.DataBean.ListBean.UserBean userBean = bean.getUser();
+                        if (userBean != null) {
+                            String userName =userBean.getRealname();
+                            intent.putExtra("userName", userName);
+                        }
                         String remark = bean.getRemark();
                         if (projectBean != null) {
                             String projectName = projectBean.getName();
                             String address = projectBean.getAddress();
                             String startWorkTime = projectBean.getStartworktime();
                             String endWorkTime = projectBean.getEndworktime();
-                            String userName =projectBean.getHeadman();
+
                             intent.putExtra("projectName", projectName);
                             intent.putExtra("address", address);
                             intent.putExtra("startWorkTime", startWorkTime);
                             intent.putExtra("endWorkTime", endWorkTime);
                             intent.putExtra("remark", remark);
                             intent.putExtra("status", status);
-                            intent.putExtra("userName", userName);
+
                         }
                     }
                     startActivity(intent);

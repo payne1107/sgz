@@ -71,6 +71,11 @@ public class CheckWaringWorkRecordkFragmentAdapter extends BaseAdapter {
         WaringApplyListBean.DataBean.ListBean bean = mList.get(i);
         if (bean != null) {
             WaringApplyListBean.DataBean.ListBean.ProjectBean projectBean = bean.getProject();
+            WaringApplyListBean.DataBean.ListBean.UserBean userBean = bean.getUser();
+            if (userBean != null) {
+                String usernName = userBean.getRealname();
+                holder.tvUserName.setText(StringUtils.isEmpty(usernName) ? "" : usernName);
+            }
             String remark = bean.getRemark();
             holder.tvRemark.setText(StringUtils.isEmpty(remark) ? "" : remark);
             if (projectBean != null) {
@@ -78,12 +83,11 @@ public class CheckWaringWorkRecordkFragmentAdapter extends BaseAdapter {
                 String address = projectBean.getAddress();
                 String endWorkTime = projectBean.getEndworktime();
                 String startWorkTime = projectBean.getStartworktime();
-                String userName = projectBean.getHeadman();
                 holder.tvProjectName.setText(StringUtils.isEmpty(projectName) ? "" : projectName);
                 holder.tvAddress.setText(StringUtils.isEmpty(address) ? "" : address);
                 holder.tvStartTime.setText(StringUtils.isEmpty(startWorkTime) ? "" : "起始时间："+startWorkTime);
                 holder.tvEndTime.setText(StringUtils.isEmpty(endWorkTime) ? "" : "结束时间："+ endWorkTime);
-                holder.tvUserName.setText(StringUtils.isEmpty(userName) ? "" : userName);
+
             }
             int status = bean.getStatus();
             if (status == 1) {

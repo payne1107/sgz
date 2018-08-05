@@ -319,6 +319,12 @@
         <activity
             android:name=".activity.RechargeVIPActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MineApplyOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MineCheckApplyOrderActivity"
+            android:screenOrientation="portrait" />
         <!-- 微信支付回调 -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"
