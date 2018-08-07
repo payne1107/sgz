@@ -63,6 +63,7 @@ public class CheckWaringWorkRecordkFragmentAdapter extends BaseAdapter {
             holder.tvAddress = view.findViewById(R.id.tv_address);
             holder.tvUserName = view.findViewById(R.id.tv_username);
             holder.tvRemark = view.findViewById(R.id.tv_remark);
+            holder.tvStatus = view.findViewById(R.id.tv_status);
             AutoUtils.autoSize(view);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -70,28 +71,32 @@ public class CheckWaringWorkRecordkFragmentAdapter extends BaseAdapter {
         WaringApplyListBean.DataBean.ListBean bean = mList.get(i);
         if (bean != null) {
             WaringApplyListBean.DataBean.ListBean.ProjectBean projectBean = bean.getProject();
+            WaringApplyListBean.DataBean.ListBean.UserBean userBean = bean.getUser();
+            if (userBean != null) {
+                String usernName = userBean.getRealname();
+                holder.tvUserName.setText(StringUtils.isEmpty(usernName) ? "" : usernName);
+            }
             String remark = bean.getRemark();
             holder.tvRemark.setText(StringUtils.isEmpty(remark) ? "" : remark);
             if (projectBean != null) {
                 String projectName = projectBean.getName();
                 String address = projectBean.getAddress();
-                String startWorkTime = projectBean.getStartworktime();
                 String endWorkTime = projectBean.getEndworktime();
-                String userName = projectBean.getHeadman();
+                String startWorkTime = projectBean.getStartworktime();
                 holder.tvProjectName.setText(StringUtils.isEmpty(projectName) ? "" : projectName);
                 holder.tvAddress.setText(StringUtils.isEmpty(address) ? "" : address);
                 holder.tvStartTime.setText(StringUtils.isEmpty(startWorkTime) ? "" : "起始时间："+startWorkTime);
                 holder.tvEndTime.setText(StringUtils.isEmpty(endWorkTime) ? "" : "结束时间："+ endWorkTime);
-                holder.tvUserName.setText(StringUtils.isEmpty(userName) ? "" : userName);
+
             }
-//            int status = bean.getStatus();
-//            if (status == 1) {
-//                holder.tvStatus.setText("审核通过");
-//            } else if (status == 2) {
-//                holder.tvStatus.setText("不通过");
-//            } else {
-//                holder.tvStatus.setText("审核中");
-//            }
+            int status = bean.getStatus();
+            if (status == 1) {
+                holder.tvStatus.setText("审核通过");
+            } else if (status == 0) {
+                holder.tvStatus.setText("不通过");
+            } else {
+                holder.tvStatus.setText("审核中");
+            }
         }
         return view;
     }
@@ -103,5 +108,6 @@ public class CheckWaringWorkRecordkFragmentAdapter extends BaseAdapter {
         TextView tvUserName;
         TextView tvAddress;
         TextView tvRemark;
+        TextView tvStatus;
     }
 }

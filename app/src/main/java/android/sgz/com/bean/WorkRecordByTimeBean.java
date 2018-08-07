@@ -1,16 +1,19 @@
 package android.sgz.com.bean;
 
+import java.util.List;
+
 /**
  * Created by WD on 2018/6/28.
  */
 
 public class WorkRecordByTimeBean {
 
+
     /**
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : {"id":null,"userid":null,"projectid":null,"startrecordtime":null,"endrecordtime":null,"startrecordaddress":null,"endrecordaddress":null,"startlat":null,"startlng":null,"endlat":null,"endlng":null,"daysalary":0,"allowance":0,"startstatus":4,"endstatus":4}
+     * data : {"workRecord":{"id":58,"userid":1,"projectid":3,"startrecordtime":"2018-07-29 11:16:47","endrecordtime":null,"startrecordaddress":"合肥市茗香苑(茗香路)","endrecordaddress":null,"startlat":31.82097,"startlng":117.247413,"endlat":null,"endlng":null,"daysalary":0,"allowance":0,"createtime":"2018-07-29","startstatus":2,"endstatus":4,"remark":null,"operaremark":null},"extraworkRecords":[{"id":37,"userid":1,"projectid":3,"starttime":"2018-07-29 16:00","endtime":"2018-07-29 21:00","createtime":"2018-07-29 17:20:10","extraworkmoney":250,"extraworktime":5,"status":1,"approveuserid":1,"approvetime":"2018-07-29 17:20:53"}]}
      * exception : false
      */
 
@@ -62,157 +65,329 @@ public class WorkRecordByTimeBean {
 
     public static class DataBean {
         /**
-         * id : null
-         * userid : null
-         * projectid : null
-         * startrecordtime : null
-         * endrecordtime : null
-         * startrecordaddress : null
-         * endrecordaddress : null
-         * startlat : null
-         * startlng : null
-         * endlat : null
-         * endlng : null
-         * daysalary : 0
-         * allowance : 0
-         * startstatus : 4
-         * endstatus : 4
+         * workRecord : {"id":58,"userid":1,"projectid":3,"startrecordtime":"2018-07-29 11:16:47","endrecordtime":null,"startrecordaddress":"合肥市茗香苑(茗香路)","endrecordaddress":null,"startlat":31.82097,"startlng":117.247413,"endlat":null,"endlng":null,"daysalary":0,"allowance":0,"createtime":"2018-07-29","startstatus":2,"endstatus":4,"remark":null,"operaremark":null}
+         * extraworkRecords : [{"id":37,"userid":1,"projectid":3,"starttime":"2018-07-29 16:00","endtime":"2018-07-29 21:00","createtime":"2018-07-29 17:20:10","extraworkmoney":250,"extraworktime":5,"status":1,"approveuserid":1,"approvetime":"2018-07-29 17:20:53"}]
          */
 
-        private String id;
-        private String userid;
-        private String projectid;
-        private String startrecordtime;
-        private String endrecordtime;
-        private String startrecordaddress;
-        private String endrecordaddress;
-        private String startlat;
-        private String startlng;
-        private String endlat;
-        private String endlng;
-        private int daysalary;
-        private int allowance;
-        private int startstatus;
-        private int endstatus;
+        private WorkRecordBean workRecord;
+        private List<ExtraworkRecordsBean> extraworkRecords;
 
-        public String getId() {
-            return id;
+        public WorkRecordBean getWorkRecord() {
+            return workRecord;
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public void setWorkRecord(WorkRecordBean workRecord) {
+            this.workRecord = workRecord;
         }
 
-        public String getUserid() {
-            return userid;
+        public List<ExtraworkRecordsBean> getExtraworkRecords() {
+            return extraworkRecords;
         }
 
-        public void setUserid(String userid) {
-            this.userid = userid;
+        public void setExtraworkRecords(List<ExtraworkRecordsBean> extraworkRecords) {
+            this.extraworkRecords = extraworkRecords;
         }
 
-        public String getProjectid() {
-            return projectid;
+        public static class WorkRecordBean {
+            /**
+             * id : 58
+             * userid : 1
+             * projectid : 3
+             * startrecordtime : 2018-07-29 11:16:47
+             * endrecordtime : null
+             * startrecordaddress : 合肥市茗香苑(茗香路)
+             * endrecordaddress : null
+             * startlat : 31.82097
+             * startlng : 117.247413
+             * endlat : null
+             * endlng : null
+             * daysalary : 0
+             * allowance : 0
+             * createtime : 2018-07-29
+             * startstatus : 2
+             * endstatus : 4
+             * remark : null
+             * operaremark : null
+             */
+
+            private int id;
+            private int userid;
+            private int projectid;
+            private String startrecordtime;
+            private String endrecordtime;
+            private String startrecordaddress;
+            private String endrecordaddress;
+            private String startlat;
+            private String startlng;
+            private String endlat;
+            private String endlng;
+            private int daysalary;
+            private int allowance;
+            private String createtime;
+            private int startstatus;
+            private int endstatus;
+            private String remark;
+            private String operaremark;
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public int getUserid() {
+                return userid;
+            }
+
+            public void setUserid(int userid) {
+                this.userid = userid;
+            }
+
+            public int getProjectid() {
+                return projectid;
+            }
+
+            public void setProjectid(int projectid) {
+                this.projectid = projectid;
+            }
+
+            public String getStartrecordtime() {
+                return startrecordtime;
+            }
+
+            public void setStartrecordtime(String startrecordtime) {
+                this.startrecordtime = startrecordtime;
+            }
+
+            public String getEndrecordtime() {
+                return endrecordtime;
+            }
+
+            public void setEndrecordtime(String endrecordtime) {
+                this.endrecordtime = endrecordtime;
+            }
+
+            public String getStartrecordaddress() {
+                return startrecordaddress;
+            }
+
+            public void setStartrecordaddress(String startrecordaddress) {
+                this.startrecordaddress = startrecordaddress;
+            }
+
+            public String getEndrecordaddress() {
+                return endrecordaddress;
+            }
+
+            public void setEndrecordaddress(String endrecordaddress) {
+                this.endrecordaddress = endrecordaddress;
+            }
+
+            public String getStartlat() {
+                return startlat;
+            }
+
+            public void setStartlat(String startlat) {
+                this.startlat = startlat;
+            }
+
+            public String getStartlng() {
+                return startlng;
+            }
+
+            public void setStartlng(String startlng) {
+                this.startlng = startlng;
+            }
+
+            public String getEndlat() {
+                return endlat;
+            }
+
+            public void setEndlat(String endlat) {
+                this.endlat = endlat;
+            }
+
+            public String getEndlng() {
+                return endlng;
+            }
+
+            public void setEndlng(String endlng) {
+                this.endlng = endlng;
+            }
+
+            public int getDaysalary() {
+                return daysalary;
+            }
+
+            public void setDaysalary(int daysalary) {
+                this.daysalary = daysalary;
+            }
+
+            public int getAllowance() {
+                return allowance;
+            }
+
+            public void setAllowance(int allowance) {
+                this.allowance = allowance;
+            }
+
+            public String getCreatetime() {
+                return createtime;
+            }
+
+            public void setCreatetime(String createtime) {
+                this.createtime = createtime;
+            }
+
+            public int getStartstatus() {
+                return startstatus;
+            }
+
+            public void setStartstatus(int startstatus) {
+                this.startstatus = startstatus;
+            }
+
+            public int getEndstatus() {
+                return endstatus;
+            }
+
+            public void setEndstatus(int endstatus) {
+                this.endstatus = endstatus;
+            }
+
+            public String getRemark() {
+                return remark;
+            }
+
+            public void setRemark(String remark) {
+                this.remark = remark;
+            }
+
+            public String getOperaremark() {
+                return operaremark;
+            }
+
+            public void setOperaremark(String operaremark) {
+                this.operaremark = operaremark;
+            }
         }
 
-        public void setProjectid(String projectid) {
-            this.projectid = projectid;
-        }
+        public static class ExtraworkRecordsBean {
+            /**
+             * id : 37
+             * userid : 1
+             * projectid : 3
+             * starttime : 2018-07-29 16:00
+             * endtime : 2018-07-29 21:00
+             * createtime : 2018-07-29 17:20:10
+             * extraworkmoney : 250
+             * extraworktime : 5
+             * status : 1
+             * approveuserid : 1
+             * approvetime : 2018-07-29 17:20:53
+             */
 
-        public String getStartrecordtime() {
-            return startrecordtime;
-        }
+            private int id;
+            private int userid;
+            private int projectid;
+            private String starttime;
+            private String endtime;
+            private String createtime;
+            private int extraworkmoney;
+            private int extraworktime;
+            private int status;
+            private int approveuserid;
+            private String approvetime;
 
-        public void setStartrecordtime(String startrecordtime) {
-            this.startrecordtime = startrecordtime;
-        }
+            public int getId() {
+                return id;
+            }
 
-        public String getEndrecordtime() {
-            return endrecordtime;
-        }
+            public void setId(int id) {
+                this.id = id;
+            }
 
-        public void setEndrecordtime(String endrecordtime) {
-            this.endrecordtime = endrecordtime;
-        }
+            public int getUserid() {
+                return userid;
+            }
 
-        public String getStartrecordaddress() {
-            return startrecordaddress;
-        }
+            public void setUserid(int userid) {
+                this.userid = userid;
+            }
 
-        public void setStartrecordaddress(String startrecordaddress) {
-            this.startrecordaddress = startrecordaddress;
-        }
+            public int getProjectid() {
+                return projectid;
+            }
 
-        public String getEndrecordaddress() {
-            return endrecordaddress;
-        }
+            public void setProjectid(int projectid) {
+                this.projectid = projectid;
+            }
 
-        public void setEndrecordaddress(String endrecordaddress) {
-            this.endrecordaddress = endrecordaddress;
-        }
+            public String getStarttime() {
+                return starttime;
+            }
 
-        public String getStartlat() {
-            return startlat;
-        }
+            public void setStarttime(String starttime) {
+                this.starttime = starttime;
+            }
 
-        public void setStartlat(String startlat) {
-            this.startlat = startlat;
-        }
+            public String getEndtime() {
+                return endtime;
+            }
 
-        public String getStartlng() {
-            return startlng;
-        }
+            public void setEndtime(String endtime) {
+                this.endtime = endtime;
+            }
 
-        public void setStartlng(String startlng) {
-            this.startlng = startlng;
-        }
+            public String getCreatetime() {
+                return createtime;
+            }
 
-        public String getEndlat() {
-            return endlat;
-        }
+            public void setCreatetime(String createtime) {
+                this.createtime = createtime;
+            }
 
-        public void setEndlat(String endlat) {
-            this.endlat = endlat;
-        }
+            public int getExtraworkmoney() {
+                return extraworkmoney;
+            }
 
-        public String getEndlng() {
-            return endlng;
-        }
+            public void setExtraworkmoney(int extraworkmoney) {
+                this.extraworkmoney = extraworkmoney;
+            }
 
-        public void setEndlng(String endlng) {
-            this.endlng = endlng;
-        }
+            public int getExtraworktime() {
+                return extraworktime;
+            }
 
-        public int getDaysalary() {
-            return daysalary;
-        }
+            public void setExtraworktime(int extraworktime) {
+                this.extraworktime = extraworktime;
+            }
 
-        public void setDaysalary(int daysalary) {
-            this.daysalary = daysalary;
-        }
+            public int getStatus() {
+                return status;
+            }
 
-        public int getAllowance() {
-            return allowance;
-        }
+            public void setStatus(int status) {
+                this.status = status;
+            }
 
-        public void setAllowance(int allowance) {
-            this.allowance = allowance;
-        }
+            public int getApproveuserid() {
+                return approveuserid;
+            }
 
-        public int getStartstatus() {
-            return startstatus;
-        }
+            public void setApproveuserid(int approveuserid) {
+                this.approveuserid = approveuserid;
+            }
 
-        public void setStartstatus(int startstatus) {
-            this.startstatus = startstatus;
-        }
+            public String getApprovetime() {
+                return approvetime;
+            }
 
-        public int getEndstatus() {
-            return endstatus;
-        }
-
-        public void setEndstatus(int endstatus) {
-            this.endstatus = endstatus;
+            public void setApprovetime(String approvetime) {
+                this.approvetime = approvetime;
+            }
         }
     }
 }

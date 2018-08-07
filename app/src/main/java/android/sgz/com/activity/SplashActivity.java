@@ -54,7 +54,8 @@ public class SplashActivity extends BaseActivity {
                 .addRequestCode(100)
                 .permissions(
                         Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.CALL_PHONE)
                 .request();
     }
 

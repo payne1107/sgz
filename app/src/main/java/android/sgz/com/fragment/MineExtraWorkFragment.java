@@ -183,6 +183,7 @@ public class MineExtraWorkFragment extends BaseFragment implements View.OnClickL
                         adapter.setData(mList);
                         listView.setVisibility(View.VISIBLE);
                     } else {
+                        adapter.setData(mList);
                         setEmptyView(listView);
                     }
                 }
@@ -207,8 +208,10 @@ public class MineExtraWorkFragment extends BaseFragment implements View.OnClickL
         // 设置点击外围解散
         dialog.setCanceledOnTouchOutside(true);
         dialog.show();
-        TextView tvSavePhoto = (TextView) dialog.findViewById(R.id.tv_delete_extra_work);
-        tvSavePhoto.setOnClickListener(this);
+        TextView tvDeleteExtraWork = (TextView) dialog.findViewById(R.id.tv_delete_extra_work);
+        TextView tvCancel = dialog.findViewById(R.id.tv_cancel);
+        tvDeleteExtraWork.setOnClickListener(this);
+        tvCancel.setOnClickListener(this);
     }
 
     @Override

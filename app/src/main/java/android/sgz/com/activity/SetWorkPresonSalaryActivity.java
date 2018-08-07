@@ -55,7 +55,7 @@ public class SetWorkPresonSalaryActivity extends BaseActivity implements View.On
         setInVisibleTitleIcon("设置工人工资", true, true);
         userId = getIntent().getIntExtra("userId", 0);
         projectId = getIntent().getIntExtra("projectId", 0);
-        ///一共有3处进入这个activity 发布工单 修改工单 修改工单直接在这设置工资 1=修改工单添加人添加工资 2=修改工资
+        ///一共有3处进入这个activity 发布工单 修改工单 修改工单直接在这设置工资 1=修改工单添加人添加工资 2=修改工资 3 审核新加入工单员工设置工资
         updatePersonSalry = getIntent().getIntExtra("update_person_salary",0);
         etSalary = findViewById(R.id.et_salary);
         etAddWorkSalary = findViewById(R.id.et_add_work_salary);
@@ -80,7 +80,11 @@ public class SetWorkPresonSalaryActivity extends BaseActivity implements View.On
                     //修改工单的时候设置工资
                     addPersonSalary(projectId, userId, salary, allownce, addWorkSalary);
                 } else if (updatePersonSalry == 2) {
+                    //修改工资
                     editWorkPersonSalary(userId, salary, allownce, addWorkSalary);
+                } else if (updatePersonSalry == 3) {
+                   //审核新加入工单员工设置工资
+                    applyInOrder(projectId, 1, salary, allownce, addWorkSalary);
                 } else {
                     //不等于说明是发布工单的时候设置工资
                     Intent intent = new Intent();
@@ -150,7 +154,26 @@ public class SetWorkPresonSalaryActivity extends BaseActivity implements View.On
                     finish();
                 }
                 break;
+            case ConfigUtil.CHECK_IN_PROJECT_ORDER_APPLY_URL_ACTION:
+                if (getRequestCode(json) == 1) {
+                    toastMessage("审核成功");
+                    finish();
+                }
+                break;
         }
+    }
+
+    /****
+     *  审核加入工单
+     */
+    private void applyInOrder(int projectid,int status,String salary,String allowance,String overworksalay) {
+        Map<String, String> params = new HashMap<>();
+        params.put("id", String.valueOf(projectid));
+        params.put("status", String.valueOf(status));
+        params.put("salary", salary);
+        params.put("allowance", allowance);
+        params.put("overworksalary", overworksalay);
+        httpPostRequest(ConfigUtil.CHECK_IN_PROJECT_ORDER_APPLY_URL, params, ConfigUtil.CHECK_IN_PROJECT_ORDER_APPLY_URL_ACTION);
     }
 }
 

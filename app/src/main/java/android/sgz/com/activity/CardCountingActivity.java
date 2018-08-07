@@ -195,11 +195,12 @@ public class CardCountingActivity extends BaseActivity implements View.OnClickLi
             case R.id.layout_absenteeism:
             case R.id.layout_overtime:
                 //打卡详情
-                if (projectId > 0) {
-                    startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId).putExtra("projectName", projectName));
-                } else {
-                    toastMessage("没有工单统计数据");
-                }
+//                if (projectId > 0) {
+//                    startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth).putExtra("projectId", projectId).putExtra("projectName", projectName));
+//                } else {
+//                    toastMessage("没有工单统计数据");
+//                }
+                startActivity(new Intent(mContext, CardCountingDetailsActivity.class).putExtra("current_month", currentYearMoth));
                 break;
         }
     }

@@ -74,6 +74,9 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
     private TextView tvLeader;
     private TextView tvStartDate;
     private TextView tvChooseLocation;
+    //用来记录添加工人的时候，排除添加同一个人多次
+    protected static List<Integer> listCon = new ArrayList<>();
+
 
     //存储联系人集合
     private List<AddOrderContactsBean> listContacts = new ArrayList<>();
@@ -398,6 +401,14 @@ public class ReleaseOrderActivity extends BaseActivity implements View.OnClickLi
                     finish();
                 }
                 break;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (listCon != null && listCon.size() > 0) {
+            listCon.clear();
         }
     }
 }

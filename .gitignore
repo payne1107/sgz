@@ -16,3 +16,8 @@
 *.apk
 *.xml
 .idea/misc.xml
+IMKit/build/outputs/aar/IMKit-debug.aar
+IMLib/build/outputs/aar/IMLib-debug.aar
+IMLib/build/outputs/aar/IMLib-debug.aar
+IMLib/build/outputs/aar/IMLib-debug.aar
+*.aar

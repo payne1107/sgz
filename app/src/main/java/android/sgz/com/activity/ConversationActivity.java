@@ -7,6 +7,7 @@ import android.sgz.com.R;
 import android.sgz.com.base.BaseActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.WindowManager;
 
 
 /**

@@ -2,25 +2,15 @@ package android.sgz.com.adapter;
 
 import android.content.Context;
 import android.sgz.com.R;
-import android.sgz.com.bean.MineExpendDetailsBean;
 import android.sgz.com.bean.WorkerUserListBean;
 import android.sgz.com.utils.DateUtils;
-import android.sgz.com.widget.IRecycleViewOnItemClickListener;
-import android.sgz.com.widget.camera.IRecycleViewOnRadioButtonListener;
-import android.support.annotation.IdRes;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-
-import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,7 +74,7 @@ public class ClearSalaryContactsAdapter extends BaseAdapter{
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_work_user, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.layout_item_work_user1, null);
             holder.tvDate =convertView.findViewById(R.id.tv_date);
             holder.tvUsername = convertView.findViewById(R.id.tv_username);
             holder.radioButton1 =convertView.findViewById(R.id.radiobutton1);

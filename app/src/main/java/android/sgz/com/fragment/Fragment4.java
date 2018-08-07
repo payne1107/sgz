@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.CardCountingActivity;
 import android.sgz.com.activity.ExtraWrokActivity;
+import android.sgz.com.activity.MineApplyOrderActivity;
 import android.sgz.com.activity.MineExpendActivity;
 import android.sgz.com.activity.MineHomePageActivity;
 import android.sgz.com.activity.MineSalaryActivity;
@@ -54,6 +55,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutWaringManager;
     private TextView tvUserName;
     private TextView tvWorkCategory;
+    private AutoLinearLayout layoutApplyOrder;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,7 +100,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutWaringManager = mRootView.findViewById(R.id.layout_waring_manage);
         tvUserName = mRootView.findViewById(R.id.tv_username);
         tvWorkCategory = mRootView.findViewById(R.id.tv_work_category);//工作类别
+        //工单审核
+        layoutApplyOrder = mRootView.findViewById(R.id.layout_apply_order);
 
+        layoutApplyOrder.setOnClickListener(this);
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
         layoutMineSalary.setOnClickListener(this);
@@ -147,6 +152,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
             case R.id.layout_waring_manage:
                 //异常打卡信息管理
                 startActivity(new Intent(getActivity(), MineWaringManagerActivity.class));
+                break;
+            case R.id.layout_apply_order:
+                //加入工单审核
+                startActivity(new Intent(getActivity(), MineApplyOrderActivity.class));
                 break;
         }
     }

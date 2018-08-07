@@ -63,12 +63,21 @@ public class ApproveExtroWorkDetailsActivity extends BaseActivity implements Vie
         tvName.setText("" + workName + "的加班");
         if (status == 0) {
             tvStatus.setText("不通过");
+            tvNoAgree.setText("已拒绝");
+            tvNoAgree.setEnabled(false);
+            tvNoAgree.setBackgroundColor(getResources().getColor(R.color.mask_color));
+            tvAgree.setEnabled(false);
+            tvAgree.setBackgroundColor(getResources().getColor(R.color.mask_color));
         } else if (status == 1) {
             tvStatus.setText("已通过");
+            tvAgree.setText("已审批");
+            tvAgree.setEnabled(false);
+            tvAgree.setBackgroundColor(getResources().getColor(R.color.mask_color));
+            tvNoAgree.setEnabled(false);
+            tvNoAgree.setBackgroundColor(getResources().getColor(R.color.mask_color));
         } else {
             tvStatus.setText("审核中");
         }
-
         setListener();
     }
 
