@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn\\values-mn.xml",
+        "outputFile": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn\\values-mn.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 151
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-mn\\values-mn.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-mn\\values-mn.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

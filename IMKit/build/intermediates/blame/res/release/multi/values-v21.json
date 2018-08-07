@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "F:\\workspace\\sgz\\IMKit\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v21\\values-v21.xml",
+        "outputFile": "E:\\workspace\\sgz\\IMKit\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v21\\values-v21.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 218
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 285
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 349
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 465
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 591
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -126,7 +126,7 @@
                     "endOffset": 759
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -147,7 +147,7 @@
                     "endOffset": 922
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -167,7 +167,7 @@
                     "endOffset": 1048
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -187,7 +187,7 @@
                     "endOffset": 1216
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -207,7 +207,7 @@
                     "endOffset": 1344
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -227,7 +227,7 @@
                     "endOffset": 1511
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\d757f5bb2245a862a16667b06b5aa9adf67c3723\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\45b0f7ca15ee8b13b4c4bfe4c49468f517db9ce1\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -248,7 +248,7 @@
                     "endOffset": 1683
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -269,7 +269,7 @@
                     "endOffset": 2021
                 },
                 "from": {
-                    "file": "C:\\Users\\WD\\.android\\build-cache\\b931c8f8a5f1692247201d5a22d0f19af1c5acba\\output\\res\\values-v21\\values-v21.xml",
+                    "file": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\values-v21\\values-v21.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
