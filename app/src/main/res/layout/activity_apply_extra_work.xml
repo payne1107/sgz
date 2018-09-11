@@ -63,6 +63,26 @@
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="@dimen/margin_size_10"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_extra_work"
+            android:paddingTop="@dimen/margin_size_5"
+            android:gravity="top"
+            android:paddingLeft="@dimen/margin_size_10"
+            android:textColor="@color/text_color_3"
+            android:textColorHint="@color/text_color_9"
+            android:textSize="@dimen/text_size_24"
+            android:hint="请输入加班理由"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
         android:id="@+id/layout_commit"
         android:layout_marginRight="@dimen/margin_size_15"
         android:layout_marginLeft="@dimen/margin_size_15"

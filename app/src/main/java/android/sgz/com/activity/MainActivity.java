@@ -1,6 +1,7 @@
 package android.sgz.com.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -40,14 +41,19 @@ import com.alibaba.fastjson.JSON;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.UserInfo;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
-
+    public static final String DECODED_CONTENT_KEY = "codedContent";
+    public static final int REQUEST_CODE_SCAN = 0x0000;
     private ImageView imageView;
     private Context mContext;
     private RelativeLayout rlBtnFrist,rlBtnSecond,rlBtnThird,rlBtnFourth;
@@ -63,7 +69,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static String rongCloudToken = "";//融云的token
     private String realName = "";
     private String photoUrl = "";
-
+    private Set<String> set = new HashSet<String>();
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
@@ -212,6 +218,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         setStatusMainBar(R.color.color_62d);
+        if (!StringUtils.isEmpty(MyApplication.userId)) {
+            set.add(MyApplication.userId);
+            JPushInterface.setAliasAndTags(getApplicationContext(), MyApplication.userId, set, new TagAliasCallback() {
+                @Override
+                public void gotResult(int code, String s, Set<String> set) {
+                    switch (code) {
+                        case 0:
+                            Log.d("Dong", "set AliasTag sucess!");
+                            break;
+                        default:
+                            Log.d("Dong", "set AliasTag Failed!");
+                            break;
+                    }
+                }
+            });
+        }
     }
 
     /**
@@ -315,7 +337,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-
     /****
      * 查询用户头像和昵称
      */
@@ -352,4 +373,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         }
     }
+
 }

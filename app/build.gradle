@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "android.sgz.com"
         minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 46
-        versionName "1.4.6"
+        targetSdkVersion 28
+        versionCode 53
+        versionName "1.5.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled  true
         ndk {
@@ -31,8 +30,8 @@ android {
     }
 
     android.applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            output.outputFile = new File(output.outputFile.parent, "sgz_app" + "-" + buildType.name  + ".apk" );
+        variant.outputs.all { output ->
+            outputFileName = new File("sgz_app" + "-"+ defaultConfig.versionName + buildType.name  + ".apk" );
         }
     }
 
@@ -50,46 +49,47 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:design:24.0.0'
-    compile 'com.android.support:support-compat:26.0.0'
-    compile 'com.android.support:support-v4:26.0.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-    compile files('libs/fastjson-1.1.33.jar')
-    compile files('libs/systembartint-1.0.4.jar')
-    compile files('libs/universal-image-loader-1.9.3.jar')
-    compile files('libs/volley.jar')
-    compile files('libs/xUtils-2.6.14.jar')
-    compile 'org.xutils:xutils:3.3.36'
-    compile 'com.squareup.okhttp:okhttp:2.7.5'
-    compile project(path: ':pulltorefreshlib')
+    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation 'com.android.support:design:24.0.0'
+    implementation 'com.android.support:support-compat:26.0.0'
+    implementation 'com.android.support:support-v4:26.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    implementation files('libs/fastjson-1.1.33.jar')
+    implementation files('libs/systembartint-1.0.4.jar')
+    implementation files('libs/universal-image-loader-1.9.3.jar')
+    implementation files('libs/volley.jar')
+    implementation files('libs/xUtils-2.6.14.jar')
+    implementation 'org.xutils:xutils:3.3.36'
+    implementation 'com.squareup.okhttp:okhttp:2.7.5'
+    implementation project(path: ':pulltorefreshlib')
     //适配
-    compile 'com.zhy:autolayout:1.4.5'
+    implementation 'com.zhy:autolayout:1.4.5'
     //浮动标签
-    compile 'com.zhy:flowlayout-lib:1.0.3'
-    compile project(path: ':citypicker')
-    compile project(path: ':permissiongen')
-    compile 'com.pgyersdk:sdk:2.8.1'
-    compile 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
-    compile 'com.amap.api:search:latest.integration'
-    compile 'com.amap.api:map2d:latest.integration'
-    compile 'cn.jiguang.sdk:jpush:3.1.1'
+    implementation 'com.zhy:flowlayout-lib:1.0.3'
+    implementation project(path: ':citypicker')
+    implementation project(path: ':permissiongen')
+    implementation 'com.pgyersdk:sdk:2.8.1'
+    implementation 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
+    implementation 'com.amap.api:search:latest.integration'
+    implementation 'com.amap.api:map2d:latest.integration'
+    implementation 'cn.jiguang.sdk:jpush:3.1.1'
     // 此处以JPush 3.1.1 版本为例。
-    compile 'cn.jiguang.sdk:jcore:1.1.9'
+    implementation 'cn.jiguang.sdk:jcore:1.1.9'
     // 此处以JCore 1.1.9 版本为例。
-    compile files('libs/umeng-common-1.5.3.jar')
-    compile files('libs/umeng-share-core-6.9.2.jar')
-    compile files('libs/umeng-share-QQ-simplify-6.9.2.jar')
-    compile files('libs/umeng-share-wechat-simplify-6.9.2.jar')
-    compile files('libs/umeng-shareboard-widget-6.9.2.jar')
-    compile files('libs/umeng-sharetool-6.9.2.jar')
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
-    compile project(path: ':IMKit')
+    implementation files('libs/umeng-common-1.5.3.jar')
+    implementation files('libs/umeng-share-core-6.9.2.jar')
+    implementation files('libs/umeng-share-QQ-simplify-6.9.2.jar')
+    implementation files('libs/umeng-share-wechat-simplify-6.9.2.jar')
+    implementation files('libs/umeng-shareboard-widget-6.9.2.jar')
+    implementation files('libs/umeng-sharetool-6.9.2.jar')
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation project(path: ':IMKit')
+    implementation files('libs/core-3.0.0.jar')
 }

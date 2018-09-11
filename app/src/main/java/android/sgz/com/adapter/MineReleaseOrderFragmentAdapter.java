@@ -71,7 +71,8 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tv_status);
             holder.layoutShadow =convertView.findViewById(R.id.layout_shadow);
             holder.layoutContainer= convertView.findViewById(R.id.layout_container);
-            holder.tvCleanSalary =convertView.findViewById(R.id.tv_clean_salary);
+            holder.tvCleanSalary = convertView.findViewById(R.id.tv_clean_salary);
+            holder.tvMotifyOrderName = convertView.findViewById(R.id.tv_motify_order_name);
             AutoUtils.autoSize(convertView);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -105,6 +106,12 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
                     mOnItemClickListener.onItemClick(view,position);
                 }
             });
+            holder.tvMotifyOrderName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onLongItemClick(view,position);
+                }
+            });
         }
         return convertView;
     }
@@ -113,6 +120,7 @@ public class MineReleaseOrderFragmentAdapter extends BaseAdapter {
         TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus,tvStartWorkTime,tvEndWorkTime,tvCleanSalary;
         AutoFrameLayout layoutShadow;
         AutoLinearLayout layoutContainer;
+        public TextView tvMotifyOrderName;
     }
     private IRecycleViewOnItemClickListener mOnItemClickListener;//声明接口
     public void setOnItemClickListener(IRecycleViewOnItemClickListener onItemClickListener) {

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.ClearSalaryActivity;
+import android.sgz.com.activity.MotifyOrderNameActivity;
 import android.sgz.com.activity.ReleaseWorkOrderDetailsActivity;
 import android.sgz.com.adapter.MineReleaseOrderFragmentAdapter;
 import android.sgz.com.base.BaseFragment;
@@ -121,9 +122,24 @@ public class MineReleaseOrderFragment extends BaseFragment{
 
             @Override
             public void onLongItemClick(View view, int position) {
-
+                MineWorkOrderFragmentBean.DataBean.ListBean bean = mList.get(position);
+                if (bean != null) {
+                    int projectId = bean.getId();
+                    //修改工单名称
+                    motifyOrderNmae(projectId);
+                }
             }
         });
+    }
+
+    /****
+     * 修改工单名称
+     * @param projectId
+     */
+    private void motifyOrderNmae(int projectId) {
+        Intent intent = new Intent(getActivity(), MotifyOrderNameActivity.class);
+        intent.putExtra("projectId", projectId);
+        startActivity(intent);
     }
 
     private void delayedToast() {

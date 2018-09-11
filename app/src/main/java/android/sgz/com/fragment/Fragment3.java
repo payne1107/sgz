@@ -1,8 +1,10 @@
 package android.sgz.com.fragment;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.sgz.com.R;
+import android.sgz.com.activity.NoticeActivity;
 import android.sgz.com.adapter.MessageAdapter;
 import android.sgz.com.base.BaseFragment;
 import android.sgz.com.bean.MessageBean;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.itheima.pulltorefreshlib.PullToRefreshBase;
 import com.itheima.pulltorefreshlib.PullToRefreshListView;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,95 +62,17 @@ public class Fragment3 extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setInVisibleTitleIcon("消息", true, false);
-       // queryPushMessage(pageNo);
-//        listView = mRootView.findViewById(R.id.listview);
-//        listView.setMode(PullToRefreshBase.Mode.BOTH);
-//        adapter = new MessageAdapter(getActivity(),mList);
-//        listView.setAdapter(adapter);
-       // setListener();
-
+        AutoLinearLayout layoutNotice = mRootView.findViewById(R.id.layout_notice);
+        layoutNotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), NoticeActivity.class));
+            }
+        });
         initConversionList();
     }
 
-    private void setListener() {
-//        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-//            @Override
-//            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-//                pageNo = 1;
-//                queryPushMessage(pageNo);
-//            }
-//
-//            @Override
-//            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-//                ++pageNo;
-//                if (pageNo <= pageSize) {
-//                    swipeLoadMore = true;
-//                    queryPushMessage(pageNo);
-//                } else {
-//                    delayedToast();
-//                }
-//            }
-//        });
-    }
 
-    private void delayedToast() {
-        Toast.makeText(getActivity(),"没有更多数据啦",Toast.LENGTH_LONG).show();
-        listView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                listView.onRefreshComplete();
-                swipeLoadMore = false;
-            }
-        },1000);
-    }
-    /****
-     * 查询消息推送
-     */
-    private void queryPushMessage(int pageNo) {
-        Map<String, String> params = new HashMap<>();
-        params.put("page", String.valueOf(pageNo));
-        httpPostRequest(ConfigUtil.QUERY_MY_PUSH_MESSAGE_ULR, params, ConfigUtil.QUERY_MY_PUSH_MESSAGE_ULR_ACTION);
-    }
-
-    @Override
-    public void httpOnResponse(String json, int action) {
-        super.httpOnResponse(json, action);
-        switch (action) {
-            case ConfigUtil.QUERY_MY_PUSH_MESSAGE_ULR_ACTION:
-                hanldeQueryMyPushMessage(json);
-                break;
-        }
-    }
-
-    /***
-     * 处理消息推送
-     * @param json
-     */
-    private void hanldeQueryMyPushMessage(String json) {
-        if (listView != null && listView.isRefreshing()) {
-            listView.onRefreshComplete();
-        }
-        MessageBean bean =  JSON.parseObject(json, MessageBean.class);
-        if (bean != null) {
-            MessageBean.DataBean data = bean.getData();
-            if (data != null) {
-                pageSize = data.getCoutpage();
-                if (swipeLoadMore) {
-                    swipeLoadMore = false;
-                    mList.addAll(mList.size(), data.getList());
-                    adapter.setData(mList);
-                } else {
-                    mList = data.getList();
-                    if (mList != null && mList.size() > 0) {
-                        adapter.setData(mList);
-                        listView.setVisibility(View.VISIBLE);
-                    } else {
-                        setEmptyView(listView);
-                    }
-                }
-            }
-        }
-    }
 
     private void initConversionList() {
         //会话列表

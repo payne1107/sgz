@@ -428,4 +428,14 @@ public class ConfigUtil {
      */
     public static final String TO_PAY_VIP_WX_URL = MyApplication.REQUEST_URL + "recharge/toPayVip";
     public static final int TO_PAY_VIP_WX_URL_ACTIN = 82;
+    /***
+     * 加入公司
+     */
+    public static final String JOIN_COMPANY_URL = MyApplication.REQUEST_URL + "/company/joinCompany";
+    public static final int JOIN_COMPANY_URL_ACtION = 83;
+    /****
+     * 修改项目名称
+     */
+    public static final String MOTIFY_PROJECT_NAME_URL = MyApplication.REQUEST_URL + "project/editProjectName";
+    public static final int MOTIFY_PROJECT_NAME_URL_ACTION = 84;
 }

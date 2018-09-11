@@ -2,6 +2,7 @@ package android.sgz.com.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.sax.TextElementListener;
 import android.sgz.com.R;
 import android.sgz.com.activity.CardCountingActivity;
 import android.sgz.com.activity.ExtraWrokActivity;
@@ -10,7 +11,9 @@ import android.sgz.com.activity.MineExpendActivity;
 import android.sgz.com.activity.MineHomePageActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.MineWaringManagerActivity;
+import android.sgz.com.activity.NewHandGuideActivity;
 import android.sgz.com.activity.PersonDetailsActivity;
+import android.sgz.com.activity.SafeAnwserActivity;
 import android.sgz.com.activity.SettingActivity;
 import android.sgz.com.activity.VipMemberCenterActivity;
 import android.sgz.com.activity.WorkOrderActivity;
@@ -56,6 +59,8 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private TextView tvUserName;
     private TextView tvWorkCategory;
     private AutoLinearLayout layoutApplyOrder;
+    private TextView tvSet;
+    private AutoLinearLayout layoutSafeAnwser;
 
     @Override
     public View onCustomCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,6 +79,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setInVisibleTitleIcon("我的", true, false);
+        tvSet = mRootView.findViewById(R.id.activity_set);
+        tvSet.setVisibility(View.VISIBLE);
+        tvSet.setText("新手引导");
+
         initView();
     }
 
@@ -102,7 +111,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         tvWorkCategory = mRootView.findViewById(R.id.tv_work_category);//工作类别
         //工单审核
         layoutApplyOrder = mRootView.findViewById(R.id.layout_apply_order);
+        //安全答题
+        layoutSafeAnwser = mRootView.findViewById(R.id.layout_safe_anwser);
 
+        layoutSafeAnwser.setOnClickListener(this);
         layoutApplyOrder.setOnClickListener(this);
         layoutPersonDetails.setOnClickListener(this);
         layoutVipMember.setOnClickListener(this);
@@ -114,6 +126,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         layoutSetting.setOnClickListener(this);
         layoutMineHomePage.setOnClickListener(this);
         layoutWaringManager.setOnClickListener(this);
+        tvSet.setOnClickListener(this);
     }
 
     @Override
@@ -156,6 +169,14 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
             case R.id.layout_apply_order:
                 //加入工单审核
                 startActivity(new Intent(getActivity(), MineApplyOrderActivity.class));
+                break;
+            case R.id.activity_set:
+                //新手引导
+                startActivity(new Intent(getActivity(), NewHandGuideActivity.class));
+                break;
+            case R.id.layout_safe_anwser:
+                //安全答题
+                startActivity(new Intent(getActivity(), SafeAnwserActivity.class));
                 break;
         }
     }

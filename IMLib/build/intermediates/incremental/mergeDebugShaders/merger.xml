@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\workspace\sgz\IMLib\src\main\shaders"/></dataSet><dataSet config="debug"><source path="F:\workspace\sgz\IMLib\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="G:\workspace\sgz\IMLib\src\main\shaders"/></dataSet><dataSet config="debug"><source path="G:\workspace\sgz\IMLib\src\debug\shaders"/></dataSet></merger>

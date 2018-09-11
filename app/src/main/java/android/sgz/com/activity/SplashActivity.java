@@ -55,7 +55,8 @@ public class SplashActivity extends BaseActivity {
                 .permissions(
                         Manifest.permission.ACCESS_COARSE_LOCATION,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.CALL_PHONE)
+                        Manifest.permission.CALL_PHONE,
+                        Manifest.permission.CAMERA)
                 .request();
     }
 
@@ -207,6 +208,9 @@ public class SplashActivity extends BaseActivity {
                 finish();
             }
         } else if (getRequestCode(json) == 18011) {
+            startActivity(new Intent(mContext, LoginActivity.class));
+            finish();
+        } else if (getRequestCode(json) == -1) {
             startActivity(new Intent(mContext, LoginActivity.class));
             finish();
         }

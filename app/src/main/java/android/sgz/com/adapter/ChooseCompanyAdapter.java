@@ -27,7 +27,7 @@ public class ChooseCompanyAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mList.size();
+        return mList == null ? 0 : mList.size();
     }
 
     @Override

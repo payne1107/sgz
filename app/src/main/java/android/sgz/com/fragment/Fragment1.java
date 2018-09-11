@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.sgz.com.R;
 import android.sgz.com.activity.ContactsActivity;
+import android.sgz.com.activity.MainActivity;
 import android.sgz.com.activity.MineSalaryActivity;
 import android.sgz.com.activity.SearchActivity;
 import android.sgz.com.activity.WorkDayNumActivity;
@@ -16,6 +17,8 @@ import android.sgz.com.bean.WorkStatusBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.DateUtils;
 import android.sgz.com.utils.SPUtil;
+import android.sgz.com.widget.MyDialog;
+import android.sgz.com.zxing.android.CaptureActivity;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -24,10 +27,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -68,6 +73,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     private AutoLinearLayout layoutWorkRecord;
     private TextView tvWorkStatus;
     private TextView tvDate;
+    private ImageView ivSaoyiSao;
 
 
     @Override
@@ -101,6 +107,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         layoutWorkRecord = mRootView.findViewById(R.id.layout_work_record);
         tvWorkStatus =mRootView.findViewById(R.id.tv_work_status);
         tvDate = mRootView.findViewById(R.id.tv_date);
+        ivSaoyiSao = mRootView.findViewById(R.id.iv_saoyisao);
 
         viewPager = (ViewPager) mRootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
@@ -130,6 +137,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
         layoutworkOrder.setOnClickListener(this);
         layoutSalary.setOnClickListener(this);
         layoutWorkRecord.setOnClickListener(this);
+        ivSaoyiSao.setOnClickListener(this);
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -164,6 +172,11 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                 //打卡按钮
                 addWorkRecord();
                 break;
+            case R.id.iv_saoyisao:
+                //扫一扫
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(intent, MainActivity.REQUEST_CODE_SCAN);
+                break;
         }
     }
 
@@ -177,15 +190,51 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_PICK_CITY && resultCode ==  RESULT_OK) {
-            if (data != null) {
-                city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
-                SPUtil.putString(getActivity(), "current_city", city);
-                tvCity.setText(city);
-                //选择城市后将当前选择城市赋值
-                MyApplication.currentCity = city;
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_CODE_PICK_CITY:
+                    if (data != null) {
+                        city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
+                        SPUtil.putString(getActivity(), "current_city", city);
+                        tvCity.setText(city);
+                        //选择城市后将当前选择城市赋值
+                        MyApplication.currentCity = city;
+                    }
+                    break;
+               case MainActivity.REQUEST_CODE_SCAN:
+                    //扫一扫二维码
+                    if (data != null) {
+                        String strContent = data.getStringExtra(MainActivity.DECODED_CONTENT_KEY);
+                        JSONObject object = JSONObject.parseObject(strContent);
+                        final int companyid = Integer.valueOf(object.getString("companyid"));
+                        String companyName = object.getString("name");
+                        final MyDialog dialog = new MyDialog(getActivity());
+                        dialog.setMessage("是否加入该公司:" + companyName);
+                        dialog.setOnNegativeListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.setOnPositiveListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                joinCompany(companyid);
+                            }
+                        });
+                        dialog.show();
+                    }
+                    break;
             }
         }
+    }
+
+    private void joinCompany(int companyId) {
+        startIOSDialogLoading(getActivity(), "申请中..");
+        Map<String, String> params = new HashMap<>();
+        params.put("companyid", String.valueOf(companyId));
+        httpPostRequest(ConfigUtil.JOIN_COMPANY_URL, params, ConfigUtil.JOIN_COMPANY_URL_ACtION);
     }
 
     private void initLocation() {
@@ -261,6 +310,11 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
                 break;
             case ConfigUtil.ADD_WORK_RECORD_URL_ACTION:
                 handleAddWorkRecord(json);
+                break;
+            case ConfigUtil.JOIN_COMPANY_URL_ACtION:
+                if (getRequestCode(json) == 1) {
+                    Toast.makeText(getActivity(), "你已经成功加入该公司", Toast.LENGTH_LONG).show();
+                }
                 break;
         }
     }

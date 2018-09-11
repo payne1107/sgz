@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include layout="@layout/sys_title" />
-    <!--
-  <com.zhy.autolayout.AutoLinearLayout
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="90px">
-        <TextView
-            android:layout_marginLeft="@dimen/margin_size_15"
-            android:textSize="@dimen/text_size_30"
-            android:textColor="@color/text_color_3"
-            android:text="推送消息列表"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-        <ImageView
-            android:layout_marginRight="@dimen/margin_size_15"
-            android:src="@mipmap/icon_arrow_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </com.zhy.autolayout.AutoLinearLayout>-->s
 
-    <!--  <com.itheima.pulltorefreshlib.PullToRefreshListView
-          android:divider="#fafafa"
-          android:id="@+id/listview"
-          android:dividerHeight="1dp"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent">
-      </com.itheima.pulltorefreshlib.PullToRefreshListView>-->
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/color_e"
+        android:id="@+id/layout_notice"
+        android:layout_width="match_parent"
+        android:layout_height="170px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_message_notice" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_15"
+            android:layout_weight="1"
+            android:text="通知公告"
+            android:textColor="@color/text_color_3"
+            android:textSize="@dimen/text_size_30" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_size_15"
+            android:src="@mipmap/icon_arrow_right" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
     <FrameLayout
         android:id="@+id/rong_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
 </LinearLayout>

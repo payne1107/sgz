@@ -168,6 +168,14 @@
             android:layout_width="match_parent"
             android:layout_height="80px">
             <TextView
+                android:id="@+id/tv_motify_order_name"
+                android:textSize="@dimen/text_size_30"
+                android:layout_marginLeft="@dimen/margin_size_15"
+                android:textColor="@color/color_62d"
+                android:text="修改工单名称"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
                 android:id="@+id/tv_clean_salary"
                 android:layout_marginRight="@dimen/margin_size_15"
                 android:drawablePadding="3dp"

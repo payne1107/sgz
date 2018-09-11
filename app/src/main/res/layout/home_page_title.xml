@@ -35,6 +35,7 @@
             android:src="@mipmap/icon_arrow_bottom" />
     </com.zhy.autolayout.AutoRelativeLayout>
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/layout_search"
         android:layout_marginLeft="@dimen/margin_size_10"
         android:layout_toRightOf="@+id/rl_title"
         android:gravity="center_vertical"
@@ -55,4 +56,12 @@
             android:drawableLeft="@mipmap/icon_zoom"
             android:layout_weight="1" />
     </com.zhy.autolayout.AutoLinearLayout>
+    <ImageView
+        android:id="@+id/iv_saoyisao"
+        android:src="@mipmap/icon_saoyisao"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/layout_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </com.zhy.autolayout.AutoRelativeLayout>

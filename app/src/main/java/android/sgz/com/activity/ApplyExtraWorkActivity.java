@@ -7,6 +7,7 @@ import android.sgz.com.base.BaseActivity;
 import android.sgz.com.utils.ConfigUtil;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jzxiang.pickerview.TimePickerDialog;
@@ -31,6 +32,7 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
     private TimePickerDialog dialogDay1;
     private int setTime = 1;
     private Context mContext;
+    private EditText etExtraWork;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
         tvStartDate = findViewById(R.id.tv_start_date);
         tvEndDate = findViewById(R.id.tv_end_date);
         layoutCommit = findViewById(R.id.layout_commit);
+        etExtraWork = findViewById(R.id.et_extra_work);
         initViewDateDialog(this,System.currentTimeMillis());
         setListener();
     }
