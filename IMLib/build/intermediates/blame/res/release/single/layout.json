@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\layout\\notification_action.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\workspace\\sgz\\IMLib\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\92457\\.android\\build-cache\\f14a1acb300ac5f0ed4954735361a378e9246f43\\output\\res\\layout\\notification_template_part_time.xml"
+    }
+]
