@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="G:\workspace\sgz\IMKit\src\main\libs"><file name="Rong_IMKit.jar" path="G:\workspace\sgz\IMKit\src\main\libs\Rong_IMKit.jar"/></source></dataSet><dataSet config="release"><source path="G:\workspace\sgz\IMKit\src\release\jniLibs"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="E:\workspace\sgz\IMKit\src\main\libs"><file name="Rong_IMKit.jar" path="E:\workspace\sgz\IMKit\src\main\libs\Rong_IMKit.jar"/></source></dataSet><dataSet config="release"><source path="E:\workspace\sgz\IMKit\src\release\jniLibs"/></dataSet></merger>
->>>>>>> 15c7195a247d2948885236372258072984fffd05

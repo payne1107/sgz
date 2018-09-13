@@ -45,6 +45,7 @@ public class SafeAnwserActivity extends BaseActivity{
         //设置是否出现缩放工具
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
         webView.addJavascriptInterface(new PersonDetails(), "hello");
         webView.setWebViewClient(new WebViewClient(){
             @Override
@@ -63,13 +64,24 @@ public class SafeAnwserActivity extends BaseActivity{
 
         @JavascriptInterface
         public void showAndroid(){
-            String info = "来自手机内的内容！！！";
-            webView.loadUrl("javascript:show('" + info + "')");
+            final String info = "来自手机内的内容！！！";
+            toastMessage("" +info);
+//            SafeAnwserActivity.this.runOnUiThread(new Runnable(){
+//                @Override
+//                public void run() {
+//                    webView.loadUrl("javascript:show('" + MyApplication.isLogin + "')");
+//                }
+//            });
         }
-
         @JavascriptInterface
         public void getToken() {
-            webView.loadUrl("javascript:show('" + "22222222222" + "')");
+            SafeAnwserActivity.this.runOnUiThread(new Runnable(){
+                @Override
+                public void run() {
+                    webView.loadUrl("javascript:show('" + MyApplication.isLogin + "')");
+                }
+            });
+
         }
 
         @JavascriptInterface

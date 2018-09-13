@@ -59,6 +59,8 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
     private int pageNo = 1;
     private CircleImageView circleImageView;
     private TextView tvTalk;
+    private String realName;
+    private String photoUrl;
 
     @Override
     protected void onCreateCustom(Bundle savedInstanceState) {
@@ -221,8 +223,8 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
             if (data != null) {
                 String mobile = data.getMobile();
                 String profession =data.getProfession();
-                String realName = data.getRealname();
-                String photoUrl = data.getPhoto();
+                realName = data.getRealname();
+                photoUrl = data.getPhoto();
                 tvName.setText("" + realName);
                 tvPhone.setText("" + mobile);
                 tvProfession.setText("" + profession);
@@ -230,6 +232,15 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                     MyApplication.imageLoader.displayImage(photoUrl, circleImageView);
                 }
             }
+
+            RongIM.setUserInfoProvider(new RongIM.UserInfoProvider() {
+
+                @Override
+                public UserInfo getUserInfo(String userId) {
+                    return new UserInfo("" + friendId,realName,Uri.parse(photoUrl));//根据 userId 去你的用户系统里查询对应的用户信息返回给融云 SDK。
+                }
+
+            }, true);
         }
     }
 
@@ -245,7 +256,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                  */
                 if (RongIM.getInstance() != null) {
                     Log.d("Dong", "rongCloudId===================" + friendId);
-                    RongIM.getInstance().startPrivateChat(mContext, String.valueOf(friendId), "");
+                    RongIM.getInstance().startPrivateChat(mContext, String.valueOf(friendId), ""+realName);
                 }
                 break;
             case R.id.tv_phone:
@@ -261,4 +272,7 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
                 break;
         }
     }
+
+
+
 }

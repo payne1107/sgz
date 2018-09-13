@@ -28,8 +28,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.rong.imkit.RongIM;
 import io.rong.imkit.fragment.ConversationListFragment;
+import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
+import io.rong.imlib.model.UserInfo;
 
 /**
  * Created by 92457 on 2018/4/16.
@@ -72,7 +75,11 @@ public class Fragment3 extends BaseFragment {
         initConversionList();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+    }
 
     private void initConversionList() {
         //会话列表

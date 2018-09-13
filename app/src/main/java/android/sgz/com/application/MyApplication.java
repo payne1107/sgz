@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Environment;
 import android.sgz.com.httpstack.OkHttpStack;
 import android.sgz.com.utils.CacheImgUtil;
+import android.sgz.com.utils.CatchExceptionHandler;
 import android.sgz.com.utils.SPUtil;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -113,7 +114,7 @@ public class MyApplication extends Application {
         //初始化
         UMConfigure.init(this, "5b348af1f43e480284000042", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
         //设置全局的异常捕获器
-       //CatchExceptionHandler.getInstance().setDefaultUnCachExceptionHandler();
+       CatchExceptionHandler.getInstance().setDefaultUnCachExceptionHandler();
         iwxapi = WXAPIFactory.createWXAPI(getApplicationContext(), wxAppID,true);
         iwxapi.registerApp(wxAppID);
         //融云初始化

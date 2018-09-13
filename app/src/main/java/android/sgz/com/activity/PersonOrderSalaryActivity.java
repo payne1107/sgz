@@ -279,8 +279,10 @@ public class PersonOrderSalaryActivity extends BaseActivity implements View.OnCl
                 tvAllPaySalalry.setText("" + paymentSalary);
                 //算出剩下可提现余额
                 withdrawalBalance = paymentSalary - withDrawSalary;
-                if (withDrawSalary == 0) {
-                    tvAllPaySalalry.setText("工资已全提现");
+                if (withdrawalBalance == 0) {
+                    tvAllPaySalalry.setText("暂无可提现工资");
+                } else {
+                    tvAllPaySalalry.setText("" + withdrawalBalance);
                 }
             }
         }

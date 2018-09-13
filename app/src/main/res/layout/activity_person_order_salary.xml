@@ -147,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_size_15"
-                    android:text="已发工资："
+                    android:text="可提现工资："
                     android:textColor="@color/color_888"
                     android:textSize="@dimen/text_size_26" />
 

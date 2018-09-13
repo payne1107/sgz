@@ -87,6 +87,7 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
     private void commitExtraWorkApply() {
         String startDate =tvStartDate.getText().toString().trim();
         String endDate =tvEndDate.getText().toString().trim();
+        String extrwork = etExtraWork.getText().toString().trim();
         if (startDate.equals("请选择")) {
             toastMessage("请选择起始日期");
             return;
@@ -99,6 +100,7 @@ public class ApplyExtraWorkActivity extends BaseActivity implements View.OnClick
         Map<String, String> params = new HashMap<>();
         params.put("starttime", startDate+":00");
         params.put("endtime", endDate+":00");
+        params.put("remark", extrwork);
         httpPostRequest(ConfigUtil.POST_APPLY_EXTRAWORK_RECORD_URL, params, ConfigUtil.POST_APPLY_EXTRAWORK_RECORD_URL_ACTION);
     }
 

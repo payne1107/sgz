@@ -60,6 +60,7 @@ public class ApproveExtroWorkFragmentAdapter extends BaseAdapter {
             holder.tvName = view.findViewById(R.id.tv_name);
             holder.tvStatus = view.findViewById(R.id.tv_status);
             holder.tvApplyTime = view.findViewById(R.id.tv_apply_time);
+            holder.tvRemark = view.findViewById(R.id.tv_remark);
             view.setTag(holder);
             AutoUtils.autoSize(view);
         } else {
@@ -72,6 +73,8 @@ public class ApproveExtroWorkFragmentAdapter extends BaseAdapter {
             int status =bean.getStatus();
             String workName = bean.getWorkname();
             String approveTime = bean.getApprovetime();
+            String remark = bean.getRemark();
+            holder.tvRemark.setText(StringUtils.isEmpty(remark) ? "" : remark);
             holder.tvStartDate.setText("" + startTime);
             holder.tvEndDate.setText("" + endTime);
             holder.tvName.setText("" + workName +"的加班");
@@ -89,5 +92,6 @@ public class ApproveExtroWorkFragmentAdapter extends BaseAdapter {
 
     class ViewHolder{
         TextView tvName,tvStatus,tvStartDate,tvEndDate,tvApplyTime;
+        public TextView tvRemark;
     }
 }

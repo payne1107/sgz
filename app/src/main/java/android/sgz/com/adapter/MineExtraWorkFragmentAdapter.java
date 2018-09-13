@@ -64,6 +64,8 @@ public class MineExtraWorkFragmentAdapter extends BaseAdapter{
             holder.tvStartDate =view.findViewById(R.id.tv_start_date);
             holder.tvEndDate = view.findViewById(R.id.tv_end_date);
             holder.tvProjectName =view.findViewById(R.id.tv_project_name);
+            holder.tvRemark =view.findViewById(R.id.tv_remark);
+
             AutoUtils.autoSize(view);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -74,7 +76,9 @@ public class MineExtraWorkFragmentAdapter extends BaseAdapter{
             String endTime = bean.getEndtime();
             String approveName = bean.getProjectleadname();
             int status = bean.getStatus();
-            String projectName =bean.getProjectname();
+            String projectName = bean.getProjectname();
+            String remark = bean.getRemark();
+            holder.tvRemark.setText(StringUtils.isEmpty(remark) ? "" : remark);
             holder.tvStartDate.setText(starTime);
             holder.tvEndDate.setText(endTime);
             holder.tvName.setText("审批人："+approveName);
@@ -96,5 +100,6 @@ public class MineExtraWorkFragmentAdapter extends BaseAdapter{
         TextView tvStartDate;
         TextView tvEndDate;
         TextView tvProjectName;
+        public TextView tvRemark;
     }
 }
