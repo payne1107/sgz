@@ -192,7 +192,7 @@
                 <TextView
                     style="@style/PersonCenterTextLeftStyle"
                     android:drawableLeft="@mipmap/icon_my_home"
-                    android:text="我的主页" />
+                    android:text="工友圈子" />
 
                 <TextView
                     style="@style/PersonCenterTextRightStyle"

@@ -1,5 +1,6 @@
 package android.sgz.com.activity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +14,11 @@ import android.sgz.com.bean.ContactsBean;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.StringUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -245,16 +250,22 @@ public class ContactsActivity extends BaseActivity implements View.OnClickListen
                 sendSms(mContext,inviteUrl + MyApplication.userPhone);
                 break;
             case R.id.layout_share_qq:
-                shareAction(SHARE_MEDIA.QQ,mContext,inviteUrl,MyApplication.userPhone);
+                shareAction(SHARE_MEDIA.QQ, mContext, inviteUrl, MyApplication.userPhone, "");
                 break;
             case R.id.layout_share_wx_friend:
-                shareAction(SHARE_MEDIA.WEIXIN,mContext,inviteUrl,MyApplication.userPhone);
+                shareAction(SHARE_MEDIA.WEIXIN, mContext, inviteUrl, MyApplication.userPhone, "");
                 break;
             case R.id.layout_share_wx_moments:
-                shareAction(SHARE_MEDIA.WEIXIN_CIRCLE,mContext,inviteUrl,MyApplication.userPhone);
+                shareAction(SHARE_MEDIA.WEIXIN_CIRCLE, mContext, inviteUrl, MyApplication.userPhone, "");
                 break;
         }
     }
+
+
+
+
+
+
 
 
     @Override

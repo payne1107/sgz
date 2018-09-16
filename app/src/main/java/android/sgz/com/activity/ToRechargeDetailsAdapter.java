@@ -4,6 +4,7 @@ import android.content.Context;
 import android.sgz.com.R;
 import android.sgz.com.bean.ContactsBean;
 import android.sgz.com.bean.ToRechargeDeailsBean;
+import android.sgz.com.utils.StringUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,9 +71,10 @@ class ToRechargeDetailsAdapter extends BaseAdapter {
             String time = bean.getCreatetime();
             String number =bean.getUserflowno();
             String money =bean.getMoney();
+            String remark = bean.getRemark();
             holder.tvMoney.setText("+" + money + "元");
             holder.tvTime.setText("" + time);
-            holder.tvNumber.setText("" + number);
+            holder.tvNumber.setText(StringUtils.isEmpty(remark) ? "" : remark);
         }
         return view;
     }

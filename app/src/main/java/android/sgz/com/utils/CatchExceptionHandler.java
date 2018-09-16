@@ -36,7 +36,7 @@ public class CatchExceptionHandler implements Thread.UncaughtExceptionHandler {
     @Override
     public void uncaughtException(Thread t, Throwable throwable) {
         Log.d("Dong", throwable.getMessage()); //异常信息
-
+        AppManager.getInstance().finishActivity();
         Process.killProcess(Process.myPid());
         //关闭虚拟机，释放所有内存
         System.exit(0);

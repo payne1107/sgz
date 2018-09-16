@@ -1,8 +1,12 @@
 package android.sgz.com.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.sgz.com.R;
 import android.sgz.com.bean.AllPorjectOrderBean;
+import android.sgz.com.utils.SPUtil;
+import android.sgz.com.widget.IButtonClickListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +24,9 @@ import java.util.List;
 
 public class AllProjectOrderAdapter extends BaseAdapter {
     private Context mContext;
-    private List<AllPorjectOrderBean.DataBean.ListBean> mList;
+    private List<AllPorjectOrderBean.DataBean.ListBeanX.ListBean> mList;
 
-    public AllProjectOrderAdapter(Context context, List<AllPorjectOrderBean.DataBean.ListBean> list) {
+    public AllProjectOrderAdapter(Context context, List<AllPorjectOrderBean.DataBean.ListBeanX.ListBean> list) {
         this.mContext = context;
         this.mList = list;
     }
@@ -31,7 +35,7 @@ public class AllProjectOrderAdapter extends BaseAdapter {
      * 更新数据
      * @param data
      */
-    public void setData(List<AllPorjectOrderBean.DataBean.ListBean> data) {
+    public void setData(List<AllPorjectOrderBean.DataBean.ListBeanX.ListBean> data) {
         mList.clear();
         mList.addAll(data);
         notifyDataSetChanged();
@@ -52,7 +56,7 @@ public class AllProjectOrderAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
+    public View getView(final int position, View convertView, ViewGroup viewGroup) {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
@@ -72,14 +76,16 @@ public class AllProjectOrderAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        AllPorjectOrderBean.DataBean.ListBean bean = mList.get(position);
+        boolean isvip = SPUtil.getBoolean(mContext, "isVip");
+
+        AllPorjectOrderBean.DataBean.ListBeanX.ListBean bean = mList.get(position);
         if (bean != null) {
             String name = bean.getName();
             String headMan =bean.getHeadman();//负责人
             String address =bean.getAddress();
             String categoryname=bean.getCategoryname();
             String startTime =bean.getStarttime();
-            String mobile = bean.getMobile();
+            final String mobile = bean.getMobile();
             String startWorkTime=bean.getStartworktime();
             String endWorkTime =bean.getEndworktime();
             int ifend = bean.getIfend(); //工单是否结束 0未结束   1 已结束
@@ -88,7 +94,13 @@ public class AllProjectOrderAdapter extends BaseAdapter {
             holder.tvAddress.setText("" + address);
             holder.tvCategory.setText("" + categoryname);
             holder.tvStartTime.setText("" + startTime);
-            holder.tvPhone.setText("" + mobile);
+            if (isvip) {
+                holder.tvPhone.setText("" + mobile);
+                holder.tvPhone.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG );
+            } else {
+                holder.tvPhone.setText("加入vip可见");
+                holder.tvPhone.setTextColor(mContext.getResources().getColor(R.color.color_62d));
+            }
             holder.tvEndWorkTime.setText("" + endWorkTime);
             holder.tvStartWorkTime.setText("" + startWorkTime);
             if (ifend == 0) {
@@ -96,6 +108,14 @@ public class AllProjectOrderAdapter extends BaseAdapter {
             } else {
                 holder.layoutShadow.setVisibility(View.VISIBLE);
             }
+
+            ///拨打电话
+            holder.tvPhone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onSaveClick(view, position);
+                }
+            });
         }
         return convertView;
     }
@@ -103,5 +123,10 @@ public class AllProjectOrderAdapter extends BaseAdapter {
     class ViewHolder{
         TextView tvTitle,tvHeadMan,tvAddress,tvCategory,tvStartTime,tvStatus,tvPhone,tvEndWorkTime,tvStartWorkTime;
         AutoFrameLayout layoutShadow;
+    }
+
+    private IButtonClickListener mOnItemClickListener;//声明接口
+    public void setOnItemClickListener(IButtonClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
     }
 }

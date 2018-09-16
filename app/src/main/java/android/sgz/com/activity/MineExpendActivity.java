@@ -41,6 +41,7 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
     private int pageSize;
     private boolean swipeLoadMore = false;
     private MineExpendAdapter adapter;
+    private double balance;
 
 
     @Override
@@ -65,6 +66,10 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
     protected void initView() {
         super.initView();
         setInVisibleTitleIcon("我的财务", true, true);
+        tvSet.setVisibility(View.VISIBLE);
+        tvSet.setText("提现");
+
+
         tvRecharge = findViewById(R.id.tv_recharge);
         tvRechargeDetails = findViewById(R.id.tv_recharge_details);
         tvExpendDetails = findViewById(R.id.tv_expend_details);
@@ -80,6 +85,7 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
         tvRecharge.setOnClickListener(this);
         tvRechargeDetails.setOnClickListener(this);
         tvExpendDetails.setOnClickListener(this);
+        tvSet.setOnClickListener(this);
 
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
@@ -142,6 +148,9 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
             case R.id.tv_expend_details:
                 startActivity(new Intent(mContext, ExpendDetailsActivity.class));
                 break;
+            case R.id.activity_set:
+                startActivity(new Intent(mContext, WithDrawDespositActivity.class).putExtra("withdrawalBalance", balance));
+                break;
         }
     }
 
@@ -183,6 +192,9 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
      */
     private void handleQueryPaymentByProject(String json) {
         Log.d("Dong", "需要我支出的——》" +json);
+        if (listView != null && listView.isRefreshing()) {
+            listView.onRefreshComplete();
+        }
         PaymentByProjectBean bean = JSON.parseObject(json, PaymentByProjectBean.class);
         if (bean != null) {
             PaymentByProjectBean.DataBean data = bean.getData();
@@ -210,7 +222,7 @@ public class MineExpendActivity extends BaseActivity implements View.OnClickList
         if (bean != null) {
             MineBalaneBean.DataBean data = bean.getData();
             if (data != null) {
-                double balance = data.getBalance();
+                balance = data.getBalance();
                 tvBalance.setText("" + balance);
             }
         }

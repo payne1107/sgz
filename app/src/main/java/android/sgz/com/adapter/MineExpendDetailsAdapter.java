@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.amap.api.services.route.RidePath;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -64,6 +65,7 @@ public class MineExpendDetailsAdapter extends BaseAdapter {
             holder.tvAddSalary =view.findViewById(R.id.tv_add_salary);
             holder.allPaySalary =view.findViewById(R.id.tv_all_pay_salary);
             holder.layoutPaySalary =view.findViewById(R.id.layout_pay_salary);
+            holder.tvToBePay =view.findViewById(R.id.tv_to_be_pay);
             AutoUtils.autoSize(view);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -74,12 +76,19 @@ public class MineExpendDetailsAdapter extends BaseAdapter {
             String mobile =bean.getMobile();
             String paymentSalary =bean.getPaymentsalary();
             String allSalary =bean.getAllsalary();
-            String addSalary = bean.getAddsalary();
+            String addSalary = bean.getAlladdsalary();
             holder.tvUserName.setText("" + name);
             holder.tvPhone.setText("" + mobile);
-            holder.tvAllSalary.setText("" + allSalary);
+            //总工资 = 总工资+ 加班费
+            Double allSa = Double.parseDouble(allSalary) + Double.parseDouble(addSalary);
+            //剩余需要支付工资 总工资-已支付工资
+            Double toBePay = allSa - Double.parseDouble(paymentSalary);
+
+            holder.tvAllSalary.setText("" + allSa);
             holder.tvAddSalary.setText("加班工资：" + addSalary);
             holder.allPaySalary.setText("已支付:" + paymentSalary);
+
+            holder.tvToBePay.setText("剩余支付工资：" + toBePay);
         }
         holder.layoutPaySalary.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +103,7 @@ public class MineExpendDetailsAdapter extends BaseAdapter {
     class ViewHolder {
         TextView tvUserName,tvPhone,tvAllSalary,tvAddSalary,allPaySalary;
         AutoLinearLayout layoutPaySalary;
+        public TextView tvToBePay;
     }
 
     private IRecycleViewOnItemClickListener mOnItemClickListener;//声明接口

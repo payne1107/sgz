@@ -86,7 +86,6 @@ public class MineExpendDetails extends BaseActivity implements View.OnClickListe
         adapter.setOnItemClickListener(new IRecycleViewOnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-//                toastMessage("----发工资了---？" + mList.get(position).getId() + " -->" + mList.get(position).getProjectid());
                 MineExpendDetailsBean.DataBean bean = mList.get(position);
                 if (bean != null) {
                     int userId = bean.getId();
@@ -126,14 +125,15 @@ public class MineExpendDetails extends BaseActivity implements View.OnClickListe
      * @param json
      */
     private void handleQueryProjectWorkSalary(String json) {
-        Log.d("Dong", "花名册---？" + json);
         if (listView != null && listView.isRefreshing()) {
             listView.onRefreshComplete();
         }
         MineExpendDetailsBean bean = JSON.parseObject(json, MineExpendDetailsBean.class);
         if (bean != null) {
             mList = bean.getData();
-            adapter.setData(mList);
+            if (mList != null && mList.size() > 0) {
+                adapter.setData(mList);
+            }
         }
     }
 

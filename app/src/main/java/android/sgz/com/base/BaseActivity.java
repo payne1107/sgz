@@ -19,6 +19,7 @@ import android.sgz.com.application.MyApplication;
 import android.sgz.com.bean.FieldErrors;
 import android.sgz.com.bean.UploadImgBean;
 import android.sgz.com.httpstack.OkHttpStack;
+import android.sgz.com.utils.AppManager;
 import android.sgz.com.utils.CacheImgUtil;
 import android.sgz.com.utils.ConfigUtil;
 import android.sgz.com.utils.NetWorkUtils;
@@ -124,6 +125,7 @@ public abstract class BaseActivity extends FragmentActivity {
         initView();
         initData();
         mContext = BaseActivity.this;
+        AppManager.getInstance().PushActivity(this);
     }
 
     /***
@@ -294,7 +296,6 @@ public abstract class BaseActivity extends FragmentActivity {
      * @param action  标识
      */
     protected void httpOnResponse(String json, int action) {
-        Log.d("Dong", "嗯嗯 ---》"+json);
         try {
             JSONObject jsonObject = JSONObject.parseObject(json);
             if (jsonObject == null) {
@@ -1253,12 +1254,16 @@ public abstract class BaseActivity extends FragmentActivity {
      * @param inviteUrl 分享的链接
      * @param userPhone 用戶手機號
      */
-    public void shareAction(SHARE_MEDIA share_media, Context mContext, String inviteUrl, String userPhone) {
+    public void shareAction(SHARE_MEDIA share_media, Context mContext, String inviteUrl, String userPhone,String desc) {
         UMImage image = new UMImage(mContext, R.drawable.logo);
         UMWeb web = new UMWeb(inviteUrl + userPhone);
         web.setTitle("轻轻松松工作 舒舒服服拿钱");//标题
         web.setThumb(image);  //缩略图
-        web.setDescription("算工资，最牛逼，全国都在用……");//描述
+        if (!StringUtils.isEmpty(desc)) {
+            web.setDescription(desc);//描述
+        } else {
+            web.setDescription("算工资，最牛逼，全国都在用……");//描述
+        }
         new ShareAction(this).withMedia(web)
                 .setPlatform(share_media)
                 .setCallback(umShareListener)

@@ -8,19 +8,18 @@ import java.util.List;
 
 public class AllPorjectOrderBean {
 
+
     /**
      * success : true
      * resultCode : 1
      * resultMsg : SUCCESS
-     * data : {"curPage":1,"coutpage":1,"pageSize":15,"list":[{"id":3,"userid":1,"name":"测试2","categoryid":null,"regulatoryagency":null,"headman":"张三","mobile":null,"address":"安徽合肥政务区新城国际","clockrange":null,"lng":null,"lat":null,"createtime":null,"starttime":"2018-06-19 00:00","startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null}]}
-     * exception : false
+     * data : {"vip":false,"list":{"curPage":1,"coutpage":10,"pageSize":15,"list":[{"id":240,"userid":593,"name":"至精运检\u2015\u2015华能营口电厂维护项目部","categoryid":null,"regulatoryagency":null,"headman":"宋万龙","mobile":"17356996260","address":"辽宁省营口市辽宁省营口市鲅鱼圈区北二路","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 15:28","starttime":"2018-09-21","startworktime":"08:00","endworktime":"16:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null},{"id":239,"userid":442,"name":"晋江热电主机维护项目部","categoryid":null,"regulatoryagency":null,"headman":"卢震华","mobile":"18558975086","address":"福建省泉州市福建省泉州市晋江市建成路靠近神华集团晋江热电公司","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 14:23","starttime":"2018-09-20","startworktime":"08:00","endworktime":"17:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null},{"id":238,"userid":693,"name":"致精运检华能营口维护项目部","categoryid":null,"regulatoryagency":null,"headman":"赵桂学","mobile":"15134228120","address":"辽宁省营口市辽宁省营口市鲅鱼圈区北二路靠近墩台山公园","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 13:27","starttime":"2018-09-21","startworktime":"08:00","endworktime":"16:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null}]}}
      */
 
     private boolean success;
     private String resultCode;
     private String resultMsg;
     private DataBean data;
-    private boolean exception;
 
     public boolean isSuccess() {
         return success;
@@ -54,371 +53,410 @@ public class AllPorjectOrderBean {
         this.data = data;
     }
 
-    public boolean isException() {
-        return exception;
-    }
-
-    public void setException(boolean exception) {
-        this.exception = exception;
-    }
-
     public static class DataBean {
         /**
-         * curPage : 1
-         * coutpage : 1
-         * pageSize : 15
-         * list : [{"id":3,"userid":1,"name":"测试2","categoryid":null,"regulatoryagency":null,"headman":"张三","mobile":null,"address":"安徽合肥政务区新城国际","clockrange":null,"lng":null,"lat":null,"createtime":null,"starttime":"2018-06-19 00:00","startworktime":null,"endworktime":null,"status":null,"worknum":null,"merchantid":null,"categoryname":null,"merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null}]
+         * vip : false
+         * list : {"curPage":1,"coutpage":10,"pageSize":15,"list":[{"id":240,"userid":593,"name":"至精运检\u2015\u2015华能营口电厂维护项目部","categoryid":null,"regulatoryagency":null,"headman":"宋万龙","mobile":"17356996260","address":"辽宁省营口市辽宁省营口市鲅鱼圈区北二路","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 15:28","starttime":"2018-09-21","startworktime":"08:00","endworktime":"16:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null},{"id":239,"userid":442,"name":"晋江热电主机维护项目部","categoryid":null,"regulatoryagency":null,"headman":"卢震华","mobile":"18558975086","address":"福建省泉州市福建省泉州市晋江市建成路靠近神华集团晋江热电公司","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 14:23","starttime":"2018-09-20","startworktime":"08:00","endworktime":"17:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null},{"id":238,"userid":693,"name":"致精运检华能营口维护项目部","categoryid":null,"regulatoryagency":null,"headman":"赵桂学","mobile":"15134228120","address":"辽宁省营口市辽宁省营口市鲅鱼圈区北二路靠近墩台山公园","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 13:27","starttime":"2018-09-21","startworktime":"08:00","endworktime":"16:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null}]}
          */
 
-        private int curPage;
-        private int coutpage;
-        private int pageSize;
-        private List<ListBean> list;
+        private boolean vip;
+        private ListBeanX list;
 
-        public int getCurPage() {
-            return curPage;
+        public boolean isVip() {
+            return vip;
         }
 
-        public void setCurPage(int curPage) {
-            this.curPage = curPage;
+        public void setVip(boolean vip) {
+            this.vip = vip;
         }
 
-        public int getCoutpage() {
-            return coutpage;
-        }
-
-        public void setCoutpage(int coutpage) {
-            this.coutpage = coutpage;
-        }
-
-        public int getPageSize() {
-            return pageSize;
-        }
-
-        public void setPageSize(int pageSize) {
-            this.pageSize = pageSize;
-        }
-
-        public List<ListBean> getList() {
+        public ListBeanX getList() {
             return list;
         }
 
-        public void setList(List<ListBean> list) {
+        public void setList(ListBeanX list) {
             this.list = list;
         }
 
-        public static class ListBean {
+        public static class ListBeanX {
             /**
-             * id : 3
-             * userid : 1
-             * name : 测试2
-             * categoryid : null
-             * regulatoryagency : null
-             * headman : 张三
-             * mobile : null
-             * address : 安徽合肥政务区新城国际
-             * clockrange : null
-             * lng : null
-             * lat : null
-             * createtime : null
-             * starttime : 2018-06-19 00:00
-             * startworktime : null
-             * endworktime : null
-             * status : null
-             * worknum : null
-             * merchantid : null
-             * categoryname : null
-             * merchantname : null
-             * salary : null
-             * addsalary : null
-             * allowance : null
-             * addtime : null
-             * workdays : null
-             * workfriends : null
-             * projectcount : null
-             * income : null
-             * paymentsalary : null
-             * withdrawsalary : null
+             * curPage : 1
+             * coutpage : 10
+             * pageSize : 15
+             * list : [{"id":240,"userid":593,"name":"至精运检\u2015\u2015华能营口电厂维护项目部","categoryid":null,"regulatoryagency":null,"headman":"宋万龙","mobile":"17356996260","address":"辽宁省营口市辽宁省营口市鲅鱼圈区北二路","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 15:28","starttime":"2018-09-21","startworktime":"08:00","endworktime":"16:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null},{"id":239,"userid":442,"name":"晋江热电主机维护项目部","categoryid":null,"regulatoryagency":null,"headman":"卢震华","mobile":"18558975086","address":"福建省泉州市福建省泉州市晋江市建成路靠近神华集团晋江热电公司","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 14:23","starttime":"2018-09-20","startworktime":"08:00","endworktime":"17:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null},{"id":238,"userid":693,"name":"致精运检华能营口维护项目部","categoryid":null,"regulatoryagency":null,"headman":"赵桂学","mobile":"15134228120","address":"辽宁省营口市辽宁省营口市鲅鱼圈区北二路靠近墩台山公园","clockrange":null,"lng":null,"lat":null,"createtime":"2018-09-16 13:27","starttime":"2018-09-21","startworktime":"08:00","endworktime":"16:30","status":1,"worknum":null,"merchantid":null,"ifend":0,"endtime":null,"categoryname":"其他","merchantname":null,"salary":null,"addsalary":null,"allowance":null,"addtime":null,"workdays":null,"workfriends":null,"projectcount":null,"income":null,"paymentsalary":null,"withdrawsalary":null,"realname":null}]
              */
 
-            private int id;
-            private int userid;
-            private String name;
-            private String categoryid;
-            private String regulatoryagency;
-            private String headman;
-            private String mobile;
-            private String address;
-            private String clockrange;
-            private String lng;
-            private String lat;
-            private String createtime;
-            private String starttime;
-            private String startworktime;
-            private String endworktime;
-            private String status;
-            private String worknum;
-            private String merchantid;
-            private String categoryname;
-            private String merchantname;
-            private String salary;
-            private String addsalary;
-            private String allowance;
-            private String addtime;
-            private String workdays;
-            private String workfriends;
-            private String projectcount;
-            private String income;
-            private String paymentsalary;
-            private String withdrawsalary;
-            private int ifend;
+            private int curPage;
+            private int coutpage;
+            private int pageSize;
+            private List<ListBean> list;
 
-            public int getIfend() {
-                return ifend;
+            public int getCurPage() {
+                return curPage;
             }
 
-            public void setIfend(int ifend) {
-                this.ifend = ifend;
+            public void setCurPage(int curPage) {
+                this.curPage = curPage;
             }
 
-            public int getId() {
-                return id;
+            public int getCoutpage() {
+                return coutpage;
             }
 
-            public void setId(int id) {
-                this.id = id;
+            public void setCoutpage(int coutpage) {
+                this.coutpage = coutpage;
             }
 
-            public int getUserid() {
-                return userid;
+            public int getPageSize() {
+                return pageSize;
             }
 
-            public void setUserid(int userid) {
-                this.userid = userid;
+            public void setPageSize(int pageSize) {
+                this.pageSize = pageSize;
             }
 
-            public String getName() {
-                return name;
+            public List<ListBean> getList() {
+                return list;
             }
 
-            public void setName(String name) {
-                this.name = name;
+            public void setList(List<ListBean> list) {
+                this.list = list;
             }
 
-            public String getCategoryid() {
-                return categoryid;
-            }
+            public static class ListBean {
+                /**
+                 * id : 240
+                 * userid : 593
+                 * name : 至精运检――华能营口电厂维护项目部
+                 * categoryid : null
+                 * regulatoryagency : null
+                 * headman : 宋万龙
+                 * mobile : 17356996260
+                 * address : 辽宁省营口市辽宁省营口市鲅鱼圈区北二路
+                 * clockrange : null
+                 * lng : null
+                 * lat : null
+                 * createtime : 2018-09-16 15:28
+                 * starttime : 2018-09-21
+                 * startworktime : 08:00
+                 * endworktime : 16:30
+                 * status : 1
+                 * worknum : null
+                 * merchantid : null
+                 * ifend : 0
+                 * endtime : null
+                 * categoryname : 其他
+                 * merchantname : null
+                 * salary : null
+                 * addsalary : null
+                 * allowance : null
+                 * addtime : null
+                 * workdays : null
+                 * workfriends : null
+                 * projectcount : null
+                 * income : null
+                 * paymentsalary : null
+                 * withdrawsalary : null
+                 * realname : null
+                 */
 
-            public void setCategoryid(String categoryid) {
-                this.categoryid = categoryid;
-            }
+                private int id;
+                private int userid;
+                private String name;
+                private Object categoryid;
+                private Object regulatoryagency;
+                private String headman;
+                private String mobile;
+                private String address;
+                private Object clockrange;
+                private Object lng;
+                private Object lat;
+                private String createtime;
+                private String starttime;
+                private String startworktime;
+                private String endworktime;
+                private int status;
+                private Object worknum;
+                private Object merchantid;
+                private int ifend;
+                private Object endtime;
+                private String categoryname;
+                private Object merchantname;
+                private Object salary;
+                private Object addsalary;
+                private Object allowance;
+                private Object addtime;
+                private Object workdays;
+                private Object workfriends;
+                private Object projectcount;
+                private Object income;
+                private Object paymentsalary;
+                private Object withdrawsalary;
+                private Object realname;
 
-            public String getRegulatoryagency() {
-                return regulatoryagency;
-            }
+                public int getId() {
+                    return id;
+                }
 
-            public void setRegulatoryagency(String regulatoryagency) {
-                this.regulatoryagency = regulatoryagency;
-            }
+                public void setId(int id) {
+                    this.id = id;
+                }
 
-            public String getHeadman() {
-                return headman;
-            }
+                public int getUserid() {
+                    return userid;
+                }
 
-            public void setHeadman(String headman) {
-                this.headman = headman;
-            }
+                public void setUserid(int userid) {
+                    this.userid = userid;
+                }
 
-            public String getMobile() {
-                return mobile;
-            }
+                public String getName() {
+                    return name;
+                }
 
-            public void setMobile(String mobile) {
-                this.mobile = mobile;
-            }
+                public void setName(String name) {
+                    this.name = name;
+                }
 
-            public String getAddress() {
-                return address;
-            }
+                public Object getCategoryid() {
+                    return categoryid;
+                }
 
-            public void setAddress(String address) {
-                this.address = address;
-            }
+                public void setCategoryid(Object categoryid) {
+                    this.categoryid = categoryid;
+                }
 
-            public String getClockrange() {
-                return clockrange;
-            }
+                public Object getRegulatoryagency() {
+                    return regulatoryagency;
+                }
 
-            public void setClockrange(String clockrange) {
-                this.clockrange = clockrange;
-            }
+                public void setRegulatoryagency(Object regulatoryagency) {
+                    this.regulatoryagency = regulatoryagency;
+                }
 
-            public String getLng() {
-                return lng;
-            }
+                public String getHeadman() {
+                    return headman;
+                }
 
-            public void setLng(String lng) {
-                this.lng = lng;
-            }
+                public void setHeadman(String headman) {
+                    this.headman = headman;
+                }
 
-            public String getLat() {
-                return lat;
-            }
+                public String getMobile() {
+                    return mobile;
+                }
 
-            public void setLat(String lat) {
-                this.lat = lat;
-            }
+                public void setMobile(String mobile) {
+                    this.mobile = mobile;
+                }
 
-            public String getCreatetime() {
-                return createtime;
-            }
+                public String getAddress() {
+                    return address;
+                }
 
-            public void setCreatetime(String createtime) {
-                this.createtime = createtime;
-            }
+                public void setAddress(String address) {
+                    this.address = address;
+                }
 
-            public String getStarttime() {
-                return starttime;
-            }
+                public Object getClockrange() {
+                    return clockrange;
+                }
 
-            public void setStarttime(String starttime) {
-                this.starttime = starttime;
-            }
+                public void setClockrange(Object clockrange) {
+                    this.clockrange = clockrange;
+                }
 
-            public String getStartworktime() {
-                return startworktime;
-            }
+                public Object getLng() {
+                    return lng;
+                }
 
-            public void setStartworktime(String startworktime) {
-                this.startworktime = startworktime;
-            }
+                public void setLng(Object lng) {
+                    this.lng = lng;
+                }
 
-            public String getEndworktime() {
-                return endworktime;
-            }
+                public Object getLat() {
+                    return lat;
+                }
 
-            public void setEndworktime(String endworktime) {
-                this.endworktime = endworktime;
-            }
+                public void setLat(Object lat) {
+                    this.lat = lat;
+                }
 
-            public String getStatus() {
-                return status;
-            }
+                public String getCreatetime() {
+                    return createtime;
+                }
 
-            public void setStatus(String status) {
-                this.status = status;
-            }
+                public void setCreatetime(String createtime) {
+                    this.createtime = createtime;
+                }
 
-            public String getWorknum() {
-                return worknum;
-            }
+                public String getStarttime() {
+                    return starttime;
+                }
 
-            public void setWorknum(String worknum) {
-                this.worknum = worknum;
-            }
+                public void setStarttime(String starttime) {
+                    this.starttime = starttime;
+                }
 
-            public String getMerchantid() {
-                return merchantid;
-            }
+                public String getStartworktime() {
+                    return startworktime;
+                }
 
-            public void setMerchantid(String merchantid) {
-                this.merchantid = merchantid;
-            }
+                public void setStartworktime(String startworktime) {
+                    this.startworktime = startworktime;
+                }
 
-            public String getCategoryname() {
-                return categoryname;
-            }
+                public String getEndworktime() {
+                    return endworktime;
+                }
 
-            public void setCategoryname(String categoryname) {
-                this.categoryname = categoryname;
-            }
+                public void setEndworktime(String endworktime) {
+                    this.endworktime = endworktime;
+                }
 
-            public String getMerchantname() {
-                return merchantname;
-            }
+                public int getStatus() {
+                    return status;
+                }
 
-            public void setMerchantname(String merchantname) {
-                this.merchantname = merchantname;
-            }
+                public void setStatus(int status) {
+                    this.status = status;
+                }
 
-            public String getSalary() {
-                return salary;
-            }
+                public Object getWorknum() {
+                    return worknum;
+                }
 
-            public void setSalary(String salary) {
-                this.salary = salary;
-            }
+                public void setWorknum(Object worknum) {
+                    this.worknum = worknum;
+                }
 
-            public String getAddsalary() {
-                return addsalary;
-            }
+                public Object getMerchantid() {
+                    return merchantid;
+                }
 
-            public void setAddsalary(String addsalary) {
-                this.addsalary = addsalary;
-            }
+                public void setMerchantid(Object merchantid) {
+                    this.merchantid = merchantid;
+                }
 
-            public String getAllowance() {
-                return allowance;
-            }
+                public int getIfend() {
+                    return ifend;
+                }
 
-            public void setAllowance(String allowance) {
-                this.allowance = allowance;
-            }
+                public void setIfend(int ifend) {
+                    this.ifend = ifend;
+                }
 
-            public String getAddtime() {
-                return addtime;
-            }
+                public Object getEndtime() {
+                    return endtime;
+                }
 
-            public void setAddtime(String addtime) {
-                this.addtime = addtime;
-            }
+                public void setEndtime(Object endtime) {
+                    this.endtime = endtime;
+                }
 
-            public String getWorkdays() {
-                return workdays;
-            }
+                public String getCategoryname() {
+                    return categoryname;
+                }
 
-            public void setWorkdays(String workdays) {
-                this.workdays = workdays;
-            }
+                public void setCategoryname(String categoryname) {
+                    this.categoryname = categoryname;
+                }
 
-            public String getWorkfriends() {
-                return workfriends;
-            }
+                public Object getMerchantname() {
+                    return merchantname;
+                }
 
-            public void setWorkfriends(String workfriends) {
-                this.workfriends = workfriends;
-            }
+                public void setMerchantname(Object merchantname) {
+                    this.merchantname = merchantname;
+                }
 
-            public String getProjectcount() {
-                return projectcount;
-            }
+                public Object getSalary() {
+                    return salary;
+                }
 
-            public void setProjectcount(String projectcount) {
-                this.projectcount = projectcount;
-            }
+                public void setSalary(Object salary) {
+                    this.salary = salary;
+                }
 
-            public String getIncome() {
-                return income;
-            }
+                public Object getAddsalary() {
+                    return addsalary;
+                }
 
-            public void setIncome(String income) {
-                this.income = income;
-            }
+                public void setAddsalary(Object addsalary) {
+                    this.addsalary = addsalary;
+                }
 
-            public String getPaymentsalary() {
-                return paymentsalary;
-            }
+                public Object getAllowance() {
+                    return allowance;
+                }
 
-            public void setPaymentsalary(String paymentsalary) {
-                this.paymentsalary = paymentsalary;
-            }
+                public void setAllowance(Object allowance) {
+                    this.allowance = allowance;
+                }
 
-            public String getWithdrawsalary() {
-                return withdrawsalary;
-            }
+                public Object getAddtime() {
+                    return addtime;
+                }
 
-            public void setWithdrawsalary(String withdrawsalary) {
-                this.withdrawsalary = withdrawsalary;
+                public void setAddtime(Object addtime) {
+                    this.addtime = addtime;
+                }
+
+                public Object getWorkdays() {
+                    return workdays;
+                }
+
+                public void setWorkdays(Object workdays) {
+                    this.workdays = workdays;
+                }
+
+                public Object getWorkfriends() {
+                    return workfriends;
+                }
+
+                public void setWorkfriends(Object workfriends) {
+                    this.workfriends = workfriends;
+                }
+
+                public Object getProjectcount() {
+                    return projectcount;
+                }
+
+                public void setProjectcount(Object projectcount) {
+                    this.projectcount = projectcount;
+                }
+
+                public Object getIncome() {
+                    return income;
+                }
+
+                public void setIncome(Object income) {
+                    this.income = income;
+                }
+
+                public Object getPaymentsalary() {
+                    return paymentsalary;
+                }
+
+                public void setPaymentsalary(Object paymentsalary) {
+                    this.paymentsalary = paymentsalary;
+                }
+
+                public Object getWithdrawsalary() {
+                    return withdrawsalary;
+                }
+
+                public void setWithdrawsalary(Object withdrawsalary) {
+                    this.withdrawsalary = withdrawsalary;
+                }
+
+                public Object getRealname() {
+                    return realname;
+                }
+
+                public void setRealname(Object realname) {
+                    this.realname = realname;
+                }
             }
         }
     }

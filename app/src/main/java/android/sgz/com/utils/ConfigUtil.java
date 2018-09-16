@@ -438,4 +438,14 @@ public class ConfigUtil {
      */
     public static final String MOTIFY_PROJECT_NAME_URL = MyApplication.REQUEST_URL + "project/editProjectName";
     public static final int MOTIFY_PROJECT_NAME_URL_ACTION = 84;
+    /****
+     * 获取所有工单接口
+     */
+    public static final String QUERY_PROJECT_LISTS_URL2 = MyApplication.REQUEST_URL + "project/getProjectLists_v2";
+    public static final int QUERY_PROJECT_LISTS_URL_ACTION2 = 85;
+    /****
+     * 禁用用户打卡
+     */
+    public static final String EDIT_PROJECT_WORK_STATUS_URL = MyApplication.REQUEST_URL + "projectwork/editProjectWorkSatatus";
+    public static final int EDIT_PROJECT_WORK_STATUS_URL_ACTION = 86;
 }

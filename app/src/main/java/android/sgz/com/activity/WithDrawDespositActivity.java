@@ -46,13 +46,13 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
 
     @Override
     protected void initData() {
-
+        queryBankCardInfo();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        queryBankCardInfo();
+
     }
 
     @Override
@@ -105,7 +105,6 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
         super.httpOnResponse(json, action);
         switch (action) {
             case ConfigUtil.QUERY_BIND_BANK_CARD_INFO_URL_ACTION:
-                Log.d("Dong", "json ---- >" + json);
                 BindBankCardInfoBean bean = JSON.parseObject(json, BindBankCardInfoBean.class);
                 if (bean != null) {
                     data = bean.getData();
@@ -120,7 +119,6 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
                 }
                 break;
             case ConfigUtil.APPLY_CASH_URL_ACTION:
-                Log.d("Dong", "提现成功了吗 ---->" +json);
                 if (getRequestCode(json) == 1) {
                     toastMessage("提现成功");
                     finish();
@@ -138,7 +136,9 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
                     String bankCardNo = data.getStringExtra("bankcard_number");
                     String subBankName = data.getStringExtra("subBankName");
                     bankId = data.getIntExtra("bankId",0);
-                    tvBindCard.setText("" + subBankName + bankCardNo.substring(bankCardNo.length() - 4, bankCardNo.length()));
+                    tvBindCard.setText("" + subBankName + (bankCardNo.substring(bankCardNo.length() - 4, bankCardNo.length())));
+
+                    Log.d("Dong", "-----------------------------------------------" + bankCardNo);
                 }
                 break;
         }
@@ -157,10 +157,16 @@ public class WithDrawDespositActivity extends BaseActivity implements View.OnCli
             toastMessage("提现金额不能大于可提现余额");
             return;
         }
+        if (bankId <= 0) {
+            toastMessage("请绑定银行卡");
+            return;
+        }
         Map<String, String> params = new HashMap<>();
         params.put("tjmoney", money);
         params.put("userbankid", String.valueOf(bankId));
-        params.put("projectid", String.valueOf(projectId));
+        if (projectId > 0) {
+            params.put("projectid", String.valueOf(projectId));
+        }
         httpPostRequest(ConfigUtil.APPLY_CASH_URL, params, ConfigUtil.APPLY_CASH_URL_ACTION);
     }
 }

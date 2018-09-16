@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.security.keystore.StrongBoxUnavailableException;
 import android.sgz.com.R;
 import android.sgz.com.adapter.ContactDynamicAdapter;
 import android.sgz.com.application.MyApplication;
@@ -237,9 +238,8 @@ public class ContactsDetailsActivity extends BaseActivity implements RadioGroup.
 
                 @Override
                 public UserInfo getUserInfo(String userId) {
-                    return new UserInfo("" + friendId,realName,Uri.parse(photoUrl));//根据 userId 去你的用户系统里查询对应的用户信息返回给融云 SDK。
+                    return new UserInfo("" + friendId, realName, Uri.parse(StringUtils.isEmpty(photoUrl) ? "http://47.101.46.2/img/default.jpg" : photoUrl));//根据 userId 去你的用户系统里查询对应的用户信息返回给融云 SDK。;
                 }
-
             }, true);
         }
     }

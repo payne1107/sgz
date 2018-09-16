@@ -59,7 +59,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/margin_size_5"
-                            android:text="30000元"
+                            android:text="0元"
                             android:textSize="@dimen/text_size_56" />
 
                     </com.zhy.autolayout.AutoLinearLayout>

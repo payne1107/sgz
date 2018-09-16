@@ -126,16 +126,16 @@ public class ToRechargeDeailsBean {
 
             private int id;
             private int userid;
-            private Object fromuserid;
+            private String fromuserid;
             private String type;
             private String money;
             private String tjmoney;
             private String userflowno;
             private String createtime;
-            private Object updatetime;
-            private Object remark;
+            private String updatetime;
+            private String remark;
             private int status;
-            private Object sender;
+            private String sender;
             private String receiver;
 
             public int getId() {
@@ -154,11 +154,11 @@ public class ToRechargeDeailsBean {
                 this.userid = userid;
             }
 
-            public Object getFromuserid() {
+            public String getFromuserid() {
                 return fromuserid;
             }
 
-            public void setFromuserid(Object fromuserid) {
+            public void setFromuserid(String fromuserid) {
                 this.fromuserid = fromuserid;
             }
 
@@ -202,19 +202,19 @@ public class ToRechargeDeailsBean {
                 this.createtime = createtime;
             }
 
-            public Object getUpdatetime() {
+            public String getUpdatetime() {
                 return updatetime;
             }
 
-            public void setUpdatetime(Object updatetime) {
+            public void setUpdatetime(String updatetime) {
                 this.updatetime = updatetime;
             }
 
-            public Object getRemark() {
+            public String getRemark() {
                 return remark;
             }
 
-            public void setRemark(Object remark) {
+            public void setRemark(String remark) {
                 this.remark = remark;
             }
 
@@ -226,11 +226,11 @@ public class ToRechargeDeailsBean {
                 this.status = status;
             }
 
-            public Object getSender() {
+            public String getSender() {
                 return sender;
             }
 
-            public void setSender(Object sender) {
+            public void setSender(String sender) {
                 this.sender = sender;
             }
 
